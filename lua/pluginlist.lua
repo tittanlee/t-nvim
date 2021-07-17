@@ -16,7 +16,7 @@ end
 
 packer.init {
     -- package_root = require("packer.util").join_paths(vim.fn.stdpath "data", "lvim", "pack"),
-    compile_path = util.join_paths(DATA_PATH, 'plugin', 'packer_compiled.lua'),
+    -- compile_path = util.join_paths(DATA_PATH, 'plugin', 'packer_compiled.lua'),
 
     git = {
         clone_timeout = 1000,
@@ -137,6 +137,14 @@ return require("packer").startup(function(use)
         end
     }
 
+    -- A blazing fast and easy to configure neovim statusline written in pure lua.
+    use {
+        'hoob3rt/lualine.nvim',
+        config = function()
+            require("plugins.statusline.config")
+        end
+
+    }
 
     -- Delete a buffer without messing up your window layout
     use {
