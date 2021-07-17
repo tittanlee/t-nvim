@@ -5,7 +5,13 @@ ts_config.setup {
     refactor = {
         highlight_definitions = { enable = true },
         highlight_current_scope = { enable = false },
-        smart_rename = { enable = false },
+        smart_rename = {
+            enable = false,
+            keymaps = {
+                smart_rename = "grr",
+            },
+        },
+
         navigation = {
             enable = true,
             keymaps = {
