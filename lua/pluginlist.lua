@@ -101,6 +101,15 @@ return require("packer").startup(function(use)
         }
     }
 
+    -- A tree like view for symbols in Neovim using the Language Server Protocol. Supports all your favourite languages.
+    use {
+        'simrat39/symbols-outline.nvim',
+        config = function()
+            require("plugins.outline.config")
+            require("plugins.outline.keymap")
+        end
+    }
+
     -- file managing , picker etc
     use {
         "kyazdani42/nvim-tree.lua",
