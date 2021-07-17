@@ -1,5 +1,6 @@
 local execute     = vim.api.nvim_command
 local fn          = vim.fn
+local util        = require("packer.util")
 local packer_path = DATA_PATH .. "/site/pack/packer/start/packer.nvim"
 
 -- check packer.nvim has been installed
@@ -15,6 +16,8 @@ end
 
 packer.init {
     -- package_root = require("packer.util").join_paths(vim.fn.stdpath "data", "lvim", "pack"),
+    compile_path = util.join_paths(DATA_PATH, 'plugin', 'packer_compiled.lua'),
+
     git = {
         clone_timeout = 1000,
     },
