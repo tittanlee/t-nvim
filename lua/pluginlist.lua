@@ -91,6 +91,16 @@ return require("packer").startup(function(use)
         -- "JoosepAlviste/nvim-ts-context-commentstring"
     }
 
+    -- A collection of common configurations for Neovim's built-in language server client.
+    use {
+        "neovim/nvim-lspconfig",
+        -- 'kabouzeid/nvim-lspinstall',
+        event = "VimEnter",
+        config = function()
+            require("plugins.lsp.config")
+        end,
+    }
+
     -- Auto completion plugin for nvim
     use {
         "hrsh7th/nvim-compe",

@@ -33,7 +33,7 @@ require'compe'.setup {
         spell                 = { kind = "   (Spell)" },
         tags                  = true,
         vim_dadbod_completion = false,
-        snippets_nvim         = false,
+        snippets_nvim         = true,
         ultisnips             = false,
         treesitter            = true,
         emoji                 = { kind = " ﲃ  (Emoji)", filetypes = { "markdown", "text" } },

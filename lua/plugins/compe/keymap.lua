@@ -24,6 +24,7 @@ _G.tab_complete = function()
     return vim.fn['compe#complete']()
   end
 end
+
 _G.s_tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t "<C-p>"
@@ -34,9 +35,21 @@ _G.s_tab_complete = function()
     return t "<S-Tab>"
   end
 end
+
+function _G.completions()
+    local npairs = require("nvim-autopairs")
+    if vim.fn.pumvisible() == 1 then
+        if vim.fn.complete_info()["selected"] ~= -1 then
+            return vim.fn["compe#confirm"]("<CR>")
+        end
+    end
+    return npairs.check_break_line_char()
+end
+
 --  compe mappings
 vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<CR>", "compe#confirm('<CR>')", { noremap = true, silent = true, expr = true })
+vim.api.nvim_set_keymap("i", "<CR>", "v:lua.completions()", {expr = true})
+
