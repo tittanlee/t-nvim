@@ -98,6 +98,7 @@ return require("packer").startup(function(use)
         event = "VimEnter",
         config = function()
             require("plugins.lsp.config")
+            require("plugins.lsp.keymap")
         end,
     }
 

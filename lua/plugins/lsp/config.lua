@@ -1,38 +1,21 @@
-local nvim_lsp = require('lspconfig')
-
--- Disable Diagnostcs globally
--- vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
-
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-    vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics,
-    {
-        virtual_text = true,
-        signs = true,
-        update_in_insert = ture,
-        underline = true, 
-    }
-)
-
+local lspconfig = require 'lspconfig'
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-
-    if client.resolved_capabilities.document_formatting then
-        local defs = {}
-        local ext = vim.fn.expand('%:e')
-        table.insert(defs,{"BufWritePre", '*.'..ext ,
-        "lua vim.lsp.buf.formatting_sync(nil,1000)"})
-        vim.api.nvim_command('augroup lsp_before_save')
-        vim.api.nvim_command('autocmd!')
-        for _, def in ipairs(defs) do
-            local command = table.concat(vim.tbl_flatten{'autocmd', def}, ' ')
-            vim.api.nvim_command(command)
-        end
-        vim.api.nvim_command('augroup END')
-    end
+local function on_attach(client, bufnr)
+    -- if client.resolved_capabilities.document_formatting then
+    --     local defs = {}
+    --     local ext = vim.fn.expand('%:e')
+    --     table.insert(defs,{"BufWritePre", '*.'..ext ,
+    --     "lua vim.lsp.buf.formatting_sync(nil,1000)"})
+    --     vim.api.nvim_command('augroup lsp_before_save')
+    --     vim.api.nvim_command('autocmd!')
+    --     for _, def in ipairs(defs) do
+    --         local command = table.concat(vim.tbl_flatten{'autocmd', def}, ' ')
+    --         vim.api.nvim_command(command)
+    --     end
+    --     vim.api.nvim_command('augroup END')
+    -- end
     if client.config.flags then
         client.config.flags.allow_incremental_sync = true
     end
@@ -50,7 +33,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
     buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.bnuf.implementation()<CR>', opts)
     buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
     buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
@@ -67,22 +50,112 @@ local on_attach = function(client, bufnr)
 
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = {
-    "bashls",
-    "clangd",
-    "pyright",
-    "tsserver",
-    -- "sumneko_lua",
-    "vimls",
+
+local lsp_setup_table = {
+    -- clangd lsp parameter setup
+    clangd = {
+        enable = true,
+        servername = "clangd",
+        setup = {
+            cmd = {
+                "clangd",
+                "--clang-tidy",
+                "--completion-style=bundled",
+                "--header-insertion=iwyu",
+                "--suggest-missing-includes",
+                "--cross-file-rename"
+            },
+
+            filetypes = {
+                "c", "cpp", "objc", "objcpp"
+            },
+
+            init_options = {
+                clangdFileStatus = true,
+                usePlaceholders = true,
+                completeUnimported = true,
+                semanticHighlighting = true
+            },
+            flags = { debounce_text_changes = 150 },
+            on_attach = on_attach,
+        },
+    },
+
+    --pyright lsp parameter setup
+    pyright = {
+        enable = true,
+        servername = "pyright-langserver",
+        setup = {
+            -- cmd = {
+            --     "pyright-langserver",
+            --     "--stdio" 
+            -- },
+            filetypes = { "python" },
+            settings = {
+                python = {
+                    analysis = {
+                        autoSearchPaths = true,
+                        diagnosticMode = "workspace",
+                        useLibraryCodeForTypes = true
+                    }
+                },
+            },
+            on_attach = on_attach,
+        }
+    },
+
+    -- py lsp parameter setup
+    pylsp = {
+        enable = false,
+        servername = "pylsp",
+        setup = {
+            cmd = { "pylsp" },
+            filetypes = { "python" },
+
+            root_dir = function(fname)
+                return lspconfig.util.root_pattern(
+                "pyproject.toml",
+                "setup.py",
+                "setup.cfg",
+                "requirements.txt",
+                "mypy.ini",
+                ".pylintrc",
+                ".flake8rc",
+                ".gitignore"
+                )(fname) or
+                lspconfig.util.find_git_ancestor(fname) or
+                vim.loop.os_homedir()
+            end,
+
+            on_attach = on_attach,
+        },
+    },
+
+    -- bashls parameter setup
+    bashls = {
+        enable = true,
+        servername = "bashls",
+        setup = {
+            cmd = {
+                "bash-language-server.cmd",
+                "start"
+            },
+            filetypes = {
+                "sh",
+                "zsh"
+            },
+            root_dir = lspconfig.util.root_pattern(".git"),
+            on_attach = on_attach
+        }
+    },
+
+    -- lua lsp parameter setup
 }
 
-for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup {
-        on_attach = on_attach,
-        flags = {
-            debounce_text_changes = 150,
-        }
-    }
+
+for lsp, options in pairs(lsp_setup_table) do
+    if (options.enable == true) then
+        lspconfig[lsp].setup (options.setup)
+    end
 end
+
