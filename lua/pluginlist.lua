@@ -34,30 +34,41 @@ return require("packer").startup(function(use)
     use { "wbthomason/packer.nvim" }
     use { "norcalli/nvim_utils" }
 
-
-    -- telescope.nvim is a highly extendable fuzzy finder over lists.
     use {
-        "nvim-telescope/telescope.nvim",
-
+        "junegunn/fzf.vim",
         requires = {
-            {"nvim-lua/popup.nvim"  },
-            {"nvim-lua/plenary.nvim"}
+            "junegunn/fzf",
         },
-
         config = function()
-            require("plugins.telescope.config")
-            require("plugins.telescope.keymap")
-        end
-
-    }
-
-    -- telescop extensions
-    use {
-        "paopaol/telescope-ctags.nvim",
-        config = function()
-            require("plugins.telescope.extensions.ctags")
+            vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/fuzzy/config.vim")
+            vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/fuzzy/keymap.vim")
         end,
     }
+
+
+    -- telescope.nvim is a highly extendable fuzzy finder over lists.
+    --use --{
+        --"nvim-telescope/telescope.nvim",
+
+        --requires = {
+            --{"nvim-lua/popup.nvim"  },
+            --{"nvim-lua/plenary.nvim"}
+        --},
+
+        --config = function()
+            --require("plugins.telescope.config")
+            --require("plugins.telescope.keymap")
+        --end
+
+    --}
+
+    ---- telescop extensions
+    --use {
+        --"paopaol/telescope-ctags.nvim",
+        --config = function()
+            --require("plugins.telescope.extensions.ctags")
+        --end,
+    --}
  
     -- Treesitter
     use {
