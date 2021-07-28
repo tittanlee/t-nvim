@@ -1,6 +1,5 @@
 local execute     = vim.api.nvim_command
 local fn          = vim.fn
-local util        = require("packer.util")
 local packer_path = DATA_PATH .. "/site/pack/packer/start/packer.nvim"
 
 -- check packer.nvim has been installed
@@ -35,9 +34,10 @@ return require("packer").startup(function(use)
     use { "norcalli/nvim_utils" }
 
     use {
-        "junegunn/fzf.vim",
+        "junegunn/fzf",
         requires = {
-            "junegunn/fzf",
+            { "junegunn/fzf.vim" },
+            { "atn34/vim-fzf-sources" },
         },
         config = function()
             vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/fuzzy/config.vim")
@@ -45,6 +45,12 @@ return require("packer").startup(function(use)
         end,
     }
 
+    use {
+        "ludovicchabant/vim-gutentags",
+        config = function()
+            vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/gutentags/config.vim")
+        end
+    }
 
     -- telescope.nvim is a highly extendable fuzzy finder over lists.
     --use --{

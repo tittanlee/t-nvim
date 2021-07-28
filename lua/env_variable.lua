@@ -1,4 +1,5 @@
 
+local os_name = vim.loop.os_uname().sysname
 
 
 CONFIG_PATH = vim.fn.stdpath "config"
@@ -12,4 +13,11 @@ ENV = {
     leader_key = " ", -- space as leader key
     local_leader_key = ",",
     colorscheme = "zephyr",
+
+    is_mac     = os_name == 'Darwin',
+    is_linux   = os_name == 'Linux',
+    is_windows = os_name == 'Windows_NT',
+    path_sep   = is_windows and '\\' or '/'
+
+
 }

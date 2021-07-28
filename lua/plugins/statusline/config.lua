@@ -1,4 +1,12 @@
 
+
+
+
+-- +-------------------------------------------------+
+-- | A | B | C                             X | Y | Z |
+-- +-------------------------------------------------+
+
+
 -- Eviline config for lualine
 -- Author: shadmansaleh
 -- Credit: glepnir
@@ -33,8 +41,13 @@ local conditions = {
 local config = {
     options = {
         -- Disable sections and component separators
-        component_separators = "",
-        section_separators = "",
+
+        -- section_separators = {'', ''},
+        -- component_separators = {'', ''},
+        component_separators = {'', ''},
+        section_separators = {'', ''},
+
+        -- theme = "zephyr",
         theme = {
             -- We are going to use lualine_c an lualine_x as left and
             -- right section. Both are highlighted by c theme .  So we
@@ -61,6 +74,11 @@ local config = {
         lualine_z = {},
         lualine_c = {},
         lualine_x = {}
+    },
+    extensions = {
+        "quickfix",
+        "fzf",
+        "nvim-tree",
     }
 }
 
@@ -74,77 +92,62 @@ local function ins_right(component)
     table.insert(config.sections.lualine_x, component)
 end
 
-ins_left {
-    function() return '▊' end,
-    color = {fg = colors.blue}, -- Sets highlighting of component
-    left_padding = 0 -- We don't need space before this
-}
+
+-- Inserts a component in lualine_c at inactive left section
+local function ins_inactive_left(component)
+    table.insert(config.inactive_sections.lualine_c, component)
+end
+
+-- Inserts a component in lualine_x ot inactive right section
+local function ins_inactive_right(component)
+    table.insert(config.inactive_sections.lualine_x, component)
+end
+
+-- ins_left {
+--     function() return '▊' end,
+--     color = {fg = colors.blue}, -- Sets highlighting of component
+--     left_padding = 0 -- We don't need space before this
+-- }
 
 ins_left {
     -- mode component
-    function()
-        -- auto change color according to neovims mode
-        local mode_color = {
-            n = colors.red,
-            i = colors.green,
-            v = colors.blue,
-            [''] = colors.blue,
-            V = colors.blue,
-            c = colors.magenta,
-            no = colors.red,
-            s = colors.orange,
-            S = colors.orange,
-            [''] = colors.orange,
-            ic = colors.yellow,
-            R = colors.violet,
-            Rv = colors.violet,
-            cv = colors.red,
-            ce = colors.red,
-            r = colors.cyan,
-            rm = colors.cyan,
-            ['r?'] = colors.cyan,
-            ['!'] = colors.red,
-            t = colors.red
-        }
-        vim.api.nvim_command(
-        'hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. " guibg=" ..
-        colors.bg)
-        return ''
-    end,
-    color = "LualineMode",
+    'mode',
+    color = {
+        gui = 'bold'
+    },
+
     left_padding = 0
 }
 
-ins_left {
-    -- filesize component
-    function()
-        local function format_file_size(file)
-            local size = vim.fn.getfsize(file)
-            if size <= 0 then return '' end
-            local sufixes = {'b', 'k', 'm', 'g'}
-            local i = 1
-            while size > 1024 do
-                size = size / 1024
-                i = i + 1
-            end
-            return string.format('%.1f%s', size, sufixes[i])
-        end
-        local file = vim.fn.expand('%:p')
-        if string.len(file) == 0 then return '' end
-        return format_file_size(file)
-    end,
-    condition = conditions.buffer_not_empty
-}
+-- ins_left {
+--     -- filesize component
+--     function()
+--         local function format_file_size(file)
+--             local size = vim.fn.getfsize(file)
+--             if size <= 0 then return '' end
+--             local sufixes = {'b', 'k', 'm', 'g'}
+--             local i = 1
+--             while size > 1024 do
+--                 size = size / 1024
+--                 i = i + 1
+--             end
+--             return string.format('%.1f%s', size, sufixes[i])
+--         end
+--         local file = vim.fn.expand('%:p')
+--         if string.len(file) == 0 then return '' end
+--         return format_file_size(file)
+--     end,
+--     condition = conditions.buffer_not_empty
+-- }
 
 ins_left {
-    'filename',
+    -- relative file path
+    function()
+        return vim.fn.expand("%:h")
+    end,
     condition = conditions.buffer_not_empty,
     color = {fg = colors.magenta, gui = 'bold'}
 }
-
-ins_left {'location'}
-
-ins_left {'progress', color = {fg = colors.fg, gui = 'bold'}}
 
 ins_left {
     'diagnostics',
@@ -157,7 +160,13 @@ ins_left {
 
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
-ins_left {function() return '%=' end}
+ins_left {
+    function() 
+        return '%=' 
+    end,
+    separator = "", -- overwrites component_separators for component
+    condition = nil, -- condition function, component is loaded when function returns true
+}
 
 ins_left {
     -- Lsp server name .
@@ -180,24 +189,19 @@ ins_left {
 
 -- Add components to right sections
 ins_right {
-    'o:encoding', -- option component same as &encoding in viml
-    upper = true, -- I'm not sure why it's upper case either ;)
-    condition = conditions.hide_in_width,
-    color = {fg = colors.green, gui = 'bold'}
-}
-
-ins_right {
-    'fileformat',
-    upper = true,
-    icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-    color = {fg = colors.green, gui = 'bold'}
+    -- gutentags statusline
+    function()
+        return vim.fn["gutentags#statusline"]("[", "]")
+    end,
+    color = {fg = colors.yellow},
 }
 
 ins_right {
     'branch',
     icon = '',
     condition = conditions.check_git_workspace,
-    color = {fg = colors.violet, gui = 'bold'}
+    color = {fg = colors.violet, gui = 'bold'},
+    separator = ""
 }
 
 ins_right {
@@ -211,10 +215,36 @@ ins_right {
 }
 
 ins_right {
-    function() return '▊' end,
-    color = {fg = colors.blue},
+    'o:encoding', -- option component same as &encoding in viml
+    upper = true, -- I'm not sure why it's upper case either ;)
+    condition = conditions.hide_in_width,
+    color = {fg = colors.green, gui = 'bold'}
+}
+
+ins_right {
+    'fileformat',
+    upper = true,
+    icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
+    color = {fg = colors.green, gui = 'bold'},
     right_padding = 0
 }
+
+-- ins_right {
+--     'location',
+--     icons_enabled = true,
+-- }
+-- 
+-- ins_right {
+--     'progress',
+--     icons_enabled = true,
+--     color = {fg = colors.fg, gui = 'bold'}
+-- }
+
+-- ins_right {
+--     function() return '▊' end,
+--     color = {fg = colors.blue},
+--     right_padding = 0
+-- }
 
 -- Now don't forget to initialize lualine
 lualine.setup(config)
