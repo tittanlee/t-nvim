@@ -183,21 +183,23 @@ section.left =
     }},
 
     {FileName = {
-        provider  = {space, 'FileName'},
-        -- provider  = {space, 'FileName', 'FileSize'},
-        condition = buffer_not_empty,
-        highlight = {_HEX_COLORS.text, _HEX_COLORS.bar.side, 'bold'}
+        -- provider  = {space, 'FileName'},
+        provider  = {space, 'FileName', 'FileSize'},
+        -- condition = buffer_not_empty,
+        highlight = {_HEX_COLORS.text, _HEX_COLORS.bar.side, 'bold'},
+        separator = _SEPARATORS.right,
+        separator_highlight = {_HEX_COLORS.bar.side, _HEX_COLORS.green_dark},
     }},
 
-    {GitSeparator = {
-        provider = printer(_SEPARATORS.right),
-        condition = find_git_root,
-        highlight = {_HEX_COLORS.bar.side, _HEX_COLORS.green_dark},
-    }},
-
+--     {GitSeparator = {
+--         provider = printer(_SEPARATORS.right),
+--         condition = find_git_root,
+--         highlight = {_HEX_COLORS.bar.side, _HEX_COLORS.green_dark},
+--     }},
+-- 
     {GitBranch = {
         provider = 'GitBranch',
-        icon = '   ',
+        icon = '  ',
         condition = find_git_root,
         highlight = {_HEX_COLORS.bar.side, _HEX_COLORS.green_dark, 'bold'},
         separator = _SEPARATORS.right,
