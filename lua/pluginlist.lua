@@ -165,13 +165,13 @@ return require("packer").startup(function(use)
         end
     }
 
-    -- A blazing fast and easy to configure neovim statusline written in pure lua.
+    -- galaxyline is a light-weight and Super Fast statusline plugin. 
     use {
-        'hoob3rt/lualine.nvim',
+        "glepnir/galaxyline.nvim",
+
         config = function()
             require("plugins.statusline.config")
         end
-
     }
 
     -- Delete a buffer without messing up your window layout
