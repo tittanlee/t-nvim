@@ -46,6 +46,13 @@ return require("packer").startup(function(use)
     }
 
     use {
+        'camspiers/snap',
+        config = function ()
+            require("plugins.snap.config")
+        end,
+    }
+
+    use {
         "ludovicchabant/vim-gutentags",
         config = function()
             vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/gutentags/config.vim")
@@ -228,6 +235,7 @@ return require("packer").startup(function(use)
         "bluz71/vim-nightfly-guicolors",
         "Mofiqul/dracula.nvim",
         "glepnir/zephyr-nvim",
+        "rafamadriz/neon",
     }
 
     -- This plugin provides the same icons as well as colors for each icon.

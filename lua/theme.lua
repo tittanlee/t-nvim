@@ -2,7 +2,6 @@
 require ('env_variable')
 
 
-
 if (ENV.colorscheme == "tokyonight") then
     vim.g.tokyonight_style = "night"
     vim.g.tokyonight_italic_functions = true
@@ -24,6 +23,14 @@ end
 if (ENV.colorscheme == "onedark") then
     -- style - 'warmer','warm', 'deep', 'cool', 'darker', 'default'
     vim.g.onedark_style = 'deep'
+end
+
+if (ENV.colorscheme == "neon") then
+    -- default, doom, dark, light
+    vim.g.neon_style = "default"
+    vim.g.neon_italic_keyword = true
+    vim.g.neon_italic_function = true
+    vim.g.neon_transparent = true
 end
 
 vim.cmd("colorscheme " .. ENV.colorscheme)
