@@ -99,8 +99,8 @@ local _MODES =
 
 local _SEPARATORS =
 {
-    left = '',
-    right = '',
+    -- left = '',
+    -- right = '',
 
     left = '',
     right = ''
@@ -268,17 +268,17 @@ section.left =
 
 section.right =
 {
-    {Vista = {
-        provider = 'VistaPlugin',
-        condition = function() return vim.fn.exists(':Vista') ~= 0 end,
-        highlight = {_HEX_COLORS.text, _HEX_COLORS.bar.middle},
-    }},
+    -- {Vista = {
+    --     provider = 'VistaPlugin',
+    --     condition = function() return vim.fn.exists(':Vista') ~= 0 end,
+    --     highlight = {_HEX_COLORS.text, _HEX_COLORS.bar.middle},
+    -- }},
 
     {RightBegin = {
         provider = space,
         highlight = {_HEX_COLORS.bar.middle, _HEX_COLORS.bar.side},
-        separator = _SEPARATORS.right,
-        separator_highlight = {_HEX_COLORS.bar.middle, _HEX_COLORS.bar.side}
+        separator = _SEPARATORS.left,
+        separator_highlight = {_HEX_COLORS.bar.side, _HEX_COLORS.bar.middle }
     }},
 
     {FileFormat = {

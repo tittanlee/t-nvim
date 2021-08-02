@@ -56,7 +56,7 @@ return require("packer").startup(function(use)
         "ludovicchabant/vim-gutentags",
         config = function()
             vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/gutentags/config.vim")
-        end
+        end,
     }
 
     -- telescope.nvim is a highly extendable fuzzy finder over lists.
@@ -223,6 +223,22 @@ return require("packer").startup(function(use)
         end,
     }
 
+    -- A high-performance color highlighter for Neovim which has no external dependencies! Written in performant Luajit.
+    use {
+        "norcalli/nvim-colorizer.lua",
+        config = function()
+            require 'colorizer'.setup {
+                "css";
+                "vim";
+                lua = {
+                    mode = "background",
+                    names = true,
+                };
+            }
+        end,
+
+        cmd = { "ColorizerToggle" },
+    }
 
     -- nvim color theme that support tree-sitter
     use {

@@ -49,7 +49,7 @@ opt.relativenumber = true
 opt.cmdheight      = 1
 opt.list           = true
 -- opt.listchars      = { tab = ">>>", trail = "·", precedes = "←", extends = "→",eol = "↲", nbsp = "␣" }
-opt.listchars      = { tab = ">>", trail = "·", precedes = "←", extends = "→", nbsp = "␣" }
+opt.listchars      = { tab = "».", trail = "•", precedes = "❮", extends = "❯", nbsp = "␣" }
 opt.showbreak      = "↪"
 
 -- syntax, highlighting and spelling

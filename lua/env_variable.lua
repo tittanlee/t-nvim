@@ -16,7 +16,7 @@ ENV = {
 
     is_mac     = os_name == 'Darwin',
     is_linux   = os_name == 'Linux',
-    is_windows = os_name == 'Windows_NT',
+    is_windows = os_name == 'Windows_NT' or 'Windows;',
     path_sep   = is_windows and '\\' or '/'
 
 
