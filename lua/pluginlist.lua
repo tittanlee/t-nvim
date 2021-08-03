@@ -31,7 +31,7 @@ packer.init {
 return require("packer").startup(function(use)
     -- Packer can manage itself as an optional plugin
     use { "wbthomason/packer.nvim" }
-    use { "norcalli/nvim_utils" }
+    -- use { "norcalli/nvim_utils" }
 
     use {
         "junegunn/fzf",
@@ -172,13 +172,28 @@ return require("packer").startup(function(use)
         end
     }
 
-    -- galaxyline is a light-weight and Super Fast statusline plugin. 
+    -- A minimal, stylish and customizable statusline for Neovim written in Lua
     use {
-        "glepnir/galaxyline.nvim",
+        "Famiu/feline.nvim",
 
         config = function()
-            require("plugins.statusline.config")
-        end
+            require("plugins.statusline.felineconfig")
+        end,
+        
+        requires = {
+            -- Super fast git decorations implemented purely in lua/teal.
+            use {
+                "lewis6991/gitsigns.nvim",
+
+                requires = {
+                    'nvim-lua/plenary.nvim'
+                },
+
+                config = function()
+                    require("plugins.git.config")
+                end,
+            }
+        },
     }
 
     -- Delete a buffer without messing up your window layout
