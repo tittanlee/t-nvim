@@ -89,30 +89,35 @@ return require("packer").startup(function(use)
         run = ":TSUpdate",
         config = function()
             require("plugins.treesitter.config")
-        end
-    }
-    -- Treesitter - rainbow, refector, textobjects, commentstring
-    use {
-        {
-            "p00f/nvim-ts-rainbow",
-            config = function ()
-                require("plugins.treesitter.rainbow")
-            end,
-        },
-        {
-            "nvim-treesitter/nvim-treesitter-refactor",
-            config = function ()
-                require("plugins.treesitter.refactor")
-            end,
-        },
-        {
-            "nvim-treesitter/nvim-treesitter-textobjects",
-            config = function ()
-                require("plugins.treesitter.textobjects")
-            end,
-        },
+        end,
 
-        -- "JoosepAlviste/nvim-ts-context-commentstring"
+        -- Treesitter - rainbow, refector, textobjects, commentstring
+        requires = {
+            use {
+                "p00f/nvim-ts-rainbow",
+                config = function ()
+                    require("plugins.treesitter.rainbow")
+                end,
+            },
+
+            use {
+                "nvim-treesitter/nvim-treesitter-refactor",
+                config = function ()
+                    require("plugins.treesitter.refactor")
+                end,
+            },
+
+            use {
+                "nvim-treesitter/nvim-treesitter-textobjects",
+                config = function ()
+                    require("plugins.treesitter.textobjects")
+                end,
+            },
+
+            -- use {
+            -- "JoosepAlviste/nvim-ts-context-commentstring"
+            -- }
+        },
     }
 
     -- A collection of common configurations for Neovim's built-in language server client.
@@ -179,7 +184,7 @@ return require("packer").startup(function(use)
         config = function()
             require("plugins.statusline.felineconfig")
         end,
-        
+
         requires = {
             -- Super fast git decorations implemented purely in lua/teal.
             use {

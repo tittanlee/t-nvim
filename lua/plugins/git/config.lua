@@ -56,8 +56,12 @@ require('gitsigns').setup {
         -- Default keymap options
         noremap = true,
 
-        ['n ]d'] = { expr = true, "&diff ? ']d' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'"},
-        ['n [d'] = { expr = true, "&diff ? '[d' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'"},
+        -- ['n ]d'] = { expr = true, "&diff ? ']d' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'"},
+        -- ['n [d'] = { expr = true, "&diff ? '[d' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'"},
+
+
+        ['n ]d'] = '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>',
+        ['n [d'] = '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>',
 
         -- diff this buffer with HEAD
         ['n <leader>gd']  = '<cmd>lua require"gitsigns".diffthis()<CR>',
@@ -65,7 +69,8 @@ require('gitsigns').setup {
         -- toggle signs quick keymap
         ['n <leader>gts'] = '<cmd>lua require"gitsigns".toggle_signs()<CR>',
         ['n <leader>gtn'] = '<cmd>lua require"gitsigns".toggle_numhl()<CR>',
-        ['n <leader>gtl'] = '<cmd>lua require"gitsigns".toggle_current_line_blame()<CR>',
+        ['n <leader>gtl'] = '<cmd>lua require"gitsigns".toggle_current_linehl()<CR>',
+        ['n <leader>gtb'] = '<cmd>lua require"gitsigns".toggle_current_line_blame()<CR>',
 
         -- ['n <leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
         -- ['v <leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',

@@ -77,6 +77,7 @@ opt.clipboard = "unnamed,unnamedplus"
 -- editing text
 opt.showmatch = true
 opt.completeopt = "menuone,noselect"
+opt.diffopt     = 'internal,filler,closeoff,internal,algorithm:patience'
 
 -- tabs and indenting
 opt.tabstop     = 4
