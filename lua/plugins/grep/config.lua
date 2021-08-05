@@ -21,5 +21,5 @@ vim.g.grepper = {
 vim.api.nvim_set_keymap("n", "gs", "<plug>(GrepperOperator)", {})
 vim.api.nvim_set_keymap("x", "gs", "<plug>(GrepperOperator)", {})
 
-vim.api.nvim_set_keymap("n", "<Leader>gw", ":Grepper -cword<CR> <CR>", {})
-vim.api.nvim_set_keymap("n", "<Leader>gg", ":Grepper<CR>", {})
+vim.api.nvim_set_keymap("n", "<Leader>gw", ":Grepper -cword<CR> <CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<Leader>gg", ":Grepper<CR>", {noremap = true})

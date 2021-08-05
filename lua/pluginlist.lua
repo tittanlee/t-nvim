@@ -33,18 +33,6 @@ return require("packer").startup(function(use)
     use { "wbthomason/packer.nvim" }
     -- use { "norcalli/nvim_utils" }
 
-    use {
-        "junegunn/fzf",
-        requires = {
-            { "junegunn/fzf.vim" },
-            { "atn34/vim-fzf-sources" },
-        },
-        config = function()
-            vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/fuzzy/config.vim")
-            vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/fuzzy/keymap.vim")
-        end,
-    }
-
     -- The goal of nvim-bqf is to make Neovim's quickfix window better.
     use {
         "kevinhwang91/nvim-bqf",
@@ -63,13 +51,6 @@ return require("packer").startup(function(use)
         end,
     }
 
-    use {
-        'camspiers/snap',
-        config = function ()
-            require("plugins.snap.config")
-        end,
-    }
-
     -- Gutentags is a plugin that takes care of the much needed management of tags files in Vim.
     use {
         "ludovicchabant/vim-gutentags",
@@ -77,6 +58,26 @@ return require("packer").startup(function(use)
             vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/gutentags/config.vim")
         end,
     }
+
+    use {
+        "junegunn/fzf",
+        requires = {
+            { "junegunn/fzf.vim" },
+            { "atn34/vim-fzf-sources" },
+        },
+        config = function()
+            vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/fuzzy_fzf/config.vim")
+            vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/fuzzy_fzf/keymap.vim")
+        end,
+    }
+
+    -- use {
+    --     'camspiers/snap',
+    --     config = function ()
+    --         require("plugins.snap.config")
+    --     end,
+    -- }
+
 
     -- telescope.nvim is a highly extendable fuzzy finder over lists.
     --use --{
@@ -288,7 +289,6 @@ return require("packer").startup(function(use)
         "navarasu/onedark.nvim"       ,
         "ishan9299/nvim-solarized-lua",
         "bluz71/vim-nightfly-guicolors",
-        "Mofiqul/dracula.nvim",
         "glepnir/zephyr-nvim",
         "rafamadriz/neon",
     }

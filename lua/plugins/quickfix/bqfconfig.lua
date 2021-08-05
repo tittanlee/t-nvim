@@ -7,7 +7,7 @@ require('bqf').setup({
         auto_preview = true,
         win_height = 15,
         win_vheight = 15,
-        delay_syntax = 250,
+        delay_syntax = 1000,
         border_chars = {'┃', '┃', '━', '━', '┏', '┓', '┗', '┛', '█'}
     },
     func_map = {
