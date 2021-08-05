@@ -64,6 +64,8 @@ return require("packer").startup(function(use)
         requires = {
             { "junegunn/fzf.vim" },
             { "atn34/vim-fzf-sources" },
+            { "zackhsi/fzf-tags" },
+            -- { "roosta/fzfolds.vim" },
         },
         config = function()
             vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/fuzzy_fzf/config.vim")
