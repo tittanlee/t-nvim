@@ -45,6 +45,24 @@ return require("packer").startup(function(use)
         end,
     }
 
+    -- The goal of nvim-bqf is to make Neovim's quickfix window better.
+    use {
+        "kevinhwang91/nvim-bqf",
+        config = function ()
+            require("plugins.quickfix.bqfconfig")
+        end,
+    }
+
+    -- Use your favorite grep tool to start an asynchronous search.
+    -- All matches will be put in a quickfix or location list.
+    -- (ag, ack, git grep, ripgrep, pt, sift, findstr, grep) 
+    use {
+        "mhinz/vim-grepper",
+        config = function ()
+            require("plugins.grep.config")
+        end,
+    }
+
     use {
         'camspiers/snap',
         config = function ()
@@ -52,6 +70,7 @@ return require("packer").startup(function(use)
         end,
     }
 
+    -- Gutentags is a plugin that takes care of the much needed management of tags files in Vim.
     use {
         "ludovicchabant/vim-gutentags",
         config = function()

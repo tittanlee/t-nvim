@@ -8,7 +8,6 @@ ts_config.setup {
         "c_sharp",
         "clojure",
         "cmake",
-        "comment",
         "cpp",
         "css",
         "fennel",
