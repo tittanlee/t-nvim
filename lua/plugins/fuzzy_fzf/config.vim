@@ -15,6 +15,15 @@ let $FZF_DEFAULT_OPTS    = '
 
 let $FZF_DEFAULT_COMMAND = "rg --files --no-follow --hidden --no-ignore -g !.git/ -g !.repo"
 
+let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
+let g:fzf_preview_window = [ "right:50%:border-vertical:hidden" ]
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit'
+  \ }
+
 
 function! CreateCenteredFloatingWindow()
     let width = min([&columns - 4, max([80, &columns - 20])])
@@ -40,12 +49,11 @@ function! CreateCenteredFloatingWindow()
 endfunction
 
 
-let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
-let g:fzf_preview_window = [ "right:50%:border-vertical:hidden" ]
 
-" This is the default extra key bindings
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
+
+
+
+let fzf_config_root = fnamemodify(expand('<sfile>'), ':h')
+
+exec "source " . fzf_config_root . "/provider/fzf_ctags.vim"
 
