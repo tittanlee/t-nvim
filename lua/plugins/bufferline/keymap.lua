@@ -3,10 +3,10 @@
 
 
 -- These commands will navigate through buffers in order
-vim.api.nvim_set_keymap("n", "<M-1>", ":BufferLineCyclePrev <CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<M-1>", "<ESC> :BufferLineCyclePrev <CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<M-2>", ":BufferLineCycleNext <CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<M-2>", "<ESC> :BufferLineCycleNext <CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<M-h>", ":BufferLineCyclePrev <CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<M-h>", "<ESC> :BufferLineCyclePrev <CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<M-l>", ":BufferLineCycleNext <CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<M-l>", "<ESC> :BufferLineCycleNext <CR>", { noremap = true, silent = true })
 
 
 -- These commands will move the current buffer backwards or forwards in the bufferline

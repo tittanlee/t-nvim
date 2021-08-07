@@ -10,7 +10,7 @@ let s:fzf_ctags_fields = {
 let s:fzf_ctags_opts = [
             \ '--with-nth=1',
             \ '-d " " ',
-            \ '--prompt="ctags_jump >" '
+            \ '--prompt="ctags_jump > " '
             \ ]
 
 function! fzf_ctags#jump(identifier)
@@ -85,7 +85,15 @@ endfunction
 
 
 function! s:fzf_ctags_parameter()
-    return printf("%s %s", $FZF_DEFAULT_OPTS, join(s:fzf_ctags_opts, " "))
+    let opts = printf("%s %s", $FZF_DEFAULT_OPTS, join(s:fzf_ctags_opts, " "))
+    let l:preview_cmd = printf("--preview=\"%s --line-range {%d}: --highlight-line {%d} {%d}\"",
+                \ join(g:fzf_preview_cmd, " "),
+                \ s:fzf_ctags_fields['line_range_start'] + 1,
+                \ s:fzf_ctags_fields['focus_line'] + 1,
+                \ s:fzf_ctags_fields['file_name'] +1
+                \ )
+    let l:preview_window_opt = printf("--preview-window=\"%s\"", join(g:fzf_preview_window, " "))
+    return opts . " " . l:preview_cmd . " " . l:preview_window_opt
 endfunction
 
 

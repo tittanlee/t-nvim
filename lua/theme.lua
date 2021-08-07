@@ -3,7 +3,8 @@ require ('env_variable')
 
 
 if (ENV.colorscheme == "tokyonight") then
-    vim.g.tokyonight_style = "night"
+    vim.g.tokyonight_style = "storm"
+    vim.g.tokyonight_menu_selection_background = "red"
     vim.g.tokyonight_italic_functions = true
     vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
 end

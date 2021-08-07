@@ -16,7 +16,15 @@ let $FZF_DEFAULT_OPTS    = '
 let $FZF_DEFAULT_COMMAND = "rg --files --no-follow --hidden --no-ignore -g !.git/ -g !.repo"
 
 let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
-let g:fzf_preview_window = [ "right:50%:border-vertical:hidden" ]
+
+let g:fzf_preview_window = [ "up:border-horizontal:hidden" ]
+let g:fzf_preview_cmd = [
+            \ "bat",
+            \ "--number",
+            \ "--color always",
+            \ "--theme Dracula",
+            \ ]
+
 " This is the default extra key bindings
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',

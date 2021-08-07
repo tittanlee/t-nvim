@@ -62,9 +62,9 @@ return require("packer").startup(function(use)
     use {
         "junegunn/fzf",
         requires = {
-            { "junegunn/fzf.vim" },
-            { "atn34/vim-fzf-sources" },
-            { "zackhsi/fzf-tags" },
+            -- { "junegunn/fzf.vim" },
+            -- { "atn34/vim-fzf-sources" },
+            -- { "zackhsi/fzf-tags" },
             -- { "roosta/fzfolds.vim" },
         },
         config = function()
