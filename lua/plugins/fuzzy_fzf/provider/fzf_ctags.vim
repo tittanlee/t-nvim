@@ -10,7 +10,7 @@ let s:fzf_ctags_fields = {
 let s:fzf_ctags_opts = [
             \ '--with-nth=1',
             \ '-d " " ',
-            \ '--prompt="ctags_jump > " '
+            \ '--prompt="Ctags_Jump > " '
             \ ]
 
 function! fzf_ctags#jump(identifier)
@@ -29,13 +29,13 @@ function! fzf_ctags#jump(identifier)
 
     let ctags_source_list = map (relevant_fields, 'join(v:val, s:fzf_ctags_fields["separator"])')
 
-    let fzf_run_opts = s:fzf_ctags_parameter()
+    let l:fzf_run_opts = s:fzf_run_ctags_opts()
 
     call fzf#run({
                 \ 'source'  : ctags_source_list,
                 \ 'window'  : g:fzf_layout['window'],
                 \ 'sink*'   : function('s:sink_ctags_select_callback', [a:identifier]),
-                \ 'options' : fzf_run_opts
+                \ 'options' : l:fzf_run_opts
                 \ })
 endfunction
 
@@ -74,9 +74,16 @@ function! s:sink_ctags_select_callback(identifier, selection)
     let line_no_section = s:fzf_ctags_fields['focus_line']
     let line_rng_start  = s:fzf_ctags_fields['line_range_start']
 
-    let select_text = a:selection[0]
-    let file_name = split(select_text, separator)[file_name_section]
-    let line_no   = split(select_text, separator)[line_no_section]
+    let selected_with_key = a:selection[0]
+    let selected_text = a:selection[1]
+
+    " Open new split or tab.
+    if has_key(g:fzf_action, selected_with_key)
+        execute 'silent' g:fzf_action[selected_with_key]
+    endif
+
+    let file_name = split(selected_text, separator)[file_name_section]
+    let line_no   = split(selected_text, separator)[line_no_section]
 
     let cmd = printf('silent edit +%d %s', line_no, file_name)
     silent execute cmd
@@ -84,8 +91,13 @@ endfunction
 
 
 
-function! s:fzf_ctags_parameter()
-    let opts = printf("%s %s", $FZF_DEFAULT_OPTS, join(s:fzf_ctags_opts, " "))
+function! s:fzf_run_ctags_opts()
+    let l:expect_action_key = join(keys(g:fzf_action), ",")
+    let opts = printf("%s %s --expect=%s",
+                \ $FZF_DEFAULT_OPTS,
+                \ join(s:fzf_ctags_opts, " "),
+                \ l:expect_action_key
+                \ )
     let l:preview_cmd = printf("--preview=\"%s --line-range {%d}: --highlight-line {%d} {%d}\"",
                 \ join(g:fzf_preview_cmd, " "),
                 \ s:fzf_ctags_fields['line_range_start'] + 1,
@@ -104,4 +116,3 @@ endfunction
 
 command! -nargs=+ -bang FzfCtagsJump call fzf_ctags#jump(<f-args>)
 
-nnoremap <Leader>fj :FzfCtagsJump <C-R>=expand('<cword>')<CR><CR>
