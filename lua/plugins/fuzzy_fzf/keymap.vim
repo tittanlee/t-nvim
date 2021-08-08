@@ -16,6 +16,12 @@ nnoremap <Leader>fvim :FzfFilesProvider <C-R>=stdpath("config")<CR><CR>
 nnoremap <Leader>fj :FzfCtagsJump <C-R>=expand('<cword>')<CR><CR>
 
 
+nnoremap <C-\>d :FzfGtagsJump <C-R>=expand('<cword>')<CR> -d<CR>
+nnoremap <C-\>g :FzfGtagsJump <C-R>=expand('<cword>')<CR> -g<CR>
+nnoremap <C-\>r :FzfGtagsJump <C-R>=expand('<cword>')<CR> -r<CR>
+nnoremap <C-\>s :FzfGtagsJump <C-R>=expand('<cword>')<CR> -s<CR>
+
+
 " nnoremap <LEADER>ff :<C-u>Files<CR>
 " nnoremap <LEADER>fvim :<C-u>Files <C-R>=stdpath("config")<CR><CR>
 " 

@@ -65,4 +65,5 @@ let fzf_config_root = fnamemodify(expand('<sfile>'), ':h')
 
 exec "source " . fzf_config_root . "/provider/fzf_ctags.vim"
 exec "source " . fzf_config_root . "/provider/fzf_files.vim"
+exec "source " . fzf_config_root . "/provider/fzf_gtags.vim"
 

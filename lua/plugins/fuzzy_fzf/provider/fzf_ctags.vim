@@ -3,8 +3,8 @@
 let s:fzf_ctags_fields = {
             \ 'separator' : ' ',
             \ 'file_name' : 0,
-            \ 'focus_line' : 1,
-            \ 'line_range_start' : 2,
+            \ 'line_start_no' : 1,
+            \ 'highlight_line' : 2,
             \ }
 
 let s:fzf_ctags_opts = [
@@ -27,7 +27,10 @@ function! fzf_ctags#jump(identifier)
                 \   function('s:tag_to_string')
                 \ )
 
-    let ctags_source_list = map (relevant_fields, 'join(v:val, s:fzf_ctags_fields["separator"])')
+    let ctags_source_list = map (
+                \ relevant_fields, 
+                \ 'join(v:val, s:fzf_ctags_fields["separator"])'
+                \ )
 
     let l:fzf_run_opts = s:fzf_run_ctags_opts()
 
@@ -49,14 +52,16 @@ function! s:tag_to_string(index, tag_dict)
 
     if has_key(a:tag_dict, 'line')
         let highlight_line = a:tag_dict['line']
-        call add(components, highlight_line)
 
-        " line range start
+        " line start no
         if (highlight_line > 10)
             call add(components, highlight_line - 10)
         else
             call add(components, 0)
         endif
+
+        " highlight_line_no
+        call add(components, highlight_line)
     endif
 
 
@@ -71,8 +76,8 @@ function! s:sink_ctags_select_callback(identifier, selection)
 
     let separator = s:fzf_ctags_fields['separator']
     let file_name_section = s:fzf_ctags_fields['file_name']
-    let line_no_section = s:fzf_ctags_fields['focus_line']
-    let line_rng_start  = s:fzf_ctags_fields['line_range_start']
+    let line_rng_start  = s:fzf_ctags_fields['line_start_no']
+    let highlight_line = s:fzf_ctags_fields['highlight_line']
 
     let selected_with_key = a:selection[0]
     let selected_text = a:selection[1]
@@ -83,7 +88,7 @@ function! s:sink_ctags_select_callback(identifier, selection)
     endif
 
     let file_name = split(selected_text, separator)[file_name_section]
-    let line_no   = split(selected_text, separator)[line_no_section]
+    let line_no   = split(selected_text, separator)[highlight_line]
 
     let cmd = printf('silent edit +%d %s', line_no, file_name)
     silent execute cmd
@@ -100,9 +105,9 @@ function! s:fzf_run_ctags_opts()
                 \ )
     let l:preview_cmd = printf("--preview=\"%s --line-range {%d}: --highlight-line {%d} {%d}\"",
                 \ join(g:fzf_preview_cmd, " "),
-                \ s:fzf_ctags_fields['line_range_start'] + 1,
-                \ s:fzf_ctags_fields['focus_line'] + 1,
-                \ s:fzf_ctags_fields['file_name'] +1
+                \ s:fzf_ctags_fields['line_start_no'] + 1,
+                \ s:fzf_ctags_fields['highlight_line'] + 1,
+                \ s:fzf_ctags_fields['file_name'] + 1
                 \ )
     let l:preview_window_opt = printf("--preview-window=\"%s\"", join(g:fzf_preview_window, " "))
     return opts . " " . l:preview_cmd . " " . l:preview_window_opt
