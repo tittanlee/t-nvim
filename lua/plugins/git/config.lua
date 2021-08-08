@@ -48,7 +48,6 @@ require('gitsigns').setup {
     update_debounce = 100,
     status_formatter = nil, -- Use default
     word_diff = false,
-    use_decoration_api = true,
     use_internal_diff = not ENV.is_windows,  -- If luajit is present
 
 
