@@ -142,38 +142,60 @@ return require("packer").startup(function(use)
         },
     }
 
-    -- A collection of common configurations for Neovim's built-in language server client.
+    -- Coc - Make your Vim/Neovim as smart as VSCode.
     use {
-        "neovim/nvim-lspconfig",
-        -- 'kabouzeid/nvim-lspinstall',
-        event = "VimEnter",
-        config = function()
-            require("plugins.lsp.config")
-            require("plugins.lsp.keymap")
+        "neoclide/coc.nvim",
+
+        branch = "release",
+
+        setup = function()
+            vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/coc/extensions_list.vim")
         end,
+
+        config = function()
+            -- require("plugins.coc.config")
+            vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/coc/config.vim")
+        end,
+
+        requires = {
+            "honza/vim-snippets",
+        },
     }
+
+    -- A collection of common configurations for Neovim's built-in language server client.
+--     use {
+--         "neovim/nvim-lspconfig",
+--         -- 'kabouzeid/nvim-lspinstall',
+--         event = "VimEnter",
+--         config = function()
+--             require("plugins.lsp.config")
+--             require("plugins.lsp.keymap")
+--         end,
+-- 
+--         disalbe = true,
+--     }
 
     -- Auto completion plugin for nvim
-    use {
-        "hrsh7th/nvim-compe",
-        config = function()
-            require("plugins.compe.config")
-            require("plugins.compe.keymap")
-        end,
-        requires = {
-            {"hrsh7th/vim-vsnip", event = "InsertEnter"},
-            {"rafamadriz/friendly-snippets", event = "InsertEnter"}
-        }
-    }
+--     use {
+--         "hrsh7th/nvim-compe",
+--         config = function()
+--             require("plugins.compe.config")
+--             require("plugins.compe.keymap")
+--         end,
+--         requires = {
+--             {"hrsh7th/vim-vsnip", event = "InsertEnter"},
+--             {"rafamadriz/friendly-snippets", event = "InsertEnter"}
+--         }
+--     }
 
     -- A tree like view for symbols in Neovim using the Language Server Protocol. Supports all your favourite languages.
-    use {
-        'simrat39/symbols-outline.nvim',
-        config = function()
-            require("plugins.outline.config")
-            require("plugins.outline.keymap")
-        end
-    }
+    -- use {
+    --     'simrat39/symbols-outline.nvim',
+    --     config = function()
+    --         require("plugins.outline.config")
+    --         require("plugins.outline.keymap")
+    --     end
+    -- }
 
     -- file managing , picker etc
     use {

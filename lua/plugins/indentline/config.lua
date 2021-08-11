@@ -8,6 +8,7 @@ vim.g.indent_blankline_filetype_exclude = {
     "packer",
     "neogitstatus",
     "NvimTree",
+    "cocTree",
 }
 vim.g.indent_blankline_buftype_exclude = {
     "terminal"

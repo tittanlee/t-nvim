@@ -17,7 +17,12 @@ let $FZF_DEFAULT_COMMAND = "rg --files --no-follow --hidden --no-ignore -g !.git
 
 let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
 
-let g:fzf_preview_window = [ "up:border-horizontal:hidden" ]
+let g:fzf_preview_window = [
+            \ "up",
+            \ "border-horizontal",
+            \ "nohidden"
+            \ ]
+
 let g:fzf_preview_cmd = [
             \ "bat",
             \ "--number",

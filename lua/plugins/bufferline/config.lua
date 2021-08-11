@@ -57,7 +57,8 @@ require "bufferline".setup {
         custom_filter = buffer_filter_fn,
 
         offsets = {
-            {filetype = "NvimTree", text = "File Explorer", text_align = "center", highlight = "Directory" }
+            {filetype = "NvimTree", text = "File Explorer", text_align = "center", highlight = "Directory" },
+            {filetype = "coc-explorer", text = "Coc Explorer", text_align = "center", highlight = "Directory" }
         },
         show_buffer_icons = true,
         show_buffer_close_icons = false,

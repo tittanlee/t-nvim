@@ -109,7 +109,7 @@ function! s:fzf_run_ctags_opts()
                 \ s:fzf_ctags_fields['highlight_line'] + 1,
                 \ s:fzf_ctags_fields['file_name'] + 1
                 \ )
-    let l:preview_window_opt = printf("--preview-window=\"%s\"", join(g:fzf_preview_window, " "))
+    let l:preview_window_opt = printf("--preview-window=\"%s\"", join(g:fzf_preview_window, ":"))
     return opts . " " . l:preview_cmd . " " . l:preview_window_opt
 endfunction
 

@@ -54,7 +54,7 @@ function! s:fzf_run_file_list_opts()
                 \ 1,
                 \ 1
                 \ )
-    let l:preview_window_opt = printf("--preview-window=\"%s\"", join(g:fzf_preview_window, " "))
+    let l:preview_window_opt = printf("--preview-window=\"%s\"", join(g:fzf_preview_window, ":"))
     return opts . " " . l:preview_cmd . " " . l:preview_window_opt
 endfunction
 
