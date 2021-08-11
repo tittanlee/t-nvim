@@ -48,6 +48,7 @@ nnoremap [d <plug>(coc-diagnostic-prev)<CR>
 " list all files by fuzzy search selected
 nnoremap <Leader>cf :CocList files<CR>
 nnoremap <Leader>ch :CocList helptags<CR>
+nnoremap <Leader>cl :CocList lines<CR>
 
 
 nmap <silent> gd <Plug>(coc-definition)

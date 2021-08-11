@@ -4,7 +4,6 @@
 
 " Global extension names to install when they aren't installed.
 let g:coc_global_extensions = [
-    \ "coc-lists",
     \ "coc-yank",
     \ "coc-marketplace",
     \ "coc-translator",
@@ -21,3 +20,5 @@ let g:coc_global_extensions = [
     \ "coc-sh",
     \ "coc-sumneko-lua",
     \ ]
+
+    " \ "coc-lists",
