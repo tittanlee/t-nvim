@@ -43,7 +43,7 @@ return require("packer").startup(function(use)
 
     -- Use your favorite grep tool to start an asynchronous search.
     -- All matches will be put in a quickfix or location list.
-    -- (ag, ack, git grep, ripgrep, pt, sift, findstr, grep) 
+    -- (ag, ack, git grep, ripgrep, pt, sift, findstr, grep)
     use {
         "mhinz/vim-grepper",
         config = function ()
@@ -104,7 +104,7 @@ return require("packer").startup(function(use)
             --require("plugins.telescope.extensions.ctags")
         --end,
     --}
- 
+
     -- Treesitter
     use {
         "nvim-treesitter/nvim-treesitter",
@@ -171,7 +171,7 @@ return require("packer").startup(function(use)
 --             require("plugins.lsp.config")
 --             require("plugins.lsp.keymap")
 --         end,
--- 
+--
 --         disalbe = true,
 --     }
 

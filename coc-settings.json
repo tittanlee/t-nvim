@@ -124,12 +124,8 @@
   "translator.enableHover": false,
   "translator.engines": ["bing", "google", "youdao", "haici"],
 
-  // coc-language-server
+  // ----- coc-language-server start -----
   "languageserver": {
-    "lua": {
-      "command": "lua-lsp",
-      "filetypes": ["lua"]
-    },
     "bash": {
       "command": "bash-language-server",
       "args": ["start"],
@@ -145,6 +141,7 @@
   // coc-config-sumneko-lua
   "sumneko-lua.enable": true,
   "sumneko-lua.enableNvimLuaDev": true,
+  // ----- coc-language-server end -----
 
   // coc-config-explorer
   "explorer.git.enable": false,
