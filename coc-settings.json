@@ -4,7 +4,7 @@
   "suggest.enablePreselect": true,
   "suggest.enablePreview": true,
   "suggest.detailField": "preview",
-  "suggest.maxCompleteItemCount": 30,
+  "suggest.maxCompleteItemCount": 50,
   "suggest.timeout": 5000,
   "suggest.triggerAfterInsertEnter": true,
   "suggest.preferCompleteThanJumpPlaceholder": true,
@@ -92,7 +92,7 @@
 
   // coc-config-git
   "git.enableGutters": false,
-  "git.branchCharacter": "\uf408",
+  "git.branchCharacter": "",
   "git.addGBlameToBufferVar": true,
   "git.addGBlameToVirtualText": false,
   "git.virtualTextPrefix": " ❯❯❯ ",
@@ -121,8 +121,8 @@
 
   // coc-config-translator
   "translator.toLang": "zh_TW",
-  "translator.enableHover": true,
-  "translator.engines": ["google", "bing", "youdao"],
+  "translator.enableHover": false,
+  "translator.engines": ["bing", "google", "youdao", "haici"],
 
   // coc-language-server
   "languageserver": {
@@ -144,16 +144,75 @@
 
   // coc-config-sumneko-lua
   "sumneko-lua.enable": true,
-  "sumneko-lua.enableNvimLuaDev": true
+  "sumneko-lua.enableNvimLuaDev": true,
 
   // coc-config-explorer
-  // "explorer.icon.expanded": "▾",
-  // "explorer.position": "left",
-  // "explorer.icon.collapsed": "▸",
-  // "explorer.width": 30,
-  // "explorer.icon.enableNerdfont": true,
-  // "explorer.keyMappings": {
-  //     "h" : "gotoParent",
-  //     "l" : "expandOrShrink"
-  // },
+  "explorer.git.enable": false,
+  "explorer.toggle": true,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.icon.source": "nvim-web-devicons",
+  "explorer.icon.expanded": "▾",
+  "explorer.icon.collapsed": "▸",
+  "explorer.position": "left",
+  "explorer.width": 40,
+  "explorer.quitOnOpen": true,
+  "explorer.file.column.indent.indentLine": true,
+  "explorer.file.showHiddenFiles": true,
+  "explorer.sources": [
+    {
+      "name": "bookmark",
+      "expand": false
+    },
+    {
+      "name": "buffer",
+      "expand": false
+    },
+    {
+      "name": "file",
+      "expand": true
+    }
+  ],
+  "explorer.keyMappingMode": "none",
+  "explorer.keyMappings.global": {
+    "h": "toggleSelection",
+    "<tab>": "actionMenu",
+    "gl": "expandRecursive",
+    "gh": "collapseRecursive",
+    "i": ["wait", "expandable?", "expand", "open"],
+    "<cr>": ["wait", "expandable?", "cd", "open"],
+    "<C-v>": "open:vsplit",
+    "o": ["wait", "expanded?", "collapse", "expand"],
+    "O": "open:tab",
+    "n": "collapse",
+    "l": "gotoParent",
+    "yp": "copyFilepath",
+    "yn": "copyFilename",
+    "yy": "copyFile",
+    "dd": "cutFile",
+    "pp": "pasteFile",
+    "dD": "deleteForever",
+    "a": "addFile",
+    "M": "addDirectory",
+    "cw": "rename",
+    ".": "toggleHidden",
+    "zh": "toggleHidden",
+    "R": "refresh",
+    "?": "help",
+    "q": "quit",
+    "<ESC>": "quit",
+    "X": "systemExecute",
+    "gd": "listDrive",
+    "f": "search",
+    "F": "searchRecursive",
+    "B": "gotoSource:file",
+    "b": "gotoSource:buffer",
+    "[[": "sourcePrev",
+    "]]": "sourceNext",
+    "[d": "diagnosticPrev",
+    "]d": "diagnosticNext",
+    "[c": "gitPrev",
+    "]c": "gitNext",
+    "<<": "gitStage",
+    ">>": "gitUnstage"
+  }
 }
