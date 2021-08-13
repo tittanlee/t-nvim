@@ -17,18 +17,16 @@ local line_blame_formatter = function(name, blame_info, opts)
         blame_info.filename
         )
 
-    return {{' '..text, 'Search'}}
+    return {{' >>> '..text, 'Search'}}
 end
-
-
 
 require('gitsigns').setup {
     signs = {
-        add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
-        change       = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-        delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-        topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-        changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+        add          = {hl = 'GitSignsAdd'   , text = '➕',numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+        change       = {hl = 'GitSignsChange', text = 'Ⓜ️', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn' },
+        delete       = {hl = 'GitSignsDelete', text = '➖',numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn' },
+        topdelete    = {hl = 'GitSignsDelete', text = '⚠️', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn' },
+        changedelete = {hl = 'GitSignsChange', text = '⚡️', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn' },
     },
 
     numhl = false,
@@ -58,9 +56,8 @@ require('gitsigns').setup {
         -- ['n ]d'] = { expr = true, "&diff ? ']d' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'"},
         -- ['n [d'] = { expr = true, "&diff ? '[d' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'"},
 
-
-        ['n ]d'] = '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>',
-        ['n [d'] = '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>',
+        ['n ]g'] = '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>',
+        ['n [g'] = '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>',
 
         -- diff this buffer with HEAD
         ['n <leader>gd']  = '<cmd>lua require"gitsigns".diffthis()<CR>',
@@ -68,7 +65,7 @@ require('gitsigns').setup {
         -- toggle signs quick keymap
         ['n <leader>gts'] = '<cmd>lua require"gitsigns".toggle_signs()<CR>',
         ['n <leader>gtn'] = '<cmd>lua require"gitsigns".toggle_numhl()<CR>',
-        ['n <leader>gtl'] = '<cmd>lua require"gitsigns".toggle_current_linehl()<CR>',
+        ['n <leader>gtl'] = '<cmd>lua require"gitsigns".toggle_linehl()<CR>',
         ['n <leader>gtb'] = '<cmd>lua require"gitsigns".toggle_current_line_blame()<CR>',
 
         -- ['n <leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
@@ -85,3 +82,4 @@ require('gitsigns').setup {
         -- ['x ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>'
     },
 }
+

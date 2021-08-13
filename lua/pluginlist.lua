@@ -47,7 +47,7 @@ return require("packer").startup(function(use)
     use {
         "mhinz/vim-grepper",
         config = function ()
-            require("plugins.grep.config")
+            require("plugins.ripgrep.config")
         end,
     }
 
@@ -208,7 +208,8 @@ return require("packer").startup(function(use)
         config = function()
             require("plugins.nvimtree.config")
             require("plugins.nvimtree.keymap")
-        end
+        end,
+        disalbe = true,
     }
 
     -- A snazzy 💅 buffer line (with minimal tab integration) for Neovim built using lua

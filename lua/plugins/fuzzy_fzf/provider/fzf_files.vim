@@ -1,7 +1,9 @@
 
 let s:fzf_file_list_opts = [
+            \ '--with-nth=1',
+            \ '-d "\|" ',
             \ '--prompt="File_List > " '
-            \]
+            \ ]
 
 
 function! fzf_files#provider(identifier)

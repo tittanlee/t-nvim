@@ -7,7 +7,6 @@ let g:coc_global_extensions = [
     \ "coc-yank",
     \ "coc-marketplace",
     \ "coc-translator",
-    \ "coc-git",
     \ "coc-snippets",
     \ "coc-ultisnips",
     \ "coc-terminal",
@@ -22,3 +21,4 @@ let g:coc_global_extensions = [
     \ ]
 
     " \ "coc-lists",
+    " \ "coc-git",

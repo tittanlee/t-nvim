@@ -50,9 +50,12 @@
   "diagnostic.refreshOnInsertMode": false,
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextPrefix": " ❯❯❯ ",
+  "diagnostic.enableMessage": "never",
+  "diagnostic.messageTarget": "float",
 
   // coc-config-hover
   "hover.target": "float",
+  "hover.autoHide": true,
 
   // coc-config-codelens
   "workspace.ignoredFiletypes": ["txt", "log", "help"],
@@ -86,43 +89,31 @@
   "outline.followCursor": false,
   "outline.sortBy": "position",
 
-  // coc-config-snippet
-  "snippets.shortcut": "SNIP",
-  "snippets.ultisnips.directories": ["UltiSnips"],
-
   // coc-config-git
-  "git.enableGutters": false,
-  "git.branchCharacter": "",
-  "git.addGBlameToBufferVar": true,
-  "git.addGBlameToVirtualText": false,
-  "git.virtualTextPrefix": " ❯❯❯ ",
-  "git.addedSign.hlGroup": "GitGutterAdd",
-  "git.changedSign.hlGroup": "GitGutterChange",
-  "git.removedSign.hlGroup": "GitGutterDelete",
-  "git.topRemovedSign.hlGroup": "GitGutterDelete",
-  "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
-  "git.addedSign.text": "➕",
-  "git.changedSign.text": "Ⓜ️",
-  "git.removedSign.text": "➖",
-  "git.topRemovedSign.text": "⚠️",
-  "git.changeRemovedSign.text": "⚡️",
-
-  // coc-config-list
-  "list.source.files.command": "rg",
-  "list.source.files.args": [
-    "--files",
-    "--no-follow",
-    "--hidden",
-    "--no-ignore"
-  ],
-  "list.source.outline.defaultOptions": ["--auto-preview"],
-  "list.source.grep.defaultOptions": ["--auto-preview", "--ignore-case"],
-  "list.previewSplitRight": false,
+  // "git.enableGutters": false,
+  // "git.branchCharacter": "",
+  // "git.addGBlameToBufferVar": true,
+  // "git.addGBlameToVirtualText": true,
+  // "git.virtualTextPrefix": " ❯❯❯ ",
+  // "git.addedSign.hlGroup": "GitGutterAdd",
+  // "git.changedSign.hlGroup": "GitGutterChange",
+  // "git.removedSign.hlGroup": "GitGutterDelete",
+  // "git.topRemovedSign.hlGroup": "GitGutterDelete",
+  // "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+  // "git.addedSign.text": "➕",
+  // "git.changedSign.text": "Ⓜ️",
+  // "git.removedSign.text": "➖",
+  // "git.topRemovedSign.text": "⚠️",
+  // "git.changeRemovedSign.text": "⚡️",
 
   // coc-config-translator
   "translator.toLang": "zh_TW",
   "translator.enableHover": false,
-  "translator.engines": ["bing", "google", "youdao", "haici"],
+  "translator.engines": ["google", "youdao", "haici"],
+
+  //coc-config-snippets
+  "snippets.shortcut": "SNIP",
+  "snippets.ultisnips.directories": ["UltiSnips"],
 
   // ----- coc-language-server start -----
   "languageserver": {
@@ -152,7 +143,7 @@
   "explorer.icon.collapsed": "▸",
   "explorer.position": "left",
   "explorer.width": 40,
-  "explorer.quitOnOpen": true,
+  "explorer.quitOnOpen": false,
   "explorer.file.column.indent.indentLine": true,
   "explorer.file.showHiddenFiles": true,
   "explorer.sources": [
@@ -169,47 +160,10 @@
       "expand": true
     }
   ],
-  "explorer.keyMappingMode": "none",
   "explorer.keyMappings.global": {
-    "h": "toggleSelection",
-    "<tab>": "actionMenu",
-    "gl": "expandRecursive",
-    "gh": "collapseRecursive",
-    "i": ["wait", "expandable?", "expand", "open"],
-    "<cr>": ["wait", "expandable?", "cd", "open"],
-    "<C-v>": "open:vsplit",
-    "o": ["wait", "expanded?", "collapse", "expand"],
-    "O": "open:tab",
-    "n": "collapse",
-    "l": "gotoParent",
-    "yp": "copyFilepath",
-    "yn": "copyFilename",
-    "yy": "copyFile",
-    "dd": "cutFile",
-    "pp": "pasteFile",
-    "dD": "deleteForever",
-    "a": "addFile",
-    "M": "addDirectory",
-    "cw": "rename",
-    ".": "toggleHidden",
-    "zh": "toggleHidden",
-    "R": "refresh",
-    "?": "help",
-    "q": "quit",
+    "o": ["expandable?", ["expanded?", "collapse", "expand"], "open"],
     "<ESC>": "quit",
-    "X": "systemExecute",
-    "gd": "listDrive",
-    "f": "search",
-    "F": "searchRecursive",
-    "B": "gotoSource:file",
-    "b": "gotoSource:buffer",
-    "[[": "sourcePrev",
-    "]]": "sourceNext",
-    "[d": "diagnosticPrev",
-    "]d": "diagnosticNext",
-    "[c": "gitPrev",
-    "]c": "gitNext",
-    "<<": "gitStage",
-    ">>": "gitUnstage"
+    ".": "toggleHidden()",
+    "<C-v>": "open:vsplit"
   }
 }
