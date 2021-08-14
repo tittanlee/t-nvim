@@ -46,8 +46,8 @@ vim.api.nvim_set_keymap("n", "<F2>", ":w! <CR>", { silent = false })
 vim.api.nvim_set_keymap("i", "<F2>", "<ESC> :w! <CR>", { silent = false })
 
 -- F3 reload script
-vim.api.nvim_set_keymap("n", "<F3>", ":luafile % <CR>", { silent = false })
-vim.api.nvim_set_keymap("i", "<F3>", "<ESC> :luafile % <CR>", { silent = false })
+vim.api.nvim_set_keymap("n", "<F3>", ":so % <CR>", { silent = false })
+vim.api.nvim_set_keymap("i", "<F3>", "<ESC> :so % <CR>", { silent = false })
 
 -- F4 quit
 vim.api.nvim_set_keymap("n", "<F4>", ":quit! <CR>", { silent = true })

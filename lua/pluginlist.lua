@@ -159,6 +159,7 @@ return require("packer").startup(function(use)
 
         requires = {
             "honza/vim-snippets",
+            "rafamadriz/friendly-snippets",
         },
     }
 
