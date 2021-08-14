@@ -47,7 +47,7 @@ return require("packer").startup(function(use)
     use {
         "mhinz/vim-grepper",
         config = function ()
-            require("plugins.ripgrep.config")
+            vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/clang_conf/config.vim")
         end,
     }
 
@@ -160,6 +160,14 @@ return require("packer").startup(function(use)
         requires = {
             "honza/vim-snippets",
         },
+    }
+
+
+    use {
+        "fcying/gen_clang_conf.vim",
+        config = function ()
+            require("plugins.clang_conf.config")
+        end
     }
 
     -- A collection of common configurations for Neovim's built-in language server client.
