@@ -168,10 +168,12 @@ return require("packer").startup(function(use)
         end
     }
 
+
+
     -- A collection of common configurations for Neovim's built-in language server client.
---     use {
---         "neovim/nvim-lspconfig",
---         -- 'kabouzeid/nvim-lspinstall',
+    --     use {
+        --         "neovim/nvim-lspconfig",
+        --         -- 'kabouzeid/nvim-lspinstall',
 --         event = "VimEnter",
 --         config = function()
 --             require("plugins.lsp.config")
@@ -218,6 +220,16 @@ return require("packer").startup(function(use)
         disalbe = true,
     }
 
+    -- This plugin adds indentation guides to all lines (including empty lines)
+    use {
+        "lukas-reineke/indent-blankline.nvim",
+        event = "BufRead",
+        config = function()
+            require("plugins.indent_line.config")
+            require("plugins.indent_line.keymap")
+        end,
+    }
+
     -- A snazzy 💅 buffer line (with minimal tab integration) for Neovim built using lua
     use {
         "akinsho/nvim-bufferline.lua",
@@ -262,15 +274,6 @@ return require("packer").startup(function(use)
 
     }
 
-    -- This plugin adds indentation guides to all lines (including empty lines)
-    use {
-        "lukas-reineke/indent-blankline.nvim",
-        event = "BufRead",
-        setup = function()
-            require("plugins.indentline.config")
-            require("plugins.indentline.keymap")
-        end
-    }
 
     -- Toggle comments in Neovim
     use {
