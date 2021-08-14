@@ -4,7 +4,8 @@
 
 " call coc#config('translator', {
 "             \ "toLang" : "zh_TW",
-"             \ "enableHover" : "false"
+"             \ "enableHover" : "false",
+"             \ "engines" : ["google", "youdao", "haici"]
 "             \ })
 
 nmap <Leader>tt <Plug>(coc-translator-p)

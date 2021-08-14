@@ -47,7 +47,7 @@ return require("packer").startup(function(use)
     use {
         "mhinz/vim-grepper",
         config = function ()
-            vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/clang_conf/config.vim")
+            require("plugins.ripgrep.config")
         end,
     }
 
@@ -148,13 +148,10 @@ return require("packer").startup(function(use)
 
         branch = "release",
 
-        setup = function()
-            vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/coc/extensions_list.vim")
-        end,
-
         config = function()
             -- require("plugins.coc.config")
             vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/coc/config.vim")
+            vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/coc/keymap.vim")
         end,
 
         requires = {
@@ -167,7 +164,7 @@ return require("packer").startup(function(use)
     use {
         "fcying/gen_clang_conf.vim",
         config = function ()
-            require("plugins.clang_conf.config")
+            vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/clang_conf/config.vim")
         end
     }
 
