@@ -1,8 +1,9 @@
 
 
 require("indent_blankline").setup {
-    char = '▏',
-    -- char = "│",
+    -- char = "▌",
+    -- char = "|",
+    char ='│',
     enabled = true,
     use_treesitter = true,
     show_current_context = true,
@@ -14,7 +15,8 @@ require("indent_blankline").setup {
         "startify", "dashboard", "dotooagenda", "log", "fugitive",
         "gitcommit", "packer", "vimwiki", "markdown", "json", "txt",
         "vista", "help", "todoist", "NvimTree", "peekaboo", "git",
-        "TelescopePrompt", "undotree", "flutterToolsOutline", "" -- for all buffers without a file type
+        "TelescopePrompt", "undotree", "flutterToolsOutline",
+        -- "" -- for all buffers without a file type
     },
     buftype_exclude = {"terminal", "nofile"},
     context_patterns = {
