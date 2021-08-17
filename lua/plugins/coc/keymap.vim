@@ -32,14 +32,13 @@ inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<
 " Start or refresh completion at current cursor position
 inoremap <silent><expr> <C-SPACE> coc#refresh()
 
-" show the document under the current cursor word
-nnoremap <silent> gh :call CocAction('doHover')<CR>
-
+" remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gD <Plug>(coc-declaration)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gh <Plug>(coc-doHover)
 
 
 " coc floating window scroll up/down
