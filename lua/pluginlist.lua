@@ -217,7 +217,6 @@ return require("packer").startup(function(use)
             require("plugins.nvimtree.config")
             require("plugins.nvimtree.keymap")
         end,
-        disalbe = true,
     }
 
     -- This plugin adds indentation guides to all lines (including empty lines)

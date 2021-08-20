@@ -8,7 +8,6 @@ call coc#add_extension(
             \ "coc-snippets",
             \ "coc-ultisnips",
             \ "coc-terminal",
-            \ "coc-explorer",
             \ "coc-json",
             \ "coc-tsserver",
             \ "coc-clangd",
@@ -17,6 +16,7 @@ call coc#add_extension(
             \ "coc-sh",
             \ "coc-sumneko-lua",
             \)
+            " \ "coc-explorer",
 
 " Disable file with size > 1MB
 autocmd BufAdd * if getfsize(expand('<afile>')) > 1024*1024 |

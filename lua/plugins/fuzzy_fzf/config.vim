@@ -1,5 +1,6 @@
 
 let $FZF_DEFAULT_OPTS    = '
+            \ -x
             \ --multi
             \ --info=inline
             \ --pointer="->"

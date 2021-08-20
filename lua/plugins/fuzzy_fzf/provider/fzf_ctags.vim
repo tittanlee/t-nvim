@@ -98,7 +98,11 @@ endfunction
 
 function! s:fzf_run_ctags_opts()
     let opts = []
-    let opts += [s:fzf_ctags_interface_opts[0]]
+
+    for l:interface_opts in s:fzf_ctags_interface_opts
+        let opts += [l:interface_opts]
+    endfor
+
     let opts += ['--expect', join(keys(g:fzf_action), ",")] 
 
     let l:preview_cmd = printf("%s --line-range {%d}: --highlight-line {%d} {%d}",

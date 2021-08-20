@@ -47,7 +47,10 @@ endfunction
 function! s:fzf_run_file_list_opts()
     let opts = []
 
-    let opts += [s:fzf_file_list_interface_opts[0]]
+    for l:interface_opts in s:fzf_file_list_interface_opts
+        let opts += [l:interface_opts]
+    endfor
+
     let opts += ['--expect', join(keys(g:fzf_action), ",")] 
 
     let l:preview_cmd = printf("%s --line-range %d: {%d}",
