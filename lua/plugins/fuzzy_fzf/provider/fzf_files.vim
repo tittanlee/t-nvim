@@ -1,7 +1,7 @@
 
-let s:fzf_file_list_opts = [
+let s:fzf_file_list_interface_opts = [
             \ '--with-nth=1',
-            \ '-d "\|" ',
+            \ '-d "|"',
             \ '--prompt="File_List > " '
             \ ]
 
@@ -45,19 +45,21 @@ endfunction
 
 
 function! s:fzf_run_file_list_opts()
-    let l:expect_action_key = join(keys(g:fzf_action), ",")
-    let opts = printf("%s %s --expect=%s", 
-                \ $FZF_DEFAULT_OPTS,
-                \ join(s:fzf_file_list_opts, " "),
-                \ l:expect_action_key
-                \)
-    let l:preview_cmd = printf("--preview=\"%s --line-range %d: {%d}\"",
+    let opts = []
+
+    let opts += [s:fzf_file_list_interface_opts[0]]
+    let opts += ['--expect', join(keys(g:fzf_action), ",")] 
+
+    let l:preview_cmd = printf("%s --line-range %d: {%d}",
                 \ join(g:fzf_preview_cmd, " "),
                 \ 1,
                 \ 1
                 \ )
-    let l:preview_window_opt = printf("--preview-window=\"%s\"", join(g:fzf_preview_window, ":"))
-    return opts . " " . l:preview_cmd . " " . l:preview_window_opt
+    let opts += ['--preview', l:preview_cmd]
+
+    let opts += ['--preview-window', g:fzf_preview_window[0]]
+
+    return opts
 endfunction
 
 

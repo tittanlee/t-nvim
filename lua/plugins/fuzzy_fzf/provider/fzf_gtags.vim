@@ -6,9 +6,9 @@ let s:fzf_gtags_fields = {
             \ 'highlight_line' : 2,
             \ }
 
-let s:fzf_gtags_opts = [
+let s:fzf_gtags_interface_opts = [
             \ '--with-nth=1',
-            \ '-d " " ',
+            \ '-d " "',
             \ '--prompt="Gtags_Jump > " '
             \ ]
 
@@ -80,20 +80,22 @@ function! s:sink_gtags_select_callback(identifier, selection)
 endfunction
 
 function! s:fzf_run_gtags_opts()
-    let l:expect_action_key = join(keys(g:fzf_action), ",")
-    let opts = printf("%s %s --expect=%s",
-                \ $FZF_DEFAULT_OPTS,
-                \ join(s:fzf_gtags_opts, " "),
-                \ l:expect_action_key
-                \ )
-    let l:preview_cmd = printf("--preview=\"%s --line-range {%d}: --highlight-line {%d} {%d}\"",
+    let opts = []
+
+    let opts += [s:fzf_gtags_interface_opts[0]]
+    let opts += ['--expect', join(keys(g:fzf_action), ",")] 
+
+    let l:preview_cmd = printf("%s --line-range {%d}: --highlight-line {%d} {%d}",
                 \ join(g:fzf_preview_cmd, " "),
                 \ s:fzf_gtags_fields['line_start_no'] + 1,
                 \ s:fzf_gtags_fields['highlight_line'] + 1,
                 \ s:fzf_gtags_fields['file_name'] + 1
                 \ )
-    let l:preview_window_opt = printf("--preview-window=\"%s\"", join(g:fzf_preview_window, ":"))
-    return opts . " " . l:preview_cmd . " " . l:preview_window_opt
+    let opts += ['--preview', l:preview_cmd]
+
+    let opts += ['--preview-window', g:fzf_preview_window[0]]
+
+    return opts
 endfunction
 
 

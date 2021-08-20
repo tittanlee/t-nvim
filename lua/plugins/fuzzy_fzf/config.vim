@@ -17,11 +17,7 @@ let $FZF_DEFAULT_COMMAND = "rg --files --no-follow --hidden --no-ignore -g !.git
 
 let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
 
-let g:fzf_preview_window = [
-            \ "up",
-            \ "border-horizontal",
-            \ "nohidden"
-            \ ]
+let g:fzf_preview_window = ["up:50%:border-horizontal:nohidden"]
 
 let g:fzf_preview_cmd = [
             \ "bat",
@@ -39,8 +35,8 @@ let g:fzf_action = {
 
 
 function! CreateCenteredFloatingWindow()
-    let width = min([&columns - 4, max([80, &columns - 20])])
-    let height = min([&lines - 4, max([20, &lines - 10])])
+    let width = min([&columns - 4, max([80, float2nr(&columns * 0.9)])])
+    let height = min([&lines - 4, max([20, float2nr(&lines * 0.9)])])
     let top = ((&lines - height) / 2) - 1
     let left = (&columns - width) / 2
     let opts = {'relative': 'editor', 'row': top, 'col': left, 'width': width, 'height': height, 'style': 'minimal'}
@@ -58,7 +54,7 @@ function! CreateCenteredFloatingWindow()
     let opts.col += 2
     let opts.width -= 4
     let win = nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
-    call nvim_win_set_option(win, "winblend", 20)
+    call nvim_win_set_option(win, "winblend", 10)
     au BufWipeout <buffer> exe 'bw '.s:buf
 endfunction
 
