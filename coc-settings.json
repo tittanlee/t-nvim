@@ -127,43 +127,43 @@
 
   // coc-config-clagnd
   // "clangd.path": "C:\\Users\\Titan\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\11.0.0\\clangd_11.0.0\\bin\\clangd.exe",
-  "clangd.enabled": true,
+  "clangd.enabled": true
 
   // coc-config-sumneko-lua
-  "sumneko-lua.enable": true,
-  "sumneko-lua.enableNvimLuaDev": true,
+  // "sumneko-lua.enable": true,
+  // "sumneko-lua.enableNvimLuaDev": true,
   // ----- coc-language-server end -----
 
   // coc-config-explorer
-  "explorer.git.enable": false,
-  "explorer.toggle": true,
-  "explorer.icon.enableNerdfont": true,
-  "explorer.icon.source": "nvim-web-devicons",
-  //"explorer.icon.expanded": "▾",
-  //"explorer.icon.collapsed": "▸",
-  "explorer.position": "left",
-  "explorer.width": 40,
-  "explorer.quitOnOpen": false,
-  "explorer.file.column.indent.indentLine": true,
-  "explorer.file.showHiddenFiles": true,
-  "explorer.sources": [
-    {
-      "name": "bookmark",
-      "expand": false
-    },
-    {
-      "name": "buffer",
-      "expand": false
-    },
-    {
-      "name": "file",
-      "expand": true
-    }
-  ],
-  "explorer.keyMappings.global": {
-    "o": ["expandable?", ["expanded?", "collapse", "expand"], "open"],
-    "<ESC>": "quit",
-    ".": "toggleHidden()",
-    "<C-v>": "open:vsplit"
-  }
+  // "explorer.git.enable": false,
+  // "explorer.toggle": true,
+  // "explorer.icon.enableNerdfont": true,
+  // "explorer.icon.source": "nvim-web-devicons",
+  // "explorer.icon.expanded": "▾",
+  // "explorer.icon.collapsed": "▸",
+  // "explorer.position": "left",
+  // "explorer.width": 40,
+  // "explorer.quitOnOpen": false,
+  // "explorer.file.column.indent.indentLine": true,
+  // "explorer.file.showHiddenFiles": true,
+  // "explorer.sources": [
+  //   {
+  //     "name": "bookmark",
+  //     "expand": false
+  //   },
+  //   {
+  //     "name": "buffer",
+  //     "expand": false
+  //   },
+  //   {
+  //     "name": "file",
+  //     "expand": true
+  //   }
+  // ],
+  // "explorer.keyMappings.global": {
+  //   "o": ["expandable?", ["expanded?", "collapse", "expand"], "open"],
+  //   "<ESC>": "quit",
+  //   ".": "toggleHidden()",
+  //   "<C-v>": "open:vsplit"
+  // }
 }

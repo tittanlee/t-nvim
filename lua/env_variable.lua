@@ -17,7 +17,9 @@ ENV = {
     is_mac     = os_name == 'Darwin',
     is_linux   = os_name == 'Linux',
     is_windows = os_name == 'Windows_NT' or 'Windows;',
-    path_sep   = is_windows and '\\' or '/'
+    path_sep   = is_windows and '\\' or '/',
 
+    -- feline show current function flag
+    show_current_func = false,
 
 }

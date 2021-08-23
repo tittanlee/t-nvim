@@ -313,6 +313,14 @@ return require("packer").startup(function(use)
         cmd = { "ColorizerToggle" },
     }
 
+    use {
+        "junegunn/vim-easy-align",
+        config = function()
+            vim.api.nvim_set_keymap("n", "ga", "<plug>(EasyAlign)", { silent = true })
+            vim.api.nvim_set_keymap("x", "ga", "<plug>(EasyAlign)", { silent = true })
+        end,
+    }
+
     -- nvim color theme that support tree-sitter
     use {
         -- "projekt0n/github-nvim-theme",

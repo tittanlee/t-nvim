@@ -53,3 +53,7 @@ vim.api.nvim_set_keymap("i", "<F3>", "<ESC> :so % <CR>", { silent = false })
 vim.api.nvim_set_keymap("n", "<F4>", ":quit! <CR>", { silent = true })
 vim.api.nvim_set_keymap("i", "<F4>", "<ESC> :quit! <CR>", { silent = true })
 
+-- F8 toggle current function in status line
+vim.api.nvim_set_keymap("n", "<F8>", ":lua ENV.show_current_func = not ENV.show_current_func <CR>", { silent = true })
+
+

@@ -14,9 +14,11 @@ call coc#add_extension(
             \ "coc-vimlsp",
             \ "coc-pyright",
             \ "coc-sh",
-            \ "coc-sumneko-lua",
-            \)
+            \ "coc-lua",
+            \ )
+
             " \ "coc-explorer",
+            " \ "coc-sumneko-lua",
 
 " Disable file with size > 1MB
 autocmd BufAdd * if getfsize(expand('<afile>')) > 1024*1024 |

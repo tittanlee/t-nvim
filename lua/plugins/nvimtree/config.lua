@@ -4,7 +4,7 @@ local g = vim.g
 
 
 g.nvim_tree_side                   = "left"
-g.nvim_tree_width                  = "33%"
+g.nvim_tree_width                  = "25%"
 g.nvim_tree_ignore                 = {".repo", ".git", "node_modules", ".cache"}
 g.nvim_tree_gitignore              = 0
 g.nvim_tree_auto_ignore_ft         = {"dashboard"} -- don't open tree on specific fiypes.
