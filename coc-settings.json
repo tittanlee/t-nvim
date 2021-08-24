@@ -127,7 +127,11 @@
 
   // coc-config-clagnd
   // "clangd.path": "C:\\Users\\Titan\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\11.0.0\\clangd_11.0.0\\bin\\clangd.exe",
-  "clangd.enabled": true
+  "clangd.enabled": true,
+
+  // coc-lua
+  "Lua.runtime.version": "LuaJIT",
+  "Lua.runtime.path": ["?.lua", "?/init.lua", "?/?.lua"]
 
   // coc-config-sumneko-lua
   // "sumneko-lua.enable": true,

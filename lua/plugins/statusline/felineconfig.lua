@@ -121,6 +121,7 @@ table.insert(components.left.active, {
 })
 
 table.insert(components.left.active, {
+    -- git branch related
     provider = function()
         return git.git_branch({}) .. git.git_diff_added({}) .. git.git_diff_removed({}) .. git.git_diff_changed({})
     end,
@@ -169,8 +170,8 @@ table.insert(components.left.active, {
         }
     },
     enabled = function ()
-        return vim.b.coc_current_function ~= '' and 
-        vim.fn.exists('b:coc_current_function') ~= 0 and 
+        return vim.b.coc_current_function ~= '' and
+        vim.fn.exists('b:coc_current_function') ~= 0 and
         ENV.show_current_func
     end
 })
@@ -292,7 +293,7 @@ table.insert(components.right.active, {
     hl = function()
         local val = {}
         val.fg    = colors.black
-        val.bg    = colors.skyblue
+        val.bg    = colors.yellow
         val.style = 'bold'
         return val
     end,
@@ -300,14 +301,14 @@ table.insert(components.right.active, {
     left_sep = {
         str = 'left_rounded',
         hl = {
-            fg = colors.skyblue,
+            fg = colors.yellow,
         }
     },
 
     right_sep = {
         str = 'right_rounded',
         hl = {
-            fg = colors.skyblue,
+            fg = colors.yellow,
         }
     }
 })
