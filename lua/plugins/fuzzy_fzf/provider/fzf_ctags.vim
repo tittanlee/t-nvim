@@ -8,8 +8,8 @@ let s:fzf_ctags_fields = {
             \ }
 
 let s:fzf_ctags_interface_opts = [
-            \ '--with-nth=1',
-            \ '-d " "',
+            \ '--with-nth', '1',
+            \ '--delimiter', ' ',
             \ '--prompt="Ctags_Jump > " '
             \ ]
 

@@ -149,6 +149,28 @@ table.insert(components.left.active, {
 })
 
 table.insert(components.left.active, {
+    provider = 'file_info',
+    type = 'relative',
+    hl =  {
+        fg    = colors.yellow,
+        bg    = colors.cyan,
+        style = 'bold',
+    },
+    left_sep = {
+        str = 'left_rounded',
+        hl = {
+            fg = colors.cyan,
+        }
+    },
+    right_sep = {
+        str = 'right_rounded',
+        hl = {
+            fg = colors.cyan,
+        }
+    },
+})
+
+table.insert(components.left.active, {
     provider = function()
         return vim.b.coc_current_function
     end,

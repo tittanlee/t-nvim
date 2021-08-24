@@ -1,7 +1,7 @@
 
 let s:fzf_file_list_interface_opts = [
-            \ '--with-nth=1',
-            \ '-d "|"',
+            \ '--with-nth', '1',
+            \ '-d', '\|',
             \ '--prompt="File_List > " '
             \ ]
 

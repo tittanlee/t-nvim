@@ -16,7 +16,7 @@ require("indent_blankline").setup {
         "gitcommit", "packer", "vimwiki", "markdown", "json", "txt",
         "vista", "help", "todoist", "NvimTree", "peekaboo", "git",
         "TelescopePrompt", "undotree", "flutterToolsOutline",
-        -- "" -- for all buffers without a file type
+        "" -- for all buffers without a file type
     },
     buftype_exclude = {"terminal", "nofile"},
     context_patterns = {
