@@ -168,6 +168,12 @@ return require("packer").startup(function(use)
         end
     }
 
+    use {
+        "akinsho/toggleterm.nvim",
+        config = function ()
+            require("plugins.terminal.config")
+        end,
+    }
 
 
     -- A collection of common configurations for Neovim's built-in language server client.
