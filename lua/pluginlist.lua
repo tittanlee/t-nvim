@@ -327,6 +327,13 @@ return require("packer").startup(function(use)
         end,
     }
 
+    use {
+        "karb94/neoscroll.nvim",
+        config = function()
+            require("plugins.scroll.config")
+        end
+    }
+
     -- nvim color theme that support tree-sitter
     use {
         -- "projekt0n/github-nvim-theme",

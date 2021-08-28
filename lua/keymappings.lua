@@ -41,6 +41,9 @@ vim.api.nvim_set_keymap("n", "<LEADER>ev", ":edit $MYVIMRC <CR>"   , { noremap =
 vim.api.nvim_set_keymap("n", "<LEADER>sv", ":vsplit <CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<LEADER>sh", ":split  <CR>",  { noremap = true, silent = true })
 
+-- terminal insert/normal mode switch
+vim.api.nvim_set_keymap("t", "<C-\\><C-\\>", "<C-\\><C-n>",  { noremap = true, silent = true })
+
 -- F2 save
 vim.api.nvim_set_keymap("n", "<F2>", ":w! <CR>", { silent = false })
 vim.api.nvim_set_keymap("i", "<F2>", "<ESC> :w! <CR>", { silent = false })
