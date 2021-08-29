@@ -11,7 +11,7 @@ require "bufferline".setup {
     options = {
         -- numbers = "none" | "ordinal" | "buffer_id" | "both",
         numbers = function(opts)
-            return string.format('%s▌%s', opts.ordinal, opts.raise(opts.id))
+            return string.format('%s%s', opts.ordinal, opts.raise(opts.id))
         end,
 
         -- Mouse Actions

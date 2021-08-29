@@ -11,7 +11,6 @@ local file_fmt   = require('plugins.statusline.providers.file_fmt')
 local vi_mode    = require('plugins.statusline.providers.vimode')
 local git        = require('plugins.statusline.providers.git')
 local coc        = require('plugins.statusline.providers.coc')
-local lsp        = require('plugins.statusline.providers.lsp')
 local gutentags  = require('plugins.statusline.providers.gutentags')
 local cursor_pos = require('plugins.statusline.providers.cursor_pos')
 
@@ -57,7 +56,7 @@ table.insert(components.left.active, util.component_gap())
 table.insert(components.left.active, file_path.component_opts())
 table.insert(components.left.active, util.component_gap())
 
-table.insert(components.left.active, coc.component_opts())
+table.insert(components.left.active, coc.current_function.component_opts())
 table.insert(components.left.active, util.component_gap())
 -------------------- insert left end -------------------- }
 
@@ -67,7 +66,7 @@ table.insert(components.mid.active, gutentags.component_opts())
 -------------------- insert mid end -------------------- }
 
 -------------------- insert right start -------------------- {
-table.insert(components.right.active, lsp.component_opts())
+table.insert(components.right.active, coc.diagnostics.component_opts())
 table.insert(components.right.active, util.component_gap())
 
 table.insert(components.right.active, file_enc.component_opts())
