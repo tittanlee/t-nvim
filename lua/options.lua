@@ -1,5 +1,5 @@
 
-local opt = vim.opt
+local env, g, o = vim.env, vim.g, vim.o
 
 ------------------------------------------------------------------------------
 -- disable nvim built-in plugin
@@ -30,74 +30,74 @@ end
 
 
 -- glbal key mapping
-vim.g.mapleader = ENV.leader_key
+g.mapleader      = ENV.leader_key
+g.maplocalleader = ENV.local_leader_key
 
 
 -- multi-byte characters
-opt.fileencoding  = "utf-8"
-opt.fileencodings = "ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1,utf-16le,cp1252,iso-8859-15"
+o.fileencoding  = "utf-8"
+o.fileencodings = "ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1,utf-16le,cp1252,iso-8859-15"
 
 -- moving around, searching and patterns
-opt.autochdir  = false
-opt.ignorecase = true
-opt.smartcase  = true
-opt.incsearch  = true
+o.autochdir  = false
+o.ignorecase = true
+o.smartcase  = true
+o.incsearch  = true
 
 -- displaying text
-opt.number         = true
-opt.relativenumber = true
-opt.cmdheight      = 1
-opt.list           = true
--- opt.listchars      = { tab = ">>>", trail = "·", precedes = "←", extends = "→",eol = "↲", nbsp = "␣" }
-opt.listchars      = { tab = "».", trail = "•", precedes = "❮", extends = "❯", nbsp = "␣" }
-opt.showbreak      = "↪"
+o.number         = true
+o.relativenumber = true
+o.cmdheight      = 1
+o.list           = true
+o.listchars      = 'tab:». ,trail:•,precedes:❮,extends:❯,nbsp:␣'
+o.showbreak      = "↪"
 
 -- syntax, highlighting and spelling
-opt.hlsearch   = true
-opt.cursorline = true
+o.hlsearch   = true
+o.cursorline = true
 
 -- multiple windows
-opt.laststatus = 2
-opt.splitright = true
-opt.splitbelow = true
-opt.hidden     = true
+o.laststatus = 2
+o.splitright = true
+o.splitbelow = true
+o.hidden     = true
 
 -- multiple tab pages
-opt.showtabline = 0
+o.showtabline = 0
 
 -- terminal
-opt.termguicolors = true
+o.termguicolors = true
 
 -- using the mouse
-opt.mouse = "a"
+o.mouse = "a"
 
 -- selecting text
-opt.clipboard = "unnamed,unnamedplus"
+o.clipboard = "unnamed,unnamedplus"
 
 -- editing text
-opt.showmatch = true
-opt.completeopt = "longest,noinsert,menuone,noselect,preview"
-opt.diffopt     = 'internal,filler,closeoff,internal,algorithm:patience'
+o.showmatch   = true
+o.completeopt = o.completeopt .. ',longest'
+o.diffopt     = o.diffopt .. ',vertical,internal,algorithm:patience'
 
 -- tabs and indenting
-opt.tabstop     = 4
-opt.shiftwidth  = 4
-opt.softtabstop = 4
-opt.smarttab    = true
-opt.expandtab   = true
-opt.smartindent = true
+o.tabstop     = 4
+o.shiftwidth  = 4
+o.softtabstop = 4
+o.smarttab    = true
+o.expandtab   = true
+o.smartindent = true
 
 -- reading and writing files
-opt.fileformat  = "unix"
-opt.fileformats = "unix,mac,dos"
-opt.writebackup = false
-opt.backup      = false
-opt.swapfile    = false
-opt.undofile    = false
+o.fileformat  = "unix"
+o.fileformats = "unix,mac,dos"
+o.writebackup = false
+o.backup      = false
+o.swapfile    = false
+o.undofile    = false
 
 -- mapping peroid
-opt.timeoutlen = 500
+o.timeoutlen = 500
 
 -- various
-opt.signcolumn = "auto"
-opt.updatetime = 300
+o.signcolumn = "auto"
+o.updatetime = 300
