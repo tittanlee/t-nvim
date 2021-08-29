@@ -10,14 +10,9 @@ end
 require "bufferline".setup {
     options = {
         -- numbers = "none" | "ordinal" | "buffer_id" | "both",
-        numbers = "ordinal",
-
-        -- number_style = "superscript" | "" | { "none", "subscript" }, -- buffer_id at index 1, ordinal at index 2
-        number_style = "superscript",
-
-        -- mappings = true | false,
-        mappings = false,
-
+        numbers = function(opts)
+            return string.format('%s▌%s', opts.ordinal, opts.raise(opts.id))
+        end,
 
         -- Mouse Actions
         left_mouse_command = "buffer %d",

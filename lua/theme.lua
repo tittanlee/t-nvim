@@ -34,4 +34,14 @@ if (ENV.colorscheme == "neon") then
     vim.g.neon_transparent = true
 end
 
+if (ENV.colorscheme == "gruvbox-material") then
+    -- Available values: `'hard'`, `'medium'`, `'soft'`
+    vim.g.gruvbox_material_background             = 'medium'
+    vim.g.gruvbox_material_enable_bold            = 1
+    vim.g.gruvbox_material_enable_italic          = 1
+    vim.g.gruvbox_material_disable_italic_comment = 0
+    -- Available values: `'auto'`, `'red'`, `'orange'`, `'yellow'`, `'green'`, `'aqua'`, `'blue'`, `'purple'`
+    vim.g.gruvbox_material_cursor = 'green'
+end
+
 vim.cmd("colorscheme " .. ENV.colorscheme)

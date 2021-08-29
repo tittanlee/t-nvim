@@ -345,6 +345,7 @@ return require("packer").startup(function(use)
         "bluz71/vim-nightfly-guicolors",
         "glepnir/zephyr-nvim",
         "rafamadriz/neon",
+        "sainnhe/gruvbox-material",
     }
 
     -- This plugin provides the same icons as well as colors for each icon.
