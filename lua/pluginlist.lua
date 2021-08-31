@@ -176,7 +176,10 @@ return require("packer").startup(function(use)
     }
 
     use {
-        "AdamWhittingham/vim-copy-filename"
+        "AdamWhittingham/vim-copy-filename",
+        config = function()
+            require("plugins.copy_file_path.keymap")
+        end
     }
 
     -- A collection of common configurations for Neovim's built-in language server client.
