@@ -103,7 +103,7 @@ end
 
 function M.diagnostics.component_opts()
     local diagnostics = function() return M.diagnostics.provider() end
-    local hl         = function() return M.diagnostics.lighlight() end
+    local hl         = function() return M.diagnostics.highlight() end
     local left_sep   = function() return M.diagnostics.separators('left') end
     local right_sep  = function() return M.diagnostics.separators('right') end
     local enabled    = function() return M.diagnostics.components_enabled() end

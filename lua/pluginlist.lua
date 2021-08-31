@@ -175,6 +175,9 @@ return require("packer").startup(function(use)
         end,
     }
 
+    use {
+        "AdamWhittingham/vim-copy-filename"
+    }
 
     -- A collection of common configurations for Neovim's built-in language server client.
     --     use {
@@ -346,8 +349,11 @@ return require("packer").startup(function(use)
         "glepnir/zephyr-nvim",
         "rafamadriz/neon",
         "sainnhe/gruvbox-material",
+        "sainnhe/sonokai",
+        "ray-x/aurora",
     }
 
     -- This plugin provides the same icons as well as colors for each icon.
     use "kyazdani42/nvim-web-devicons"
 end)
+

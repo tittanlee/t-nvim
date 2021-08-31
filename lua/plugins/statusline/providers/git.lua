@@ -1,19 +1,27 @@
 
-local git = require('feline.providers.git')
-
 local colors = require('plugins.statusline.colors')
 local icons = require('plugins.statusline.icons')
 local utils = require('plugins.statusline.utils')
- 
 
 M = {}
 
 function M.branch_name()
-    return git.git_branch({})
+    local gsd = vim.b.gitsigns_status_dict
+    return gsd['head']
 end
 
 function M.status()
-    return git.git_diff_added({}) .. git.git_diff_removed({}) ..  git.git_diff_changed({})
+    local add_icon, rmv_icon, chg_icon = '  ', '  ', '  '
+    local gsd = vim.b.gitsigns_status_dict
+    local add_num = gsd['added']
+    local rmv_num = gsd['removed']
+    local chg_num = gsd['changed']
+    if (add_num and rmv_num and chg_num == 0) then
+        return ''
+    end
+    return add_icon .. tostring(add_num) ..
+    rmv_icon .. tostring(rmv_num) ..
+    chg_icon .. tostring(chg_num)
 end
 
 function M.highlight()
@@ -40,16 +48,15 @@ function M.separators(direction)
 end
 
 function M.components_enabled()
-    return M.branch_name() ~= '' and utils.check_width()
+    return type(vim.b.gitsigns_status_dict) ~= 'nil' and
+    utils.buffer_not_empty() and
+    utils.check_width()
 end
 
 function M.component_opts()
 
     local git_provider = function()
-        return git.git_branch({}) ..
-        git.git_diff_added({}) ..
-        git.git_diff_removed({}) ..
-        git.git_diff_changed({})
+        return M.branch_name() .. M.status()
     end
 
     local hl        = function() return M.highlight() end
@@ -63,6 +70,7 @@ function M.component_opts()
     component_opts.left_sep  = left_sep
     component_opts.right_sep = right_sep
     component_opts.enabled   = enabled
+    component_opts.icon      = ' '
     return component_opts
 end
 

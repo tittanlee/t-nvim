@@ -3,6 +3,7 @@ require ('env_variable')
 
 
 if (ENV.colorscheme == "tokyonight") then
+    -- three styles, storm, night and day.
     vim.g.tokyonight_style = "storm"
     vim.g.tokyonight_menu_selection_background = "red"
     vim.g.tokyonight_italic_functions = true

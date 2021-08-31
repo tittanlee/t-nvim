@@ -41,12 +41,21 @@ function M.components_enabled()
     return utils.check_width() and utils.buffer_not_empty()
 end
 
+
+function M.components_icon()
+    local filename  = vim.fn.expand("%")
+    local extension = vim.fn.expand("%:e")
+    local file_icon = require("nvim-web-devicons").get_icon(filename, extension, { default = true })
+    return file_icon
+end
+
 function M.component_opts()
     local file_path = function() return M.file_path('relative') end
     local hl        = function() return M.highlight() end
     local left_sep  = function() return M.separators('left') end
     local right_sep = function() return M.separators('right') end
     local enabled   = function() return M.components_enabled() end
+    local file_icon = function() return M.components_icon() end
 
     local component_opts = {}
     component_opts.provider  = file_path
@@ -54,6 +63,7 @@ function M.component_opts()
     component_opts.left_sep  = left_sep
     component_opts.right_sep = right_sep
     component_opts.enabled   = enabled
+    component_opts.icon      = file_icon
 
     return component_opts
 end

@@ -9,9 +9,7 @@ local utils = require('plugins.statusline.utils')
 local M = {}
 
 function M.file_encoding()
-    local icon = '👽 '
-    local fenc = file.file_encoding()
-    return icon .. fenc
+    return file.file_encoding()
 end
 
 function M.highlight()
@@ -54,7 +52,7 @@ function M.component_opts()
     component_opts.left_sep  = left_sep
     component_opts.right_sep = right_sep
     component_opts.enabled   = enabled
-
+    component_opts.icon      = '👽 '
     return component_opts
 end
 
