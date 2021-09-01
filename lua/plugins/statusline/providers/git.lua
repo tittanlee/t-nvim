@@ -16,7 +16,7 @@ function M.status()
     local add_num = gsd['added']
     local rmv_num = gsd['removed']
     local chg_num = gsd['changed']
-    if (add_num and rmv_num and chg_num == 0) then
+    if (add_num == 0 and rmv_num == 0 and chg_num == 0) then
         return ''
     end
     return add_icon .. tostring(add_num) ..

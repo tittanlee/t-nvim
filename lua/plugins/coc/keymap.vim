@@ -38,7 +38,7 @@ nmap <silent> gD <Plug>(coc-declaration)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
-nmap <silent> gh <Plug>(coc-doHover)
+nmap <silent> gh :call <SID>show_documentation()<CR>
 
 
 " coc floating window scroll up/down
