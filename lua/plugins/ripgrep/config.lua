@@ -10,10 +10,10 @@ vim.g.grepper = {
     jump = 0,
     prompt = 1,
     tools = { "rg" },
-    -- rg = {
-    --     grepprg = "rg -H --no-heading --vimgrep --smart-case $* .",
-    -- --     -- grepformat = "%f:%l:%c: %m"
-    -- }
+    rg = {
+        grepprg = "rg -H --no-heading --vimgrep --smart-case $*",
+        -- grepformat = "%f:%l:%c: %m"
+    }
 }
 
 

@@ -9,7 +9,7 @@ let s:fzf_gtags_fields = {
 let s:fzf_gtags_interface_opts = [
             \ '--with-nth', '1',
             \ '--delimiter', ' ',
-            \ '--prompt', "Gtags_Jump > "
+            \ '--prompt', 'Gtags_Jump > '
             \ ]
 
 function! fzf_gtags#jump(identifier, param)

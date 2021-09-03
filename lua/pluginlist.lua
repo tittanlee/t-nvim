@@ -282,9 +282,16 @@ return require("packer").startup(function(use)
         config = function()
             require("plugins.bufdelete.keymap")
         end
-
     }
 
+    -- match-up is a plugin that lets you highlight, navigate, and operate on sets of matching text.
+    -- It extends vim's % key to language-specific words instead of just single characters.
+    use {
+        "andymass/vim-matchup",
+        config = function ()
+            require("plugins.matchup.config")
+        end
+    }
 
     -- Toggle comments in Neovim
     use {

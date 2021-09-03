@@ -10,7 +10,7 @@ let s:fzf_ctags_fields = {
 let s:fzf_ctags_interface_opts = [
             \ '--with-nth', '1',
             \ '--delimiter', ' ',
-            \ '--prompt="Ctags_Jump > " '
+            \ '--prompt', 'Ctags_Jump > '
             \ ]
 
 function! fzf_ctags#jump(identifier)
