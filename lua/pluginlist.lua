@@ -361,6 +361,7 @@ return require("packer").startup(function(use)
         "sainnhe/gruvbox-material",
         "sainnhe/sonokai",
         "ray-x/aurora",
+        "Pocco81/Catppuccino.nvim",
     }
 
     -- This plugin provides the same icons as well as colors for each icon.

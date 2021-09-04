@@ -12,7 +12,7 @@ USER        = vim.fn.expand "$USER"
 ENV = {
     leader_key = " ", -- space as leader key
     local_leader_key = ",",
-    colorscheme = "tokyonight",
+    colorscheme = "catppuccino",
 
     is_mac     = os_name == 'Darwin',
     is_linux   = os_name == 'Linux',

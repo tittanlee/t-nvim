@@ -45,4 +45,55 @@ if (ENV.colorscheme == "gruvbox-material") then
     vim.g.gruvbox_material_cursor = 'green'
 end
 
+if (ENV.colorscheme == "catppuccino") then
+    local catppuccino = require("catppuccino")
+    -- configure it
+    catppuccino.setup({
+        -- dark_catppuccino, neon_latte, soft_manilo, light_melya
+        colorscheme = "soft_manilo",
+        transparency = false,
+        term_colors = true,
+        styles = {
+            comments  = "italic",
+            functions = "italic",
+            keywords  = "italic",
+            strings   = "NONE",
+            variables = "NONE",
+        },
+        integrations = {
+            treesitter = true,
+            native_lsp = {
+                enabled = true,
+                styles = {
+                    errors      = "italic",
+                    hints       = "italic",
+                    warnings    = "italic",
+                    information = "italic"
+                }
+            },
+            lsp_trouble = false,
+            lsp_saga    = false,
+            gitgutter   = false,
+            gitsigns    = true,
+            telescope   = false,
+            nvimtree = {
+                enabled   = true,
+                show_root = true,
+            },
+            which_key        = false,
+            indent_blankline = true,
+            dashboard        = false,
+            neogit           = false,
+            vim_sneak        = false,
+            fern             = false,
+            barbar           = false,
+            bufferline       = true,
+            markdown         = false,
+            lightspeed       = true,
+            ts_rainbow       = false,
+            hop              = false,
+        }
+    })
+end
+
 vim.cmd("colorscheme " .. ENV.colorscheme)
