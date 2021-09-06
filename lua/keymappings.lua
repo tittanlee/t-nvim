@@ -44,6 +44,11 @@ vim.api.nvim_set_keymap("n", "<LEADER>sh", ":split  <CR>",  { noremap = true, si
 -- terminal insert/normal mode switch
 vim.api.nvim_set_keymap("t", "<C-\\><C-\\>", "<C-\\><C-n>",  { noremap = true, silent = true })
 
+-- paste alway use register 0
+vim.api.nvim_set_keymap("n", "p", "\"0p",  { noremap = true, silent = true })
+vim.api.nvim_set_keymap("x", "p", "\"0p",  { noremap = true, silent = true })
+vim.api.nvim_set_keymap("o", "p", "\"0p",  { noremap = true, silent = true })
+
 -- F2 save
 vim.api.nvim_set_keymap("n", "<F2>", ":w! <CR>", { silent = false })
 vim.api.nvim_set_keymap("i", "<F2>", "<ESC> :w! <CR>", { silent = false })
@@ -56,7 +61,10 @@ vim.api.nvim_set_keymap("i", "<F3>", "<ESC> :so % <CR>", { silent = false })
 vim.api.nvim_set_keymap("n", "<F4>", ":quit! <CR>", { silent = true })
 vim.api.nvim_set_keymap("i", "<F4>", "<ESC> :quit! <CR>", { silent = true })
 
+-- F7 toggle git related information
+vim.api.nvim_set_keymap("n", "<F7>", ":lua ENV.status_show_git_info = not ENV.status_show_git_info<CR>", { silent = true })
+
 -- F8 toggle current function in status line
-vim.api.nvim_set_keymap("n", "<F8>", ":lua ENV.show_current_func = not ENV.show_current_func <CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<F8>", ":lua ENV.status_show_current_func = not ENV.status_show_current_func<CR>", { silent = true })
 
 

@@ -50,7 +50,8 @@ end
 function M.components_enabled()
     return type(vim.b.gitsigns_status_dict) ~= 'nil' and
     utils.buffer_not_empty() and
-    utils.check_width()
+    utils.check_width() and
+    ENV.status_show_git_info
 end
 
 function M.component_opts()

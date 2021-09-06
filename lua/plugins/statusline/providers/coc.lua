@@ -40,7 +40,7 @@ end
 function M.current_function.components_enabled()
     return vim.b.coc_current_function ~= '' and
     vim.fn.exists('b:coc_current_function') ~= 0 and
-    ENV.show_current_func
+    ENV.status_show_current_func
 end
 
 function M.current_function.component_opts()

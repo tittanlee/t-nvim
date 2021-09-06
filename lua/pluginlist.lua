@@ -251,6 +251,15 @@ return require("packer").startup(function(use)
         end
     }
 
+    use {
+        "lfv89/vim-interestingwords",
+        config = function ()
+            require("plugins.highlight_str.config")
+        end
+
+    }
+
+
     -- A minimal, stylish and customizable statusline for Neovim written in Lua
     use {
         "Famiu/feline.nvim",
@@ -270,6 +279,14 @@ return require("packer").startup(function(use)
 
                 config = function()
                     require("plugins.git.config")
+                end,
+            },
+
+            -- Take this handy dandy gps with you on your coding adventures and always know where you are!
+            use {
+                "SmiteshP/nvim-gps",
+                config = function()
+                    require("plugins.gps.config")
                 end,
             }
         },

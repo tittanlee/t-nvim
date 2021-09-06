@@ -81,7 +81,7 @@ if (ENV.colorscheme == "catppuccino") then
                 show_root = true,
             },
             which_key        = false,
-            indent_blankline = true,
+            indent_blankline = false,
             dashboard        = false,
             neogit           = false,
             vim_sneak        = false,

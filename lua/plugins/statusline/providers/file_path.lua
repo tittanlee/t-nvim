@@ -17,7 +17,7 @@ end
 function M.highlight()
     local hl_val = {}
     hl_val.fg = colors.dark.yellow
-    hl_val.bg = colors.dark.cyan
+    hl_val.bg = colors.dark.darkgray
     hl_val.style = 'bold'
     return hl_val
 end
@@ -32,7 +32,7 @@ function M.separators(direction)
     end
 
     sep.hl = {
-        fg = colors.dark.cyan
+        fg = colors.dark.darkgray
     }
     return sep
 end
