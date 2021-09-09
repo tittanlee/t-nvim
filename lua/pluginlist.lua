@@ -332,6 +332,15 @@ return require("packer").startup(function(use)
         end,
     }
 
+    -- Hop is an EasyMotion-like plugin allowing you to jump anywhere
+    use {
+        "phaazon/hop.nvim",
+        config = function()
+            require("plugins.hop.config")
+            require("plugins.hop.keymap")
+        end,
+    }
+
     -- A high-performance color highlighter for Neovim which has no external dependencies! Written in performant Luajit.
     use {
         "norcalli/nvim-colorizer.lua",
@@ -382,6 +391,8 @@ return require("packer").startup(function(use)
     }
 
     -- This plugin provides the same icons as well as colors for each icon.
-    use "kyazdani42/nvim-web-devicons"
+    use {
+        "kyazdani42/nvim-web-devicons"
+    }
 end)
 
