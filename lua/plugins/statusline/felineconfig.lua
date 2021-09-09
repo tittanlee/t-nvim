@@ -35,48 +35,64 @@ local properties = {
     }
 }
 
+-- local components = {
+--     left  = {active = {}, inactive = {}},
+--     mid   = {active = {}, inactive = {}},
+--     right = {active = {}, inactive = {}}
+-- }
+
+-- Initialize the components table
 local components = {
-    left  = {active = {}, inactive = {}},
-    mid   = {active = {}, inactive = {}},
-    right = {active = {}, inactive = {}}
+    active = {},
+    inactive = {}
 }
 
+-- Insert three sections (left, mid and right) for the active statusline
+table.insert(components.active, {})
+table.insert(components.active, {})
+table.insert(components.active, {})
+-- 
+-- -- Insert two sections (left and right) for the inactive statusline
+table.insert(components.inactive, {})
+table.insert(components.inactive, {})
+
+
 -------------------- insert inactive start -------------------- {
-table.insert(components.left.inactive, file_type.inactive_component_opts())
-table.insert(components.right.inactive, file_path.component_opts())
--------------------- insert inactive end -------------------- {
+table.insert(components.inactive[1], file_type.inactive_component_opts())
+table.insert(components.inactive[2], file_path.component_opts())
+-- -------------------- insert inactive end -------------------- {
 
--------------------- insert left start -------------------- {
-table.insert(components.left.active, util.component_gap())
-table.insert(components.left.active, vi_mode.component_opts())
-table.insert(components.left.active, util.component_gap())
+-- -------------------- insert left start -------------------- {
+table.insert(components.active[1], util.component_gap())
+table.insert(components.active[1], vi_mode.component_opts())
+table.insert(components.active[1], util.component_gap())
+-- 
+table.insert(components.active[1], file_path.component_opts())
+table.insert(components.active[1], util.component_gap())
 
-table.insert(components.left.active, file_path.component_opts())
-table.insert(components.left.active, util.component_gap())
+table.insert(components.active[1], git.component_opts())
+table.insert(components.active[1], util.component_gap())
 
-table.insert(components.left.active, git.component_opts())
-table.insert(components.left.active, util.component_gap())
+table.insert(components.active[1], gps.component_opts())
+table.insert(components.active[1], util.component_gap())
+-- -------------------- insert left end -------------------- }
 
-table.insert(components.left.active, gps.component_opts())
-table.insert(components.left.active, util.component_gap())
--------------------- insert left end -------------------- }
+-- -------------------- insert mid start -------------------- {
+table.insert(components.active[2], gutentags.component_opts())
+-- -------------------- insert mid end -------------------- }
 
--------------------- insert mid start -------------------- {
-table.insert(components.mid.active, gutentags.component_opts())
--------------------- insert mid end -------------------- }
+-- -------------------- insert right start -------------------- {
+table.insert(components.active[3], coc.diagnostics.component_opts())
+table.insert(components.active[3], util.component_gap())
 
--------------------- insert right start -------------------- {
-table.insert(components.right.active, coc.diagnostics.component_opts())
-table.insert(components.right.active, util.component_gap())
+table.insert(components.active[3], file_enc.component_opts())
+table.insert(components.active[3], util.component_gap())
 
-table.insert(components.right.active, file_enc.component_opts())
-table.insert(components.right.active, util.component_gap())
+table.insert(components.active[3], file_fmt.component_opts())
+table.insert(components.active[3], util.component_gap())
 
-table.insert(components.right.active, file_fmt.component_opts())
-table.insert(components.right.active, util.component_gap())
-
-table.insert(components.right.active, cursor_pos.component_opts())
-table.insert(components.right.active, util.component_gap())
+table.insert(components.active[3], cursor_pos.component_opts())
+table.insert(components.active[3], util.component_gap())
 -------------------- insert right end -------------------- }
 
 require('feline').setup({
