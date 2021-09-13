@@ -11,28 +11,26 @@ local file_fmt   = require('plugins.statusline.providers.file_fmt')
 local vi_mode    = require('plugins.statusline.providers.vimode')
 local git        = require('plugins.statusline.providers.git')
 local coc        = require('plugins.statusline.providers.coc')
-local gps        = require('plugins.statusline.providers.gps')
 local gutentags  = require('plugins.statusline.providers.gutentags')
 local cursor_pos = require('plugins.statusline.providers.cursor_pos')
 
-local properties = {
-    force_inactive = {
-        filetypes = {
-            'NvimTree',
-            'dbui',
-            'packer',
-            'startify',
-            'fugitive',
-            'fugitiveblame',
-            'coc-explorer',
-            'coctree',
-            'fzf',
-        },
-        buftypes = {
-            'terminal'
-        },
-        bufnames = {}
-    }
+force_inactive = {
+    filetypes = {
+        'NvimTree',
+        'dbui',
+        'packer',
+        'startify',
+        'fugitive',
+        'fugitiveblame',
+        'coc-explorer',
+        'coctree',
+        'fzf',
+        'qf',
+    },
+    buftypes = {
+        'terminal'
+    },
+    bufnames = {}
 }
 
 -- local components = {
@@ -73,7 +71,7 @@ table.insert(components.active[1], util.component_gap())
 table.insert(components.active[1], git.component_opts())
 table.insert(components.active[1], util.component_gap())
 
-table.insert(components.active[1], gps.component_opts())
+table.insert(components.active[1], coc.current_function.component_opts())
 table.insert(components.active[1], util.component_gap())
 -- -------------------- insert left end -------------------- }
 
@@ -102,6 +100,7 @@ require('feline').setup({
     components = components,
     properties = properties,
     separators = icons.separators,
+    force_inactive = force_inactive,
 })
 
 

@@ -2,17 +2,16 @@
 local icons = {
     diagnostic = {
         error = "",
-        warn = "",
-        info = "!"
+        warn  = "",
+        info  = "!"
     },
 
-    diff = {
-        Add = "",
-        Modified = "",
-        Remove = ""
+    git = {
+        branch   = "",
+        add      = "",
+        modified = "",
+        remove   = ""
     },
-
-    git = "",
 
     mode = {
         c = "🅒",

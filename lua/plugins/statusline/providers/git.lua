@@ -71,7 +71,7 @@ function M.component_opts()
     component_opts.left_sep  = left_sep
     component_opts.right_sep = right_sep
     component_opts.enabled   = enabled
-    component_opts.icon      = ' '
+    component_opts.icon      = icons.git.branch .. " "
     return component_opts
 end
 

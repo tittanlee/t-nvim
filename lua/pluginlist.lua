@@ -63,9 +63,6 @@ return require("packer").startup(function(use)
         "junegunn/fzf",
         requires = {
             { "junegunn/fzf.vim" },
-            -- { "atn34/vim-fzf-sources" },
-            -- { "zackhsi/fzf-tags" },
-            -- { "roosta/fzfolds.vim" },
         },
         config = function()
             vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/fuzzy_fzf/config.vim")
@@ -73,29 +70,22 @@ return require("packer").startup(function(use)
         end,
     }
 
-    -- use {
-    --     'camspiers/snap',
-    --     config = function ()
-    --         require("plugins.snap.config")
-    --     end,
-    -- }
-
-
     -- telescope.nvim is a highly extendable fuzzy finder over lists.
-    --use --{
-        --"nvim-telescope/telescope.nvim",
-
-        --requires = {
-            --{"nvim-lua/popup.nvim"  },
-            --{"nvim-lua/plenary.nvim"}
-        --},
-
-        --config = function()
-            --require("plugins.telescope.config")
-            --require("plugins.telescope.keymap")
-        --end
-
-    --}
+--     use {
+--         "nvim-telescope/telescope.nvim",
+-- 
+--         branch = "scrollin",
+-- 
+--         requires = {
+--             {"nvim-lua/popup.nvim"  },
+--             {"nvim-lua/plenary.nvim"}
+--         },
+-- 
+--         config = function()
+--             require("plugins.telescope.config")
+--             require("plugins.telescope.keymap")
+--         end
+--     }
 
     ---- telescop extensions
     --use {
@@ -122,12 +112,12 @@ return require("packer").startup(function(use)
                 end,
             },
 
-            use {
-                "nvim-treesitter/nvim-treesitter-refactor",
-                config = function ()
-                    require("plugins.treesitter.refactor")
-                end,
-            },
+            -- use {
+            --     "nvim-treesitter/nvim-treesitter-refactor",
+            --     config = function ()
+            --         require("plugins.treesitter.refactor")
+            --     end,
+            -- },
 
             use {
                 "nvim-treesitter/nvim-treesitter-textobjects",
@@ -267,30 +257,29 @@ return require("packer").startup(function(use)
         config = function()
             require("plugins.statusline.felineconfig")
         end,
+    }
+
+    -- Super fast git decorations implemented purely in lua/teal
+    use {
+        "lewis6991/gitsigns.nvim",
 
         requires = {
-            -- Super fast git decorations implemented purely in lua/teal.
-            use {
-                "lewis6991/gitsigns.nvim",
-
-                requires = {
-                    'nvim-lua/plenary.nvim'
-                },
-
-                config = function()
-                    require("plugins.git.config")
-                end,
-            },
-
-            -- Take this handy dandy gps with you on your coding adventures and always know where you are!
-            use {
-                "SmiteshP/nvim-gps",
-                config = function()
-                    require("plugins.gps.config")
-                end,
-            }
+            'nvim-lua/plenary.nvim'
         },
+
+        config = function()
+            require("plugins.git.config")
+        end,
     }
+
+    -- galaxyline is a light-weight and Super Fast statusline plugin. 
+--     use {
+--         "glepnir/galaxyline.nvim",
+-- 
+--         config = function()
+--             require("plugins.statusline.galaxy_config")
+--         end
+--     }
 
     -- Delete a buffer without messing up your window layout
     use {
