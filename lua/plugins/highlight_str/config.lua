@@ -1,4 +1,14 @@
 
+vim.g.interestingWordsGUIColors = {
+    '#8CCBEA',
+    '#A4E57E',
+    '#FFDB72',
+    '#FF7272',
+    '#FFB3FF',
+    '#9999FF',
+    '#FF3FfF',
+    '#8F3F4F',
+}
 
 -- to disable default mapping
 vim.g.interestingWordsDefaultMappings = 0

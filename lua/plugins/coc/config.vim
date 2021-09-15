@@ -12,11 +12,12 @@ call coc#add_extension(
             \ "coc-tsserver",
             \ "coc-clangd",
             \ "coc-vimlsp",
-            \ "coc-pyright",
             \ "coc-sh",
             \ "coc-lua",
+            \ "coc-jedi",
             \ )
 
+            " \ "coc-pyright",
             " \ "coc-explorer",
             " \ "coc-sumneko-lua",
 
