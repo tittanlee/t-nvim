@@ -12,3 +12,5 @@ let g:gen_clang_conf#suffix_list = ['.c', '.cc', '.cpp', '.h', '.hh']
 let g:gen_clang_conf#default_conf = ['%c -std=c11', '%cpp -std=c++14']
 
 let g:gen_clang_conf#conf_name = 'compile_flags.txt'
+
+let g:gen_clang_conf#load_tags = 0
