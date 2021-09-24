@@ -11,7 +11,7 @@ vim.g.grepper = {
     prompt = 1,
     tools = { "rg" },
     rg = {
-        grepprg = "rg -H --no-heading --vimgrep --smart-case $*",
+        grepprg = "rg -H --no-heading --vimgrep --smart-case $* .",
         -- grepformat = "%f:%l:%c: %m"
     }
 }

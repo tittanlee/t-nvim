@@ -8,17 +8,11 @@ function M.buffer_not_empty()
 end
 
 function M.check_width()
-    local squeeze_width = vim.fn.winwidth(0) / 2
-    if squeeze_width > 45 then
+    local squeeze_width = vim.fn.winwidth(0)
+    if squeeze_width > 90 then
         return true
     end
     return false
-end
-
-function M.component_gap()
-    return { 
-        provider = ' '
-    }
 end
 
 return M

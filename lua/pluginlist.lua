@@ -150,7 +150,6 @@ return require("packer").startup(function(use)
         },
     }
 
-
     use {
         "fcying/gen_clang_conf.vim",
         config = function ()
@@ -246,18 +245,24 @@ return require("packer").startup(function(use)
         config = function ()
             require("plugins.highlight_str.config")
         end
-
     }
 
+    use {
+        "hoob3rt/lualine.nvim",
+        config = function ()
+            require("plugins.statusline.lualine_config")
+        end
+
+    }
 
     -- A minimal, stylish and customizable statusline for Neovim written in Lua
-    use {
-        "Famiu/feline.nvim",
-
-        config = function()
-            require("plugins.statusline.felineconfig")
-        end,
-    }
+--     use {
+--         "Famiu/feline.nvim",
+-- 
+--         config = function()
+--             require("plugins.statusline.felineconfig")
+--         end,
+--     }
 
     -- Super fast git decorations implemented purely in lua/teal
     use {
