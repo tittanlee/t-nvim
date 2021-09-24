@@ -19,7 +19,7 @@ function M.highlight()
     return {
         fg = colors.dark.black,
         bg = colors.dark.yellow,
-        style = 'bold'
+        gui = 'bold'
     }
 end
 

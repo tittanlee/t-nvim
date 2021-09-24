@@ -9,7 +9,7 @@ end
 
 function M.check_width()
     local squeeze_width = vim.fn.winwidth(0)
-    if squeeze_width > 90 then
+    if squeeze_width > 100 then
         return true
     end
     return false

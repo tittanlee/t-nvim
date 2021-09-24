@@ -32,4 +32,12 @@ function M.component_opts()
     }
 end
 
+function M.inact_component_opts()
+    return {
+        M.file_type,
+        color     = M.highlight(),
+    }
+end
+
+
 return M

@@ -20,6 +20,7 @@ ENV = {
     path_sep   = is_windows and '\\' or '/',
 
     -- feline show current function flag
+    status_show_file_path    = 'relative', -- relative or absolute
     status_show_current_func = false,
     status_show_git_info     = true,
 

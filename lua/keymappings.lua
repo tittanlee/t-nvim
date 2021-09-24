@@ -56,6 +56,20 @@ vim.api.nvim_set_keymap("i", "<F3>", "<ESC> :so % <CR>", { silent = false })
 vim.api.nvim_set_keymap("n", "<F4>", ":quit! <CR>", { silent = true })
 vim.api.nvim_set_keymap("i", "<F4>", "<ESC> :quit! <CR>", { silent = true })
 
+-- F6 to switch absolute or relative file path
+function file_path_switch()
+    if ENV.status_show_file_path == 'relative' then
+        ENV.status_show_file_path = 'absolute'
+        return
+    end
+
+    if ENV.status_show_file_path == 'absolute' then
+        ENV.status_show_file_path = 'relative'
+        return
+    end
+end
+vim.api.nvim_set_keymap("n", "<F6>", ":call v:lua.file_path_switch()<CR>", { silent = true})
+
 -- F7 toggle git related information
 vim.api.nvim_set_keymap("n", "<F7>", ":lua ENV.status_show_git_info = not ENV.status_show_git_info<CR>", { silent = true })
 

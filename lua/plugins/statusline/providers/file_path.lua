@@ -7,7 +7,11 @@ local utils = require('plugins.statusline.utils')
 local M = {}
 
 function M.file_path()
-    return vim.fn.expand('%:~:.')
+    local file_path_array = {
+        ['absolute'] = vim.fn.expand('%:p'),
+        ['relative'] = vim.fn.expand('%:~:.')
+    }
+    return file_path_array[ENV.status_show_file_path]
 end
 
 function M.highlight()
@@ -19,7 +23,7 @@ function M.highlight()
 end
 
 function M.components_enabled()
-    return utils.check_width() and utils.buffer_not_empty()
+    return utils.buffer_not_empty()
 end
 
 function M.components_icon()

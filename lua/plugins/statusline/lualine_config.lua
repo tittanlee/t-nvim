@@ -28,7 +28,7 @@ local cursor_pos = require('plugins.statusline.providers.cursor_pos')
 -- }
 local config = {
     options = {
-        theme                = 'tokyonight',
+        theme                = 'gruvbox',
         component_separators = '',
         section_separators   = '',
         padding              = 0, -- adds padding to the left and right of components
@@ -54,10 +54,7 @@ local config = {
         lualine_z = {}
     },
     tabline = {},
-    extensions = {
-        'nvim-tree',
-        'fzf',
-    }
+    extensions = {}
 }
 
 -- Inserts a component in active section
@@ -130,25 +127,26 @@ ins_right(sep.space_component_opts())
 
 
 -- inactive left section -- start
-ins_inact_left(file_type.component_opts())
+local inact_condition = function() return true end
+ins_inact_left(file_type.inact_component_opts())
 ins_inact_left(
     sep.right_component_opts(
         file_type.highlight(),
-        file_type.components_enabled
+        inact_condition
     )
 )
--- inactive left section -- enc
+-- inactive left section -- end
 
 
 -- inactive right section -- start
 ins_inact_right(
     sep.left_component_opts(
         file_path.highlight(),
-        file_path.components_enabled
+        inact_condition
     )
 )
 ins_inact_right(file_path.component_opts())
--- inactive right section -- enc
+-- inactive right section -- end
 
 
 
