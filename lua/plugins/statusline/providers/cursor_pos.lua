@@ -1,37 +1,46 @@
 
 
-local cursor = require('feline.providers.cursor')
-
+local api = vim.api
 local colors = require('plugins.statusline.colors')
 local icons = require('plugins.statusline.icons')
 
 local M = {}
 
-function M.cursor_position()
-    return cursor.line_percentage() .. ' ' .. cursor.scroll_bar()
+function M.position(_, winid)
+    return string.format('%3d:%-2d', unpack(api.nvim_win_get_cursor(winid)))
+end
+
+function M.line_percentage(_, winid)
+    local curr_line = api.nvim_win_get_cursor(winid)[1]
+    local lines = api.nvim_buf_line_count(api.nvim_win_get_buf(winid))
+
+    if curr_line == 1 then
+        return "Top"
+    elseif curr_line == lines then
+        return "Bot"
+    else
+        return string.format('%2d%%%%', math.ceil(curr_line / lines * 99))
+    end
+end
+
+function M.scroll_bar(_, winid)
+    local blocks =  {'▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'}
+    local width = 2
+
+    local curr_line = api.nvim_win_get_cursor(winid)[1]
+    local lines = api.nvim_buf_line_count(api.nvim_win_get_buf(winid))
+
+    local index = math.floor(curr_line / lines * (#blocks - 1)) + 1
+
+    return string.rep(blocks[index], width)
 end
 
 function M.highlight()
-    local hl_val = {}
-    hl_val.fg = colors.dark.black
-    hl_val.bg = colors.dark.cyan
-    hl_val.style = 'bold'
-    return hl_val
-end
-
-function M.separators(direction)
-    local sep = {}
-
-    if (direction == 'left') then
-        sep.str = icons.separators.left_rounded
-    else
-        sep.str = icons.separators.right_rounded
-    end
-
-    sep.hl = {
-        fg = colors.dark.cyan
+    return {
+        fg = colors.dark.black,
+        bg = colors.dark.cyan,
+        gui = 'bold'
     }
-    return sep
 end
 
 function M.components_enabled()
@@ -39,20 +48,14 @@ function M.components_enabled()
 end
 
 function M.component_opts()
-    local cur_pos  = function() return M.cursor_position() end
-    local hl        = function() return M.highlight() end
-    local left_sep  = function() return M.separators('left') end
-    local right_sep = function() return M.separators('right') end
-    local enabled   = function() return M.components_enabled() end
-
-    local component_opts = {}
-    component_opts.provider  = cur_pos
-    component_opts.hl        = hl
-    component_opts.left_sep  = left_sep
-    component_opts.right_sep = right_sep
-    component_opts.enabled   = enabled
-
-    return component_opts
+    return {
+        function()
+            return M.line_percentage() .. M.position() .. M.scroll_bar()
+        end,
+        icon = '',
+        color     = M.highlight(),
+        condition = M.components_enabled
+    }
 end
 
 return M
