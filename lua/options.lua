@@ -50,8 +50,16 @@ o.incsearch  = true
 o.number         = true
 o.relativenumber = true
 o.cmdheight      = 1
-o.list           = true
-o.listchars      = 'tab:». ,trail:•,precedes:❮,extends:❯,nbsp:␣'
+vim.opt.list     = true
+vim.opt.listchars = {
+    tab      = '». ',
+    trail    = '•',
+    precedes = '❮',
+    extends  = '❯',
+    nbsp     = '␣',
+    eol      = "↴",
+    -- space    = "⋅",
+}
 o.showbreak      = "↪"
 
 -- syntax, highlighting and spelling

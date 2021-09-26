@@ -41,7 +41,7 @@ require('gitsigns').setup {
     },
     current_line_blame_formatter = line_blame_formatter,
 
-    watch_index = {
+    watch_gitdir = {
         interval = 1000,
         follow_files = true
     },

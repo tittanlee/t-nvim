@@ -3,13 +3,14 @@
 require("indent_blankline").setup {
     -- char = "▌",
     -- char = "|",
-    char ='│',
-    enabled = true,
-    use_treesitter = false,
-    show_current_context = true,
-    show_end_of_line = true,
-    show_first_indent_level = true,
+    char                           = '│',
+    enabled                        = true,
+    use_treesitter                 = false,
+    show_current_context           = true,
+    show_end_of_line               = true,
+    show_first_indent_level        = true,
     show_trailing_blankline_indent = false,
+    space_char_blankline           = " ",
 
     filetype_exclude = {
         "startify", "dashboard", "dotooagenda", "log", "fugitive",
