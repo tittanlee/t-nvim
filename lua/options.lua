@@ -57,7 +57,7 @@ vim.opt.listchars = {
     precedes = '❮',
     extends  = '❯',
     nbsp     = '␣',
-    eol      = "↴",
+    -- eol      = "↴",
     -- space    = "⋅",
 }
 o.showbreak      = "↪"

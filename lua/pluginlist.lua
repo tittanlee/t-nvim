@@ -150,6 +150,14 @@ return require("packer").startup(function(use)
         },
     }
 
+    -- Tagbar: a class outline viewer for Vim
+    use {
+        "preservim/tagbar",
+        config = function ()
+            vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/tagbar/config.vim")
+        end
+    }
+
     use {
         "fcying/gen_clang_conf.vim",
         config = function ()
@@ -216,7 +224,6 @@ return require("packer").startup(function(use)
         end,
         config = function()
             require("plugins.nvimtree.config")
-            require("plugins.nvimtree.keymap")
         end,
     }
 
