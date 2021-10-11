@@ -54,7 +54,10 @@ local config = {
         lualine_z = {}
     },
     tabline = {},
-    extensions = {}
+    extensions = {
+        'fzf',
+        'quickfix'
+    }
 }
 
 -- Inserts a component in active section
