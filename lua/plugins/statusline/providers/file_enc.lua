@@ -30,9 +30,9 @@ end
 function M.component_opts()
     return {
         M.file_encoding,
-        icon      = '👽',
-        color     = M.highlight(),
-        condition = M.components_enabled
+        icon  = '👽',
+        color = M.highlight(),
+        cond  = M.components_enabled
     }
 end
 

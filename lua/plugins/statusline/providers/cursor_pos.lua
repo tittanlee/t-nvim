@@ -54,7 +54,7 @@ function M.component_opts()
         end,
         icon = '',
         color     = M.highlight(),
-        condition = M.components_enabled
+        cond = M.components_enabled
     }
 end
 

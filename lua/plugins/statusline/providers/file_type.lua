@@ -27,8 +27,8 @@ end
 function M.component_opts()
     return {
         M.file_type,
-        color     = M.highlight(),
-        condition = M.components_enabled
+        color = M.highlight(),
+        cond  = M.components_enabled
     }
 end
 

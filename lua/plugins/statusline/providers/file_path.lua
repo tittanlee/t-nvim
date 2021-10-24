@@ -36,9 +36,9 @@ end
 function M.component_opts()
     return {
         M.file_path,
-        icon = M.components_icon(),
+        icon  = M.components_icon(),
         color = M.highlight(),
-        condition = M.components_enabled
+        cond  = M.components_enabled
     }
 end
 

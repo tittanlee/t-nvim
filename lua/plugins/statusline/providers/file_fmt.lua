@@ -31,8 +31,8 @@ end
 function M.component_opts()
     return {
         M.file_format,
-        color     = M.highlight(),
-        condition = M.components_enabled
+        color = M.highlight(),
+        cond  = M.components_enabled
     }
 end
 

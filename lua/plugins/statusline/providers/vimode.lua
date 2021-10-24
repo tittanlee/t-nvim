@@ -25,9 +25,9 @@ end
 function M.component_opts()
     return {
         M.vim_mode,
-        icon = '',
+        icon  = '',
         color = M.highlight(),
-        condition = M.components_enabled
+        cond  = M.components_enabled
     }
 end
 

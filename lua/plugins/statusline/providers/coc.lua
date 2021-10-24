@@ -32,7 +32,7 @@ function M.current_function.component_opts()
     return {
         M.current_function.provider,
         color = M.current_function.highlight(),
-        condition = M.current_function.components_enabled
+        cond = M.current_function.components_enabled
     }
 end
 
@@ -66,7 +66,7 @@ function M.diagnostics.component_opts()
         M.diagnostics.provider,
         icon = '⚡',
         color = M.diagnostics.highlight(),
-        condition = M.diagnostics.components_enabled
+        cond  = M.diagnostics.components_enabled
     }
 end
 

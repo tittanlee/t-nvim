@@ -20,7 +20,7 @@ function M.left_component_opts(highlight, condition)
             fg = highlight.bg,
             -- bg = highlight.fg
         },
-        condition = function() return condition() end
+        cond = function() return condition() end
     }
 end
 
@@ -31,7 +31,7 @@ function M.right_component_opts(highlight, condition)
             fg = highlight.bg,
             -- bg = highlight.fg
         },
-        condition = function() return condition() end
+        cond = function() return condition() end
     }
 end
 

@@ -44,9 +44,9 @@ function M.component_opts()
         function()
             return M.branch_name() .. M.status()
         end,
-        icon = icons.git.branch,
+        icon  = icons.git.branch,
         color = M.highlight(),
-        condition = M.components_enabled
+        cond  = M.components_enabled
     }
 end
 
