@@ -44,6 +44,19 @@ vim.api.nvim_set_keymap("n", "<LEADER>sh", ":split  <CR>",  { noremap = true, si
 -- terminal insert/normal mode switch
 vim.api.nvim_set_keymap("t", "<C-\\><C-\\>", "<C-\\><C-n>",  { noremap = true, silent = true })
 
+-- folding level customized
+vim.api.nvim_set_keymap("n", "z0", ":set foldlevel=0<CR>",  { noremap = true, silent = false })
+vim.api.nvim_set_keymap("n", "z1", ":set foldlevel=1<CR>",  { noremap = true, silent = false })
+vim.api.nvim_set_keymap("n", "z2", ":set foldlevel=2<CR>",  { noremap = true, silent = false })
+vim.api.nvim_set_keymap("n", "z3", ":set foldlevel=3<CR>",  { noremap = true, silent = false })
+vim.api.nvim_set_keymap("n", "z4", ":set foldlevel=4<CR>",  { noremap = true, silent = false })
+vim.api.nvim_set_keymap("n", "z5", ":set foldlevel=5<CR>",  { noremap = true, silent = false })
+vim.api.nvim_set_keymap("n", "z6", ":set foldlevel=6<CR>",  { noremap = true, silent = false })
+vim.api.nvim_set_keymap("n", "z7", ":set foldlevel=7<CR>",  { noremap = true, silent = false })
+vim.api.nvim_set_keymap("n", "z8", ":set foldlevel=8<CR>",  { noremap = true, silent = false })
+vim.api.nvim_set_keymap("n", "z9", ":set foldlevel=9<CR>",  { noremap = true, silent = false })
+
+
 -- F2 save
 vim.api.nvim_set_keymap("n", "<F2>", ":w! <CR>", { silent = false })
 vim.api.nvim_set_keymap("i", "<F2>", "<ESC> :w! <CR>", { silent = false })

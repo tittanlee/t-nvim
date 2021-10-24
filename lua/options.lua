@@ -111,3 +111,10 @@ o.timeoutlen = 500
 -- various
 o.signcolumn = "auto"
 o.updatetime = 300
+
+-- scroll options
+o.scrolloff = 6
+
+-- folding configuration
+o.foldmethod = "indent"
+o.foldlevel = 99
