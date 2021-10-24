@@ -66,7 +66,10 @@ require'nvim-tree'.setup {
     open_on_tab         = false,
     hijack_cursor       = false,
     update_cwd          = false,
-    lsp_diagnostics     = false,
+    diagnostics         = {
+        enable = false,
+        icons  = { hint = "", info = "", warning = "", error = "" }
+    },
     follow              = true,
     tab_open            = false,
     update_focused_file = {
@@ -118,6 +121,6 @@ require'nvim-tree'.setup {
         {key = "}c"             ,                          cb = tree_cb("next_git_item")}     ,
         {key = "-"              ,                          cb = tree_cb("dir_up")}            ,
         {key = "q"              ,                          cb = tree_cb("close")}             ,
-        {key = "g?"             ,                          cb = tree_cb("toggle_help")}
+        {key = "?"              ,                          cb = tree_cb("toggle_help")}
     }
 }
