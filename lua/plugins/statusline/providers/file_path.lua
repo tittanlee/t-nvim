@@ -9,7 +9,8 @@ local M = {}
 function M.file_path()
     local file_path_array = {
         ['absolute'] = vim.fn.expand('%:p'),
-        ['relative'] = vim.fn.expand('%:~:.')
+        ['relative'] = vim.fn.expand('%:~:.'),
+        ['tail']     = vim.fn.expand('%:t')
     }
     return file_path_array[ENV.status_show_file_path]
 end

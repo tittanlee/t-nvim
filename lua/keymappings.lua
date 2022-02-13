@@ -77,6 +77,11 @@ function file_path_switch()
     end
 
     if ENV.status_show_file_path == 'absolute' then
+        ENV.status_show_file_path = 'tail'
+        return
+    end
+
+    if ENV.status_show_file_path == 'tail' then
         ENV.status_show_file_path = 'relative'
         return
     end
