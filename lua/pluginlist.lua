@@ -247,6 +247,11 @@ return require("packer").startup(function(use)
         end
     }
 
+    -- Multiple cursors plugin for vim/neovim
+    use {
+        'mg979/vim-visual-multi',
+    }
+
     use {
         "lfv89/vim-interestingwords",
         config = function ()
