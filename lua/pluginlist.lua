@@ -4,7 +4,7 @@ local packer_path = DATA_PATH .. "/site/pack/packer/start/packer.nvim"
 
 -- check packer.nvim has been installed
 if fn.empty(fn.glob(packer_path)) > 0 then
-    execute("!git clone https://github.com/wbthomason/packer.nvim " .. packer_path)
+    execute("!git clone --depth 1 https://github.com/wbthomason/packer.nvim " .. packer_path)
     execute "packadd packer.nvim"
 end
 
@@ -111,24 +111,24 @@ return require("packer").startup(function(use)
                     require("plugins.treesitter.rainbow")
                 end,
             },
-
-            -- use {
-            --     "nvim-treesitter/nvim-treesitter-refactor",
-            --     config = function ()
-            --         require("plugins.treesitter.refactor")
-            --     end,
-            -- },
-
-            use {
-                "nvim-treesitter/nvim-treesitter-textobjects",
-                config = function ()
-                    require("plugins.treesitter.textobjects")
-                end,
-            },
-
-            -- use {
-            -- "JoosepAlviste/nvim-ts-context-commentstring"
-            -- }
+        --
+        --     -- use {
+        --     --     "nvim-treesitter/nvim-treesitter-refactor",
+        --     --     config = function ()
+        --     --         require("plugins.treesitter.refactor")
+        --     --     end,
+        --     -- },
+        --
+        --     use {
+        --         "nvim-treesitter/nvim-treesitter-textobjects",
+        --         config = function ()
+        --             require("plugins.treesitter.textobjects")
+        --         end,
+        --     },
+        --
+        --     -- use {
+        --     -- "JoosepAlviste/nvim-ts-context-commentstring"
+        --     -- }
         },
     }
 
@@ -260,7 +260,7 @@ return require("packer").startup(function(use)
     }
 
     use {
-        "hoob3rt/lualine.nvim",
+        "nvim-lualine/lualine.nvim",
         config = function ()
             require("plugins.statusline.lualine_config")
         end
@@ -388,12 +388,14 @@ return require("packer").startup(function(use)
         "navarasu/onedark.nvim"       ,
         "ishan9299/nvim-solarized-lua",
         "bluz71/vim-nightfly-guicolors",
-        "glepnir/zephyr-nvim",
+        -- "glepnir/zephyr-nvim",
         "rafamadriz/neon",
         "sainnhe/gruvbox-material",
         "sainnhe/sonokai",
         "ray-x/aurora",
         "Pocco81/Catppuccino.nvim",
+        "shaunsingh/nord.nvim",
+        'EdenEast/nightfox.nvim',
     }
 
     -- This plugin provides the same icons as well as colors for each icon.
