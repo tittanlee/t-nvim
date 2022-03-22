@@ -4,17 +4,14 @@ local g = vim.g
 local tree_cb = require "nvim-tree.config".nvim_tree_callback
 
 
-g.nvim_tree_ignore                 = {".repo", ".git", "node_modules", ".cache"}
-g.nvim_tree_gitignore              = 0
-g.nvim_tree_auto_ignore_ft         = {"dashboard"} -- don't open tree on specific fiypes.
-g.nvim_tree_quit_on_open           = 0 -- closes tree when file's opened
-g.nvim_tree_indent_markers         = 1
-g.nvim_tree_hide_dotfiles          = 0
-g.nvim_tree_git_hl                 = 1
-g.nvim_tree_highlight_opened_files = 1
-g.nvim_tree_root_folder_modifier   = ":t"
-g.nvim_tree_allow_resize           = 1
-g.nvim_tree_add_trailing           = 0 -- append a trailing slash to folder names
+-- g.nvim_tree_ignore                 = {".repo", ".git", "node_modules", ".cache"}
+-- g.nvim_tree_auto_ignore_ft         = {"dashboard"} -- don't open tree on specific fiypes.
+-- g.nvim_tree_indent_markers         = 1
+-- g.nvim_tree_git_hl                 = 1
+-- g.nvim_tree_highlight_opened_files = 1
+-- g.nvim_tree_root_folder_modifier   = ":t"
+-- g.nvim_tree_allow_resize           = 1
+-- g.nvim_tree_add_trailing           = 0 -- append a trailing slash to folder names
 
 
 g.nvim_tree_show_icons = {
@@ -57,39 +54,82 @@ g.nvim_tree_icons = {
 }
 
 require'nvim-tree'.setup {
-    disable_netrw       = true,
-    hijack_netrw        = false,
-    open_on_setup       = false,
-    ignore_ft_on_setup  = {'dashboard'},
-    auto_open           = false,
-    auto_close          = false,
-    open_on_tab         = false,
-    hijack_cursor       = true,
-    update_cwd          = false,
+    disable_netrw      = true,
+    hijack_netrw       = false,
+    open_on_setup      = false,
+    ignore_ft_on_setup = {'dashboard'},
+    auto_open          = false,
+    auto_close         = false,
+    open_on_tab        = false,
+    hijack_cursor      = true,
+    update_cwd         = false,
+    follow             = true,
+    tab_open           = false,
+    sort_by            = "name",
+    auto_reload_on_write = true,
+
     diagnostics         = {
         enable = false,
         icons  = { hint = "", info = "", warning = "", error = "" }
     },
-    follow              = true,
-    tab_open            = false,
+
     update_focused_file = {
         enable      = true,
         update_cwd  = true,
         ignore_list = {}
     },
+
     system_open = {
         cmd  = nil,
         args = {}
     },
+
     view = {
         width = '20%',
         side = 'left',
         auto_resize = false,
+        signcolumn = "yes",
         mappings = {
             custom_only = false,
             list = {}
         }
     },
+
+    ignore_ft_on_setup = {
+        "dashboard",
+    },
+
+    actions = {
+        change_dir = {
+            enable = true,
+            global = false,
+        },
+        open_file = {
+            quit_on_open = false,
+            resize_window = false,
+            window_picker = {
+                enable = true,
+                chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+                exclude = {
+                    filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+                    buftype = { "nofile", "terminal", "help" },
+                },
+            },
+        },
+    },
+
+    filters = {
+        dotfiles = false,
+        custom = {},
+        exclude = {},
+    },
+
+    git = {
+        enable = false,
+        ignore = true,
+        timeout = 400,
+    },
+
     bindings = {
         {key = {"<CR>"          , "o", "<2-LeftMouse>"}   ,cb = tree_cb("edit")},
         {key = {"<2-RightMouse>", "<C-}>"             }   ,cb = tree_cb("cd")},
