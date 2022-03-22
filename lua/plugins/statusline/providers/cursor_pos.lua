@@ -50,7 +50,7 @@ end
 function M.component_opts()
     return {
         function()
-            return M.line_percentage() .. M.position() .. M.scroll_bar()
+            return M.line_percentage(_,0) .. M.position(_,0) .. M.scroll_bar(_,0)
         end,
         icon = '',
         color     = M.highlight(),

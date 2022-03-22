@@ -34,6 +34,7 @@ local config = {
         padding              = 0, -- adds padding to the left and right of components
         left_padding         = 0, -- adds padding to the left of components
         right_padding        = 0, -- adds padding to the right of components
+        always_divide_middle = true,
     },
     sections = {
         lualine_a = {},

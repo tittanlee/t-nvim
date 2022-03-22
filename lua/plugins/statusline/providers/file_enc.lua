@@ -10,9 +10,7 @@ local utils    = require('plugins.statusline.utils')
 local M = {}
 
 function M.file_encoding()
-    local bufnr = api.nvim_win_get_buf(winid)
-    local enc = (bo[bufnr].fenc ~= '' and bo[bufnr].fenc) or vim.o.enc
-    return enc:upper()
+    return vim.opt.fileencoding:get():upper()
 end
 
 function M.highlight()
