@@ -39,6 +39,24 @@ let g:tagbar_type_asl = {
             \ ],
             \ }
 
+
+let g:tagbar_type_xml = {
+            \ 'kinds' : [
+            \ 'f:functions',
+            \ 'h:header files:1:1',
+            \ 'd:macros',
+            \ 'p:prototypes:1:1',
+            \ 'g:enums',
+            \ 'e:enumerators:1:1',
+            \ 't:typedefs:1:1',
+            \ 's:structs',
+            \ 'u:unions',
+            \ 'm:members:1:1',
+            \ 'v:variables',
+            \ '?:unknown',
+            \ ],
+            \ }
+
 " Tagbar key mapping {{{
     nnoremap <Leader>t :TagbarToggle<CR>
 " }}}
