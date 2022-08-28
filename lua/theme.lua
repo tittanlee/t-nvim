@@ -12,7 +12,7 @@ end
 
 if (ENV.colorscheme == "material") then
     -- Example config in lua
-    vim.g.material_style = 'palenight'
+    vim.g.material_style = 'oceanic' -- 'darker', 'lighter', 'oceanic', 'palenight', 'deep ocean'
     vim.g.material_italic_comments = true
     vim.g.material_italic_keywords = false
     vim.g.material_italic_functions = true

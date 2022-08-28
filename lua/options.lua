@@ -113,7 +113,7 @@ o.signcolumn = "auto"
 o.updatetime = 300
 
 -- scroll options
-o.scrolloff = 6
+o.scrolloff = 0
 
 -- folding configuration
 o.foldmethod = "indent"

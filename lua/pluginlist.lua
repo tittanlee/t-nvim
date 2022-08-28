@@ -369,15 +369,20 @@ return require("packer").startup(function(use)
         config = function()
             vim.api.nvim_set_keymap("n", "ga", "<plug>(EasyAlign)", { silent = true })
             vim.api.nvim_set_keymap("x", "ga", "<plug>(EasyAlign)", { silent = true })
+
+            vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/easy_align/config.vim")
         end,
     }
 
-    use {
-        "karb94/neoscroll.nvim",
-        config = function()
-            require("plugins.scroll.config")
-        end
-    }
+    -- use {
+    --     "karb94/neoscroll.nvim",
+    --     config = function()
+    --         require("plugins.scroll.config")
+    --     end,
+    --
+    --     disalbe = true,
+    --
+    -- }
 
     -- nvim color theme that support tree-sitter
     use {

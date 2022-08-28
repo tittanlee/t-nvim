@@ -63,7 +63,6 @@ require'nvim-tree'.setup {
     open_on_tab        = false,
     hijack_cursor      = true,
     update_cwd         = false,
-    follow             = true,
     tab_open           = false,
     sort_by            = "name",
     auto_reload_on_write = true,
@@ -74,8 +73,8 @@ require'nvim-tree'.setup {
     },
 
     update_focused_file = {
-        enable      = true,
-        update_cwd  = true,
+        enable      = false,
+        update_cwd  = false,
         ignore_list = {}
     },
 
@@ -84,11 +83,23 @@ require'nvim-tree'.setup {
         args = {}
     },
 
+    hijack_directories = {
+        enable = true,
+        auto_open = true,
+    },
+
+    -- update_focused_file = {
+    --     enable = false,
+    --     update_cwd = false,
+    --     ignore_list = {},
+    -- },
+
     view = {
         width = '20%',
         side = 'left',
         auto_resize = false,
         signcolumn = "yes",
+        relativenumber = true,
         mappings = {
             custom_only = false,
             list = {}
@@ -101,7 +112,7 @@ require'nvim-tree'.setup {
 
     actions = {
         change_dir = {
-            enable = true,
+            enable = false,
             global = false,
         },
         open_file = {
@@ -161,6 +172,6 @@ require'nvim-tree'.setup {
         {key = "}c"             ,                          cb = tree_cb("next_git_item")}     ,
         {key = "-"              ,                          cb = tree_cb("dir_up")}            ,
         {key = "q"              ,                          cb = tree_cb("close")}             ,
-        {key = "?"              ,                          cb = tree_cb("toggle_help")}
+        {key = "g?"              ,                          cb = tree_cb("toggle_help")}
     }
 }

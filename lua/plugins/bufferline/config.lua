@@ -20,10 +20,15 @@ require "bufferline".setup {
         middle_mouse_command = nil,
         close_command = "bdelete! %d",       -- can be a string | function, see "Mouse actions"
 
+        indicator = {
+            icon = '▎', -- this should be omitted if indicator style is not 'icon'
+            -- style = 'icon',
+            style = 'underline',
+        },
+
         -- -- NOTE: this plugin is designed with this icon in mind,
         -- -- and so changing this is NOT recommended, this is intended
         -- -- as an escape hatch for people who cannot bear it for whatever reason
-        indicator_icon = '▎',
         buffer_close_icon = '',
         modified_icon = '●',
         close_icon = '',
@@ -63,7 +68,7 @@ require "bufferline".setup {
         separator_style = "slant",
         enforce_regular_tabs = false,
         always_show_bufferline = true,
-        sort_by = buffer_sort_fn,
+        sort_by = 'insert_after_current',
 
         highlights = {
             buffer_selected = {
