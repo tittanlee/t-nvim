@@ -1,203 +1,210 @@
 {
-  // coc-config-suggest
-  "suggest.noselect": true,
-  "suggest.enablePreselect": true,
-  "suggest.enablePreview": true,
-  "suggest.detailField": "preview",
-  "suggest.maxCompleteItemCount": 50,
-  "suggest.timeout": 5000,
-  "suggest.triggerAfterInsertEnter": true,
-  "suggest.preferCompleteThanJumpPlaceholder": true,
-  "suggest.snippetsSupport": true,
-  "suggest.minTriggerInputLength": 1,
-  "suggest.echodocSupport": false,
-  "suggest.floatEnable": true,
-  "suggest.completionItemKindLabels": {
-    "class": "\uf0e8",
-    "color": "\ue22b",
-    "constant": "\uf8fe",
-    "default": "\uf29c",
-    "enum": "\uf435",
-    "enumMember": "\uf02b",
-    "event": "\ufacd",
-    "field": "\uf93d",
-    "file": "\uf723",
-    "folder": "\uf115",
-    "function": "\u0192",
-    "interface": "\uf417",
-    "keyword": "\uf1de",
-    "method": "\uf6a6",
-    "module": "\uf40d",
-    "operator": "\uf915",
-    "property": "\ue624",
-    "reference": "\ufa46",
-    "snippet": "\ue60b",
-    "struct": "\ufb44",
-    "text": "\ue612",
-    "typeParameter": "\uf728",
-    "unit": "\uf475",
-    "value": "\uf89f",
-    "variable": "\ue71b"
-  },
-
-  // coc-config-diagnostic
-  "diagnostic.enable": false,
-  "diagnostic.errorSign": "\uf467",
-  "diagnostic.warningSign": "\uf071",
-  "diagnostic.infoSign": "\uf129",
-  "diagnostic.hintSign": "\uf864",
-  "diagnostic.displayByAle": false,
-  "diagnostic.refreshOnInsertMode": false,
-  "diagnostic.virtualText": true,
-  "diagnostic.virtualTextPrefix": " ❯❯❯ ",
-  "diagnostic.enableMessage": "never",
-  "diagnostic.messageTarget": "float",
-
-  // coc-config-hover
-  "hover.target": "float",
-  "hover.autoHide": true,
-
-  // coc-config-codelens
-  "workspace.ignoredFiletypes": ["txt", "log", "help"],
-
-  // coc-config-list
-  "list.alignColumns": true,
-  "list.height": 20,
-  "list.source.outline.ctagsFilestypes": ["asl"],
-  "list.previewHighlightGroup": "Search",
-  "list.insertMappings": {
-    "<C-d>": "do:previewdown",
-    "<C-u>": "do:previewup",
-    "<C-p>": "do:previewtoggle"
-  },
-  "list.normalMappings": {
-    "<C-d>": "do:previewdown",
-    "<C-u>": "do:previewup"
-  },
-
-  // coc-config-preferences
-  "coc.preferences.enableMessageDialog": true,
-  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
-  "coc.preferences.extensionUpdateCheck": "weekly",
-  "coc.preferences.bracketEnterImprove": true,
-  "coc.preferences.silentAutoupdate": false,
-  "coc.preferences.snippetStatusText": "Ⓢ ",
-  "coc.preferences.formatOnSaveFiletypes": ["json"],
-
-  // coc-config-outline
-  "outline.splitCommand": "botright 45vs",
-  "outline.followCursor": false,
-  "outline.sortBy": "position",
-
-  // coc-config-git
-  // "git.enableGutters": false,
-  // "git.branchCharacter": "",
-  // "git.addGBlameToBufferVar": true,
-  // "git.addGBlameToVirtualText": true,
-  // "git.virtualTextPrefix": " ❯❯❯ ",
-  // "git.addedSign.hlGroup": "GitGutterAdd",
-  // "git.changedSign.hlGroup": "GitGutterChange",
-  // "git.removedSign.hlGroup": "GitGutterDelete",
-  // "git.topRemovedSign.hlGroup": "GitGutterDelete",
-  // "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
-  // "git.addedSign.text": "➕",
-  // "git.changedSign.text": "Ⓜ️",
-  // "git.removedSign.text": "➖",
-  // "git.topRemovedSign.text": "⚠️",
-  // "git.changeRemovedSign.text": "⚡️",
-
-  // coc-config-translator
-  "translator.toLang": "zh_TW",
-  "translator.enableHover": false,
-  "translator.engines": ["google", "youdao", "haici"],
-
-  //coc-config-snippets
-  "snippets.shortcut": "SNIP",
-  "snippets.ultisnips.directories": ["UltiSnips"],
-
-  // ----- coc-language-server start -----
-  "languageserver": {
-    "bash": {
-      "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh"],
-      "ignoredRootPaths": []
-    }
-  },
-
-  // coc-jedi
-  "jedi.enable": true,
-  "jedi.startupMessage": true,
-  "jedi.markupKindPreferred": "plaintext",
-  "jedi.trace.server": "off",
-  "jedi.jediSettings.autoImportModules": [],
-  "jedi.executable.command": "jedi-language-server",
-  "jedi.executable.args": [],
-  "jedi.codeAction.nameExtractFunction": "jls_extract_def",
-  "jedi.codeAction.nameExtractVariable": "jls_extract_var",
-  "jedi.completion.disableSnippets": false,
-  "jedi.completion.resolveEagerly": false,
-  "jedi.diagnostics.enable": true,
-  "jedi.diagnostics.didOpen": true,
-  "jedi.diagnostics.didChange": true,
-  "jedi.diagnostics.didSave": true,
-  "jedi.hover.enable": true,
-  "jedi.hover.disable.keyword.all": false,
-  "jedi.hover.disable.keyword.names": [],
-  "jedi.hover.disable.keyword.fullNames": [],
-  "jedi.workspace.extraPaths": [],
-  "jedi.workspace.symbols.maxSymbols": 20,
-  "jedi.workspace.symbols.ignoreFolders": [
-    ".nox",
-    ".tox",
-    ".venv",
-    "__pycache__",
-    "venv"
-  ],
-
-  // coc-config-clagnd
-  // "clangd.path": "C:\\Users\\Titan\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\11.0.0\\clangd_11.0.0\\bin\\clangd.exe",
-  "clangd.enabled": true,
-
-  // coc-lua
-  "Lua.runtime.version": "LuaJIT",
-  "Lua.runtime.path": ["?.lua", "?/init.lua", "?/?.lua"]
-
-  // coc-config-sumneko-lua
-  // "sumneko-lua.enable": true,
-  // "sumneko-lua.enableNvimLuaDev": true,
-  // ----- coc-language-server end -----
-
-  // coc-config-explorer
-  // "explorer.git.enable": false,
-  // "explorer.toggle": true,
-  // "explorer.icon.enableNerdfont": true,
-  // "explorer.icon.source": "nvim-web-devicons",
-  // "explorer.icon.expanded": "▾",
-  // "explorer.icon.collapsed": "▸",
-  // "explorer.position": "left",
-  // "explorer.width": 40,
-  // "explorer.quitOnOpen": false,
-  // "explorer.file.column.indent.indentLine": true,
-  // "explorer.file.showHiddenFiles": true,
-  // "explorer.sources": [
-  //   {
-  //     "name": "bookmark",
-  //     "expand": false
-  //   },
-  //   {
-  //     "name": "buffer",
-  //     "expand": false
-  //   },
-  //   {
-  //     "name": "file",
-  //     "expand": true
-  //   }
-  // ],
-  // "explorer.keyMappings.global": {
-  //   "o": ["expandable?", ["expanded?", "collapse", "expand"], "open"],
-  //   "<ESC>": "quit",
-  //   ".": "toggleHidden()",
-  //   "<C-v>": "open:vsplit"
-  // }
+    // coc-config-suggest
+    "suggest.noselect": false,
+    "suggest.enablePreselect": true,
+    // "suggest.enablePreview": true,
+    "suggest.detailField": "preview",
+    "suggest.maxCompleteItemCount": 50,
+    "suggest.timeout": 5000,
+    "suggest.triggerAfterInsertEnter": true,
+    "suggest.preferCompleteThanJumpPlaceholder": true,
+    "suggest.snippetsSupport": true,
+    "suggest.minTriggerInputLength": 1,
+    "suggest.echodocSupport": false,
+    // "suggest.floatEnable": true,
+    "suggest.completionItemKindLabels": {
+        "class": "\uf0e8",
+        "color": "\ue22b",
+        "constant": "\uf8fe",
+        "default": "\uf29c",
+        "enum": "\uf435",
+        "enumMember": "\uf02b",
+        "event": "\ufacd",
+        "field": "\uf93d",
+        "file": "\uf723",
+        "folder": "\uf115",
+        "function": "\u0192",
+        "interface": "\uf417",
+        "keyword": "\uf1de",
+        "method": "\uf6a6",
+        "module": "\uf40d",
+        "operator": "\uf915",
+        "property": "\ue624",
+        "reference": "\ufa46",
+        "snippet": "\ue60b",
+        "struct": "\ufb44",
+        "text": "\ue612",
+        "typeParameter": "\uf728",
+        "unit": "\uf475",
+        "value": "\uf89f",
+        "variable": "\ue71b"
+    },
+    // coc-config-diagnostic
+    "diagnostic.enable": false,
+    "diagnostic.errorSign": "\uf467",
+    "diagnostic.warningSign": "\uf071",
+    "diagnostic.infoSign": "\uf129",
+    "diagnostic.hintSign": "\uf864",
+    "diagnostic.displayByAle": false,
+    "diagnostic.refreshOnInsertMode": false,
+    "diagnostic.virtualText": true,
+    "diagnostic.virtualTextPrefix": " ❯❯❯ ",
+    "diagnostic.enableMessage": "never",
+    "diagnostic.messageTarget": "float",
+    // coc-config-hover
+    "hover.target": "float",
+    "hover.autoHide": true,
+    // coc-config-codelens
+    "workspace.ignoredFiletypes": [
+        "txt",
+        "log",
+        "help"
+    ],
+    // coc-config-list
+    "list.alignColumns": true,
+    "list.height": 20,
+    "list.source.outline.ctagsFilestypes": [
+        "asl"
+    ],
+    "list.previewHighlightGroup": "Search",
+    "list.insertMappings": {
+        "<C-d>": "do:previewdown",
+        "<C-u>": "do:previewup",
+        "<C-p>": "do:previewtoggle"
+    },
+    "list.normalMappings": {
+        "<C-d>": "do:previewdown",
+        "<C-u>": "do:previewup"
+    },
+    // coc-config-preferences
+    "coc.preferences.enableMessageDialog": true,
+    "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+    "coc.preferences.extensionUpdateCheck": "weekly",
+    "coc.preferences.bracketEnterImprove": true,
+    "coc.preferences.silentAutoupdate": false,
+    "coc.preferences.snippetStatusText": "Ⓢ ",
+    "coc.preferences.formatOnSaveFiletypes": [
+        "json"
+    ],
+    // coc-config-outline
+    "outline.splitCommand": "botright 45vs",
+    "outline.followCursor": false,
+    "outline.sortBy": "position",
+    // coc-config-git
+    // "git.enableGutters": false,
+    // "git.branchCharacter": "",
+    // "git.addGBlameToBufferVar": true,
+    // "git.addGBlameToVirtualText": true,
+    // "git.virtualTextPrefix": " ❯❯❯ ",
+    // "git.addedSign.hlGroup": "GitGutterAdd",
+    // "git.changedSign.hlGroup": "GitGutterChange",
+    // "git.removedSign.hlGroup": "GitGutterDelete",
+    // "git.topRemovedSign.hlGroup": "GitGutterDelete",
+    // "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+    // "git.addedSign.text": "➕",
+    // "git.changedSign.text": "Ⓜ️",
+    // "git.removedSign.text": "➖",
+    // "git.topRemovedSign.text": "⚠️",
+    // "git.changeRemovedSign.text": "⚡️",
+    // coc-config-translator
+    "translator.toLang": "zh_TW",
+    "translator.enableHover": false,
+    "translator.engines": [
+        "google",
+        "youdao",
+        "haici"
+    ],
+    //coc-config-snippets
+    "snippets.shortcut": "SNIP",
+    "snippets.ultisnips.directories": [
+        "UltiSnips"
+    ],
+    // ----- coc-language-server start -----
+    "languageserver": {
+        "bash": {
+            "command": "bash-language-server",
+            "args": [
+                "start"
+            ],
+            "filetypes": [
+                "sh"
+            ],
+            "ignoredRootPaths": []
+        }
+    },
+    // coc-jedi
+    "jedi.enable": true,
+    "jedi.startupMessage": true,
+    "jedi.markupKindPreferred": "plaintext",
+    "jedi.trace.server": "off",
+    "jedi.jediSettings.autoImportModules": [],
+    "jedi.executable.command": "jedi-language-server",
+    "jedi.executable.args": [],
+    "jedi.codeAction.nameExtractFunction": "jls_extract_def",
+    "jedi.codeAction.nameExtractVariable": "jls_extract_var",
+    "jedi.completion.disableSnippets": false,
+    "jedi.completion.resolveEagerly": false,
+    "jedi.diagnostics.enable": true,
+    "jedi.diagnostics.didOpen": true,
+    "jedi.diagnostics.didChange": true,
+    "jedi.diagnostics.didSave": true,
+    "jedi.hover.enable": true,
+    "jedi.hover.disable.keyword.all": false,
+    "jedi.hover.disable.keyword.names": [],
+    "jedi.hover.disable.keyword.fullNames": [],
+    "jedi.workspace.extraPaths": [],
+    "jedi.workspace.symbols.maxSymbols": 20,
+    "jedi.workspace.symbols.ignoreFolders": [
+        ".nox",
+        ".tox",
+        ".venv",
+        "__pycache__",
+        "venv"
+    ],
+    // coc-config-clagnd
+    // "clangd.path": "C:\\Users\\Titan\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\11.0.0\\clangd_11.0.0\\bin\\clangd.exe",
+    "clangd.enabled": true,
+    // coc-lua
+    "Lua.runtime.version": "LuaJIT",
+    "Lua.runtime.path": [
+        "?.lua",
+        "?/init.lua",
+        "?/?.lua"
+    ]
+    // coc-config-sumneko-lua
+    // "sumneko-lua.enable": true,
+    // "sumneko-lua.enableNvimLuaDev": true,
+    // ----- coc-language-server end -----
+    // coc-config-explorer
+    // "explorer.git.enable": false,
+    // "explorer.toggle": true,
+    // "explorer.icon.enableNerdfont": true,
+    // "explorer.icon.source": "nvim-web-devicons",
+    // "explorer.icon.expanded": "▾",
+    // "explorer.icon.collapsed": "▸",
+    // "explorer.position": "left",
+    // "explorer.width": 40,
+    // "explorer.quitOnOpen": false,
+    // "explorer.file.column.indent.indentLine": true,
+    // "explorer.file.showHiddenFiles": true,
+    // "explorer.sources": [
+    //   {
+    //     "name": "bookmark",
+    //     "expand": false
+    //   },
+    //   {
+    //     "name": "buffer",
+    //     "expand": false
+    //   },
+    //   {
+    //     "name": "file",
+    //     "expand": true
+    //   }
+    // ],
+    // "explorer.keyMappings.global": {
+    //   "o": ["expandable?", ["expanded?", "collapse", "expand"], "open"],
+    //   "<ESC>": "quit",
+    //   ".": "toggleHidden()",
+    //   "<C-v>": "open:vsplit"
+    // }
 }
