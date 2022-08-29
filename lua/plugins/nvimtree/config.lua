@@ -1,7 +1,6 @@
 
 
 local g = vim.g
-local keymap = require('lua.plugins.nvimtree.keymap')
 
 
 require'nvim-tree'.setup {
