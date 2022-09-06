@@ -12,7 +12,7 @@ local file_fmt   = require('plugins.statusline.providers.file_fmt')
 local file_type  = require('plugins.statusline.providers.file_type')
 local git       = require('plugins.statusline.providers.git')
 local coc       = require('plugins.statusline.providers.coc')
-local gutentags = require('plugins.statusline.providers.gutentags')
+-- local gutentags = require('plugins.statusline.providers.gutentags')
 local cursor_pos = require('plugins.statusline.providers.cursor_pos')
 
 
@@ -101,10 +101,10 @@ ins_left(coc.current_function.component_opts())
 ins_left(sep.right_component_opts(coc.current_function.highlight(), coc.current_function.components_enabled))
 ins_left(sep.space_component_opts())
 
-ins_left(sep.left_component_opts(gutentags.highlight(), gutentags.components_enabled))
-ins_left(gutentags.component_opts())
-ins_left(sep.right_component_opts(gutentags.highlight(), gutentags.components_enabled))
-ins_left(sep.space_component_opts())
+-- ins_left(sep.left_component_opts(gutentags.highlight(), gutentags.components_enabled))
+-- ins_left(gutentags.component_opts())
+-- ins_left(sep.right_component_opts(gutentags.highlight(), gutentags.components_enabled))
+-- ins_left(sep.space_component_opts())
 -- active left section -- end
 
 -- active right section -- start
