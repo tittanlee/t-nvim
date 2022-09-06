@@ -103,7 +103,7 @@ require'nvim-tree'.setup {
             },
         },
         special_files            = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
-        symlink_destination      = true,
+        symlink_destination      = false,
     },
 
     ignore_ft_on_setup           = {

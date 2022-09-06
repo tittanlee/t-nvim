@@ -1,6 +1,6 @@
 {
     // coc-config-suggest
-    "suggest.noselect": false,
+    "suggest.noselect": true,
     "suggest.enablePreselect": true,
     // "suggest.enablePreview": true,
     "suggest.detailField": "preview",
