@@ -1,6 +1,6 @@
 
 " Verbose mode to echo some message.
-let g:gen_tags#verbose = 0
+let g:gen_tags#verbose = 1
 
 
 " universal-ctags support
@@ -9,7 +9,8 @@ if (has('win32') || has('win64'))
 else
    let $GTAGSCONF = '/usr/local/share/gtags/gtags.conf'
 endif
-let $GTAGSLABEL = 'new-ctags'
+let $GTAGSLABEL = 'native'
+" let $GTAGSLABEL = 'new-ctags'
 
 
 " Set ctags options. The `-R` is set by default,
@@ -24,8 +25,9 @@ let g:gen_tags#ctags_opts = [
 
 " Set gtags options. The database path is the default.
 let g:gen_tags#gtags_opts = [
-            \ '--skip-smylink',
-            \ '--skip-unreadable'
+            \ '--incremental',
+            \ '--skip-symlink',
+            \ '--skip-unreadable',
             \ ]
 
 "Auto update ctags / gtags
