@@ -52,21 +52,21 @@ return require("packer").startup(function(use)
     }
 
     -- Gutentags is a plugin that takes care of the much needed management of tags files in Vim.
-    -- use {
-    --     "ludovicchabant/vim-gutentags",
-    --     config = function()
-    --         vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/gutentags/config.vim")
-    --     end,
-    -- }
+    use {
+        "ludovicchabant/vim-gutentags",
+        commit = "50705e8",
+        config = function()
+            vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/gutentags/config.vim")
+        end,
+    }
 
     -- Async plugin for Vim/NeoVim to ease the use of ctags/gtags.
-    use {
-        "jsfaint/gen_tags.vim",
-        config = function ()
-            vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/gen_tags/config.vim")
-        end
-
-    }
+    -- use {
+    --     "jsfaint/gen_tags.vim",
+    --     config = function ()
+    --         vim.cmd("source " .. CONFIG_PATH .. "/lua/plugins/gen_tags/config.vim")
+    --     end
+    -- }
 
     use {
         "junegunn/fzf",

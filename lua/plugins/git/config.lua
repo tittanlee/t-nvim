@@ -28,9 +28,9 @@ require('gitsigns').setup {
         topdelete    = {hl = 'GitSignsDelete', text = '⚠️',  numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
         changedelete = {hl = 'GitSignsChange', text = '⚡️', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
     },
-    signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
+    signcolumn = false,  -- Toggle with `:Gitsigns toggle_signs`
     numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
-    linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
+    linehl     = true, -- Toggle with `:Gitsigns toggle_linehl`
     word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
     watch_gitdir = {
         interval = 1000,
@@ -82,8 +82,8 @@ require('gitsigns').setup {
         map('n', '<leader>hp', '<cmd>Gitsigns preview_hunk<CR>')
         map('n', '<leader>hb', '<cmd>lua require"gitsigns".blame_line{full=true}<CR>')
         map('n', '<leader>tb', '<cmd>Gitsigns toggle_current_line_blame<CR>')
-        map('n', '<leader>hd', '<cmd>Gitsigns diffthis<CR>')
-        map('n', '<leader>hD', '<cmd>lua require"gitsigns".diffthis("~")<CR>')
+        map('n', '<leader>gd', '<cmd>Gitsigns diffthis<CR>')
+        map('n', '<leader>gD', '<cmd>lua require"gitsigns".diffthis("~")<CR>')
         map('n', '<leader>td', '<cmd>Gitsigns toggle_deleted<CR>')
 
         -- Text object

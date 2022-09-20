@@ -109,7 +109,7 @@ o.undofile    = false
 o.timeoutlen = 500
 
 -- various
-o.signcolumn = "auto"
+o.signcolumn = "yes"
 o.updatetime = 300
 
 -- scroll options
