@@ -69,6 +69,32 @@ vim.api.nvim_set_keymap("i", "<F3>", "<ESC> :so % <CR>", { silent = false })
 vim.api.nvim_set_keymap("n", "<F4>", ":quit! <CR>", { silent = true })
 vim.api.nvim_set_keymap("i", "<F4>", "<ESC> :quit! <CR>", { silent = true })
 
+
+-- F5 quickfix quickfix
+function quickfix_toggle()
+    local qf_exists = false
+    for _, win in pairs(vim.fn.getwininfo()) do
+        if win["quickfix"] == 1 then
+            qf_exists = true
+        end
+    end
+
+    if qf_exists == true then
+        vim.cmd "cclose"
+    else
+        vim.cmd "copen"
+    end
+    -- if qf_exists == true then
+    --     vim.cmd "cclose"
+    --     return
+    -- end
+    -- if not vim.tbl_isempty(vim.fn.getqflist()) then
+    --     vim.cmd "copen"
+    -- end
+end
+vim.api.nvim_set_keymap("n", "<F5>", ":call v:lua.quickfix_toggle()<CR>", { silent = true })
+
+
 -- F6 to switch absolute or relative file path
 function file_path_switch()
     if ENV.status_show_file_path == 'relative' then

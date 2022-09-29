@@ -12,12 +12,13 @@ USER        = vim.fn.expand "$USER"
 ENV = {
     leader_key = " ", -- space as leader key
     local_leader_key = ",",
-    colorscheme = "carbonfox",
+    colorscheme = "onedark",
 
     is_mac     = os_name == 'Darwin',
     is_linux   = os_name == 'Linux',
     is_windows = os_name == 'Windows_NT' or 'Windows;',
     path_sep   = is_windows and '\\' or '/',
+    is_gui_nvim = vim.fn.exists('vim.g.GuiLoaded') == true,
 
     -- feline show current function flag
     status_show_file_path    = 'relative', -- relative or absolute

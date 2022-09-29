@@ -28,7 +28,7 @@ end
 function M.component_opts()
     return {
         M.file_encoding,
-        icon  = '👽',
+        icon  = '',
         color = M.highlight(),
         cond  = M.components_enabled
     }
