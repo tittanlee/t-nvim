@@ -1,5 +1,8 @@
 
 
+qf_lib   = require('library.quick_fix')
+file_path_lib = require('library.file_path')
+
 -- better window movement
 vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { silent = true })
 vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { silent = true })
@@ -69,50 +72,11 @@ vim.api.nvim_set_keymap("i", "<F3>", "<ESC> :so % <CR>", { silent = false })
 vim.api.nvim_set_keymap("n", "<F4>", ":quit! <CR>", { silent = true })
 vim.api.nvim_set_keymap("i", "<F4>", "<ESC> :quit! <CR>", { silent = true })
 
-
--- F5 quickfix quickfix
-function quickfix_toggle()
-    local qf_exists = false
-    for _, win in pairs(vim.fn.getwininfo()) do
-        if win["quickfix"] == 1 then
-            qf_exists = true
-        end
-    end
-
-    if qf_exists == true then
-        vim.cmd "cclose"
-    else
-        vim.cmd "copen"
-    end
-    -- if qf_exists == true then
-    --     vim.cmd "cclose"
-    --     return
-    -- end
-    -- if not vim.tbl_isempty(vim.fn.getqflist()) then
-    --     vim.cmd "copen"
-    -- end
-end
-vim.api.nvim_set_keymap("n", "<F5>", ":call v:lua.quickfix_toggle()<CR>", { silent = true })
-
+-- F5 toggle quickfix window
+vim.api.nvim_set_keymap("n", "<F5>", ":lua qf_lib.toggle()<CR>", { silent = true })
 
 -- F6 to switch absolute or relative file path
-function file_path_switch()
-    if ENV.status_show_file_path == 'relative' then
-        ENV.status_show_file_path = 'absolute'
-        return
-    end
-
-    if ENV.status_show_file_path == 'absolute' then
-        ENV.status_show_file_path = 'tail'
-        return
-    end
-
-    if ENV.status_show_file_path == 'tail' then
-        ENV.status_show_file_path = 'relative'
-        return
-    end
-end
-vim.api.nvim_set_keymap("n", "<F6>", ":call v:lua.file_path_switch()<CR>", { silent = true})
+vim.api.nvim_set_keymap("n", "<F6>", ":lua file_path_lib.fname_switch()<CR>", { silent = true})
 
 -- F7 toggle git related information
 vim.api.nvim_set_keymap("n", "<F7>", ":lua ENV.status_show_git_info = not ENV.status_show_git_info<CR>", { silent = true })
