@@ -3,9 +3,9 @@ local fn = vim.fn
 local bo = vim.bo
 local api = vim.api
 
-local colors   = require('plugins.statusline.colors')
-local icons    = require('plugins.statusline.icons')
-local utils    = require('plugins.statusline.utils')
+local icons  = require('resource.icons')
+local colors = require('plugins.statusline.colors')
+local utils  = require('plugins.statusline.utils')
 
 local M = {}
 
@@ -28,7 +28,7 @@ end
 function M.component_opts()
     return {
         M.file_encoding,
-        icon  = '',
+        icon  = icons.dingbats.snow_flake,
         color = M.highlight(),
         cond  = M.components_enabled
     }

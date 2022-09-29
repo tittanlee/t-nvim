@@ -1,6 +1,6 @@
 
 local colors = require('plugins.statusline.colors')
-local icons = require('plugins.statusline.icons')
+local icons  = require('resource.icons')
 
 local M = {}
 
@@ -25,7 +25,7 @@ end
 function M.component_opts()
     return {
         M.vim_mode,
-        icon  = '',
+        icon  = icons.os_logo.vim,
         color = M.highlight(),
         cond  = M.components_enabled
     }

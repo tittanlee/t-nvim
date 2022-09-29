@@ -1,6 +1,6 @@
 
 local colors = require('plugins.statusline.colors')
-local icons = require('plugins.statusline.icons')
+local icons  = require('resource.icons')
 
 local M = {}
 

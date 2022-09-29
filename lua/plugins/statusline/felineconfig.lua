@@ -2,7 +2,7 @@
 
 local colors     = require('plugins.statusline.colors')
 local util       = require('plugins.statusline.utils')
-local icons      = require('plugins.statusline.icons')
+local icons      = require('icons')
 
 local file_path  = require('plugins.statusline.providers.file_path')
 local file_type  = require('plugins.statusline.providers.file_type')

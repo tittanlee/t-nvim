@@ -1,4 +1,9 @@
 
+
+local icons = require('resource.icons')
+
+
+
 local line_blame_formatter = function(name, blame_info, opts)
     local text
     local date_time
@@ -22,13 +27,13 @@ end
 
 require('gitsigns').setup {
     signs = {
-        add          = {hl = 'GitSignsAdd'   , text = '➕', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
-        change       = {hl = 'GitSignsChange', text = 'Ⓜ️',  numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-        delete       = {hl = 'GitSignsDelete', text = '➖', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-        topdelete    = {hl = 'GitSignsDelete', text = '⚠️',  numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-        changedelete = {hl = 'GitSignsChange', text = '⚡️', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+        add          = {hl = 'GitSignsAdd'   , text = icons.git.add, numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+        change       = {hl = 'GitSignsChange', text = icons.git.modified, numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+        delete       = {hl = 'GitSignsDelete', text = icons.git.remove, numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+        topdelete    = {hl = 'GitSignsDelete', text = icons.git.remove,  numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+        changedelete = {hl = 'GitSignsChange', text = icons.git.modified, numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
     },
-    signcolumn = false,  -- Toggle with `:Gitsigns toggle_signs`
+    signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
     numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
     linehl     = true, -- Toggle with `:Gitsigns toggle_linehl`
     word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`

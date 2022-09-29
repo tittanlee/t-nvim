@@ -1,17 +1,17 @@
 
 
 local colors = require('plugins.statusline.colors')
-local icons = require('plugins.statusline.icons')
-local utils = require('plugins.statusline.utils')
+local icons  = require('resource.icons')
+local utils  = require('plugins.statusline.utils')
 
 local M = {}
 
 function M.file_format()
     local fft = vim.bo.fileformat:upper()
     local icon = {
-        ['UNIX'] = '',
-        ['MAC']  = '',
-        ['DOS']  = '',
+        ['UNIX'] = icons.os_logo.unix,
+        ['MAC']  = icons.os_logo.mac,
+        ['DOS']  = icons.os_logo.dos,
     }
     return icon[fft] .. " " .. fft
 end

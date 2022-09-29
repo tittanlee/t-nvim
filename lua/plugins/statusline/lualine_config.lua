@@ -1,7 +1,7 @@
 
 local lualine = require('lualine')
 local colors  = require('plugins.statusline.colors')
-local icons   = require('plugins.statusline.icons')
+local icons   = require('resource.icons')
 
 -- components provider
 local sep       = require('plugins.statusline.providers.separator')

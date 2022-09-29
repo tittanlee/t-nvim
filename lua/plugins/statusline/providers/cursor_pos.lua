@@ -2,7 +2,7 @@
 
 local api = vim.api
 local colors = require('plugins.statusline.colors')
-local icons = require('plugins.statusline.icons')
+local icons  = require('resource.icons')
 
 local M = {}
 
@@ -24,7 +24,12 @@ function M.line_percentage(_, winid)
 end
 
 function M.scroll_bar(_, winid)
-    local blocks =  {'▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'}
+    local blocks =  {
+        icons.dingbats.block_1, icons.dingbats.block_2,
+        icons.dingbats.block_3, icons.dingbats.block_4,
+        icons.dingbats.block_5, icons.dingbats.block_6,
+        icons.dingbats.block_7, icons.dingbats.block_8,
+    }
     local width = 2
 
     local curr_line = api.nvim_win_get_cursor(winid)[1]
@@ -52,9 +57,9 @@ function M.component_opts()
         function()
             return M.line_percentage(_,0) .. M.position(_,0) .. M.scroll_bar(_,0)
         end,
-        icon = '',
-        color     = M.highlight(),
-        cond = M.components_enabled
+        icon  = icons.dingbats.line_nu,
+        color = M.highlight(),
+        cond  = M.components_enabled
     }
 end
 
