@@ -18,6 +18,7 @@ packer.init {
     -- compile_path = util.join_paths(DATA_PATH, 'plugin', 'packer_compiled.lua'),
 
     git = {
+        depth = 1,
         clone_timeout = 1000,
     },
     display = {
@@ -327,9 +328,7 @@ return require("packer").startup(function(use)
 
     -- Toggle comments in Neovim
     use {
-        "terrortylor/nvim-comment",
-
-        -- cmd = "CommentToggle",
+        "numToStr/Comment.nvim",
 
         config = function()
             require("plugins.comment.config")
