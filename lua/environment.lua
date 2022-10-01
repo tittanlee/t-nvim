@@ -6,7 +6,7 @@ local os_name = uv.os_uname().sysname
 
 local M = {}
 
-M.stdpath = {
+M.std_path = {
     cache      = vim.fn.stdpath 'cache',
     config     = vim.fn.stdpath 'config',
     config_dir = vim.fn.stdpath 'config_dirs',
@@ -29,7 +29,6 @@ M.variable = {
     status_show_current_func = false,
     status_show_git_info     = true,
 }
-
 
 -- disable = 1, enable = 0
 M.default_builtin_plugin = {
@@ -54,6 +53,5 @@ M.default_builtin_plugin = {
     ['zip']               = 1,
     ['zipPlugin']         = 1,
 }
-
 
 return M
