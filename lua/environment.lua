@@ -7,11 +7,11 @@ local os_name = uv.os_uname().sysname
 local M = {}
 
 M.stdpath = {
-    CACHE      = vim.fn.stdpath 'cache',
-    CONFIG     = vim.fn.stdpath 'config',
-    CONFIG_DIR = vim.fn.stdpath 'config_dirs',
-    DATA       = vim.fn.stdpath 'data',
-    DATA_DIR   = vim.fn.stdpath 'data_dirs',
+    cache      = vim.fn.stdpath 'cache',
+    config     = vim.fn.stdpath 'config',
+    config_dir = vim.fn.stdpath 'config_dirs',
+    data       = vim.fn.stdpath 'data',
+    data_dir   = vim.fn.stdpath 'data_dirs',
 }
 
 M.variable = {
@@ -32,27 +32,28 @@ M.variable = {
 
 
 -- disable = 1, enable = 0
-M.builtin_feature = {
-    'netrw'             ,
-    'netrwPlugin'       ,
-    'netrwSettings'     ,
-    'netrwFileHandlers' ,
-    'gzip'              ,
-    'zip'               ,
-    'zipPlugin'         ,
-    'tar'               ,
-    'tarPlugin'         ,
-    'getscript'         ,
-    'getscriptPlugin'   ,
-    'vimball'           ,
-    'vimballPlugin'     ,
-    '2html_plugin'      ,
-    'logipat'           ,
-    'rrhelper'          ,
-    'spellfile_plugin'  ,
-    'matchit'           ,
-    'matchparen'        ,
-    'shada_plugin'      ,
+M.default_builtin_plugin = {
+    ['2html_plugin']      = 1,
+    ['getscript']         = 1,
+    ['getscriptPlugin']   = 1,
+    ['gzip']              = 1,
+    ['logipat']           = 1,
+    ['matchit']           = 1,
+    ['matchparen']        = 1,
+    ['netrw']             = 1,
+    ['netrwPlugin']       = 1,
+    ['netrwSettings']     = 1,
+    ['netrwFileHandlers'] = 1,
+    ['rrhelper']          = 1,
+    ['spellfile_plugin']  = 1,
+    ['shada_plugin']      = 1,
+    ['tar']               = 1,
+    ['tarPlugin']         = 1,
+    ['vimball']           = 1,
+    ['vimballPlugin']     = 1,
+    ['zip']               = 1,
+    ['zipPlugin']         = 1,
 }
+
 
 return M

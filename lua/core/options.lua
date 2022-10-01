@@ -2,13 +2,12 @@
 
 local g, opt  = vim.g, vim.opt
 local env_var = require('environment').variable
-local builtin_feature = require('environment').builtin_feature
+local builtin_feature = require('environment').default_builtin_plugin
 
 
-for _, plugin in pairs(builtin_feature) do
-    vim.g["loaded_" .. plugin] = 1
+for plugin, value in pairs(builtin_feature) do
+    vim.g["loaded_" .. plugin] = value
 end
-
 
 
 -- glbal key mapping
