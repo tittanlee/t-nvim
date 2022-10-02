@@ -43,11 +43,9 @@ return require("packer").startup ({
         -- A File Explorer For Neovim Written In Lua
         use {
             "kyazdani42/nvim-tree.lua",
-
             requires = {
                 "kyazdani42/nvim-web-devicons",
             },
-
             config = function()
                 require("plugins.file_explorer.nvim-tree.config")
                 require("plugins.file_explorer.nvim-tree.keymap")
@@ -60,11 +58,9 @@ return require("packer").startup ({
         -- A snazzy 💅 buffer line (with tabpage integration) for Neovim built using lua.
         use {
             "akinsho/bufferline.nvim",
-
             requires = {
                 "kyazdani42/nvim-web-devicons",
             },
-
             config = function()
                 require("plugins.tab_line.bufferline.config")
                 require("plugins.tab_line.bufferline.keymap")
@@ -92,13 +88,34 @@ return require("packer").startup ({
         -- A simple, easy-to-use Vim alignment plugin.
         use {
             "junegunn/vim-easy-align",
-
             config = function()
                 require("plugins.formatting.vim-easy-align.config")
                 require("plugins.formatting.vim-easy-align.keymap")
             end,
         }
 
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━❰ syntax ❱━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- nvim-treesitter
+        use {
+            "nvim-treesitter/nvim-treesitter",
+            cmd = {
+                "TSInstall",
+                "TSInstallInfo",
+                "TSInstallSync",
+                "TSUninstall",
+                "TSUpdate",
+                "TSUpdateSync",
+                "TSDisableAll",
+                "TSEnableAll",
+            },
+            run = ":TSUpdate",
+            event = { "BufRead", "BufNewFile" },
+            config = function()
+                require("plugins.syntax.nvim-treesiter.config")
+            end,
+        }
 
 
 
