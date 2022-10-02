@@ -71,8 +71,8 @@ return require("packer").startup ({
             end
         }
 
-        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━━━❰ indent ❱━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- This plugin adds indentation guides to all lines (including empty lines)
         use {
@@ -85,6 +85,21 @@ return require("packer").startup ({
                 require("plugins.indent.indent-blankline.keymap")
             end,
         }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━❰ formatting ❱━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- A simple, easy-to-use Vim alignment plugin.
+        use {
+            "junegunn/vim-easy-align",
+
+            config = function()
+                require("plugins.formatting.vim-easy-align.config")
+                require("plugins.formatting.vim-easy-align.keymap")
+            end,
+        }
+
+
 
 
 
