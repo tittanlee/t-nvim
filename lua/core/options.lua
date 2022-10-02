@@ -1,8 +1,8 @@
 
 
 local g, opt  = vim.g, vim.opt
-local env_var = require('environment').variable
-local builtin_feature = require('environment').default_builtin_plugin
+local env_var = require("environment").variable
+local builtin_feature = require("environment").default_builtin_plugin
 
 
 for plugin, value in pairs(builtin_feature) do
@@ -19,8 +19,8 @@ g.maplocalleader = env_var.local_leader_key
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 -- multi-byte characters
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-opt.fileencoding  = 'utf-8'
-opt.fileencodings = 'ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1,utf-16le,cp1252,iso-8859-15'
+opt.fileencoding  = "utf-8"
+opt.fileencodings = "ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1,utf-16le,cp1252,iso-8859-15"
 
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 -- moving around, searching and patterns
@@ -36,22 +36,22 @@ opt.incsearch  = true
 opt.number         = true
 opt.relativenumber = true
 opt.cmdheight      = 1
-opt.showbreak      = '↪'
+opt.showbreak      = "↪"
 opt.list           = true
 opt.listchars      = {
-    tab            = '❘-',
-    trail          = '•',
-    precedes       = '❮',
-    extends        = '❯',
-    nbsp           = '×',
-    space          = '.',
-    -- eol         = '↴',
+    tab            = "❘-",
+    trail          = "•",
+    precedes       = "❮",
+    extends        = "❯",
+    nbsp           = "×",
+    space          = ".",
+    -- eol         = "↴",
 }
 opt.fillchars      = {
-	diff           = '∙', -- BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
-	eob            = ' ', -- NO-BREAK SPACE (U+00A0, UTF-8: C2 A0) to suppress ~ at EndOfBuffer
-	fold           = '·', -- MIDDLE DOT (U+00B7, UTF-8: C2 B7)
-	vert           = '│', -- window border when window splits vertically ─ ┴ ┬ ┤ ├ ┼
+    diff           = "∙", -- BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
+    eob            = " ", -- NO-BREAK SPACE (U+00A0, UTF-8: C2 A0) to suppress ~ at EndOfBuffer
+    fold           = "·", -- MIDDLE DOT (U+00B7, UTF-8: C2 B7)
+    vert           = "│", -- window border when window splits vertically ─ ┴ ┬ ┤ ├ ┼
 }
 
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
@@ -81,28 +81,28 @@ opt.termguicolors = true
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 -- using the mouse
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-opt.mouse = 'a'
+opt.mouse = "a"
 
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 -- selecting text
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-opt.clipboard = 'unnamed,unnamedplus'
+opt.clipboard = "unnamed,unnamedplus"
 
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 -- editing text
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 opt.showmatch   = true
 opt.completeopt = {
-    'menu',
-    'menuone',
-    'noselect',
-    'longest',
+    "menu",
+    "menuone",
+    "noselect",
+    "longest",
 }
 opt.diffopt     = {
-    'filler',
-    'iwhite',
-    'internal',
-    'algorithm:patience'
+    "filler",
+    "iwhite",
+    "internal",
+    "algorithm:patience"
 }
 
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
@@ -118,8 +118,8 @@ opt.smartindent = true
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 -- reading and writing files
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-opt.fileformat  = 'unix'
-opt.fileformats = 'unix,mac,dos'
+opt.fileformat  = "unix"
+opt.fileformats = "unix,mac,dos"
 opt.writebackup = false
 opt.backup      = false
 opt.swapfile    = false
@@ -133,7 +133,7 @@ opt.timeoutlen = 500
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 -- various
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-opt.signcolumn = 'yes'
+opt.signcolumn = "yes"
 opt.updatetime = 300
 
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
@@ -144,5 +144,5 @@ opt.scrolloff = 0
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 -- folding configuration
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-opt.foldmethod = 'indent'
+opt.foldmethod = "indent"
 opt.foldlevel = 99
