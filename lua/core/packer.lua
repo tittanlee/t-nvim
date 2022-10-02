@@ -54,6 +54,24 @@ return require("packer").startup ({
             end
         }
 
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━❰ tab_line ❱━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- A snazzy 💅 buffer line (with tabpage integration) for Neovim built using lua.
+        use {
+            "akinsho/bufferline.nvim",
+
+            requires = {
+                "kyazdani42/nvim-web-devicons",
+            },
+
+            config = function()
+                require("plugins.tab_line.bufferline.config")
+                require("plugins.tab_line.bufferline.keymap")
+            end
+        }
+
+
 
 
 
