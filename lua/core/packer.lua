@@ -2,11 +2,11 @@
 
 local ensure_packer = function()
     local fn           = vim.fn
-    local std_path     = require('environment').std_path
+    local std_path     = require("environment").std_path
     local packer_path = std_path.data .. "/site/pack/packer/start/packer.nvim"
 
     if fn.empty(fn.glob(packer_path)) > 0 then
-        fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', packer_path})
+        fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", packer_path})
         vim.cmd [[packadd packer.nvim]]
         return true
     end
@@ -16,7 +16,7 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-return require('packer').startup ({
+return require("packer").startup ({
     config = {
         git = {
             depth = 1,
@@ -34,18 +34,24 @@ return require('packer').startup ({
         -- Packer can manage itself as an optional plugin
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         use {
-            'wbthomason/packer.nvim',
+            "wbthomason/packer.nvim",
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        -- ━━━━━━━━━━━━━━━━━━━❰ file_tree ❱━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━❰ file_expxplorer ❱━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- A File Explorer For Neovim Written In Lua
         use {
-            'kyazdani42/nvim-tree.lua',
+            "kyazdani42/nvim-tree.lua",
+
             requires = {
-                'kyazdani42/nvim-web-devicons',
+                "kyazdani42/nvim-web-devicons",
             },
+
+            config = function()
+                require("plugins.file_explorer.nvim-tree.config")
+                require("plugins.file_explorer.nvim-tree.keymap")
+            end
         }
 
 
@@ -56,7 +62,7 @@ return require('packer').startup ({
         -- Put this at the end after all plugins
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         if packer_bootstrap then
-            require('packer').sync()
+            require("packer").sync()
         end
     end
 })

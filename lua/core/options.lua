@@ -44,7 +44,7 @@ opt.listchars      = {
     precedes       = '❮',
     extends        = '❯',
     nbsp           = '×',
-    space          = ' ',
+    space          = '.',
     -- eol         = '↴',
 }
 opt.fillchars      = {
