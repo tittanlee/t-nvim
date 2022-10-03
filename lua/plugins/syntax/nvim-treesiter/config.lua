@@ -30,7 +30,6 @@ ts_config.setup {
         "ql",
         "query",
         "regex",
-        "ruby",
         "rust",
         "rst",
         "teal",

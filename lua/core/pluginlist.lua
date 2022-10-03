@@ -117,6 +117,28 @@ return require("packer").startup ({
             end,
         }
 
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━❰ fuzzy_finder ❱━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        use {
+            'nvim-telescope/telescope.nvim',
+            requires = {
+                {'nvim-lua/plenary.nvim' },
+                {'nvim-lua/popup.nvim'   },
+            },
+            config = function()
+                require("plugins.fuzzy_finder.telescope.config")
+                require("plugins.fuzzy_finder.telescope.keymap")
+            end,
+        }
+
+
+
+
+
+
+
+
 
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
@@ -124,7 +146,6 @@ return require("packer").startup ({
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         use {
             "navarasu/onedark.nvim",
-
             config = function()
                 require("plugins.colorscheme.onedark")
             end,

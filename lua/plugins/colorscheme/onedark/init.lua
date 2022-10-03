@@ -3,7 +3,7 @@
 local env_var = require("environment").variable
 local status_ok, onedark = pcall(require, "onedark")
 
-if not status_ok or env_var.colorscheme ~= "onedark" then
+if not status_ok then
     return
 end
 
@@ -48,4 +48,6 @@ onedark.setup  {
     },
 }
 
-onedark.load()
+if env_var.colorscheme == "onedark" then
+    onedark.load()
+end
