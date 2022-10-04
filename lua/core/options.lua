@@ -96,7 +96,7 @@ opt.completeopt = {
     "menu",
     "menuone",
     "noselect",
-    "longest",
+    -- "longest",
 }
 opt.diffopt     = {
     "filler",

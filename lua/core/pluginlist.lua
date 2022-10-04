@@ -140,6 +140,7 @@ return require("packer").startup ({
             use {
                 "nvim-telescope/telescope-fzf-native.nvim",
                 run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+                after = "telescope.nvim",
                 config = function()
                     require("plugins.fuzzy_finder.telescope.extension.telescope-fzf-native")
                 end,
@@ -148,11 +149,33 @@ return require("packer").startup ({
             use {
                 "nvim-telescope/telescope-fzf-native.nvim",
                 run = "make",
+                after = "telescope.nvim",
                 config = function()
                     require("plugins.fuzzy_finder.telescope.extension.telescope-fzf-native")
                 end,
             }
         end
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━❰ completion ❱━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- A completion engine plugin for neovim written in Lua. 
+        use {
+            "hrsh7th/nvim-cmp",
+            event = "InsertEnter",
+			requires = {
+                {"hrsh7th/cmp-nvim-lsp",           after = "nvim-cmp" }, -- A nvim-cmp source for Neovim builtin LSP client.
+                {"hrsh7th/cmp-path",               after = "nvim-cmp" }, -- A nvim-cmp source for filesystem paths.
+                {"hrsh7th/cmp-git",                after = "nvim-cmp" }, -- A nvim-cmp source for Git.
+                {"hrsh7th/cmp-buffer",             after = "nvim-cmp" }, -- A nvim-cmp source for buffer words.
+                {"hrsh7th/cmp-nvim-lua",           after = "nvim-cmp" }, -- A nvim-cmp source for the Neovim Lua API.
+                {"f3fora/cmp-spell",               after = "nvim-cmp" }, -- A nvim-cmp source for vim's spellsuggest.
+                {"quangnguyen30192/cmp-nvim-tags", after = "nvim-cmp" }, -- tags completion source for nvim-cmp
+            },
+            config = function()
+                require("plugins.completion.nvim-cmp.config")
+            end,
+        }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━━❰ comment ❱━━━━━━━━━━━━━━━━━━━ --
@@ -162,10 +185,8 @@ return require("packer").startup ({
             "numToStr/Comment.nvim",
             config = function()
                 require("plugins.comment.comment.config")
-                require("plugins.comment.comment.keymap")
             end
         }
-
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━━━━❰ git ❱━━━━━━━━━━━━━━━━━━━━━ --
@@ -178,8 +199,6 @@ return require("packer").startup ({
             end
         }
 
-
-
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━❰ colorscheme ❱━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
@@ -189,22 +208,6 @@ return require("packer").startup ({
                 require("plugins.colorscheme.onedark")
             end,
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
