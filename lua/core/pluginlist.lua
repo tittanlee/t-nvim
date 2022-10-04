@@ -154,6 +154,18 @@ return require("packer").startup ({
             }
         end
 
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━❰ comment ❱━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ⚡Smart and Powerful commenting plugin for neovim ⚡
+        use {
+            "numToStr/Comment.nvim",
+            config = function()
+                require("plugins.comment.comment.config")
+                require("plugins.comment.comment.keymap")
+            end
+        }
+
 
 
 
