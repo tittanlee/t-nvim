@@ -66,39 +66,39 @@ telescope.setup {
             --    return { 'bat', "--number", entry.path }
             --end,
 
-            prompt_prefix   = " ",
-            selection_caret = " ",
-            entry_prefix    = "  ",
-            winblend        = 10,
-            border          = {},
-            borderchars     = {'─', '│', '─', '│', '╭', '╮', '╯', '╰'},
-            color_devicons  = true,
-            use_less        = false,
-            set_env         = {['COLORTERM'] = 'truecolor'}, -- default = nil,
-            path_display    = {'truncate'}, -- How file paths are displayed ()
+        prompt_prefix   = " ",
+        selection_caret = " ",
+        entry_prefix    = "  ",
+        winblend        = 10,
+        border          = {},
+        borderchars     = {'─', '│', '─', '│', '╭', '╮', '╯', '╰'},
+        color_devicons  = true,
+        use_less        = false,
+        set_env         = {['COLORTERM'] = 'truecolor'}, -- default = nil,
+        path_display    = {'truncate'}, -- How file paths are displayed ()
 
-            preview = {
-                msg_bg_fillchar = " ",
-                treesitter      = false,
-                hide_on_startup = false,
-                filesize_limit  = 10, -- MB
-            },
-
-            mappings = {
-                i = {
-                    ["<C-j>"] = actions.move_selection_next,
-                    ["<C-k>"] = actions.move_selection_previous,
-                    ["<C-p>"] = actions_layout.toggle_preview,
-                    ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
-                    -- ["<ESC>"] = actions.close,
-                    ["<CR>"]  = actions.select_default + actions.center
-                },
-                n = {
-                    ["<C-j>"] = actions.move_selection_next,
-                    ["<C-k>"] = actions.move_selection_previous,
-                    ["<C-p>"] = actions_layout.toggle_preview,
-                    ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist
-                }
-            },
+        preview = {
+            msg_bg_fillchar = " ",
+            treesitter      = false,
+            hide_on_startup = false,
+            filesize_limit  = 10, -- MB
         },
-    }
+
+        mappings = {
+            i = {
+                ["<C-j>"] = actions.move_selection_next,
+                ["<C-k>"] = actions.move_selection_previous,
+                ["<C-p>"] = actions_layout.toggle_preview,
+                ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+                -- ["<ESC>"] = actions.close,
+                ["<CR>"]  = actions.select_default + actions.center
+            },
+            n = {
+                ["<C-j>"] = actions.move_selection_next,
+                ["<C-k>"] = actions.move_selection_previous,
+                ["<C-p>"] = actions_layout.toggle_preview,
+                ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist
+            }
+        },
+    },
+}

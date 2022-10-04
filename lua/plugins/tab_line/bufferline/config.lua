@@ -104,5 +104,5 @@ bufferline.setup {
             reveal  = {"close"}
         },
         sort_by = buffer_sort_fn,
-    }
+    },
 }

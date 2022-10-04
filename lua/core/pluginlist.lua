@@ -14,7 +14,9 @@ local ensure_packer = function()
     return false
 end
 
+local env_var  = require("environment").variable
 local packer_bootstrap = ensure_packer()
+
 
 return require("packer").startup ({
     config = {
@@ -120,8 +122,9 @@ return require("packer").startup ({
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━❰ fuzzy_finder ❱━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- Gaze deeply into unknown regions using the power of the moon.
         use {
-            'nvim-telescope/telescope.nvim',
+            "nvim-telescope/telescope.nvim",
             requires = {
                 {'nvim-lua/plenary.nvim' },
                 {'nvim-lua/popup.nvim'   },
@@ -132,10 +135,24 @@ return require("packer").startup ({
             end,
         }
 
-
-
-
-
+        -- fzf-native is a c port of fzf
+        if env_var.is_windows then
+            use {
+                "nvim-telescope/telescope-fzf-native.nvim",
+                run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+                config = function()
+                    require("plugins.fuzzy_finder.telescope.extension.telescope-fzf-native")
+                end,
+            }
+        else
+            use {
+                "nvim-telescope/telescope-fzf-native.nvim",
+                run = "make",
+                config = function()
+                    require("plugins.fuzzy_finder.telescope.extension.telescope-fzf-native")
+                end,
+            }
+        end
 
 
 

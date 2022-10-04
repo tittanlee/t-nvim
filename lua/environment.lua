@@ -7,11 +7,11 @@ local os_name = uv.os_uname().sysname
 local M = {}
 
 M.std_path = {
-    cache      = vim.fn.stdpath 'cache',
-    config     = vim.fn.stdpath 'config',
-    config_dir = vim.fn.stdpath 'config_dirs',
-    data       = vim.fn.stdpath 'data',
-    data_dir   = vim.fn.stdpath 'data_dirs',
+    cache      = vim.fn.stdpath('cache'),
+    config     = vim.fn.stdpath('config'),
+    config_dir = vim.fn.stdpath('config_dirs'),
+    data       = vim.fn.stdpath('data'),
+    data_dir   = vim.fn.stdpath('data_dirs'),
 }
 
 M.variable = {
