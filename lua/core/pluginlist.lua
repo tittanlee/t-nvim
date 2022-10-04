@@ -167,6 +167,16 @@ return require("packer").startup ({
         }
 
 
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━━❰ git ❱━━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- Super fast git decorations implemented purely in lua/teal.
+        use {
+            'lewis6991/gitsigns.nvim',
+            config = function()
+                require("plugins.git.gitsigns.config")
+            end
+        }
 
 
 
