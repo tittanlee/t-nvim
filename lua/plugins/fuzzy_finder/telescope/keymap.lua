@@ -53,3 +53,8 @@ keymap('n', '<LEADER>ft', builtin.current_buffer_tags,  options)
 -- ━━━━━━━━━━━━━━━━━━━━❰ maps ❱━━━━━━━━━━━━━━━━━━━━━ --
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 keymap('n', '<LEADER>fm', builtin.keymaps,  options)
+
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+-- ━━━━━━━━━━━━━━━━━❰ highlights ❱━━━━━━━━━━━━━━━━━━ --
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+keymap('n', '<LEADER>fH', builtin.highlights,  options)

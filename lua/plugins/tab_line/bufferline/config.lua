@@ -16,9 +16,9 @@ end
 bufferline.setup {
     options = {
         mode    = "buffers", -- set to "tabs" to only show tabpages instead
-        numbers = function(opts)
-            return string.format("%s%s", opts.ordinal, opts.raise(opts.id))
-        end,
+        -- numbers = function(opts)
+        --     return string.format("%s%s", opts.ordinal, opts.raise(opts.id))
+        -- end,
 
         close_command        = "bdelete! %d",       -- can be a string | function, see "Mouse actions"
         right_mouse_command  = "bdelete! %d", -- can be a string | function, see "Mouse actions"
@@ -26,8 +26,8 @@ bufferline.setup {
         middle_mouse_command = nil,          -- can be a string | function, see "Mouse actions"
 
         indicator = {
-            icon = "▎", -- this should be omitted if indicator style is not "icon"
-            style = "underline",
+            icon = "", -- this should be omitted if indicator style is not "icon"
+            style = "icon",
         },
 
         buffer_close_icon  = "",
@@ -80,9 +80,9 @@ bufferline.setup {
             end
         end,
         offsets = {
-            {filetype = "NvimTree",     text = "File Explorer", text_align = "center",  highlight = "Directory" },
-            {filetype = "coc-explorer", text = "Coc Explorer",  text_align = "center",  highlight = "Directory" },
-            {filetype = "Outline",      text = "Lsp Tags",      text_align = "center"},
+            {filetype = "NvimTree",     text = "File Explorer", text_align = "center", highlight = "Directory" },
+            {filetype = "coc-explorer", text = "Coc Explorer",  text_align = "center", highlight = "Directory" },
+            {filetype = "Outline",      text = "Lsp Tags",      text_align = "center", highlight = "Directory" },
         },
         color_icons              = true, -- whether or not to add the filetype icon highlights
         show_buffer_icons        = true, -- disable filetype icons for buffers
@@ -95,8 +95,7 @@ bufferline.setup {
         -- can also be a table containing 2 custom separators
         -- [focused and unfocused]. eg: { "|", "|" }
         -- separator_style = "slant" | "thick" | "thin" | { "any", "any" },
-        -- separator_style          = "slant",
-        separator_style          = {"", ""},
+        separator_style          = { "", "" },
         enforce_regular_tabs     = false,
         always_show_bufferline   = true,
         hover = {
@@ -104,49 +103,60 @@ bufferline.setup {
             delay   = 200,
             reveal  = {"close"}
         },
-        sort_by = buffer_sort_fn,
+        sort_by = "insert_after_current",
     },
 
     highlights = {
         fill = {
-            fg = { attribute = "fg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "StatusLineNC" },
+            bg = {highlight = "BufferLineFill", attribute = "bg" },
         },
         background = {
-            fg = { attribute = "fg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "StatusLine" },
-        },
-        buffer_visible = {
-            fg = { attribute = "fg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "Normal" },
-        },
-        buffer_selected = {
-            fg = { attribute = "fg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "Normal" },
+            fg = {highlight = "BufferCurrent", attribute = "fg"},
+            bg = {highlight = "BufferCurrent", attribute = "bg"},
         },
         separator = {
-            fg = { attribute = "bg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "StatusLine" },
+            fg = {highlight = "BufferSeparator", attribute = "fg"}
         },
         separator_selected = {
-            fg = { attribute = "fg", highlight = "Special" },
-            bg = { attribute = "bg", highlight = "Normal" },
-        },
-        separator_visible = {
-            fg = { attribute = "fg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "StatusLineNC" },
-        },
-        close_button = {
-            fg = { attribute = "fg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "StatusLine" },
+            fg = {highlight = "BufferSeparatorSelected", attribute = "fg"},
         },
         close_button_selected = {
-            fg = { attribute = "fg", highlight = "normal" },
-            bg = { attribute = "bg", highlight = "normal" },
+            fg = {highlight = "BufferCloseButtonSelected", attribute = "fg"},
+            bg = {highlight = "BufferCloseButtonSelected", attribute = "bg"},
         },
-        close_button_visible = {
-            fg = { attribute = "fg", highlight = "normal" },
-            bg = { attribute = "bg", highlight = "normal" },
+        duplicate = {
+            fg = {highlight = "BufferCurrentSign", attribute = "fg"},
+            bg = {highlight = "BufferLineFill", attribute = "bg"},
+        },
+        duplicate_selected = {
+            fg = {highlight = "BufferCurrentSign", attribute = "fg"},
+        },
+        modified = {
+            fg = {highlight = "BufferCurrentSign", attribute = "fg"},
+            bg = {highlight = "BufferLineFill", attribute = "bg"},
+        },
+        modified_selected = {
+            fg = {highlight = "BufferCurrentSign", attribute = "fg"},
+        },
+        numbers = {
+            bg = {highlight = "BuffNumbers", attribute = "bg"},
+        },
+        tab_selected = {
+            fg = {highlight = "TabSelectedFG", attribute = "fg"},
+            bg = {highlight = "TabSelectedBG", attribute = "bg"},
+        },
+        tab = {
+            fg = {highlight = "TabFG", attribute = "fg"},
+            bg = {highlight = "TabBG", attribute = "bg"},
+        },
+        tab_close = {
+            fg = {highlight = "TabFG", attribute = "fg"},
+            bg = {highlight = "TabBG", attribute = "bg"},
+        },
+        close_button = {
+            fg = {highlight = "TabFG", attribute = "fg"},
+            bg = {highlight = "TabBG", attribute = "bg"},
         },
     },
+
 }

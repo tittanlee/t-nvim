@@ -101,4 +101,13 @@ M.keymaps = function()
     ts_builtin.keymaps(opts)
 end
 
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+-- ━━━━━━━━━━━━━━━━━❰ highlights ❱━━━━━━━━━━━━━━━━━━ --
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+M.highlights= function()
+    local opts = {
+    } -- define here if you want to define something
+    ts_builtin.highlights(opts)
+end
+
 return M
