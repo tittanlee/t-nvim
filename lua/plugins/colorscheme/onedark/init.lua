@@ -7,6 +7,9 @@ if not status_ok then
     return
 end
 
+if env_var.colorscheme ~= "onedark" then
+    return
+end
 
 onedark.setup  {
     -- Main options --
@@ -48,6 +51,4 @@ onedark.setup  {
     },
 }
 
-if env_var.colorscheme == "onedark" then
-    onedark.load()
-end
+onedark.load()

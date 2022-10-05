@@ -212,14 +212,35 @@ return require("packer").startup ({
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━❰ quickfixj ❱━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- The goal of nvim-bqf is to make Neovim's quickfix window better.
+        use {
+            "kevinhwang91/nvim-bqf",
+            config = function ()
+                require("plugins.quickfix.nvim-bqf.config")
+            end,
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━❰ colorscheme ❱━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- A One Dark Theme for Neovim 0.5 written in Lua based on Atom's One Dark Theme.
         use {
             "navarasu/onedark.nvim",
             config = function()
                 require("plugins.colorscheme.onedark")
             end,
         }
+        -- Dracula colorscheme for NEOVIM written in Lua
+        use {
+            "Mofiqul/dracula.nvim",
+            config = function()
+                require("plugins.colorscheme.dracula")
+            end,
+        }
+
+
 
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
