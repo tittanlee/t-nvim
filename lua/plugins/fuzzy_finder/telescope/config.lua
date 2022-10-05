@@ -86,17 +86,38 @@ telescope.setup {
 
         mappings = {
             i = {
+                -- ━━━━━━━━━━━━━━━━━❰ result scroll ❱━━━━━━━━━━━━━━━━━ --
+                ["<C-d>"] = actions.results_scrolling_down,
+                ["<C-u>"] = actions.results_scrolling_up,
+
+                -- ━━━━━━━━━━━━━━━━━❰ selection scroll ❱━━━━━━━━━━━━━━━━━ --
                 ["<C-j>"] = actions.move_selection_next,
                 ["<C-k>"] = actions.move_selection_previous,
+
+                -- ━━━━━━━━━━━━━━━━━❰ preview scroll ❱━━━━━━━━━━━━━━━━━ --
                 ["<C-p>"] = actions_layout.toggle_preview,
+                ["<C-f>"] = actions.preview_scrolling_up,
+                ["<C-b>"] = actions.preview_scrolling_down,
+
+
                 ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
                 -- ["<ESC>"] = actions.close,
                 ["<CR>"]  = actions.select_default + actions.center
             },
             n = {
+                -- ━━━━━━━━━━━━━━━━━❰ result scroll ❱━━━━━━━━━━━━━━━━━ --
+                ["<C-d>"] = actions.results_scrolling_down,
+                ["<C-u>"] = actions.results_scrolling_up,
+
+                -- ━━━━━━━━━━━━━━━━━❰ selection scroll ❱━━━━━━━━━━━━━━━━━ --
                 ["<C-j>"] = actions.move_selection_next,
                 ["<C-k>"] = actions.move_selection_previous,
+
+                -- ━━━━━━━━━━━━━━━━━❰ preview scroll ❱━━━━━━━━━━━━━━━━━ --
                 ["<C-p>"] = actions_layout.toggle_preview,
+                ["<C-f>"] = actions.preview_scrolling_up,
+                ["<C-b>"] = actions.preview_scrolling_down,
+
                 ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist
             }
         },
