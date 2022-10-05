@@ -133,26 +133,20 @@ return require("packer").startup ({
             end,
         }
 
-        -- fzf-native is a c port of fzf
-        if env_var.is_windows then
-            use {
-                "nvim-telescope/telescope-fzf-native.nvim",
-                run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-                after = "telescope.nvim",
-                config = function()
-                    require("plugins.fuzzy_finder.telescope.extension.telescope-fzf-native")
-                end,
-            }
-        else
-            use {
-                "nvim-telescope/telescope-fzf-native.nvim",
-                run = "make",
-                after = "telescope.nvim",
-                config = function()
-                    require("plugins.fuzzy_finder.telescope.extension.telescope-fzf-native")
-                end,
-            }
-        end
+        use {
+            "nvim-telescope/telescope-fzf-native.nvim",
+            run = env_var.is_windows and
+            "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
+            or "make",
+            after = "telescope.nvim",
+            config = function()
+                require("plugins.fuzzy_finder.telescope.extension.telescope-fzf-native")
+            end,
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━━━❰ LSP ❱━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━❰ completion ❱━━━━━━━━━━━━━━━━━ --
