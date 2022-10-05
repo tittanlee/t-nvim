@@ -24,7 +24,6 @@ cmp.setup({
             border = {'╭', "─", '╮', "│", '╯', "─", "╰", "│"},
             -- winhighlight = 'NormalFloat:CompNormal,FloatBorder:FloatBorder',
 		}
-
     },
 
     mapping = cmp.mapping.preset.insert({
@@ -35,8 +34,8 @@ cmp.setup({
         ['<CR>']      = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         ["<C-k>"]     = cmp.mapping.select_prev_item(),
         ["<C-j>"]     = cmp.mapping.select_next_item(),
-        ["<Tab>"]     = cmp.mapping.select_next_item(),
-        ["<S-Tab>"]   = cmp.mapping.select_prev_item(),
+        ["<Tab>"]     = cmp.mapping(cmp.mapping.select_next_item(), {'i', 'c'}),
+        ["<S-Tab>"]   = cmp.mapping(cmp.mapping.select_prev_item(), {'i', 'c'}),
     }),
 
     sources = {
@@ -75,10 +74,6 @@ cmp.setup.cmdline({ '/', '?' }, {
 cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
-        {name = 'path' },
-        {name = 'buffer'},
-    }, {
         {name = 'cmdline'},
     })
 })
-

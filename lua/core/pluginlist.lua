@@ -169,6 +169,7 @@ return require("packer").startup ({
                 {"hrsh7th/cmp-git",                after = "nvim-cmp" }, -- A nvim-cmp source for Git.
                 {"hrsh7th/cmp-buffer",             after = "nvim-cmp" }, -- A nvim-cmp source for buffer words.
                 {"hrsh7th/cmp-nvim-lua",           after = "nvim-cmp" }, -- A nvim-cmp source for the Neovim Lua API.
+                {"hrsh7th/cmp-cmdline",            after = "nvim-cmp" }, -- A nvim-cmp source for vim's cmdline.
                 {"f3fora/cmp-spell",               after = "nvim-cmp" }, -- A nvim-cmp source for vim's spellsuggest.
                 {"quangnguyen30192/cmp-nvim-tags", after = "nvim-cmp" }, -- tags completion source for nvim-cmp
             },
@@ -221,6 +222,20 @@ return require("packer").startup ({
                 require("plugins.quickfix.nvim-bqf.config")
             end,
         }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━❰ motion ❱━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- Hop is an EasyMotion-like plugin allowing you to jump anywhere
+        use {
+            "phaazon/hop.nvim",
+            tag = 'v2.0.2',
+            config = function()
+                require("plugins.motion.hop.config")
+                require("plugins.motion.hop.keymap")
+            end
+        }
+
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━❰ colorscheme ❱━━━━━━━━━━━━━━━━━ --
