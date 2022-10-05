@@ -239,7 +239,20 @@ return require("packer").startup ({
                 require("plugins.colorscheme.dracula")
             end,
         }
-
+        -- A Lua port of vim-code-dark colorscheme for Neovim with vscode light and dark theme.
+        use {
+            "Mofiqul/vscode.nvim",
+            config = function()
+                require("plugins.colorscheme.vscode")
+            end,
+        }
+        -- Neovim theme based off of the Nord Color Palette.
+        use {
+            "shaunsingh/nord.nvim",
+            config = function()
+                require("plugins.colorscheme.nord")
+            end,
+        }
 
 
 
