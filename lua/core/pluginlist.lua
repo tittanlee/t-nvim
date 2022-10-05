@@ -75,9 +75,7 @@ return require("packer").startup ({
         -- This plugin adds indentation guides to all lines (including empty lines)
         use {
             "lukas-reineke/indent-blankline.nvim",
-
             event = "BufRead",
-
             config = function()
                 require("plugins.indent.indent-blankline.config")
                 require("plugins.indent.indent-blankline.keymap")
@@ -235,7 +233,6 @@ return require("packer").startup ({
                 require("plugins.motion.hop.keymap")
             end
         }
-
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━❰ colorscheme ❱━━━━━━━━━━━━━━━━━ --
