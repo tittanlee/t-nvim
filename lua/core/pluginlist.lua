@@ -163,7 +163,10 @@ return require("packer").startup ({
             requires = {
                 {"williamboman/mason-lspconfig.nvim",},
                 {"WhoIsSethDaniel/mason-tool-installer.nvim",},
-            }
+            },
+            config = function()
+                require("plugins.lsp.server.config")
+            end,
         }
 
         -- LSP client side
@@ -190,10 +193,26 @@ return require("packer").startup ({
                 {"hrsh7th/cmp-nvim-lua",           after = "nvim-cmp" }, -- A nvim-cmp source for the Neovim Lua API.
                 {"hrsh7th/cmp-cmdline",            after = "nvim-cmp" }, -- A nvim-cmp source for vim's cmdline.
                 {"f3fora/cmp-spell",               after = "nvim-cmp" }, -- A nvim-cmp source for vim's spellsuggest.
+                {"saadparwaiz1/cmp_luasnip",       after = "nvim-cmp" }, -- A nvim-cmp source for luasnip.
                 {"quangnguyen30192/cmp-nvim-tags", after = "nvim-cmp" }, -- tags completion source for nvim-cmp
             },
             config = function()
                 require("plugins.completion.nvim-cmp.config")
+            end,
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━❰ snippet ❱━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- Snippet Engine for Neovim written in Lua.
+        use {
+            "L3MON4D3/LuaSnip",
+            requires = {
+                -- Snippets collection for a set of different programming languages for faster development0.
+                "rafamadriz/friendly-snippets"
+            },
+            config = function ()
+                require("plugins.snippet.luasnip.config")
             end,
         }
 
@@ -232,7 +251,7 @@ return require("packer").startup ({
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        -- ━━━━━━━━━━━━━━━━━━❰ quickfixj ❱━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━❰ quickfixj ❱━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- The goal of nvim-bqf is to make Neovim's quickfix window better.
         use {
@@ -243,7 +262,7 @@ return require("packer").startup ({
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        -- ━━━━━━━━━━━━━━━━━━━❰ motion ❱━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━❰ motion ❱━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- Hop is an EasyMotion-like plugin allowing you to jump anywhere
         use {
@@ -256,7 +275,7 @@ return require("packer").startup ({
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        -- ━━━━━━━━━━━━━━━━━━━❰ utility ❱━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━❰ utility ❱━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 
 
@@ -264,7 +283,7 @@ return require("packer").startup ({
 
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        -- ━━━━━━━━━━━━━━━━━❰ colorscheme ❱━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━❰ colorscheme ❱━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- A One Dark Theme for Neovim 0.5 written in Lua based on Atom's One Dark Theme.
         use {
