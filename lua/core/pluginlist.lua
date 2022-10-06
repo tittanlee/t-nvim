@@ -17,6 +17,8 @@ end
 local env_var  = require("environment").variable
 local packer_bootstrap = ensure_packer()
 
+-- Performance on neovim startup time
+pcall(require, "impatient")
 
 return require("packer").startup ({
     config = {
@@ -37,6 +39,14 @@ return require("packer").startup ({
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         use {
             "wbthomason/packer.nvim",
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━❰ performance ❱━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- Speed up loading Lua modules in Neovim to improve startup time.
+        use {
+            "lewis6991/impatient.nvim"
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
@@ -147,6 +157,23 @@ return require("packer").startup ({
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━━━━━❰ LSP ❱━━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- LSP server side
+        use {
+            "williamboman/mason.nvim",
+            requires = {
+                {"williamboman/mason-lspconfig.nvim",},
+                {"WhoIsSethDaniel/mason-tool-installer.nvim",},
+            }
+        }
+
+        -- LSP client side
+        use {
+			"neovim/nvim-lspconfig",
+            event = "BufReadPre",
+            config = function()
+                require("plugins.lsp.client.config")
+            end,
+        }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━❰ completion ❱━━━━━━━━━━━━━━━━━ --
@@ -227,6 +254,14 @@ return require("packer").startup ({
                 require("plugins.motion.hop.keymap")
             end
         }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━❰ utility ❱━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+
+
+
+
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━❰ colorscheme ❱━━━━━━━━━━━━━━━━━ --

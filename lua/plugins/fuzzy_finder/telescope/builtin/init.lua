@@ -110,4 +110,14 @@ M.highlights= function()
     ts_builtin.highlights(opts)
 end
 
+
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+-- ━━━━━━━━━━━━━━━━━━❰ live grep ❱━━━━━━━━━━━━━━━━━━ --
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+M.live_grep = function()
+    local opts = {
+    } -- define here if you want to define something
+    ts_builtin.live_grep(opts)
+end
+
 return M

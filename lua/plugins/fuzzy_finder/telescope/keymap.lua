@@ -58,3 +58,8 @@ keymap('n', '<LEADER>fm', builtin.keymaps,  options)
 -- ━━━━━━━━━━━━━━━━━❰ highlights ❱━━━━━━━━━━━━━━━━━━ --
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 keymap('n', '<LEADER>fH', builtin.highlights,  options)
+
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+-- ━━━━━━━━━━━━━━━━━━❰ live grep ❱━━━━━━━━━━━━━━━━━━ --
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+keymap('n', '<LEADER>fg', builtin.live_grep,  options)
