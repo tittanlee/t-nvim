@@ -108,12 +108,14 @@ opt.diffopt     = {
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 -- tabs and indenting
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+opt.autoindent  = true
 opt.tabstop     = 4
 opt.shiftwidth  = 4
 opt.softtabstop = 4
 opt.smarttab    = true
 opt.expandtab   = true
 opt.smartindent = true
+opt.shiftround  = true
 
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 -- reading and writing files
