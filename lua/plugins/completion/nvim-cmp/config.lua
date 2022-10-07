@@ -5,6 +5,7 @@ if not status_ok then
     return
 end
 
+local pmenu_fmt = require("plugins.completion.nvim-cmp.pmenu_fmt")
 
 local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -29,7 +30,11 @@ local border = function(hl)
 end
 
 cmp.setup({
+
     snippet = {
+        expand = function(args)
+            require("luasnip").lsp_expand(args.body)
+        end,
     },
 
     completion = {
@@ -81,12 +86,6 @@ cmp.setup({
         end, { "i", "c", "s" }),
     }),
 
-    snippet = {
-        expand = function(args)
-            require("luasnip").lsp_expand(args.body)
-        end,
-    },
-
     sources = {
         { name = "nvim_lsp" },
         { name = "tags" },
@@ -107,6 +106,8 @@ cmp.setup({
         { name = "path"},
         { name = 'spell'},
     },
+
+    formatting = pmenu_fmt.vscode_format,
 
     -- preselect = true,
 })

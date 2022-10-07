@@ -60,8 +60,20 @@ require("mason").setup({
 
 mason_lspconfig.setup ({
     ensure_installed = {
-        "sumneko_lua",
-        "rust_analyzer",
+        "bashls"        ,
+        "clangd"        ,
+        "cmake"         ,
+        "diagnosticls"  ,
+        "efm"           ,
+        "html"          ,
+        "jsonls"        ,
+        "tsserver"      ,
+        "sumneko_lua"   ,
+        "perlnavigator" ,
+        -- "powershell_es" ,
+        "pyright"       ,
+        -- "taplo"         , -- toml language
+        "vimls"         ,
     },
 
     -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.

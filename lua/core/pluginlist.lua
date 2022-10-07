@@ -79,8 +79,8 @@ return require("packer").startup ({
             end
         }
 
-        -- ━━━━━━━━━━━━━━━━━━━━❰ indent ❱━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━❰ indent ❱━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- This plugin adds indentation guides to all lines (including empty lines)
         use {
