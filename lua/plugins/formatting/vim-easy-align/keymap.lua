@@ -5,3 +5,4 @@ local options = {noremap = true, silent = true}
 
 keymap("n", "ga", "<plug>(EasyAlign)", options)
 keymap("x", "ga", "<plug>(EasyAlign)", options)
+keymap("x", "<Leader>ga", "<Plug>(LiveEasyAlign)", options)

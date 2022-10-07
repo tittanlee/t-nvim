@@ -32,12 +32,15 @@ toggleterm.setup ({
         -- see :h nvim_open_win for details on borders however
         -- the "curved" border is a custom border type
         -- not natively supported but implemented in this plugin.
-        border = "double",
+        border   = "double",
         winblend = 25,
+        width    = math.floor(vim.o.columns * 0.9),
+        height   = math.floor(vim.o.lines * 0.9),
+
         highlights = {
-            border = "Normal",
+            border     = "Normal",
             background = "Normal",
-        }
+        },
     },
 
     winbar = {

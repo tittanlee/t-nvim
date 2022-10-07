@@ -3,7 +3,7 @@
 local env_var  = require("environment").variable
 
 -- test if lazygit execute binary exists.
-if vim.fn.executable("lazygit") == 0 or env_var.gitui_support == false then
+if vim.fn.executable("lazygit") == 0 or env_var.lazygit_support == false then
     return
 end
 
@@ -20,6 +20,8 @@ local lazygit = Terminal:new({
     float_opts = {
         border = "double",
         winblend = 15,
+        width    = math.floor(vim.o.columns * 0.9),
+        height   = math.floor(vim.o.lines * 0.9),
         highlights = {
             border = "Normal",
             background = "Normal",

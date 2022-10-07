@@ -8,7 +8,7 @@ end
 
 local keymap = vim.keymap.set
 local options = {noremap = true, silent = true}
-
+local hint = require("hop.hint")
 
 
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
@@ -17,9 +17,39 @@ local options = {noremap = true, silent = true}
 keymap(
     "n",
     "f",
-    "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<CR>",
+    function()
+        hop.hint_char1({
+            direction = hint.HintDirection.AFTER_CURSOR,
+            current_line_only = true,
+        })
+    end,
     options
 )
+
+keymap(
+    "o",
+    "f",
+    function()
+        hop.hint_char1({
+            direction = hint.HintDirection.AFTER_CURSOR,
+            current_line_only = false,
+        })
+    end,
+    options
+)
+
+keymap(
+    "x",
+    "f",
+    function()
+        hop.hint_char1({
+            direction = hint.HintDirection.AFTER_CURSOR,
+            current_line_only = false,
+        })
+    end,
+    options
+)
+
 
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 -- search one word in current line
@@ -27,7 +57,36 @@ keymap(
 keymap(
     "n",
     "F",
-    "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<CR>",
+    function()
+        hop.hint_char1({
+            direction = hint.HintDirection.BEFORE_CURSOR,
+            current_line_only = true,
+        })
+    end,
+    options
+)
+
+keymap(
+    "o",
+    "F",
+    function()
+        hop.hint_char1({
+            direction = hint.HintDirection.BEFORE_CURSOR,
+            current_line_only = false,
+        })
+    end,
+    options
+)
+
+keymap(
+    "x",
+    "F",
+    function()
+        hop.hint_char1({
+            direction = hint.HintDirection.BEFORE_CURSOR,
+            current_line_only = false,
+        })
+    end,
     options
 )
 
@@ -37,7 +96,9 @@ keymap(
 keymap(
     "n",
     "<leader>ss",
-    "<cmd>lua require'hop'.hint_char2()<CR>",
+    function()
+        hop.hint_char2()
+    end,
     options
 )
 
@@ -47,6 +108,8 @@ keymap(
 keymap(
     "n",
     "<leader>sp",
-    "<cmd>lua require'hop'.hint_patterns()<CR>",
+    function()
+        op.hint_patterns()
+    end,
     options
 )

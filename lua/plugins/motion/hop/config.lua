@@ -6,8 +6,8 @@ if not status_ok then
 end
 
 hop.setup {
-    keys     = 'etovxqpdygfblzhckisuran',
-    quit_key = '<SPC>',
+    keys                    = "asdfjklhmnwertzxcvbuio",
+    quit_key                = '<SPC>',
     jump_on_sole_occurrence = true,
-    case_insensitive = false,
+    case_insensitive        = false,
 }
