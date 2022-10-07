@@ -27,7 +27,7 @@ bufferline.setup {
 
         indicator = {
             icon = "", -- this should be omitted if indicator style is not "icon"
-            style = "icon",
+            style = "underline",
         },
 
         buffer_close_icon  = "",
@@ -95,7 +95,7 @@ bufferline.setup {
         -- can also be a table containing 2 custom separators
         -- [focused and unfocused]. eg: { "|", "|" }
         -- separator_style = "slant" | "thick" | "thin" | { "any", "any" },
-        separator_style          = { "", "" },
+        separator_style          = { "", "" },
         enforce_regular_tabs     = false,
         always_show_bufferline   = true,
         hover = {
