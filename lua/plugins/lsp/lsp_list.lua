@@ -5,25 +5,24 @@
 local M = {}
 
 M.servers = {
-    html = {
-    },
-
-    vimls = {
-    },
-
     bashls = {
     },
 
     clangd = {
-
     },
 
     cmake = {
+    },
+
+    diagnosticls = {
 
     },
 
     efm = {
 
+    },
+
+    html = {
     },
 
     jsonls = {
@@ -32,6 +31,18 @@ M.servers = {
                 schemas = require("schemastore").json.schemas(),
             },
         },
+    },
+
+    -- XML
+    lemminx = {
+    },
+
+    perlnavigator = {
+
+    },
+
+    powershell_es = {
+
     },
 
     pyright = {
@@ -101,11 +112,7 @@ M.servers = {
         },
     },
 
-    perlnavigator = {
-
-    },
-
-    powershell_es = {
+    vimls = {
     },
 
 }

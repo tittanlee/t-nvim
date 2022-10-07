@@ -19,7 +19,7 @@ local gitui = Terminal:new({
 
     float_opts = {
         border = "double",
-        winblend = 25,
+        winblend = 15,
         highlights = {
             border = "Normal",
             background = "Normal",
@@ -42,5 +42,5 @@ function _gitui_toggle()
     gitui:toggle()
 end
 
-vim.api.nvim_set_keymap("n", "<leader><leader>tg", "<cmd>lua _gitui_toggle()<CR>", options)
+vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua _gitui_toggle()<CR>", options)
 

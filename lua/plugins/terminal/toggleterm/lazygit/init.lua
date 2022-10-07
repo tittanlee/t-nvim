@@ -19,7 +19,7 @@ local lazygit = Terminal:new({
 
     float_opts = {
         border = "double",
-        winblend = 25,
+        winblend = 15,
         highlights = {
             border = "Normal",
             background = "Normal",
@@ -42,5 +42,5 @@ function _lazygit_toggle()
     lazygit:toggle()
 end
 
-vim.api.nvim_set_keymap("n", "<leader><leader>tg", "<cmd>lua _lazygit_toggle()<CR>", options)
+vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua _lazygit_toggle()<CR>", options)
 
