@@ -70,6 +70,7 @@ end
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 M.quickfix = function()
     local opts = {
+        layout_strategy = "vertical",
     } -- define here if you want to define something
     ts_builtin.quickfix(opts)
 end
@@ -116,6 +117,7 @@ end
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 M.live_grep = function()
     local opts = {
+        layout_strategy = "vertical"
     } -- define here if you want to define something
     ts_builtin.live_grep(opts)
 end

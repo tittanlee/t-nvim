@@ -21,7 +21,7 @@ indent_blankline.setup {
         "startify", "dashboard", "dotooagenda", "log", "fugitive",
         "gitcommit", "packer", "vimwiki", "markdown", "json", "txt",
         "vista", "help", "todoist", "NvimTree", "peekaboo", "git",
-        "TelescopePrompt", "undotree", "flutterToolsOutline",
+        "TelescopePrompt", "undotree", "flutterToolsOutline", "qf",
         "" -- for all buffers without a file type
     },
     buftype_exclude = {"terminal", "nofile"},
