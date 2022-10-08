@@ -143,6 +143,7 @@ return require("packer").startup ({
             end,
         }
 
+        -- fzf-native is a c port of fzf. It only covers the algorithm and implements few functions to support calculating the score.
         use {
             "nvim-telescope/telescope-fzf-native.nvim",
             run = env_var.is_windows and
@@ -152,6 +153,27 @@ return require("packer").startup ({
             config = function()
                 require("plugins.fuzzy_finder.telescope.extension.telescope-fzf-native")
             end,
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━❰ search ❱━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- Spectre find the enemy and replace them with dark power.
+        use {
+            "nvim-pack/nvim-spectre",
+            config = function()
+                require("plugins.search.nvim-spectre.config")
+                require("plugins.search.nvim-spectre.keymap")
+            end,
+        }
+
+        -- A Neovim integration of the ripgrep search tool.
+        use {
+            "mhinz/vim-grepper",
+            config = function()
+                require("plugins.search.vim-grepper.config")
+                require("plugins.search.vim-grepper.keymap")
+            end
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --

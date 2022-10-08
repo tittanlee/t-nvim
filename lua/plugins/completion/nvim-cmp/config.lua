@@ -125,5 +125,6 @@ cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
         {name = 'cmdline'},
+        {name = 'buffer'},
     })
 })

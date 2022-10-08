@@ -24,7 +24,7 @@ indent_blankline.setup {
         "TelescopePrompt", "undotree", "flutterToolsOutline", "qf",
         "" -- for all buffers without a file type
     },
-    buftype_exclude = {"terminal", "nofile"},
+    buftype_exclude = {"terminal", "nofile", "help"},
     context_patterns = {
         "class", "function", "method", "block", "list_literal", "selector",
         "^if", "^table", "if_statement", "while", "for", "type", "var",
