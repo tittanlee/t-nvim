@@ -14,7 +14,7 @@ local ensure_packer = function()
     return false
 end
 
-local env_var  = require("environment").variable
+local env_var = require("environment").variable
 local packer_bootstrap = ensure_packer()
 
 -- Performance on neovim startup time
@@ -197,6 +197,19 @@ return require("packer").startup ({
             event = "BufReadPre",
             config = function()
                 require("plugins.lsp.client.config")
+            end,
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━❰ utility ❱━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- Gutentags is a plugin that takes care of the much needed management of tags files in Vim.
+        use {
+            "ludovicchabant/vim-gutentags",
+            commit = "50705e8",
+            config = function()
+                local std_path = require("environment").std_path
+                vim.cmd("source " .. std_path.config .. "/lua/plugins/utility/vim-gutentags/config.vim")
             end,
         }
 

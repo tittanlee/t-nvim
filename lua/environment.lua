@@ -28,7 +28,8 @@ M.variable = {
     -- TUI git application support
     gitui_support            = false,
     lazygit_support          = true,
-
+ 
+    -- status line flag
     status_show_file_path    = 'relative', -- relative or absolute
     status_show_current_func = false,
     status_show_git_info     = true,
