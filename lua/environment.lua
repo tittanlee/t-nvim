@@ -26,8 +26,8 @@ M.variable = {
     is_gui_nvim              = vim.fn.exists('vim.g.GuiLoaded') == true,
 
     -- TUI git application support
-    gitui_support            = false,
-    lazygit_support          = true,
+    gitui_support            = true,
+    lazygit_support          = false,
  
     -- status line flag
     status_show_file_path    = 'relative', -- relative or absolute

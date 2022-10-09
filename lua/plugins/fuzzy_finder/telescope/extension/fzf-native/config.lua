@@ -6,7 +6,6 @@ if not status_ok then
     return
 end
 
-
 telescope.setup {
     extensions = {
         fzf = {
@@ -20,4 +19,4 @@ telescope.setup {
 }
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
-require('telescope').load_extension('fzf')
+telescope.load_extension('fzf')

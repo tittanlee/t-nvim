@@ -151,7 +151,35 @@ return require("packer").startup ({
             or "make",
             after = "telescope.nvim",
             config = function()
-                require("plugins.fuzzy_finder.telescope.extension.telescope-fzf-native")
+                require("plugins.fuzzy_finder.telescope.extension.fzf-native.config")
+            end,
+        }
+
+        -- It helps you navigate, select, and perform actions on results buffer with motions inspired by hop.nvim.
+        -- use {
+        --     "nvim-telescope/telescope-hop.nvim",
+        -- }
+
+        -- Live grep args picker for telescope.nvim.
+        -- use {
+        --     "nvim-telescope/telescope-live-grep-args.nvim",
+        -- }
+
+        use {
+            "gnfisher/nvim-telescope-ctags-plus",
+            after = "telescope.nvim",
+            config = function()
+                require("plugins.fuzzy_finder.telescope.extension.ctags-plus.config")
+                require("plugins.fuzzy_finder.telescope.extension.ctags-plus.keymap")
+            end,
+        }
+
+        use {
+            "ivechan/telescope-gtags",
+            after = "telescope.nvim",
+            config = function()
+                require("plugins.fuzzy_finder.telescope.extension.gtags.config")
+                require("plugins.fuzzy_finder.telescope.extension.gtags.keymap")
             end,
         }
 
