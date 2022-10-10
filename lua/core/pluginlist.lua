@@ -382,6 +382,13 @@ return require("packer").startup ({
             end,
         }
 
+        use {
+            "folke/tokyonight.nvim",
+            config = function()
+                require("plugins.colorscheme.tokyonight")
+            end,
+        }
+
 
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --

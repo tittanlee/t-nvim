@@ -66,6 +66,16 @@ keymap('n', 'z9', ':set foldlevel=9<CR>',  { noremap = true, silent = false })
 keymap('v', '<', '<gv', { noremap = true, silent = false })
 keymap('v', '>', '>gv', { noremap = true, silent = false })
 
+-- toggle quickfix window
+keymap('n', '<M-q>',  qf.toggle, { silent = true })
+
+
+
+
+
+
+
+
 
 -- F2 save
 keymap('n', '<F2>', ':w! <CR>', { silent = false })
@@ -78,9 +88,6 @@ keymap('i', '<F3>', '<ESC> :so % <CR>', { silent = false })
 -- F4 quit
 keymap('n', '<F4>', ':quit! <CR>', { silent = true })
 keymap('i', '<F4>', '<ESC> :quit! <CR>', { silent = true })
-
--- F5 toggle quickfix window
-keymap('n', '<F5>',  qf.toggle, { silent = true })
 
 -- F6 to switch absolute or relative file path
 keymap('n', '<F6>', ':lua file_path_lib.fname_switch()<CR>', { silent = true})
