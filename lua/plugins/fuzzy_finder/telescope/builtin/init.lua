@@ -122,4 +122,14 @@ M.live_grep = function()
     ts_builtin.live_grep(opts)
 end
 
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+-- ━━━━━━━━━━━━━━━━━❰ grep string ❱━━━━━━━━━━━━━━━━━ --
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+M.grep_string = function()
+    local opts = {
+        layout_strategy = "vertical"
+    } -- define here if you want to define something
+    ts_builtin.grep_string(opts)
+end
+
 return M

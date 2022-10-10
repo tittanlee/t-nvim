@@ -161,9 +161,14 @@ return require("packer").startup ({
         -- }
 
         -- Live grep args picker for telescope.nvim.
-        -- use {
-        --     "nvim-telescope/telescope-live-grep-args.nvim",
-        -- }
+        use {
+            "nvim-telescope/telescope-live-grep-args.nvim",
+            after = "telescope.nvim",
+            config = function()
+                require("plugins.fuzzy_finder.telescope.extension.live-grep-args.config")
+                require("plugins.fuzzy_finder.telescope.extension.live-grep-args.keymap")
+            end,
+        }
 
         use {
             "gnfisher/nvim-telescope-ctags-plus",

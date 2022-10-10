@@ -63,3 +63,8 @@ keymap('n', '<LEADER>fH', builtin.highlights,  options)
 -- ━━━━━━━━━━━━━━━━━━❰ live grep ❱━━━━━━━━━━━━━━━━━━ --
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 keymap('n', '<LEADER>fg', builtin.live_grep,  options)
+
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+-- ━━━━━━━━━━━━━━━━━❰ grep string ❱━━━━━━━━━━━━━━━━━ --
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+keymap('n', '<LEADER>fG', builtin.grep_string,  options)
