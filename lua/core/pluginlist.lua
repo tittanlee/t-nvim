@@ -234,19 +234,6 @@ return require("packer").startup ({
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        -- ━━━━━━━━━━━━━━━━━━━━❰ utility ❱━━━━━━━━━━━━━━━━━━ --
-        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        -- Gutentags is a plugin that takes care of the much needed management of tags files in Vim.
-        use {
-            "ludovicchabant/vim-gutentags",
-            commit = "50705e8",
-            config = function()
-                local std_path = require("environment").std_path
-                vim.cmd("source " .. std_path.config .. "/lua/plugins/utility/vim-gutentags/config.vim")
-            end,
-        }
-
-        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━❰ completion ❱━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- A completion engine plugin for neovim written in Lua. 
@@ -345,10 +332,23 @@ return require("packer").startup ({
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━━━❰ utility ❱━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- Gutentags is a plugin that takes care of the much needed management of tags files in Vim.
+        use {
+            "ludovicchabant/vim-gutentags",
+            commit = "50705e8",
+            config = function()
+                local std_path = require("environment").std_path
+                vim.cmd("source " .. std_path.config .. "/lua/plugins/utility/vim-gutentags/config.vim")
+            end,
+        }
 
-
-
-
+         -- Delete Neovim buffers without losing your window layout.
+         use {
+             "famiu/bufdelete.nvim",
+             config = function()
+                require("plugins.utility.bufdelete.keymap")
+             end,
+         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━❰ colorscheme ❱━━━━━━━━━━━━━━━━ --
