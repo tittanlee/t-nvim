@@ -13,6 +13,8 @@ local buffer_filter_fn = function(buf, buf_nums)
     return true
 end
 
+local bufferline_hl = require("plugins.tab_line.bufferline.highlight").get()
+
 bufferline.setup {
     options = {
         mode    = "buffers", -- set to "tabs" to only show tabpages instead
@@ -106,57 +108,6 @@ bufferline.setup {
         sort_by = "insert_after_current",
     },
 
-    highlights = {
-        fill = {
-            bg = {highlight = "BufferLineFill", attribute = "bg" },
-        },
-        background = {
-            fg = {highlight = "BufferCurrent", attribute = "fg"},
-            bg = {highlight = "BufferCurrent", attribute = "bg"},
-        },
-        separator = {
-            fg = {highlight = "BufferSeparator", attribute = "fg"}
-        },
-        separator_selected = {
-            fg = {highlight = "BufferSeparatorSelected", attribute = "fg"},
-        },
-        close_button_selected = {
-            fg = {highlight = "BufferCloseButtonSelected", attribute = "fg"},
-            bg = {highlight = "BufferCloseButtonSelected", attribute = "bg"},
-        },
-        duplicate = {
-            fg = {highlight = "BufferCurrentSign", attribute = "fg"},
-            bg = {highlight = "BufferLineFill", attribute = "bg"},
-        },
-        duplicate_selected = {
-            fg = {highlight = "BufferCurrentSign", attribute = "fg"},
-        },
-        modified = {
-            fg = {highlight = "BufferCurrentSign", attribute = "fg"},
-            bg = {highlight = "BufferLineFill", attribute = "bg"},
-        },
-        modified_selected = {
-            fg = {highlight = "BufferCurrentSign", attribute = "fg"},
-        },
-        numbers = {
-            bg = {highlight = "BuffNumbers", attribute = "bg"},
-        },
-        tab_selected = {
-            fg = {highlight = "TabSelectedFG", attribute = "fg"},
-            bg = {highlight = "TabSelectedBG", attribute = "bg"},
-        },
-        tab = {
-            fg = {highlight = "TabFG", attribute = "fg"},
-            bg = {highlight = "TabBG", attribute = "bg"},
-        },
-        tab_close = {
-            fg = {highlight = "TabFG", attribute = "fg"},
-            bg = {highlight = "TabBG", attribute = "bg"},
-        },
-        close_button = {
-            fg = {highlight = "TabFG", attribute = "fg"},
-            bg = {highlight = "TabBG", attribute = "bg"},
-        },
-    },
+    highlights = bufferline_hl,
 
 }

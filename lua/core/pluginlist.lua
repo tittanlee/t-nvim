@@ -398,6 +398,14 @@ return require("packer").startup ({
             end
         }
 
+        use {
+            "rebelot/kanagawa.nvim",
+            config = function()
+                require("plugins.colorscheme.kanagawa")
+            end,
+        }
+
+
 
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
