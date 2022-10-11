@@ -236,7 +236,7 @@ return require("packer").startup ({
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━❰ completion ❱━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        -- A completion engine plugin for neovim written in Lua. 
+        -- A completion engine plugin for neovim written in Lua.
         use {
             "hrsh7th/nvim-cmp",
             event = "InsertEnter",

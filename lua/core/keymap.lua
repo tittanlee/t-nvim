@@ -98,5 +98,7 @@ keymap('n', '<F7>', ':lua ENV.status_show_git_info = not ENV.status_show_git_inf
 -- F8 toggle current function in status line
 keymap('n', '<F8>', ':lua ENV.status_show_current_func = not ENV.status_show_current_func<CR>', { silent = true })
 
+-- F12 strip trailing white space
+keymap('n', '<F12>', function() vim.cmd[[ %s/\s\+$//e ]] end, { noremap=true, silent = true })
 
 
