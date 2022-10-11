@@ -17,7 +17,7 @@ M.std_path = {
 M.variable = {
     leader_key               = " ", -- space as leader key
     local_leader_key         = ",",
-    colorscheme              = "tokyonight",
+    colorscheme              = "catppuccin",
 
     is_mac                   = os_name == "Darwin",
     is_linux                 = os_name == "Linux",

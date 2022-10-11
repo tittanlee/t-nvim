@@ -389,6 +389,15 @@ return require("packer").startup ({
             end,
         }
 
+        -- Soothing pastel theme for Neovim
+        use {
+            "catppuccin/nvim",
+            as = "catppuccin",
+            config = function()
+                require("plugins.colorscheme.catppuccin")
+            end
+        }
+
 
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
