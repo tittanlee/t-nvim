@@ -18,6 +18,7 @@ local options = {noremap = true, silent = true}
 -- ━━━━━━━━━━━━━━━━━❰ find files ❱━━━━━━━━━━━━━━━━━━ --
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 keymap("n", "<LEADER>ff", builtin.find_files, options)
+keymap("n", "<LEADER>fvv", builtin.find_nvim_config, options)
 
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 -- ━━━━━━━━━━━━━━━━━━❰ buffers ❱━━━━━━━━━━━━━━━━━━━━ --

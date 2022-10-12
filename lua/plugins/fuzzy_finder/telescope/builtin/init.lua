@@ -24,6 +24,26 @@ M.find_files = function()
     ts_builtin.find_files(opts)
 end
 
+-- find vimrc directory
+M.find_nvim_config = function()
+    local std_path = require("environment").std_path
+    local opts = {
+        find_command = {
+            "rg",
+            "--files",
+            "--glob=!.git/",
+        },
+        cwd = std_path.config,
+        hidden = true,
+        follow = true,
+        layout_strategy = "horizontal",
+        preview = {
+            hide_on_startup = true
+        }
+    } -- define here if you want to define something
+    ts_builtin.find_files(opts)
+end
+
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 -- ━━━━━━━━━━━━━━━━━━━❰ buffers ❱━━━━━━━━━━━━━━━━━━━ --
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
@@ -76,7 +96,7 @@ M.quickfix = function()
 end
 
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
--- ━━━━━━━━━━━━━━━━━━━❰ quickfix ❱━━━━━━━━━━━━━━━━━━ --
+-- ━━━━━━━━━━━━━━━━━❰ colorscheme ❱━━━━━━━━━━━━━━━━━ --
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 M.colorscheme = function()
     local opts = {

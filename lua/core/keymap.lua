@@ -43,9 +43,10 @@ keymap('n', ';', ':', { noremap = true })
 keymap('n', '<LEADER>rv', ':luafile $MYVIMRC <CR>', { noremap = true, silent = false })
 keymap('n', '<LEADER>ev', ':edit $MYVIMRC <CR>'   , { noremap = true, silent = false })
 
--- split the windo
-keymap('n', '<LEADER>sv', ':vsplit <CR>', { noremap = true, silent = true })
-keymap('n', '<LEADER>sh', ':split  <CR>', { noremap = true, silent = true })
+-- split or close the window
+keymap('n', '<LEADER>sv', '<C-w>v', { noremap = true, silent = true })
+keymap('n', '<LEADER>sh', '<C-w>s', { noremap = true, silent = true })
+keymap("n", "<LEADER>sc", "<C-w>c", { noremap = true, silent = true })
 
 -- terminal insert/normal mode switch
 keymap('t', '<ESC><ESC>', '<C-\\><C-n>',  { noremap = true, silent = true })
@@ -69,7 +70,8 @@ keymap('v', '>', '>gv', { noremap = true, silent = false })
 -- toggle quickfix window
 keymap('n', '<M-q>',  qf.toggle, { silent = true })
 
-
+-- only paste without copy in visual mode
+keymap("v", "p", '"_dP', { noremap = true, silent = false })
 
 
 
