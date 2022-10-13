@@ -67,7 +67,7 @@ nvim_tree.setup ({
         root_folder_modifier     = ":~",
         indent_width             = 2,
         indent_markers           = {
-            enable               = false,
+            enable               = true,
             inline_arrows        = true,
             icons                = {
                 corner           = "└",
@@ -114,7 +114,7 @@ nvim_tree.setup ({
             },
         },
         special_files            = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
-        symlink_destination      = true,
+        symlink_destination      = false,
     },
 
     hijack_directories = {
