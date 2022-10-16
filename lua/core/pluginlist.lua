@@ -214,23 +214,28 @@ return require("packer").startup ({
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- LSP server side
         use {
-            "williamboman/mason.nvim",
+            "neovim/nvim-lspconfig",
+            event = "BufReadPre",
             requires = {
-                {"williamboman/mason-lspconfig.nvim",},
-                {"WhoIsSethDaniel/mason-tool-installer.nvim",},
+                {"williamboman/mason.nvim",                   },
+                {"williamboman/mason-lspconfig.nvim",         },
+                {"WhoIsSethDaniel/mason-tool-installer.nvim", },
             },
             config = function()
                 require("plugins.lsp.server.config")
             end,
         }
 
-        -- LSP client side
+        -- Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
         use {
-			"neovim/nvim-lspconfig",
-            event = "BufReadPre",
-            config = function()
-                require("plugins.lsp.client.config")
-            end,
+            "folke/neodev.nvim",
+            after = "nvim-lspconfig"
+        }
+
+        -- A Neovim Lua plugin providing access to the SchemaStore catalog.
+        use {
+            "b0o/SchemaStore.nvim",
+            after = "nvim-lspconfig"
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
@@ -240,7 +245,7 @@ return require("packer").startup ({
         use {
             "hrsh7th/nvim-cmp",
             event = "InsertEnter",
-			requires = {
+            requires = {
                 {"hrsh7th/cmp-nvim-lsp",           after = "nvim-cmp" }, -- A nvim-cmp source for Neovim builtin LSP client.
                 {"hrsh7th/cmp-path",               after = "nvim-cmp" }, -- A nvim-cmp source for filesystem paths.
                 {"hrsh7th/cmp-git",                after = "nvim-cmp" }, -- A nvim-cmp source for Git.

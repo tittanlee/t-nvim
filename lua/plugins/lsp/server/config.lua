@@ -15,19 +15,32 @@
 -- mason-lspconfig :
 -- uses Mason to ensure installation of user specified LSP servers and will tell nvim-lspconfig what command to use to launch those servers.
 
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+-- ━━━━━━━━━━━━━━━━❰ nvim-lspconfig ❱━━━━━━━━━━━━━━━ --
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+-- nvim-lspconfig :
+-- provides (very) basic configurations for LSP servers, and a simpler configuration to interact with neovim.
+-- One thing it does not, and cannot easily, provide is the path to the command to use when launching the server. This brings me to...
 
-local status_ok, mason = pcall(require, "mason")
-if not status_ok then
+
+
+local mason_status, mason = pcall(require, "mason")
+if not mason_status then
     return
 end
 
-local status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not status_ok then
+local mason_lspconfig_status, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mason_lspconfig_status then
+    return
+end
+
+local lspconfig_status, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status then
     return
 end
 
 
-require("mason").setup({
+mason.setup({
     ui = {
         icons                   = {
             package_installed   = "✓",
@@ -50,7 +63,7 @@ require("mason").setup({
         -- Keymap to check which installed packages are outdated
         check_outdated_packages = "C",
         -- Keymap to uninstall a package
-        uninstall_package       = "X",
+        uninstall_package       = "x",
         -- Keymap to cancel a package installation
         cancel_installation     = "<C-c>",
         -- Keymap to apply language filter
@@ -59,22 +72,7 @@ require("mason").setup({
 })
 
 mason_lspconfig.setup ({
-    ensure_installed = {
-        "bashls"        ,
-        "clangd"        ,
-        "cmake"         ,
-        "diagnosticls"  ,
-        "efm"           ,
-        "html"          ,
-        "jsonls"        ,
-        "tsserver"      ,
-        "sumneko_lua"   ,
-        "perlnavigator" ,
-        -- "powershell_es" ,
-        "pyright"       ,
-        -- "taplo"         , -- toml language
-        "vimls"         ,
-    },
+    ensure_installed = require("plugins.lsp.languages").servers,
 
     -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
     -- This setting has no relation with the `ensure_installed` setting.
@@ -84,4 +82,17 @@ mason_lspconfig.setup ({
     --   - { exclude: string[] }: All servers set up via lspconfig, except the ones provided in the list, are automatically installed.
     --       Example: automatic_installation = { exclude = { "rust_analyzer", "solargraph" } }
     automatic_installation = false,
+})
+
+mason_lspconfig.setup_handlers({
+    -- The first entry (without a key) will be the default handler
+    -- and will be called for each installed server that doesn't have
+    -- a dedicated handler.
+    function(server_name)
+        lspconfig[server_name].setup({})
+    end,
+
+    -- Next, you can provide targeted overrides for specific servers.
+    -- For example, a handler override for the `rust_analyzer`:
+    require("plugins.lsp.languages").handlers
 })
