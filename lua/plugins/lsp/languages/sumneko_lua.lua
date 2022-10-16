@@ -26,6 +26,8 @@ neodev.setup({
 })
 
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 local status_ok, lspconfig = pcall(require, "lspconfig")
 if not status_ok then
@@ -37,6 +39,13 @@ M.lsp_name = "sumneko_lua"
 M.config = {
     [M.lsp_name] = function()
         lspconfig.sumneko_lua.setup ({
+
+            flags = {
+                debounce_text_changes = 200,
+            },
+
+            capabilities = capabilities,
+
             settings = {
                 Lua = {
                     runtime = {

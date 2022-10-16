@@ -16,7 +16,7 @@ M.config = {
     [M.lsp_name] = function()
         lspconfig.clangd.setup ({
             flags = {
-                debounce_text_changes = 150,
+                debounce_text_changes = 200,
             },
             capabilities = capabilities,
             cmd = {

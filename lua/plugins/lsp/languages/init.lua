@@ -4,14 +4,39 @@ local M = {}
 
 
 M.servers = {
+    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+    -- ━━━━━━━━━━━━━━━━━━━❰ C/C++ ❱━━━━━━━━━━━━━━━━━━━━━ --
+    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
     require("plugins.lsp.languages.clangd").lsp_name,
-    require("plugins.lsp.languages.pyright").lsp_name,
+
+    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+    -- ━━━━━━━━━━━━━━━━━━━❰ python ❱━━━━━━━━━━━━━━━━━━━━ --
+    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+    -- require("plugins.lsp.languages.pyright").lsp_name,
+    require("plugins.lsp.languages.jedi_language_server").lsp_name,
+
+
+    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+    -- ━━━━━━━━━━━━━━━━━━━━❰ lua ❱━━━━━━━━━━━━━━━━━━━━━━ --
+    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
     require("plugins.lsp.languages.sumneko_lua").lsp_name,
 }
 
 M.handlers = {
+    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+    -- ━━━━━━━━━━━━━━━━━━━❰ C/C++ ❱━━━━━━━━━━━━━━━━━━━━━ --
+    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
     require("plugins.lsp.languages.clangd").config,
-    require("plugins.lsp.languages.pyright").config,
+
+    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+    -- ━━━━━━━━━━━━━━━━━━━❰ python ❱━━━━━━━━━━━━━━━━━━━━ --
+    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+    -- require("plugins.lsp.languages.pyright").config,
+    require("plugins.lsp.languages.jedi_language_server").config,
+
+    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+    -- ━━━━━━━━━━━━━━━━━━━━❰ lua ❱━━━━━━━━━━━━━━━━━━━━━━ --
+    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
     require("plugins.lsp.languages.sumneko_lua").config,
 }
 

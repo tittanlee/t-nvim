@@ -146,9 +146,9 @@ return require("packer").startup ({
         -- fzf-native is a c port of fzf. It only covers the algorithm and implements few functions to support calculating the score.
         use {
             "nvim-telescope/telescope-fzf-native.nvim",
-            run = env_var.is_windows and
-            "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
-            or "make",
+            -- run = env_var.is_windows and
+            -- "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
+            -- or "make",
             after = "telescope.nvim",
             config = function()
                 require("plugins.fuzzy_finder.telescope.extension.fzf-native.config")
