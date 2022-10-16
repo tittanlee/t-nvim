@@ -1,11 +1,50 @@
 local M = {}
 
-M.lsp_name = "html",
+
+local status_ok, lspconfig = pcall(require, "lspconfig")
+if not status_ok then
+    return
+end
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+
+M.lsp_name = "html"
 
 M.config = {
-    M.lsp_name = {
+    [M.lsp_name] = function()
+        lspconfig.html.setup ({
+            capabilities = capabilities,
 
-    }
+            flags = {
+                debounce_text_changes = 200,
+            },
+
+            cmd = {
+                "html-languageserver",
+                "--stdio"
+            },
+
+            filetypes = {
+                "html"
+            },
+
+            init_options = {
+                configurationSection = {
+                    "html",
+                    "css",
+                    "javascript"
+                },
+                embeddedLanguages = { css = true, javascript = true },
+            },
+
+            settings = {
+            },
+
+            single_file_support = true,
+            -- on_attach = custom_attach,
+        })
+    end
 }
 
 
