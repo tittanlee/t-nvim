@@ -1,5 +1,5 @@
 
-local M = {}
+
 
 -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
 local neodev_status, neodev = pcall(require, "neodev")
@@ -25,6 +25,7 @@ neodev.setup({
 
 })
 
+local M = {}
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
@@ -36,50 +37,47 @@ end
 
 M.lsp_name = "sumneko_lua"
 
-M.config = {
-    [M.lsp_name] = function()
-        lspconfig.sumneko_lua.setup ({
+M.setup = function()
+    lspconfig.sumneko_lua.setup ({
 
-            flags = {
-                debounce_text_changes = 200,
-            },
+        flags = {
+            debounce_text_changes = 150,
+        },
 
-            capabilities = capabilities,
+        capabilities = capabilities,
 
-            settings = {
-                Lua = {
-                    runtime = {
-                        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-                        version = "LuaJIT",
-                        -- Setup your lua path
-                        path = vim.split(package.path, ";"),
-                    },
-                    diagnostics = {
-                        enable = false,
-                        -- Get the language server to recognize the `vim` global
-                        globals = { "vim", "describe", "it", "before_each", "after_each", "packer_plugins" },
-                        -- disable = { "lowercase-global", "undefined-global", "unused-local", "unused-vararg", "trailing-space" },
-                    },
-                    workspace = {
-                        -- Make the server aware of Neovim runtime files
-                        library = {
-                            [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-                            [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
-                        },
-                        -- library = vim.api.nvim_get_runtime_file("", true),
-                        maxPreload = 10000,
-                        preloadFileSize = 50000,
-                    },
-                    completion = { callSnippet = "Both" },
-                    telemetry = { enable = false },
-                    hint = {
-                        enable = true,
-                    },
+        settings = {
+            Lua = {
+                runtime = {
+                    -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                    version = "LuaJIT",
+                    -- Setup your lua path
+                    path = vim.split(package.path, ";"),
                 },
-            }
-        })
-    end
-}
+                diagnostics = {
+                    -- Get the language server to recognize the `vim` global
+                    globals = { "vim", "describe", "it", "before_each", "after_each", "packer_plugins" },
+                    -- disable = { "lowercase-global", "undefined-global", "unused-local", "unused-vararg", "trailing-space" },
+                },
+                workspace = {
+                    -- Make the server aware of Neovim runtime files
+                    library = {
+                        [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+                        [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+                    },
+                    -- library = vim.api.nvim_get_runtime_file("", true),
+                    maxPreload = 10000,
+                    preloadFileSize = 50000,
+                },
+                completion = { callSnippet = "Both" },
+                telemetry = { enable = false },
+                hint = {
+                    enable = true,
+                },
+            },
+        }
+    })
+end
 
 
 return M

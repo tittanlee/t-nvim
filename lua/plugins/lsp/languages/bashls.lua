@@ -12,16 +12,14 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 M.lsp_name = "bashls"
 
-M.config = {
-    [M.lsp_name] = function()
-        lspconfig.bashls.setup ({
-            capabilities = capabilities,
-            flags = {
-                debounce_text_changes = 150,
-            },
-        })
-    end
-}
+M.setup = function()
+    lspconfig.bashls.setup ({
+        capabilities = capabilities,
+        flags = {
+            debounce_text_changes = 150,
+        },
+    })
+end
 
 return M
 

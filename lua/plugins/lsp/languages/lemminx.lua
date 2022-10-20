@@ -12,16 +12,14 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 M.lsp_name = "lemminx"
 
-M.config = {
-    [M.lsp_name] = function()
-        lspconfig.lemminx.setup ({
-            capabilities = capabilities,
-            flags = {
-                debounce_text_changes = 150,
-            },
-        })
-    end
-}
+M.setup = function()
+    lspconfig.lemminx.setup ({
+        capabilities = capabilities,
+        flags = {
+            debounce_text_changes = 150,
+        },
+    })
+end
 
 return M
 

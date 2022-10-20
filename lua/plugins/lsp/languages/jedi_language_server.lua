@@ -12,17 +12,14 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 M.lsp_name = "jedi_language_server"
 
-M.config = {
-    [M.lsp_name] = function()
-        lspconfig.jedi_language_server.setup ({
-            flags = {
-                debounce_text_changes = 200,
-            },
-            capabilities = capabilities,
-        })
-    end
-}
-
+M.setup = function()
+    lspconfig.jedi_language_server.setup ({
+        flags = {
+            debounce_text_changes = 150,
+        },
+        capabilities = capabilities,
+    })
+end
 
 
 return M

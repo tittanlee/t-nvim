@@ -9,20 +9,29 @@ end
 
 M.lsp_name = "pyright"
 
-M.config = {
-    [M.lsp_name] = function()
-        lspconfig.pyright.setup ({
-            flags = {
-                debounce_text_changes = 200,
-            },
+M.setup = function()
+    lspconfig.pyright.setup ({
+        flags = {
+            debounce_text_changes = 150,
+        },
 
-            analysis = {
-                typeCheckingMode       = "off",
-                -- useLibraryCodeForTypes = true,
-            },
-        })
-    end
-}
+        settings = {
+            python = {
+                analysis = {
+                    typeCheckingMode       = 'off',
+                    diagnosticMode         = "workspace",
+                    autoSearchPaths        = true,
+                    useLibraryCodeForTypes = true,
+                    completeFunctionParens = true,
+                }
+            }
+        },
+        single_file_support = true,
+        root_dir = function()
+            return vim.fn.getcwd(0)
+        end
+    })
+end
 
 
 return M

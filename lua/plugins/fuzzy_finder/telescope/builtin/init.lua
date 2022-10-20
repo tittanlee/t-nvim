@@ -15,7 +15,7 @@ M.find_files = function()
             "--glob=!.git/",
         },
         hidden = true,
-        follow = true,
+        follow = false,
         layout_strategy = "horizontal",
         preview = {
             hide_on_startup = true

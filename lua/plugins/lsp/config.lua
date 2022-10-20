@@ -71,8 +71,14 @@ mason.setup({
     },
 })
 
+
+local server_list = {}
+for server_name, _ in pairs(require("plugins.lsp.languages").servers) do
+    table.insert(server_list, server_name)
+end
+
 mason_lspconfig.setup ({
-    ensure_installed = require("plugins.lsp.languages").servers,
+    ensure_installed = server_list,
 
     -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
     -- This setting has no relation with the `ensure_installed` setting.
@@ -94,5 +100,8 @@ mason_lspconfig.setup_handlers({
 
     -- Next, you can provide targeted overrides for specific servers.
     -- For example, a handler override for the `rust_analyzer`:
-    require("plugins.lsp.languages").handlers
 })
+
+for _, server_setup in pairs(require("plugins.lsp.languages").servers) do
+    server_setup()
+end

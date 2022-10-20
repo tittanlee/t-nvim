@@ -13,22 +13,20 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 M.lsp_name = "jsonls"
 
-M.config = {
-    [M.lsp_name] = function()
-        lspconfig.jsonls.setup({
-            capabilities = capabilities,
+M.setup = function()
+    lspconfig.jsonls.setup({
+        capabilities = capabilities,
 
-            flags = {
-                debounce_text_changes = 200,
+        flags = {
+            debounce_text_changes = 150,
+        },
+
+        settings = {
+            json = {
+                schemas = require("schemastore").json.schemas(),
             },
-
-            settings = {
-                json = {
-                    schemas = require("schemastore").json.schemas(),
-                },
-            }
-        })
-    end
-}
+        }
+    })
+end
 
 return M

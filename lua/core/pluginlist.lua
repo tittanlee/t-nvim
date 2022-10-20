@@ -222,8 +222,14 @@ return require("packer").startup ({
                 {"WhoIsSethDaniel/mason-tool-installer.nvim", },
             },
             config = function()
-                require("plugins.lsp.server.config")
+                require("plugins.lsp.config")
+                require("plugins.lsp.keymap")
             end,
+        }
+
+        -- Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
+        use {
+            "folke/neodev.nvim",
         }
 
         -- A Neovim Lua plugin providing access to the SchemaStore catalog.

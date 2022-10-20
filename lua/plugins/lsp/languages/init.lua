@@ -2,92 +2,47 @@
 
 local M = {}
 
-
 M.servers = {
-
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
     -- ━━━━━━━━━━━━━━━━━━━━❰ bash ❱━━━━━━━━━━━━━━━━━━━━━ --
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    require("plugins.lsp.languages.bashls").lsp_name,
+    [require("plugins.lsp.languages.bashls").lsp_name] = require("plugins.lsp.languages.bashls").setup,
 
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
     -- ━━━━━━━━━━━━━━━━━━━❰ C/C++ ❱━━━━━━━━━━━━━━━━━━━━━ --
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    require("plugins.lsp.languages.clangd").lsp_name,
+    [require("plugins.lsp.languages.clangd").lsp_name] =  require("plugins.lsp.languages.clangd").setup,
 
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
     -- ━━━━━━━━━━━━━━━━━━━━❰ html ❱━━━━━━━━━━━━━━━━━━━━━ --
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    require("plugins.lsp.languages.html").lsp_name,
+    [require("plugins.lsp.languages.html").lsp_name] = require("plugins.lsp.languages.html").setup,
 
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
     -- ━━━━━━━━━━━━━━━━━━━❰ jsonls ❱━━━━━━━━━━━━━━━━━━━━ --
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    require("plugins.lsp.languages.jsonls").lsp_name,
+    [require("plugins.lsp.languages.jsonls").lsp_name] = require("plugins.lsp.languages.jsonls").setup,
 
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
     -- ━━━━━━━━━━━━━━━━━━━❰ python ❱━━━━━━━━━━━━━━━━━━━━ --
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    -- require("plugins.lsp.languages.pyright").lsp_name,
-    require("plugins.lsp.languages.jedi_language_server").lsp_name,
+    [require("plugins.lsp.languages.pyright").lsp_name] = require("plugins.lsp.languages.pyright").setup,
+    -- [require("plugins.lsp.languages.jedi_language_server").lsp_name] = require("plugins.lsp.languages.jedi_language_server").setup,
 
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
     -- ━━━━━━━━━━━━━━━━━━━━❰ lua ❱━━━━━━━━━━━━━━━━━━━━━━ --
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    require("plugins.lsp.languages.sumneko_lua").lsp_name,
+    [require("plugins.lsp.languages.sumneko_lua").lsp_name] = require("plugins.lsp.languages.sumneko_lua").setup,
 
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
     -- ━━━━━━━━━━━━━━━━━━━━❰ xml ❱━━━━━━━━━━━━━━━━━━━━━━ --
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    require("plugins.lsp.languages.lemminx").lsp_name,
+    [require("plugins.lsp.languages.lemminx").lsp_name] = require("plugins.lsp.languages.lemminx").setup,
 
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
     -- ━━━━━━━━━━━━━━━━❰ typescript ❱━━━━━━━━━━━━━━━━━━━ --
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    require("plugins.lsp.languages.tsserver").lsp_name,
-}
-
-M.handlers = {
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    -- ━━━━━━━━━━━━━━━━━━━━❰ bash ❱━━━━━━━━━━━━━━━━━━━━━ --
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    require("plugins.lsp.languages.bashls").config,
-
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    -- ━━━━━━━━━━━━━━━━━━━❰ C/C++ ❱━━━━━━━━━━━━━━━━━━━━━ --
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    require("plugins.lsp.languages.clangd").config,
-
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    -- ━━━━━━━━━━━━━━━━━━━━❰ html ❱━━━━━━━━━━━━━━━━━━━━━ --
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    require("plugins.lsp.languages.html").config,
-
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    -- ━━━━━━━━━━━━━━━━━━━❰ jsonls ❱━━━━━━━━━━━━━━━━━━━━ --
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    require("plugins.lsp.languages.jsonls").config,
-
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    -- ━━━━━━━━━━━━━━━━━━━❰ python ❱━━━━━━━━━━━━━━━━━━━━ --
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    -- require("plugins.lsp.languages.pyright").config,
-    require("plugins.lsp.languages.jedi_language_server").config,
-
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    -- ━━━━━━━━━━━━━━━━━━━━❰ lua ❱━━━━━━━━━━━━━━━━━━━━━━ --
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    require("plugins.lsp.languages.sumneko_lua").config,
-
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    -- ━━━━━━━━━━━━━━━━━━━━❰ xml ❱━━━━━━━━━━━━━━━━━━━━━━ --
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    require("plugins.lsp.languages.lemminx").config,
-
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    -- ━━━━━━━━━━━━━━━━❰ typescript ❱━━━━━━━━━━━━━━━━━━━ --
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    require("plugins.lsp.languages.tsserver").config,
+    [require("plugins.lsp.languages.tsserver").lsp_name] = require("plugins.lsp.languages.tsserver").setup,
 }
 
 return M

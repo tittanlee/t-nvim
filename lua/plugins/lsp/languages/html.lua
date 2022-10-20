@@ -11,41 +11,39 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 M.lsp_name = "html"
 
-M.config = {
-    [M.lsp_name] = function()
-        lspconfig.html.setup ({
-            capabilities = capabilities,
+M.setup = function()
+    lspconfig.html.setup ({
+        capabilities = capabilities,
 
-            flags = {
-                debounce_text_changes = 200,
+        flags = {
+            debounce_text_changes = 150,
+        },
+
+        cmd = {
+            "html-languageserver",
+            "--stdio"
+        },
+
+        filetypes = {
+            "html"
+        },
+
+        init_options = {
+            configurationSection = {
+                "html",
+                "css",
+                "javascript"
             },
+            embeddedLanguages = { css = true, javascript = true },
+        },
 
-            cmd = {
-                "html-languageserver",
-                "--stdio"
-            },
+        settings = {
+        },
 
-            filetypes = {
-                "html"
-            },
-
-            init_options = {
-                configurationSection = {
-                    "html",
-                    "css",
-                    "javascript"
-                },
-                embeddedLanguages = { css = true, javascript = true },
-            },
-
-            settings = {
-            },
-
-            single_file_support = true,
-            -- on_attach = custom_attach,
-        })
-    end
-}
+        single_file_support = true,
+        -- on_attach = custom_attach,
+    })
+end
 
 
 return M
