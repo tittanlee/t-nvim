@@ -226,11 +226,6 @@ return require("packer").startup ({
             end,
         }
 
-        -- Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
-        use {
-            "folke/neodev.nvim",
-        }
-
         -- A Neovim Lua plugin providing access to the SchemaStore catalog.
         use {
             "b0o/SchemaStore.nvim",
