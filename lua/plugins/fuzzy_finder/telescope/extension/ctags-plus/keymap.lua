@@ -14,6 +14,9 @@ keymap(
     function()
         telescope.extensions.ctags_plus.jump_to_tag({
             layout_strategy = "vertical",
+            show_line       = false,
+            trim_text       = false,
+            fname_width     = 80,
         })
     end,
     options

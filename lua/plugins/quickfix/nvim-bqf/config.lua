@@ -17,7 +17,7 @@ bqf.setup ({
             local ret = true
             local bufname = vim.api.nvim_buf_get_name(bufnr)
             local fsize = vim.fn.getfsize(bufname)
-            if fsize > 1000 * 1024 then
+            if fsize > (1024 * 1024) then
                 -- skip file size greater than 300k
                 ret = false
             elseif bufname:match('^fugitive://') then
