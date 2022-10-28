@@ -12,7 +12,9 @@ telescope.setup {
     extensions = {
         live_grep_args = {
             -- enable/disable auto-quoting
-            auto_quoting = true,
+            auto_quoting    = true,
+
+            layout_strategy = "vertical",
 
             -- override default mappings
             -- default_mappings = {},

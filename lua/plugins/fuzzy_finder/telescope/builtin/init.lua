@@ -91,9 +91,9 @@ end
 M.quickfix = function()
     local opts = {
         layout_strategy = "vertical",
-        show_line = false,
+        show_line = true,
         trim_text = false,
-        fname_width = 80,
+        fname_width = 120,
     } -- define here if you want to define something
     ts_builtin.quickfix(opts)
 end

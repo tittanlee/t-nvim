@@ -29,7 +29,7 @@ return require("packer").startup ({
         display = {
             open_fn = function()
                 return require("packer.util").float({ border = "single" })
-            end
+            end,
         },
     },
 
@@ -61,7 +61,7 @@ return require("packer").startup ({
             config = function()
                 require("plugins.file_explorer.nvim-tree.config")
                 require("plugins.file_explorer.nvim-tree.keymap")
-            end
+            end,
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
@@ -76,7 +76,7 @@ return require("packer").startup ({
             config = function()
                 require("plugins.tab_line.bufferline.config")
                 require("plugins.tab_line.bufferline.keymap")
-            end
+            end,
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
@@ -206,7 +206,7 @@ return require("packer").startup ({
             config = function()
                 require("plugins.search.vim-grepper.config")
                 require("plugins.search.vim-grepper.keymap")
-            end
+            end,
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
@@ -283,7 +283,7 @@ return require("packer").startup ({
             "numToStr/Comment.nvim",
             config = function()
                 require("plugins.comment.comment.config")
-            end
+            end,
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
@@ -294,7 +294,7 @@ return require("packer").startup ({
             'lewis6991/gitsigns.nvim',
             config = function()
                 require("plugins.git.gitsigns.config")
-            end
+            end,
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
@@ -330,7 +330,7 @@ return require("packer").startup ({
             config = function()
                 require("plugins.motion.hop.config")
                 require("plugins.motion.hop.keymap")
-            end
+            end,
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
@@ -399,7 +399,7 @@ return require("packer").startup ({
             as = "catppuccin",
             config = function()
                 require("plugins.colorscheme.catppuccin")
-            end
+            end,
         }
 
         use {

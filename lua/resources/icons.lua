@@ -96,7 +96,7 @@ M.lsp_kinds = {
     Event         = "",
     Operator      = "",
     TypeParameter = "",
-},
+}
 
 M.misc_symbols = {
     extraterrestrial_alien = "👽",
