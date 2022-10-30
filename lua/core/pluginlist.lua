@@ -354,6 +354,13 @@ return require("packer").startup ({
              end,
          }
 
+         use {
+             "rebelot/heirline.nvim",
+             config = function ()
+                 require("plugins.status_line.heirline.config")
+             end,
+         }
+
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━❰ colorscheme ❱━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
