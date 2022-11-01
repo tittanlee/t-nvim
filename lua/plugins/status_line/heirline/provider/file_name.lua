@@ -40,7 +40,10 @@ local FileName = {
         -- end
         return filename
     end,
-    hl = { fg = utils.get_highlight("Directory").fg },
+    hl = {
+        fg = utils.get_highlight("Directory").fg,
+        bold = true,
+    },
 }
 
 local FileFlags = {
@@ -77,7 +80,7 @@ local FileNameModifer = {
 -- let's add the children to our FileNameBlock component
 FileNameBlock = utils.insert(FileNameBlock,
     FileIcon,
-    
+
     utils.insert(FileNameModifer, FileName), -- a new table where FileName is a child of FileNameModifier
     unpack(FileFlags), -- A small optimisation, since their parent does nothing
     { provider = '%<'} -- this means that the statusline is cut here when there's not enough space

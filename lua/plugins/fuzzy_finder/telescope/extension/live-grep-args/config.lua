@@ -1,5 +1,12 @@
 
-local status_ok, telescope = pcall(require, 'telescope')
+
+local status_ok, live_grep = pcall(require, "telescope-live-grep-args")
+if not status_ok then
+    return
+end
+
+
+local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
     return
 end

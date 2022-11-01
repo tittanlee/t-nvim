@@ -105,3 +105,6 @@ mason_lspconfig.setup_handlers({
 for _, server_setup in pairs(require("plugins.lsp.languages").servers) do
     server_setup()
 end
+
+
+require("plugins.lsp.handlers.diagnostics").disable()

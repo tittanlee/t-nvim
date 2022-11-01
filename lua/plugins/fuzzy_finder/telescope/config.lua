@@ -96,8 +96,8 @@ telescope.setup {
 
                 -- ━━━━━━━━━━━━━━━━━❰ preview scroll ❱━━━━━━━━━━━━━━━━━ --
                 ["<C-p>"] = actions_layout.toggle_preview,
-                ["<C-f>"] = actions.preview_scrolling_up,
-                ["<C-b>"] = actions.preview_scrolling_down,
+                ["<C-f>"] = actions.preview_scrolling_down,
+                ["<C-b>"] = actions.preview_scrolling_up,
 
 
                 ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
@@ -115,8 +115,8 @@ telescope.setup {
 
                 -- ━━━━━━━━━━━━━━━━━❰ preview scroll ❱━━━━━━━━━━━━━━━━━ --
                 ["<C-p>"] = actions_layout.toggle_preview,
-                ["<C-f>"] = actions.preview_scrolling_up,
-                ["<C-b>"] = actions.preview_scrolling_down,
+                ["<C-f>"] = actions.preview_scrolling_down,
+                ["<C-b>"] = actions.preview_scrolling_up,
 
                 ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist
             }

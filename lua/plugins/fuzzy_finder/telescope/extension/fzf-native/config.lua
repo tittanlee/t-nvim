@@ -1,7 +1,10 @@
 
+local status_ok, telescope_fzf = pcall(require, "fzf_lab")
+if not status_ok then
+    return
+end
 
-
-local status_ok, telescope = pcall(require, 'telescope')
+local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
     return
 end

@@ -19,11 +19,12 @@ return {
     git,
     separator.Space,
 
-    diag,
-    separator.Space,
 
     separator.Align,
     lsp.lsp_active,
+    separator.Space,
+    diag,
+    separator.Space,
     separator.Align,
 
     cursor_pos.Ruler,

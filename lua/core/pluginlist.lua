@@ -220,21 +220,26 @@ return require("packer").startup ({
                 {"williamboman/mason.nvim",                   },
                 {"williamboman/mason-lspconfig.nvim",         },
                 {"WhoIsSethDaniel/mason-tool-installer.nvim", },
+
+                -- A code outline window for skimming and quick navigation
+                {
+                    "stevearc/aerial.nvim",
+                    config = function ()
+                        require("plugins.lsp.extensions.aerial.config")
+                        require("plugins.lsp.extensions.aerial.keymap")
+                    end,
+                },
+
+                -- Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
+                {"folke/neodev.nvim",                         },
+
+                -- A Neovim Lua plugin providing access to the SchemaStore catalog.
+                {"b0o/SchemaStore.nvim",                      },
             },
             config = function()
                 require("plugins.lsp.config")
                 require("plugins.lsp.keymap")
             end,
-        }
-
-        -- Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
-        use {
-            "folke/neodev.nvim",
-        }
-
-        -- A Neovim Lua plugin providing access to the SchemaStore catalog.
-        use {
-            "b0o/SchemaStore.nvim",
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
