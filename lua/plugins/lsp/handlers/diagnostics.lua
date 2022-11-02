@@ -30,7 +30,8 @@ diagnostic.enable = function()
 end
 
 diagnostic.toggle = function ()
-    if diagnostic.enable_option == false then
+    diagnostic.enable_option = not diagnostic.enable_option
+    if diagnostic.enable_option == true then
         vim.notify("diag enable")
         vim.diagnostic.enable()
     else

@@ -107,4 +107,4 @@ for _, server_setup in pairs(require("plugins.lsp.languages").servers) do
 end
 
 
-require("plugins.lsp.handlers.diagnostics").disable()
+-- require("plugins.lsp.handlers.diagnostics").disable()

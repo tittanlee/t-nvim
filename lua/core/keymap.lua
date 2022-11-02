@@ -3,6 +3,7 @@
 -- local keymap = vim.api.nvim_set_keymap
 local keymap = vim.keymap.set
 local qf = require('utils.quickfix')
+local yank_fpath = require('utils.yank_fpath')
 
 
 
@@ -73,8 +74,11 @@ keymap('n', '<M-q>',  qf.toggle, { silent = true })
 -- only paste without copy in visual mode
 keymap("v", "p", '"_dP', { noremap = true, silent = false })
 
-
-
+-- yank file name to clipboard
+keymap("n", "<Leader>cp" , yank_fpath.yank_absolute_path , { noremap = true, silent = false })
+keymap("n", "<Leader>cff", yank_fpath.yank_relative_path , { noremap = true, silent = false })
+keymap("n", "<Leader>cd" , yank_fpath.yank_directory_path, { noremap = true, silent = false })
+keymap("n", "<Leader>cf" , yank_fpath.yank_file_name     , { noremap = true, silent = false })
 
 
 
