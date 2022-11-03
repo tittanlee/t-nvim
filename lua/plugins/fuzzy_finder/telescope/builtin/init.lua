@@ -24,6 +24,26 @@ M.find_files = function()
     ts_builtin.find_files(opts)
 end
 
+M.find_cword_file = function()
+    local cur_words = vim.fn.expand("<cword>")
+    print(cur_words)
+    local opts = {
+        find_command = {
+            "rg",
+            "--files",
+            "--glob=!.git/",
+        },
+        hidden = true,
+        follow = false,
+        layout_strategy = "horizontal",
+        search_file = cur_words,
+        preview = {
+            hide_on_startup = true
+        }
+    } -- define here if you want to define something
+    ts_builtin.find_files(opts)
+end
+
 -- find vimrc directory
 M.find_nvim_config = function()
     local std_path = require("environment").std_path

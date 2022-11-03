@@ -1,5 +1,5 @@
 
-local status_ok, telescope_fzf = pcall(require, "fzf_lab")
+local status_ok, telescope_fzf = pcall(require, "fzf_lib")
 if not status_ok then
     return
 end
