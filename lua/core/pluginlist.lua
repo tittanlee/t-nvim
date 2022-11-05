@@ -351,20 +351,36 @@ return require("packer").startup ({
             end,
         }
 
-         -- Delete Neovim buffers without losing your window layout.
-         use {
-             "famiu/bufdelete.nvim",
-             config = function()
+        -- Delete Neovim buffers without losing your window layout.
+        use {
+            "famiu/bufdelete.nvim",
+            config = function()
                 require("plugins.utility.bufdelete.keymap")
-             end,
-         }
+            end,
+        }
 
-         use {
-             "rebelot/heirline.nvim",
-             config = function ()
-                 require("plugins.status_line.heirline.config")
-             end,
-         }
+        use {
+            "tittanlee/vim-uefi",
+            ft = {
+                "asl",
+                "uefidec",
+                "uefifdf",
+                "uefidsc",
+                "uefiuni",
+                "uefivfr",
+                "uefiinf",
+            },
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━❰ status_line ❱━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        use {
+            "rebelot/heirline.nvim",
+            config = function ()
+                require("plugins.status_line.heirline.config")
+            end,
+        }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ━━━━━━━━━━━━━━━━━━❰ colorscheme ❱━━━━━━━━━━━━━━━━ --
