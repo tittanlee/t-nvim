@@ -36,5 +36,11 @@ M.yank_file_name = function ()
     vim.notify("yank_file_name")
 end
 
+M.yank_cwd = function ()
+    local path = vim.fn.getcwd()
+    put_selection_reg(path)
+    vim.notify("yank_cur_working_directory")
+end
+
 return M
 

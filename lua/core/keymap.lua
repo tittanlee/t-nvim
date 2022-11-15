@@ -79,6 +79,7 @@ keymap("n", "<Leader>cp" , yank_fpath.yank_absolute_path , { noremap = true, sil
 keymap("n", "<Leader>cff", yank_fpath.yank_relative_path , { noremap = true, silent = false })
 keymap("n", "<Leader>cd" , yank_fpath.yank_directory_path, { noremap = true, silent = false })
 keymap("n", "<Leader>cf" , yank_fpath.yank_file_name     , { noremap = true, silent = false })
+keymap("n", "<Leader>cw" , yank_fpath.yank_cwd           , { noremap = true, silent = false })
 
 
 

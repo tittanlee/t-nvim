@@ -359,6 +359,17 @@ return require("packer").startup ({
             end,
         }
 
+        -- Multiple cursors plugin for vim/neovim
+        use {
+            "mg979/vim-visual-multi",
+        }
+
+        -- Asynchronous translating plugin for Vim/Neovim
+        use {
+            "voldikss/vim-translator",
+            event = "BufRead",
+        }
+
         use {
             "tittanlee/vim-uefi",
             ft = {

@@ -8,9 +8,25 @@ local file_mod = require("plugins.status_line.heirline.provider.file_modified")
 
 local separator = require("plugins.status_line.heirline.provider.separator")
 
-
-
+local filetype_exclude = {
+    "startify" , "dashboard", "dotooagenda"    , "log"     , "fugitive"           ,
+    "gitcommit", "packer"   , "vimwiki"        , "markdown", "json"               ,
+    "txt"      , "vista"    , "help"           , "todoist" , "NvimTree"           ,
+    "peekaboo" , "git"      , "TelescopePrompt", "undotree", "flutterToolsOutline",
+    "qf"       , "aerial"   ,
+}
 return {
+    condition = function()
+        local ft = vim.bo.filetype
+        for _, exclude_ft in pairs(filetype_exclude) do
+            if ft == exclude_ft then
+                return false
+            end
+        end
+
+        return true
+    end,
+
     separator.Align,
 
     file_name,
