@@ -17,20 +17,20 @@ local packer_bootstrap = ensure_packer()
 
 require('packer').startup({
     config = {
-	git = {
-	    depth = 1,
-	    clone_timeout = 600,
-	},
-	display = {
-	    open_fn = function()
-		return require("packer.util").float({ border = "single" })
-	    end,
-	},
+    git = {
+        depth = 1,
+        clone_timeout = 600,
+    },
+    display = {
+        open_fn = function()
+        return require("packer.util").float({ border = "single" })
+        end,
+    },
     },
 
     function(use)
 
-	-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- Packer can manage itself as an optional plugin
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         use {
@@ -53,12 +53,12 @@ require('packer').startup({
         }
 
 
-	-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-	if packer_bootstrap then
-	    require("packer").sync()
-	end
+    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+    if packer_bootstrap then
+        require("packer").sync()
+    end
     end
 })
