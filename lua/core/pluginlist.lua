@@ -122,7 +122,6 @@ require('packer').startup({
             end,
         }
 
-
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ❰ syntax ❱
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
@@ -150,7 +149,6 @@ require('packer').startup({
             after = 'nvim-treesitter',
         }
 
-
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ❰ snippet ❱
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
@@ -176,6 +174,16 @@ require('packer').startup({
             config = function()
                 require("plugins.tab_line.bufferline.config")
                 require("plugins.tab_line.bufferline.keymap")
+            end,
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ window ❱
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        use { -- Delete Neovim buffers without losing your window layout.
+            "famiu/bufdelete.nvim",
+            config = function()
+                require("plugins.window.bufdelete.keymap")
             end,
         }
 

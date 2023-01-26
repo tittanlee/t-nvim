@@ -16,7 +16,7 @@ keymap('n', '<M-h>', ':bnext<CR>'    , { noremap = true, silent = true })
 keymap('n', '<M-l>', ':bprevious<CR>', { noremap = true, silent = true })
 
 -- bdelete instead of bufdelete plugin
-keymap('n', '<M-w>', ':bdelete<CR>'  , { noremap = true, silent = true })
+-- keymap('n', '<M-w>', ':bdelete<CR>'  , { noremap = true, silent = true })
 
 -- jk mapping to <ESC> return normal mode
 keymap('i', 'jk', '<ESC>', { silent = true })
