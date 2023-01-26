@@ -80,6 +80,12 @@ _G.packer_plugins = {
     path = "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
+  LuaSnip = {
+    config = { "\27LJ\2\n>\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0#plugins.snippet.luasnip.config\frequire\0" },
+    loaded = true,
+    path = "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
   ["bufferline.nvim"] = {
     config = { "\27LJ\2\nq\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0016\0\0\0'\2\2\0B\0\2\1K\0\1\0'plugins.tab_line.bufferline.keymap'plugins.tab_line.bufferline.config\frequire\0" },
     loaded = true,
@@ -91,6 +97,100 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\catppuccin",
     url = "https://github.com/catppuccin/nvim"
+  },
+  ["cmp-buffer"] = {
+    after_files = { "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-buffer\\after\\plugin\\cmp_buffer.lua" },
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
+    needs_bufread = false,
+    path = "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
+  },
+  ["cmp-cmdline"] = {
+    after_files = { "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-cmdline\\after\\plugin\\cmp_cmdline.lua" },
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
+    needs_bufread = false,
+    path = "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-cmdline",
+    url = "https://github.com/hrsh7th/cmp-cmdline"
+  },
+  ["cmp-git"] = {
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
+    needs_bufread = false,
+    path = "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-git",
+    url = "https://github.com/hrsh7th/cmp-git"
+  },
+  ["cmp-nvim-lsp"] = {
+    after_files = { "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-nvim-lsp\\after\\plugin\\cmp_nvim_lsp.lua" },
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
+    needs_bufread = false,
+    path = "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["cmp-nvim-lua"] = {
+    after_files = { "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-nvim-lua\\after\\plugin\\cmp_nvim_lua.lua" },
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
+    needs_bufread = false,
+    path = "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-nvim-lua",
+    url = "https://github.com/hrsh7th/cmp-nvim-lua"
+  },
+  ["cmp-nvim-tags"] = {
+    after_files = { "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-nvim-tags\\after\\plugin\\cmp_nvim_tags.lua" },
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
+    needs_bufread = false,
+    path = "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-nvim-tags",
+    url = "https://github.com/quangnguyen30192/cmp-nvim-tags"
+  },
+  ["cmp-path"] = {
+    after_files = { "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-path\\after\\plugin\\cmp_path.lua" },
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
+    needs_bufread = false,
+    path = "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-path",
+    url = "https://github.com/hrsh7th/cmp-path"
+  },
+  ["cmp-spell"] = {
+    after_files = { "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-spell\\after\\plugin\\cmp-spell.lua" },
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
+    needs_bufread = false,
+    path = "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-spell",
+    url = "https://github.com/f3fora/cmp-spell"
+  },
+  cmp_luasnip = {
+    after_files = { "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp_luasnip\\after\\plugin\\cmp_luasnip.lua" },
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
+    needs_bufread = false,
+    path = "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
   },
   ["impatient.nvim"] = {
     loaded = true,
@@ -104,6 +204,15 @@ _G.packer_plugins = {
     only_cond = false,
     path = "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
+  ["nvim-cmp"] = {
+    after = { "cmp-nvim-lsp", "cmp-nvim-lua", "cmp-nvim-tags", "cmp-path", "cmp-spell", "cmp-buffer", "cmp_luasnip", "cmp-cmdline", "cmp-git" },
+    config = { "\27LJ\2\nB\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0'plugins.completion.nvim-cmp.config\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "C:\\Users\\chih-tli\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-fzf"] = {
     config = { "\27LJ\2\nD\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0)plugins.fuzzy_finder.nvim-fzf.keymap\frequire\0" },
@@ -149,50 +258,33 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: bufferline.nvim
-time([[Config for bufferline.nvim]], true)
-try_loadstring("\27LJ\2\nq\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0016\0\0\0'\2\2\0B\0\2\1K\0\1\0'plugins.tab_line.bufferline.keymap'plugins.tab_line.bufferline.config\frequire\0", "config", "bufferline.nvim")
-time([[Config for bufferline.nvim]], false)
--- Config for: nvim-fzf
-time([[Config for nvim-fzf]], true)
-try_loadstring("\27LJ\2\nD\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0)plugins.fuzzy_finder.nvim-fzf.keymap\frequire\0", "config", "nvim-fzf")
-time([[Config for nvim-fzf]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-try_loadstring("\27LJ\2\n>\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0#plugins.comment.comment.config\frequire\0", "config", "Comment.nvim")
-time([[Config for Comment.nvim]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-try_loadstring("\27LJ\2\ny\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0016\0\0\0'\2\2\0B\0\2\1K\0\1\0+plugins.file_explorer.nvim-tree.keymap+plugins.file_explorer.nvim-tree.config\frequire\0", "config", "nvim-tree.lua")
-time([[Config for nvim-tree.lua]], false)
 -- Config for: catppuccin
 time([[Config for catppuccin]], true)
 try_loadstring("\27LJ\2\n>\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0#plugins.colorscheme.catppuccin\frequire\0", "config", "catppuccin")
 time([[Config for catppuccin]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+try_loadstring("\27LJ\2\ny\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0016\0\0\0'\2\2\0B\0\2\1K\0\1\0+plugins.file_explorer.nvim-tree.keymap+plugins.file_explorer.nvim-tree.config\frequire\0", "config", "nvim-tree.lua")
+time([[Config for nvim-tree.lua]], false)
+-- Config for: bufferline.nvim
+time([[Config for bufferline.nvim]], true)
+try_loadstring("\27LJ\2\nq\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0016\0\0\0'\2\2\0B\0\2\1K\0\1\0'plugins.tab_line.bufferline.keymap'plugins.tab_line.bufferline.config\frequire\0", "config", "bufferline.nvim")
+time([[Config for bufferline.nvim]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+try_loadstring("\27LJ\2\n>\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0#plugins.comment.comment.config\frequire\0", "config", "Comment.nvim")
+time([[Config for Comment.nvim]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+try_loadstring("\27LJ\2\n>\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0#plugins.snippet.luasnip.config\frequire\0", "config", "LuaSnip")
+time([[Config for LuaSnip]], false)
+-- Config for: nvim-fzf
+time([[Config for nvim-fzf]], true)
+try_loadstring("\27LJ\2\nD\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0)plugins.fuzzy_finder.nvim-fzf.keymap\frequire\0", "config", "nvim-fzf")
+time([[Config for nvim-fzf]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'TSInstallInfo', function(cmdargs)
-          require('packer.load')({'nvim-treesitter'}, { cmd = 'TSInstallInfo', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'nvim-treesitter'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('TSInstallInfo ', 'cmdline')
-      end})
-pcall(vim.api.nvim_create_user_command, 'TSInstallSync', function(cmdargs)
-          require('packer.load')({'nvim-treesitter'}, { cmd = 'TSInstallSync', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'nvim-treesitter'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('TSInstallSync ', 'cmdline')
-      end})
-pcall(vim.api.nvim_create_user_command, 'TSUninstall', function(cmdargs)
-          require('packer.load')({'nvim-treesitter'}, { cmd = 'TSUninstall', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'nvim-treesitter'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('TSUninstall ', 'cmdline')
-      end})
 pcall(vim.api.nvim_create_user_command, 'TSUpdate', function(cmdargs)
           require('packer.load')({'nvim-treesitter'}, { cmd = 'TSUpdate', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
@@ -228,14 +320,36 @@ pcall(vim.api.nvim_create_user_command, 'TSInstall', function(cmdargs)
           require('packer.load')({'nvim-treesitter'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('TSInstall ', 'cmdline')
       end})
+pcall(vim.api.nvim_create_user_command, 'TSInstallInfo', function(cmdargs)
+          require('packer.load')({'nvim-treesitter'}, { cmd = 'TSInstallInfo', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'nvim-treesitter'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('TSInstallInfo ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'TSInstallSync', function(cmdargs)
+          require('packer.load')({'nvim-treesitter'}, { cmd = 'TSInstallSync', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'nvim-treesitter'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('TSInstallSync ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'TSUninstall', function(cmdargs)
+          require('packer.load')({'nvim-treesitter'}, { cmd = 'TSUninstall', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'nvim-treesitter'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('TSUninstall ', 'cmdline')
+      end})
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au BufNewFile * ++once lua require("packer.load")({'nvim-treesitter'}, { event = "BufNewFile *" }, _G.packer_plugins)]]
+vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'nvim-cmp'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter', 'indent-blankline.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
+vim.cmd [[au BufNewFile * ++once lua require("packer.load")({'nvim-treesitter'}, { event = "BufNewFile *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 

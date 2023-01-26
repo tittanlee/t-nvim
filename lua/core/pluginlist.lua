@@ -45,6 +45,28 @@ require('packer').startup({
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ completion ❱
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        use { -- A completion engine plugin for neovim written in Lua.
+            "hrsh7th/nvim-cmp",
+            event = "InsertEnter",
+            requires = {
+                {"hrsh7th/cmp-nvim-lsp",           after = "nvim-cmp" }, -- A nvim-cmp source for Neovim builtin LSP client.
+                {"hrsh7th/cmp-path",               after = "nvim-cmp" }, -- A nvim-cmp source for filesystem paths.
+                {"hrsh7th/cmp-git",                after = "nvim-cmp" }, -- A nvim-cmp source for Git.
+                {"hrsh7th/cmp-buffer",             after = "nvim-cmp" }, -- A nvim-cmp source for buffer words.
+                {"hrsh7th/cmp-nvim-lua",           after = "nvim-cmp" }, -- A nvim-cmp source for the Neovim Lua API.
+                {"hrsh7th/cmp-cmdline",            after = "nvim-cmp" }, -- A nvim-cmp source for vim's cmdline.
+                {"f3fora/cmp-spell",               after = "nvim-cmp" }, -- A nvim-cmp source for vim's spellsuggest.
+                {"saadparwaiz1/cmp_luasnip",       after = "nvim-cmp" }, -- A nvim-cmp source for luasnip.
+                {"quangnguyen30192/cmp-nvim-tags", after = "nvim-cmp" }, -- tags completion source for nvim-cmp
+            },
+            config = function()
+                require("plugins.completion.nvim-cmp.config")
+            end,
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ❰ comment ❱
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         use { -- ⚡Smart and Powerful commenting plugin for neovim ⚡
@@ -90,19 +112,6 @@ require('packer').startup({
             end,
         }
 
-        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        -- ❰ tab_line ❱
-        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        use { -- A snazzy 💅 buffer line (with tabpage integration) for Neovim built using lua.
-            "akinsho/bufferline.nvim",
-            requires = {
-                "kyazdani42/nvim-web-devicons",
-            },
-            config = function()
-                require("plugins.tab_line.bufferline.config")
-                require("plugins.tab_line.bufferline.keymap")
-            end,
-        }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ❰ syntax ❱
@@ -129,6 +138,35 @@ require('packer').startup({
         use { -- Additional text objects via treesitter
             'nvim-treesitter/nvim-treesitter-textobjects',
             after = 'nvim-treesitter',
+        }
+
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ snippet ❱
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        use { -- Snippet Engine for Neovim written in Lua.
+            "L3MON4D3/LuaSnip",
+            requires = {
+                -- Snippets collection for a set of different programming languages for faster development0.
+                "rafamadriz/friendly-snippets"
+            },
+            config = function ()
+                require("plugins.snippet.luasnip.config")
+            end,
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ tab_line ❱
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        use { -- A snazzy 💅 buffer line (with tabpage integration) for Neovim built using lua.
+            "akinsho/bufferline.nvim",
+            requires = {
+                "kyazdani42/nvim-web-devicons",
+            },
+            config = function()
+                require("plugins.tab_line.bufferline.config")
+                require("plugins.tab_line.bufferline.keymap")
+            end,
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
