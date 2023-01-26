@@ -48,7 +48,7 @@ keymap('n', '<LEADER>sh', '<C-w>s', { noremap = true, silent = true })
 keymap("n", "<LEADER>sc", "<C-w>c", { noremap = true, silent = true })
 
 -- terminal insert/normal mode switch
-keymap('t', '<ESC><ESC>', '<C-\\><C-n>',  { noremap = true, silent = true })
+-- keymap('t', '<ESC><ESC>', '<C-\\><C-n>',  { noremap = true, silent = true })
 
 -- folding level customized
 keymap('n', 'z0', ':set foldlevel=0<CR>',  { noremap = true, silent = false })

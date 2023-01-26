@@ -17,7 +17,7 @@ M.variable = {
 
     -- onedark   , dracula   , vscode, nord,
     -- tokyonight, catppuccin, kanagawa
-    colorscheme              = "kanagawa",
+    colorscheme              = "catppuccin",
 
     is_mac                   = os_name == "Darwin",
     is_linux                 = os_name == "Linux",

@@ -17,28 +17,37 @@ local packer_bootstrap = ensure_packer()
 
 require('packer').startup({
     config = {
-    git = {
-        depth = 1,
-        clone_timeout = 600,
-    },
-    display = {
-        open_fn = function()
-        return require("packer.util").float({ border = "single" })
-        end,
-    },
+        git = {
+            depth = 1,
+            clone_timeout = 600,
+        },
+        display = {
+            open_fn = function()
+                return require("packer.util").float({ border = "single" })
+            end,
+        },
     },
 
     function(use)
 
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        -- Packer can manage itself as an optional plugin
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ packer manager ❱
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- Packer can manage itself as an optional plugin
         use {
             "wbthomason/packer.nvim",
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        -- ━━━━━━━━━━━━━━━━❰ file_expxplorer ❱━━━━━━━━━━━━━━ --
+        -- ❰ performance ❱
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- Speed up loading Lua modules in Neovim to improve startup time.
+        use {
+            "lewis6991/impatient.nvim"
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ file_expxplorer ❱
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- A File Explorer For Neovim Written In Lua
         use {
@@ -52,13 +61,48 @@ require('packer').startup({
             end,
         }
 
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ fuzzy_finder fzf ❱
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        use {
+            "vijaymarupudi/nvim-fzf",
+            config = function()
+                require("plugins.fuzzy_finder.fzf.keymap")
+            end,
+        }
 
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-    if packer_bootstrap then
-        require("packer").sync()
-    end
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ tab_line ❱
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- A snazzy 💅 buffer line (with tabpage integration) for Neovim built using lua.
+        use {
+            "akinsho/bufferline.nvim",
+            requires = {
+                "kyazdani42/nvim-web-devicons",
+            },
+            config = function()
+                require("plugins.tab_line.bufferline.config")
+                require("plugins.tab_line.bufferline.keymap")
+            end,
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ colorscheme ❱
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        use {
+            "catppuccin/nvim",
+            as = "catppuccin",
+            config = function()
+                require("plugins.colorscheme.catppuccin")
+            end,
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- Automatically set up your configuration after cloning packer.nvim
+        -- Put this at the end after all plugins
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        if packer_bootstrap then
+            require("packer").sync()
+        end
     end
 })
