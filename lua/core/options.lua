@@ -137,7 +137,7 @@ opt.timeoutlen = 500
 -- various
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 opt.signcolumn = "auto:4"
-opt.updatetime = 250
+opt.updatetime = 500
 
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 -- scroll options

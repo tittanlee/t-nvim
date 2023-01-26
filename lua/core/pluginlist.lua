@@ -33,24 +33,31 @@ require('packer').startup({
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ❰ packer manager ❱
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        -- Packer can manage itself as an optional plugin
-        use {
+        use { -- Packer can manage itself as an optional plugin
             "wbthomason/packer.nvim",
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ❰ performance ❱
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        -- Speed up loading Lua modules in Neovim to improve startup time.
-        use {
+        use { -- Speed up loading Lua modules in Neovim to improve startup time.
             "lewis6991/impatient.nvim"
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ comment ❱
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        use { -- ⚡Smart and Powerful commenting plugin for neovim ⚡
+            "numToStr/Comment.nvim",
+            config = function()
+                require("plugins.comment.comment.config")
+            end,
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ❰ file_expxplorer ❱
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        -- A File Explorer For Neovim Written In Lua
-        use {
+        use { -- A File Explorer For Neovim Written In Lua
             "kyazdani42/nvim-tree.lua",
             requires = {
                 "kyazdani42/nvim-web-devicons",
@@ -64,18 +71,29 @@ require('packer').startup({
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ❰ fuzzy_finder fzf ❱
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        use {
+        use { -- An asynchronous Lua API for using fzf in Neovim
             "vijaymarupudi/nvim-fzf",
             config = function()
-                require("plugins.fuzzy_finder.fzf.keymap")
+                require("plugins.fuzzy_finder.nvim-fzf.keymap")
+            end,
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ indent ❱
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        use { -- This plugin adds indentation guides to all lines (including empty lines)
+            "lukas-reineke/indent-blankline.nvim",
+            event = "BufRead",
+            config = function()
+                require("plugins.indent.indent-blankline.config")
+                require("plugins.indent.indent-blankline.keymap")
             end,
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ❰ tab_line ❱
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        -- A snazzy 💅 buffer line (with tabpage integration) for Neovim built using lua.
-        use {
+        use { -- A snazzy 💅 buffer line (with tabpage integration) for Neovim built using lua.
             "akinsho/bufferline.nvim",
             requires = {
                 "kyazdani42/nvim-web-devicons",
@@ -84,6 +102,33 @@ require('packer').startup({
                 require("plugins.tab_line.bufferline.config")
                 require("plugins.tab_line.bufferline.keymap")
             end,
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ syntax ❱
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        use { -- treeistter Highlight, edit, and navigate code
+            "nvim-treesitter/nvim-treesitter",
+            cmd = {
+                "TSInstall",
+                "TSInstallInfo",
+                "TSInstallSync",
+                "TSUninstall",
+                "TSUpdate",
+                "TSUpdateSync",
+                "TSDisableAll",
+                "TSEnableAll",
+            },
+            run = ":TSUpdate",
+            event = { "BufRead", "BufNewFile" },
+            config = function()
+                require("plugins.syntax.nvim-treesitter.config")
+            end,
+        }
+
+        use { -- Additional text objects via treesitter
+            'nvim-treesitter/nvim-treesitter-textobjects',
+            after = 'nvim-treesitter',
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
