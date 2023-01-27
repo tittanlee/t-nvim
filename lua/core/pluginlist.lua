@@ -1,3 +1,5 @@
+
+
 local ensure_packer = function()
     local fn           = vim.fn
     local std_path     = require("environment").std_path
@@ -13,7 +15,6 @@ local ensure_packer = function()
 end
 
 local packer_bootstrap = ensure_packer()
-
 
 require('packer').startup({
     config = {
@@ -56,7 +57,6 @@ require('packer').startup({
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         use { -- A completion engine plugin for neovim written in Lua.
             "hrsh7th/nvim-cmp",
-            event = "InsertEnter",
             requires = {
                 {"hrsh7th/cmp-nvim-lsp",           after = "nvim-cmp" }, -- A nvim-cmp source for Neovim builtin LSP client.
                 {"hrsh7th/cmp-path",               after = "nvim-cmp" }, -- A nvim-cmp source for filesystem paths.
@@ -128,6 +128,32 @@ require('packer').startup({
                 require("plugins.indent.indent-blankline.keymap")
             end,
         }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ lsp ❱
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        use { -- LSP Configuration & Plugins
+            'neovim/nvim-lspconfig',
+            event = "BufReadPre",
+            requires = {
+                -- Automatically install LSPs to stdpath for neovim
+                {'williamboman/mason.nvim'},
+                {'williamboman/mason-lspconfig.nvim'},
+
+                -- Useful status updates for LSP
+                {'j-hui/fidget.nvim'},
+
+                -- Additional lua configuration, makes nvim stuff amazing
+                {'folke/neodev.nvim'},
+
+                -- A Neovim Lua plugin providing access to the SchemaStore catalog.
+                {"b0o/SchemaStore.nvim"},
+            },
+            config = function()
+                require("plugins.lsp.config")
+            end,
+        }
+
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ❰ syntax ❱

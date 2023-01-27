@@ -16,7 +16,7 @@ local file_list_cmd = table.concat({
 
 local fzf_opts = table.concat({
     '-x',
-    '--ansi',
+    -- '--ansi',
     '--multi',
     '--info=inline',
     '--pointer="->"',
