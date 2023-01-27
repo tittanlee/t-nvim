@@ -79,7 +79,7 @@ mason_lspconfig.setup {
     --   - true: All servers set up via lspconfig are automatically installed.
     --   - { exclude: string[] }: All servers set up via lspconfig, except the ones provided in the list, are automatically installed.
     --       Example: automatic_installation = { exclude = { "rust_analyzer", "solargraph" } }
-    automatic_installation = false,
+    automatic_installation = true,
 }
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
@@ -113,6 +113,6 @@ mason_lspconfig.setup_handlers {
         -- print(server_name)
         -- print(vim.inspect(lsp_setup_config))
 
-        require('lspconfig')[server_name].setup(lsp_setup_config)
+        lspconfig[server_name].setup(lsp_setup_config)
     end,
 }

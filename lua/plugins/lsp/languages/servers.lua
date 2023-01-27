@@ -1,29 +1,32 @@
 
 local servers = {
     -- ❰ bash ❱
-    -- [require("plugins.lsp.languages.bashls").lsp_name] = require("plugins.lsp.languages.bashls").setup,
+    [require("plugins.lsp.languages.bashls").lsp_name] = require("plugins.lsp.languages.bashls").lsp_config,
 
     -- ❰ C/C++ ❱
-    -- [require("plugins.lsp.languages.clangd").lsp_name] =  require("plugins.lsp.languages.clangd").setup,
+    [require("plugins.lsp.languages.clangd").lsp_name] =  require("plugins.lsp.languages.clangd").lsp_config,
+
+    -- ❰ efm ❱
+    -- [require("plugins.lsp.languages.efm").lsp_name] =  require("plugins.lsp.languages.efm").lsp_config,
 
     -- ❰ html ❱
-    -- [require("plugins.lsp.languages.html").lsp_name] = require("plugins.lsp.languages.html").setup,
+    [require("plugins.lsp.languages.html").lsp_name] = require("plugins.lsp.languages.html").lsp_config,
 
     -- ❰ jsonls ❱
-    -- [require("plugins.lsp.languages.jsonls").lsp_name] = require("plugins.lsp.languages.jsonls").setup,
+    [require("plugins.lsp.languages.jsonls").lsp_name] = require("plugins.lsp.languages.jsonls").lsp_config,
 
     -- ❰ python ❱
-    -- [require("plugins.lsp.languages.pyright").lsp_name] = require("plugins.lsp.languages.pyright").setup,
+    [require("plugins.lsp.languages.pyright").lsp_name] = require("plugins.lsp.languages.pyright").lsp_config,
     -- [require("plugins.lsp.languages.jedi_language_server").lsp_name] = require("plugins.lsp.languages.jedi_language_server").setup,
 
     -- ❰ lua ❱
     [require("plugins.lsp.languages.sumneko_lua").lsp_name] = require("plugins.lsp.languages.sumneko_lua").lsp_config,
 
     -- ❰ xml ❱
-    -- [require("plugins.lsp.languages.lemminx").lsp_name] = require("plugins.lsp.languages.lemminx").setup,
+    [require("plugins.lsp.languages.lemminx").lsp_name] = require("plugins.lsp.languages.lemminx").lsp_config,
 
     -- ❰ typescript ❱
-    -- [require("plugins.lsp.languages.tsserver").lsp_name] = require("plugins.lsp.languages.tsserver").setup,
+    [require("plugins.lsp.languages.tsserver").lsp_name] = require("plugins.lsp.languages.tsserver").lsp_config,
 
 }
 

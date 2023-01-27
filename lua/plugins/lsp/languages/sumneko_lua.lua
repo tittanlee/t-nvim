@@ -1,8 +1,6 @@
 
 local neodev_status, neodev = pcall(require, "neodev")
 if neodev_status then
-
-    print("123")
     neodev.setup({
         -- add any options here, or leave empty to use the default settings
         library = {
@@ -65,6 +63,10 @@ M.lsp_config = {
             },
         },
     },
+
+    root_dir = function()
+        return vim.fn.getcwd(0)
+    end
 }
 
 return M
