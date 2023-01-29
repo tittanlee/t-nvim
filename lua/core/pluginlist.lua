@@ -98,6 +98,17 @@ require('packer').startup({
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ formatting ❱
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        use { -- A simple, easy-to-use Vim alignment plugin.
+            "junegunn/vim-easy-align",
+            config = function()
+                require("plugins.formatting.vim-easy-align.config")
+                require("plugins.formatting.vim-easy-align.keymap")
+            end,
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ❰ fuzzy_finder fzf ❱
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         use { -- An asynchronous Lua API for using fzf in Neovim
@@ -134,7 +145,7 @@ require('packer').startup({
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         use { -- LSP Configuration & Plugins
             'neovim/nvim-lspconfig',
-            event = "BufReadPre",
+            event = "BufRead",
             requires = {
                 -- Automatically install LSPs to stdpath for neovim
                 {'williamboman/mason.nvim'},
