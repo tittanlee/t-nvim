@@ -228,7 +228,7 @@ require('packer').startup({
             },
             config = function()
                 require("plugins.tab_line.bufferline.config")
-                -- require("plugins.tab_line.bufferline.keymap")
+                require("plugins.tab_line.bufferline.keymap")
             end,
         }
 

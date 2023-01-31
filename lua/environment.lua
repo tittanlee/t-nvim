@@ -73,8 +73,8 @@ M.keys               = {
         mv_win_right     = "<C-h>",
 
         -- buffer ontrol - switch and wipe - instead of nvim_bufferline plugin
-        buf_next         = "<M-h>",
-        buf_prev         = "<M-l>",
+        buf_next         = "<M-l>",
+        buf_prev         = "<M-h>",
         -- bdelete instead of bufdelete plugin
         buf_wipe         = "<M-w>",
 
@@ -110,16 +110,16 @@ M.keys               = {
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ❰ module key binding ❱
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        buffer_line    = {
+        bufferline    = {
             cycle_prev = "<M-h>",
             cycle_next = "<M-l>",
-            move_prev  = "<C-1>",
-            move_next  = "<C-2>",
-            pick       = "b",
+            move_prev  = "<M-1>",
+            move_next  = "<M-2>",
+            pick       = "<M-b>",
         },
 
-        buf_delete = {
-
+        bufdelete = {
+            buf_del = "<M-w>",
         },
 
         cmp = {
@@ -131,7 +131,9 @@ M.keys               = {
         },
 
         easy_aling = {
-
+            prefix     = "<LEADER>e",
+            align      = "a",
+            live_align = "la",
         },
 
         fzf = {
@@ -143,7 +145,8 @@ M.keys               = {
         },
 
         indent_blankline = {
-            toggle = "<LEADER>il"
+            prefix = "<LEADER>i",
+            toggle = "l",
         },
 
         lsp = {
@@ -151,10 +154,11 @@ M.keys               = {
         },
 
         nvim_tree = {
-
+            prefix = "<LEADER>w",
+            toggle = "w",
+            find   = "e",
         },
-    }
-
+    },
 }
 
 return M

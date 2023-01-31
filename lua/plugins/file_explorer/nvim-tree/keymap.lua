@@ -3,9 +3,21 @@ if not status_ok then
     return
 end
 
+local module_key = require("environment").keys.module.nvim_tree 
 
-local keymap = vim.keymap.set
-local options = {noremap = true, silent = true}
+local status_ok, wk = pcall(require, "which-key")
+if status_ok then
+    wk.register({
+        [module_key.prefix] = {
+            name                = "nvim-tree",
+            [module_key.toggle] = {"<cmd>NvimTreeToggle<CR>", "nvim-tree toggle"},
+            [module_key.find]   = {"<cmd>NvimTreeFindFile<CR>", "nvim-tree find file"},
+        },
+    })
+else
+    local keymap = require("utils").keymap
+    keymap('n', module_key.prefix .. module_key.toggle, ':NvimTreeToggle<CR>'  , {desc = "nvim-tree toggle"})
+    keymap('n', module_key.prefix .. module_key.find  , ':NvimTreeFindFile<CR>', {desc = "nvim-tree find file"})
+end
 
-keymap('n', '<LEADER>w', ':NvimTreeToggle<CR>', options)
-keymap('n', '<LEADER>e', ':NvimTreeFindFile<CR>', options)
+

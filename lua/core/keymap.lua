@@ -12,11 +12,17 @@ keymap('n', generic_keys.mv_win_left , '<C-w>l', { desc = "move win left"  })
 keymap('n', generic_keys.mv_win_right, '<C-w>h', { desc = "move win right" })
 
 -- buffer ontrol - switch and wipe - instead of nvim_bufferline plugin
-keymap('n', generic_keys.buf_next, ':bnext<CR>'    , { desc = "buffer cycle next" })
-keymap('n', generic_keys.buf_prev, ':bprevious<CR>', { desc = "buffer cycle prev" })
+local status_ok, _ = pcall(require, "bufferline")
+if not status_ok then
+    keymap('n', generic_keys.buf_next, ':bnext<CR>'    , { silent = false, desc = "buffer cycle next" })
+    keymap('n', generic_keys.buf_prev, ':bprevious<CR>', { silent = false, desc = "buffer cycle prev" })
+end
 
 -- bdelete instead of bufdelete plugin
-keymap('n', generic_keys.buf_wipe, ':bdelete<CR>'  , { desc = "buffer wipe" })
+local status_ok, _ = pcall(require, "bufdelete")
+if not status_ok then
+    keymap('n', generic_keys.buf_wipe, ':bdelete<CR>'  , { desc = "buffer wipe" })
+end
 
 -- jk mapping to <ESC> return normal mode
 keymap({ 'i', 'v' }, generic_keys.remapping_esc, '<ESC>', { desc = generic_keys.remapping_esc .. " remappign ESC"})
@@ -45,7 +51,7 @@ keymap('n', generic_keys.split_horz_wn, '<C-w>s', { desc = "split horz win"    }
 keymap("n", generic_keys.close_wn     , "<C-w>c", { desc = "close current win" })
 
 -- terminal insert/normal mode switch
-keymap('t', '<ESC><ESC>', '<C-\\><C-n>',  { noremap = true, silent = true })
+keymap('t', '<ESC><ESC>', '<C-\\><C-n>',  { desc = "terminal i/n mode switch" })
 
 -- folding level customized
 keymap('n', 'z0', ':set foldlevel=0<CR>',  { desc = "set fold level = 0" })
@@ -68,13 +74,16 @@ keymap("v", "p", '"_dP', { desc = "paste without copy in visual"})
 
 
 -- F2 save
-keymap({'n', 'i'}, generic_keys.save_file, '<ESC> :w! <CR>', { silent = false, desc = "save file" })
+keymap('n', generic_keys.save_file, ':w! <CR>'     , { silent = false, desc = "save file" })
+keymap('i', generic_keys.save_file, '<ESC>:w! <CR>', { silent = false, desc = "save file" })
 
 -- F3 reload script
-keymap({'n', 'i'}, generic_keys.source_cur_file, '<ESC> :so % <CR>', { silent = false, desc = "source current file" })
+keymap('n', generic_keys.source_cur_file, ':so % <CR>'     , { silent = false, desc = "source current file" })
+keymap('i', generic_keys.source_cur_file, '<ESC>:so % <CR>', { silent = false, desc = "source current file" })
 
 -- F4 quit
-keymap({'n', 'i'}, generic_keys.quit, '<ESC> :quit! <CR>', { silent = true, desc= "quit (neo)vim" })
+keymap('n', generic_keys.quit, ':quit! <CR>'     , { silent = true, desc= "quit (neo)vim" })
+keymap('i', generic_keys.quit, '<ESC>:quit! <CR>', { silent = true, desc= "quit (neo)vim" })
 
 -- F6 to switch absolute or relative file path
 -- keymap('n', '<F6>', ':lua file_path_lib.fname_switch()<CR>', { silent = true})

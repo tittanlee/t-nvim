@@ -1,24 +1,26 @@
 
+
 local status_ok, bufferline= pcall(require, "bufferline")
-if not status_ok then 
+if not status_ok then
     return
 end
 
-local keymap = vim.keymap.set
-local options = {noremap = true, silent = true}
+local module_key = require("environment").keys.module.bufferline
 
--- These commands will navigate through buffers in order
-keymap("n", "<M-h>", ":BufferLineCyclePrev <CR>", options)
-keymap("i", "<M-h>", "<ESC> :BufferLineCyclePrev <CR>", options)
-keymap("n", "<M-l>", ":BufferLineCycleNext <CR>", options)
-keymap("i", "<M-l>", "<ESC> :BufferLineCycleNext <CR>", options)
-
-
--- These commands will move the current buffer backwards or forwards in the bufferline
-keymap("n", "<C-1>", ":BufferLineMovePrev <CR>", options)
-keymap("i", "<C-1>", "<ESC> :BufferLineMovePrev <CR>", options)
-keymap("n", "<C-2>", ":BufferLineMoveNext <CR>", options)
-keymap("i", "<C-2>", "<ESC> :BufferLineMoveNext <CR>", options)
-
--- pick the buffer
-keymap("n", "<LEADER>b", ":BufferLinePick <CR>", options)
+local status_ok, wk = pcall(require, "which-key")
+if status_ok then
+    wk.register({
+        [module_key.cycle_prev] = {":BufferLineCyclePrev<CR>", "buf prev"      },
+        [module_key.cycle_next] = {":BufferLineCycleNext<CR>", "buf next"      },
+        [module_key.move_prev]  = {":BufferLineMovePrev<CR>" , "move buf prev" },
+        [module_key.move_next]  = {":BufferLineMoveNext<CR>" , "move buf next" },
+        [module_key.pick]       = {":BufferLinePick<CR>"     , "buf pick"      },
+    })
+else
+    local keymap = require("utils").keymap
+    keymap("n", module_key.cycle_prev, ":BufferLineCyclePrev<CR>", {desc = "buf prev"      })
+    keymap("n", module_key.cycle_next, ":BufferLineCycleNext<CR>", {desc = "buf next"      })
+    keymap("n", module_key.move_prev , ":BufferLineMovePrev <CR>", {desc = "move buf prev" })
+    keymap("n", module_key.move_next , ":BufferLineMoveNext <CR>", {desc = "move buf next" })
+    keymap("n", module_key.pick      , ":BufferLinePick <CR>"    , {desc = "buf pick"      })
+end
