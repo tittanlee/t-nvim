@@ -30,11 +30,6 @@ local on_create     = function()
     bufid = vim.api.nvim_get_current_buf()
     winid = vim.api.nvim_get_current_win()
     vim.api.nvim_win_set_option(winid, "winblend", 20)
-
-    -- vim.api.nvim_create_autocmd(
-    --     { "BufWipeout" },
-    --     { buffer = bufid, command = "bw!" }
-    -- )
 end
 
 files = function()
