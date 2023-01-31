@@ -158,8 +158,29 @@ M.keys = {
             maps       = "m",
         },
 
-        gitsigns = {
+        gitsigns              = {
+            prefix            = "<LEADER>h",
+            next_hunk         = "]",
+            prev_hunk         = "[",
+            stage_hunk        = "s",
+            reset_hunk        = "r",
 
+            stage_buffer      = "S",
+            undo_stage_hunk   = "u",
+            reset_buffer      = "R",
+
+            preview_hunk      = "p",
+            blame_line        = "b",
+            diff_this         = "d",
+            diff_head         = "D",
+
+            toggle_line_blame = "tb",
+            toggle_signs      = "ts",
+            toggle_deleted    = "td",
+            toggle_numhl      = "tn",
+            toggle_word_diff  = "tw",
+
+            select_hunk       = "h",
         },
 
         indent_blankline = {
