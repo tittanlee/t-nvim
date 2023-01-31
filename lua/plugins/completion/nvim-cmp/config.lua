@@ -89,6 +89,7 @@ cmp.setup({
     sources = {
         { name = "nvim_lsp" },
         { name = "tags" },
+        { name = "rg" },
         { name = "luasnip" },
         { name = "nvim_lua"},
         {

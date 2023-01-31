@@ -67,6 +67,7 @@ require('packer').startup({
                 {"f3fora/cmp-spell",               after = "nvim-cmp" }, -- A nvim-cmp source for vim's spellsuggest.
                 {"saadparwaiz1/cmp_luasnip",       after = "nvim-cmp" }, -- A nvim-cmp source for luasnip.
                 {"quangnguyen30192/cmp-nvim-tags", after = "nvim-cmp" }, -- tags completion source for nvim-cmp
+                {"lukas-reineke/cmp-rg",           after = "nvim-cmp" }, -- ripgrep source for nvim-cmp
             },
             config = function()
                 require("plugins.completion.nvim-cmp.config")
@@ -138,6 +139,16 @@ require('packer').startup({
                 require("plugins.indent.indent-blankline.config")
                 require("plugins.indent.indent-blankline.keymap")
             end,
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ key_binding ❱
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        use {
+            "folke/which-key.nvim",
+            config = function()
+                require("plugins.key_binding.which-key.config")
+            end
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
@@ -217,7 +228,7 @@ require('packer').startup({
             },
             config = function()
                 require("plugins.tab_line.bufferline.config")
-                require("plugins.tab_line.bufferline.keymap")
+                -- require("plugins.tab_line.bufferline.keymap")
             end,
         }
 

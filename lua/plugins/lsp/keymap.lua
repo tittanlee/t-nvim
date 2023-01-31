@@ -46,7 +46,7 @@ M.keymap = function(bufnr)
     nmap('gr', vim.lsp.buf.references, '[G]oto [R]eferences')
 
     -- Displays a function's signature information
-    nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+    nmap('gs', vim.lsp.buf.signature_help, 'Signature Documentation')
 
     -- Renames all references to the symbol under the cursor
     nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')

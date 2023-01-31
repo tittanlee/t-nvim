@@ -110,8 +110,10 @@ mason_lspconfig.setup_handlers {
     function(server_name)
         local lsp_setup_config = vim.tbl_extend("force", lsp_default_config, servers[server_name])
 
-        -- print(server_name)
-        -- print(vim.inspect(lsp_setup_config))
+        -- if server_name == "sumneko_lua" then
+        --     print(server_name)
+        --     print(vim.inspect(lsp_setup_config))
+        -- end
 
         lspconfig[server_name].setup(lsp_setup_config)
     end,

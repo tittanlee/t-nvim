@@ -14,6 +14,6 @@ keymap(
     "n",
     "<LEADER>ff",
     fzf_cmd_files,
-    options
+    vim.tbl_extend("force", options, {desc = "fzf files search"})
 )
 

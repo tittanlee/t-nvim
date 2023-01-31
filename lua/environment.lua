@@ -59,4 +59,102 @@ M.default_builtin_plugin = {
     ["zipPlugin"]         = 1,
 }
 
+M.keys               = {
+    generic = {
+        save_file        = "<F2>",
+        source_cur_file  = "<F3>",
+        quit             = "<F4>",
+        strip_tail_white = "<F12>",
+
+        -- better window movement
+        mv_win_up        = "<C-k>",
+        mv_win_down      = "<C-j>",
+        mv_win_left      = "<C-l>",
+        mv_win_right     = "<C-h>",
+
+        -- buffer ontrol - switch and wipe - instead of nvim_bufferline plugin
+        buf_next         = "<M-h>",
+        buf_prev         = "<M-l>",
+        -- bdelete instead of bufdelete plugin
+        buf_wipe         = "<M-w>",
+
+        -- neovim paste remapping to shift+insert
+        paste            = "<S-Insert>",
+
+        -- open / source vimrc file quickly
+        so_vimrc         = "<LEADER>rv",
+        ed_vimrc         = "<LEADER>ev",
+
+        -- split or close the window
+        split_vert_wn    = "<LEADER>sv",
+        split_horz_wn    = "<LEADER>sh",
+        close_wn         = "<LEADER>sc",
+
+        -- easier moving of code blocks
+        indent_right     = "<",
+        indent_left      = ">",
+
+        -- jk mapping to <ESC> return normal mode
+        remapping_esc    = "jk",
+
+        -- directly entering command mode instead of ;
+        remapping_colon  = ";",
+
+        -- Move current line / block with Alt-j/k ala vscode.
+        mv_line_blk_up   = "<M-k>",
+        mv_line_blk_down = "<M-j>",
+    },
+
+
+    module = {
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ module key binding ❱
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        buffer_line    = {
+            cycle_prev = "<M-h>",
+            cycle_next = "<M-l>",
+            move_prev  = "<C-1>",
+            move_next  = "<C-2>",
+            pick       = "b",
+        },
+
+        buf_delete = {
+
+        },
+
+        cmp = {
+
+        },
+
+        comment = {
+
+        },
+
+        easy_aling = {
+
+        },
+
+        fzf = {
+
+        },
+
+        gitsigns = {
+
+        },
+
+        indent_blankline = {
+            toggle = "<LEADER>il"
+        },
+
+        lsp = {
+
+        },
+
+        nvim_tree = {
+
+        },
+    }
+
+}
+
 return M

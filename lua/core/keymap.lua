@@ -1,107 +1,89 @@
--- local keymap = vim.api.nvim_set_keymap
-local keymap = vim.keymap.set
--- local qf = require('utils.quickfix')
--- local yank_fpath = require('utils.yank_fpath')
+
+
+local keymap = require("utils").keymap
+local generic_keys = require("environment").keys.generic
 
 
 
 -- better window movement
-keymap('n', '<C-h>', '<C-w>h', { silent = true })
-keymap('n', '<C-j>', '<C-w>j', { silent = true })
-keymap('n', '<C-k>', '<C-w>k', { silent = true })
-keymap('n', '<C-l>', '<C-w>l', { silent = true })
+keymap('n', generic_keys.mv_win_up   , '<C-w>k', { desc = "move win up"    })
+keymap('n', generic_keys.mv_win_down , '<C-w>j', { desc = "move win down"  })
+keymap('n', generic_keys.mv_win_left , '<C-w>l', { desc = "move win left"  })
+keymap('n', generic_keys.mv_win_right, '<C-w>h', { desc = "move win right" })
 
 -- buffer ontrol - switch and wipe - instead of nvim_bufferline plugin
-keymap('n', '<M-h>', ':bnext<CR>'    , { noremap = true, silent = true })
-keymap('n', '<M-l>', ':bprevious<CR>', { noremap = true, silent = true })
+keymap('n', generic_keys.buf_next, ':bnext<CR>'    , { desc = "buffer cycle next" })
+keymap('n', generic_keys.buf_prev, ':bprevious<CR>', { desc = "buffer cycle prev" })
 
 -- bdelete instead of bufdelete plugin
--- keymap('n', '<M-w>', ':bdelete<CR>'  , { noremap = true, silent = true })
+keymap('n', generic_keys.buf_wipe, ':bdelete<CR>'  , { desc = "buffer wipe" })
 
 -- jk mapping to <ESC> return normal mode
-keymap('i', 'jk', '<ESC>', { silent = true })
-keymap('v', 'jk', '<ESC>', { silent = true })
+keymap({ 'i', 'v' }, generic_keys.remapping_esc, '<ESC>', { desc = generic_keys.remapping_esc .. " remappign ESC"})
 
 -- Move current line / block with Alt-j/k ala vscode.
-keymap('n', '<M-j>', ':m .+1<CR>==', { noremap = true, silent = true })
-keymap('n', '<M-k>', ':m .-2<CR>==', { noremap = true, silent = true })
-keymap('i', '<M-j>', '<Esc>:m .+1<CR>==gi', { noremap = true, silent = true })
-keymap('i', '<M-k>', '<Esc>:m .-2<CR>==gi', { noremap = true, silent = true })
-keymap('x', '<M-j>', ":m '>+1<CR>gv-gv", { noremap = true, silent = true })
-keymap('x', '<M-k>', ":m '<-2<CR>gv-gv", { noremap = true, silent = true })
+keymap('n', generic_keys.mv_line_blk_down, ':m .+1<CR>=='       , { desc = "mv line blk down" })
+keymap('n', generic_keys.mv_line_blk_up  , ':m .-2<CR>=='       , { desc = "mv line blk up"   })
+keymap('i', generic_keys.mv_line_blk_down, '<Esc>:m .+1<CR>==gi', { desc = "mv line blk down" })
+keymap('i', generic_keys.mv_line_blk_up  , '<Esc>:m .-2<CR>==gi', { desc = "mv line blk up"   })
+keymap('x', generic_keys.mv_line_blk_down, ":m '>+1<CR>gv-gv"   , { desc = "mv line blk down" })
+keymap('x', generic_keys.mv_line_blk_up  , ":m '<-2<CR>gv-gv"   , { desc = "mv line blk up"   })
 
 -- neovim paste remapping to shift+insert {{{
-keymap('i', '<S-Insert>', '<C-R>+', { noremap = true })
-keymap('c', '<S-Insert>', '<C-R>+', { noremap = true })
-keymap('t', '<S-Insert>', '<C-R>+', { noremap = true })
+keymap({ 'i', 'c', 't' }, generic_keys.paste, '<C-R>+', { desc = "paste" })
 
 -- directly entering command mode instead of ;
-keymap('n', ';', ':', { noremap = true })
+keymap('n', generic_keys.remapping_colon, ':', { silent = false, desc = "remapping colon" })
 
 -- open / source vimrc file quickly
-keymap('n', '<LEADER>rv', ':luafile $MYVIMRC <CR>', { noremap = true, silent = false })
-keymap('n', '<LEADER>ev', ':edit $MYVIMRC <CR>'   , { noremap = true, silent = false })
+keymap('n', generic_keys.so_vimrc, ':luafile $MYVIMRC <CR>', { desc = "source $MYVIMRC" })
+keymap('n', generic_keys.ed_vimrc, ':edit $MYVIMRC <CR>'   , { desc = "edit $MYVIMRC"   })
 
 -- split or close the window
-keymap('n', '<LEADER>sv', '<C-w>v', { noremap = true, silent = true })
-keymap('n', '<LEADER>sh', '<C-w>s', { noremap = true, silent = true })
-keymap("n", "<LEADER>sc", "<C-w>c", { noremap = true, silent = true })
+keymap('n', generic_keys.split_vert_wn, '<C-w>v', { desc = "split vert win"    })
+keymap('n', generic_keys.split_horz_wn, '<C-w>s', { desc = "split horz win"    })
+keymap("n", generic_keys.close_wn     , "<C-w>c", { desc = "close current win" })
 
 -- terminal insert/normal mode switch
--- keymap('t', '<ESC><ESC>', '<C-\\><C-n>',  { noremap = true, silent = true })
+keymap('t', '<ESC><ESC>', '<C-\\><C-n>',  { noremap = true, silent = true })
 
 -- folding level customized
-keymap('n', 'z0', ':set foldlevel=0<CR>',  { noremap = true, silent = false })
-keymap('n', 'z1', ':set foldlevel=1<CR>',  { noremap = true, silent = false })
-keymap('n', 'z2', ':set foldlevel=2<CR>',  { noremap = true, silent = false })
-keymap('n', 'z3', ':set foldlevel=3<CR>',  { noremap = true, silent = false })
-keymap('n', 'z4', ':set foldlevel=4<CR>',  { noremap = true, silent = false })
-keymap('n', 'z5', ':set foldlevel=5<CR>',  { noremap = true, silent = false })
-keymap('n', 'z6', ':set foldlevel=6<CR>',  { noremap = true, silent = false })
-keymap('n', 'z7', ':set foldlevel=7<CR>',  { noremap = true, silent = false })
-keymap('n', 'z8', ':set foldlevel=8<CR>',  { noremap = true, silent = false })
-keymap('n', 'z9', ':set foldlevel=9<CR>',  { noremap = true, silent = false })
+keymap('n', 'z0', ':set foldlevel=0<CR>',  { desc = "set fold level = 0" })
+keymap('n', 'z1', ':set foldlevel=1<CR>',  { desc = "set fold level = 1" })
+keymap('n', 'z2', ':set foldlevel=2<CR>',  { desc = "set fold level = 2" })
+keymap('n', 'z3', ':set foldlevel=3<CR>',  { desc = "set fold level = 3" })
+keymap('n', 'z4', ':set foldlevel=4<CR>',  { desc = "set fold level = 4" })
+keymap('n', 'z5', ':set foldlevel=5<CR>',  { desc = "set fold level = 5" })
+keymap('n', 'z6', ':set foldlevel=6<CR>',  { desc = "set fold level = 6" })
+keymap('n', 'z7', ':set foldlevel=7<CR>',  { desc = "set fold level = 7" })
+keymap('n', 'z8', ':set foldlevel=8<CR>',  { desc = "set fold level = 8" })
+keymap('n', 'z9', ':set foldlevel=9<CR>',  { desc = "set fold level = 9" })
 
 -- easier moving of code blocks
-keymap('v', '<', '<gv', { noremap = true, silent = false })
-keymap('v', '>', '>gv', { noremap = true, silent = false })
-
--- toggle quickfix window
--- keymap('n', '<M-q>',  qf.toggle, { silent = true })
+keymap('v', generic_keys.indent_right, '<gv', { desc = "indent right" })
+keymap('v', generic_keys.indent_left , '>gv', { desc = "indent left"  })
 
 -- only paste without copy in visual mode
-keymap("v", "p", '"_dP', { noremap = true, silent = false })
-
--- yank file name to clipboard
--- keymap("n", "<Leader>cp" , yank_fpath.yank_absolute_path , { noremap = true, silent = false })
--- keymap("n", "<Leader>cff", yank_fpath.yank_relative_path , { noremap = true, silent = false })
--- keymap("n", "<Leader>cd" , yank_fpath.yank_directory_path, { noremap = true, silent = false })
--- keymap("n", "<Leader>cf" , yank_fpath.yank_file_name     , { noremap = true, silent = false })
--- keymap("n", "<Leader>cw" , yank_fpath.yank_cwd           , { noremap = true, silent = false })
-
-
+keymap("v", "p", '"_dP', { desc = "paste without copy in visual"})
 
 
 -- F2 save
-keymap('n', '<F2>', ':w! <CR>', { silent = false })
-keymap('i', '<F2>', '<ESC> :w! <CR>', { silent = false })
+keymap({'n', 'i'}, generic_keys.save_file, '<ESC> :w! <CR>', { silent = false, desc = "save file" })
 
 -- F3 reload script
-keymap('n', '<F3>', ':so % <CR>', { silent = false })
-keymap('i', '<F3>', '<ESC> :so % <CR>', { silent = false })
+keymap({'n', 'i'}, generic_keys.source_cur_file, '<ESC> :so % <CR>', { silent = false, desc = "source current file" })
 
 -- F4 quit
-keymap('n', '<F4>', ':quit! <CR>', { silent = true })
-keymap('i', '<F4>', '<ESC> :quit! <CR>', { silent = true })
+keymap({'n', 'i'}, generic_keys.quit, '<ESC> :quit! <CR>', { silent = true, desc= "quit (neo)vim" })
 
 -- F6 to switch absolute or relative file path
-keymap('n', '<F6>', ':lua file_path_lib.fname_switch()<CR>', { silent = true})
+-- keymap('n', '<F6>', ':lua file_path_lib.fname_switch()<CR>', { silent = true})
 
 -- F7 toggle git related information
-keymap('n', '<F7>', ':lua ENV.status_show_git_info = not ENV.status_show_git_info<CR>', { silent = true })
+-- keymap('n', '<F7>', ':lua ENV.status_show_git_info = not ENV.status_show_git_info<CR>', { silent = true })
 
 -- F8 toggle current function in status line
-keymap('n', '<F8>', ':lua ENV.status_show_current_func = not ENV.status_show_current_func<CR>', { silent = true })
+-- keymap('n', '<F8>', ':lua ENV.status_show_current_func = not ENV.status_show_current_func<CR>', { silent = true })
 
 -- F12 strip trailing white space
-keymap('n', '<F12>', function() vim.cmd[[ %s/\s\+$//e ]] end, { noremap=true, silent = true })
+keymap('n', generic_keys.strip_tail_white, function() vim.cmd[[ %s/\s\+$//e ]] end, { desc = "strip tail white space"})
