@@ -189,6 +189,17 @@ require('packer').startup({
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ quickfix ❱
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- The goal of nvim-bqf is to make Neovim's quickfix window better.
+        use {
+            "kevinhwang91/nvim-bqf",
+            config = function ()
+                require("plugins.quickfix.nvim-bqf.config")
+            end,
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ❰ syntax ❱
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         use { -- treeistter Highlight, edit, and navigate code

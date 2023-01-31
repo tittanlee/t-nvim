@@ -3,7 +3,7 @@ if not status_ok then
     return
 end
 
-local module_key = require("environment").keys.module.nvim_tree 
+local module_key = require("environment").keys.module.nvim_tree
 
 local status_ok, wk = pcall(require, "which-key")
 if status_ok then
