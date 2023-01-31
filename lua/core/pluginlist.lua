@@ -176,6 +176,17 @@ require('packer').startup({
             end,
         }
 
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ motion ❱
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        use { -- Hop is an EasyMotion-like plugin allowing you to jump anywhere
+            "phaazon/hop.nvim",
+            tag = 'v2.0.3',
+            config = function()
+                require("plugins.motion.hop.config")
+                require("plugins.motion.hop.keymap")
+            end,
+        }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ❰ syntax ❱

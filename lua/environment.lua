@@ -183,6 +183,12 @@ M.keys = {
             select_hunk       = "h",
         },
 
+        hop = {
+            prefix    = "<LEADER>s",
+            two_words = "s",
+            patterns  = "p",
+        },
+
         indent_blankline = {
             prefix = "<LEADER>i",
             toggle = "l",
