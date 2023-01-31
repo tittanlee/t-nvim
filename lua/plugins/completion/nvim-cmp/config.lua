@@ -29,6 +29,8 @@ local border = function(hl)
     }
 end
 
+local module_key = require("environment").keys.module.cmp
+
 cmp.setup({
 
     snippet = {
@@ -55,15 +57,15 @@ cmp.setup({
     },
 
     mapping = cmp.mapping.preset.insert({
-        ['<C-b>']     = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'}),
-        ['<C-f>']     = cmp.mapping(cmp.mapping.scroll_docs(4),  {'i', 'c'}),
-        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(),      {'i', 'c'}),
-        ['<C-e>']     = cmp.mapping.close(),
-        ['<CR>']      = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        ["<C-k>"]     = cmp.mapping.select_prev_item(),
-        ["<C-j>"]     = cmp.mapping.select_next_item(),
+        [module_key.scroll_doc_up]     = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'}),
+        [module_key.scroll_doc_down]     = cmp.mapping(cmp.mapping.scroll_docs(4),  {'i', 'c'}),
+        [module_key.complete] = cmp.mapping(cmp.mapping.complete(),      {'i', 'c'}),
+        [module_key.close]     = cmp.mapping.close(),
+        [module_key.confirm]      = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        [module_key.select_prev_item]     = cmp.mapping.select_prev_item(),
+        [module_key.select_next_item]     = cmp.mapping.select_next_item(),
 
-        ["<Tab>"] = cmp.mapping(function(fallback)
+        [module_key.alt_select_next] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
             elseif require("luasnip").expand_or_jumpable() then
@@ -75,7 +77,7 @@ cmp.setup({
             end
         end, { "i", "c", "s" }),
 
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
+        [module_key.alt_select_prev] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
             elseif require("luasnip").jumpable(-1) then

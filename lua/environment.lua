@@ -59,7 +59,7 @@ M.default_builtin_plugin = {
     ["zipPlugin"]         = 1,
 }
 
-M.keys               = {
+M.keys = {
     generic = {
         save_file        = "<F2>",
         source_cur_file  = "<F3>",
@@ -123,11 +123,25 @@ M.keys               = {
         },
 
         cmp = {
-
+            scroll_doc_up    = "<C-f>",
+            scroll_doc_down  = "<C-b>",
+            complete         = "<C-Space>",
+            close            = "<C-e>",
+            confirm          = "<CR>",
+            select_next_item = "<C-j>",
+            select_prev_item = "<C-k>",
+            alt_select_next  = "<TAB>",
+            alt_select_prev  = "<S-TAB>",
         },
 
         comment = {
-
+            toggler_line  = "<LEADER>cc",
+            toggler_block = "<LEADER>cb",
+            op_line       = "<LEADER>cc",
+            op_block      = "<LEADER>cb",
+            ex_above      = "<LEADER>c0",
+            ex_below      = "<LEADER>co",
+            ex_eol        = "<LEADER>cA",
         },
 
         easy_aling = {
