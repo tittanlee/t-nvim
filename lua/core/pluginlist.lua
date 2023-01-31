@@ -200,6 +200,20 @@ require('packer').startup({
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━❰ search ❱━━━━━━━━━━━━━━━━━━━ --
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        use { -- Spectre find the enemy and replace them with dark power.
+            "nvim-pack/nvim-spectre",
+            requires = {
+                {"nvim-lua/plenary.nvim", }
+            },
+            config = function()
+                require("plugins.search.nvim-spectre.config")
+                require("plugins.search.nvim-spectre.keymap")
+            end,
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ❰ syntax ❱
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         use { -- treeistter Highlight, edit, and navigate code
@@ -252,6 +266,31 @@ require('packer').startup({
                 require("plugins.tab_line.bufferline.config")
                 require("plugins.tab_line.bufferline.keymap")
             end,
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ utility ❱
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        use { -- Gutentags is a plugin that takes care of the much needed management of tags files in Vim.
+            "ludovicchabant/vim-gutentags",
+            -- commit = "50705e8",
+            config = function()
+                local std_path = require("environment").std_path
+                vim.cmd("source " .. std_path.config .. "/lua/plugins/utility/vim-gutentags/config.vim")
+            end,
+        }
+
+        use {
+            "tittanlee/vim-uefi",
+            ft = {
+                "asl",
+                "uefidec",
+                "uefifdf",
+                "uefidsc",
+                "uefiuni",
+                "uefivfr",
+                "uefiinf",
+            },
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --

@@ -25,7 +25,7 @@ end
 
 
 keymap(
-    {'n', 'v', 'x', 't'},
+    {'n', 'v', 'x'},
     'f',
     function()
         hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
@@ -34,7 +34,7 @@ keymap(
 )
 
 keymap(
-    {'n', 'v', 'x', 't'},
+    {'n', 'v', 'x'},
     'F',
     function()
         hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
@@ -43,7 +43,7 @@ keymap(
 )
 
 keymap(
-    {'n', 'v', 'x', 't'},
+    {'n', 'v', 'x'},
     't',
     function()
         hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
@@ -52,7 +52,7 @@ keymap(
 )
 
 keymap(
-    {'n', 'v', 'x', 't'},
+    {'n', 'v', 'x'},
     'T',
     function()
         hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
