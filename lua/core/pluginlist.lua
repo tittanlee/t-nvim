@@ -245,11 +245,53 @@ require('packer').startup({
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ❰ colorscheme ❱
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        use {
+        use { -- Soothing pastel theme for Neovim
             "catppuccin/nvim",
             as = "catppuccin",
             config = function()
                 require("plugins.colorscheme.catppuccin")
+            end,
+        }
+
+        use { -- A One Dark Theme for Neovim 0.5 written in Lua based on Atom's One Dark Theme.
+            "navarasu/onedark.nvim",
+            config = function()
+                require("plugins.colorscheme.onedark")
+            end,
+        }
+
+        use { -- Neovim theme based off of the Nord Color Palette.
+            "shaunsingh/nord.nvim",
+            config = function()
+                require("plugins.colorscheme.nord")
+            end,
+        }
+
+        use { -- NeoVim dark colorscheme inspired by the colors of the famous painting by Katsushika Hokusai.
+            "rebelot/kanagawa.nvim",
+            config = function()
+                require("plugins.colorscheme.kanagawa")
+            end,
+        }
+
+        use { -- A clean, dark Neovim theme
+            "folke/tokyonight.nvim",
+            config = function()
+                require("plugins.colorscheme.tokyonight")
+            end,
+        }
+
+        use { -- Dracula colorscheme for NEOVIM written in Lua
+            "Mofiqul/dracula.nvim",
+            config = function()
+                require("plugins.colorscheme.dracula")
+            end,
+        }
+
+        use { -- A Lua port of vim-code-dark colorscheme for Neovim with vscode light and dark theme.
+            "Mofiqul/vscode.nvim",
+            config = function()
+                require("plugins.colorscheme.vscode")
             end,
         }
 
