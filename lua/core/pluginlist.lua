@@ -269,6 +269,17 @@ require('packer').startup({
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ terminal ❱
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        use { -- A neovim plugin to persist and toggle multiple terminals during an editing session
+            "akinsho/toggleterm.nvim",
+            config = function ()
+                require("plugins.terminal.toggleterm.config")
+                require("plugins.terminal.toggleterm.keymap")
+            end,
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ❰ utility ❱
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         use { -- Gutentags is a plugin that takes care of the much needed management of tags files in Vim.

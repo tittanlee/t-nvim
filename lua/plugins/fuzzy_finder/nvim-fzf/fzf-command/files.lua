@@ -37,7 +37,7 @@ local fzf_opts = table.concat({
 local on_create = function()
     local bufid = vim.api.nvim_get_current_buf()
     local winid = vim.api.nvim_get_current_win()
-    vim.api.nvim_win_set_option(winid, "winblend", 20)
+    vim.api.nvim_win_set_option(winid, "winblend", 10)
 end
 
 files = function()

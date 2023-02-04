@@ -57,15 +57,14 @@ cmp.setup({
     },
 
     mapping = cmp.mapping.preset.insert({
-        [module_key.scroll_doc_up]     = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'}),
-        [module_key.scroll_doc_down]     = cmp.mapping(cmp.mapping.scroll_docs(4),  {'i', 'c'}),
-        [module_key.complete] = cmp.mapping(cmp.mapping.complete(),      {'i', 'c'}),
-        [module_key.close]     = cmp.mapping.close(),
-        [module_key.confirm]      = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        [module_key.select_prev_item]     = cmp.mapping.select_prev_item(),
-        [module_key.select_next_item]     = cmp.mapping.select_next_item(),
-
-        [module_key.alt_select_next] = cmp.mapping(function(fallback)
+        [module_key.scroll_doc_up]    = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'}),
+        [module_key.scroll_doc_down]  = cmp.mapping(cmp.mapping.scroll_docs(4),  {'i', 'c'}),
+        [module_key.complete]         = cmp.mapping(cmp.mapping.complete(),      {'i', 'c'}),
+        [module_key.close]            = cmp.mapping.close(),
+        [module_key.confirm]          = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        [module_key.select_prev_item] = cmp.mapping.select_prev_item(),
+        [module_key.select_next_item] = cmp.mapping.select_next_item(),
+        [module_key.alt_select_next]  = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
             elseif require("luasnip").expand_or_jumpable() then
@@ -90,8 +89,8 @@ cmp.setup({
 
     sources = {
         { name = "nvim_lsp" },
-        { name = "tags" },
         { name = "rg" },
+        { name = "tags" },
         { name = "luasnip" },
         { name = "nvim_lua"},
         {
@@ -118,9 +117,10 @@ cmp.setup({
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
     mapping = cmp.mapping.preset.cmdline(),
-    sources = {
+    sources = cmp.config.sources({
         {name = 'buffer'},
-    }
+        {name = 'rg'},
+    })
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
@@ -129,5 +129,6 @@ cmp.setup.cmdline(':', {
     sources = cmp.config.sources({
         {name = 'cmdline'},
         {name = 'buffer'},
+        {name = 'rg'},
     })
 })

@@ -8,8 +8,8 @@ local generic_keys = require("environment").keys.generic
 -- better window movement
 keymap('n', generic_keys.mv_win_up   , '<C-w>k', { desc = "move win up"    })
 keymap('n', generic_keys.mv_win_down , '<C-w>j', { desc = "move win down"  })
-keymap('n', generic_keys.mv_win_left , '<C-w>l', { desc = "move win left"  })
-keymap('n', generic_keys.mv_win_right, '<C-w>h', { desc = "move win right" })
+keymap('n', generic_keys.mv_win_left , '<C-w>h', { desc = "move win left"  })
+keymap('n', generic_keys.mv_win_right, '<C-w>l', { desc = "move win right" })
 
 -- buffer ontrol - switch and wipe - instead of nvim_bufferline plugin
 local status_ok, _ = pcall(require, "bufferline")

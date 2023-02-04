@@ -17,7 +17,7 @@ M.variable = {
 
     -- onedark   , dracula   , vscode, nord,
     -- tokyonight, catppuccin, kanagawa
-    colorscheme              = "kanagawa",
+    colorscheme              = "dracula",
 
     is_mac                   = os_name == "Darwin",
     is_linux                 = os_name == "Linux",
@@ -69,8 +69,8 @@ M.keys = {
         -- better window movement
         mv_win_up        = "<C-k>",
         mv_win_down      = "<C-j>",
-        mv_win_left      = "<C-l>",
-        mv_win_right     = "<C-h>",
+        mv_win_left      = "<C-h>",
+        mv_win_right     = "<C-l>",
 
         -- buffer ontrol - switch and wipe - instead of nvim_bufferline plugin
         buf_next         = "<M-l>",
@@ -216,8 +216,16 @@ M.keys = {
             find   = "e",
         },
 
-        toggle_term = {
+        toggle_term        = {
+            prefix         = "<LEADER>t",
+            toggle         = "t",
+            cmd_git        = "g",
 
+            back_to_normal = "<ESC>",
+            mv_win_up      = "<C-k>",
+            mv_win_down    = "<C-j>",
+            mv_win_left    = "<C-h>",
+            mv_win_right   = "<C-l>",
         },
     },
 }
