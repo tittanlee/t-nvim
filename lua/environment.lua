@@ -17,7 +17,7 @@ M.variable = {
 
     -- onedark   , dracula   , vscode, nord,
     -- tokyonight, catppuccin, kanagawa
-    colorscheme              = "catppuccin",
+    colorscheme              = "kanagawa",
 
     is_mac                   = os_name == "Darwin",
     is_linux                 = os_name == "Linux",
@@ -103,6 +103,18 @@ M.keys = {
         -- Move current line / block with Alt-j/k ala vscode.
         mv_line_blk_up   = "<M-k>",
         mv_line_blk_down = "<M-j>",
+
+        -- folding level.
+        fold_level_0 = "z0",
+        fold_level_1 = "z1",
+        fold_level_2 = "z2",
+        fold_level_3 = "z3",
+        fold_level_4 = "z4",
+        fold_level_5 = "z5",
+        fold_level_6 = "z6",
+        fold_level_7 = "z7",
+        fold_level_8 = "z8",
+        fold_level_9 = "z9",
     },
 
 
@@ -202,6 +214,10 @@ M.keys = {
             prefix = "<LEADER>w",
             toggle = "w",
             find   = "e",
+        },
+
+        toggle_term = {
+
         },
     },
 }

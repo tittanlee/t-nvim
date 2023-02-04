@@ -51,19 +51,19 @@ keymap('n', generic_keys.split_horz_wn, '<C-w>s', { desc = "split horz win"    }
 keymap("n", generic_keys.close_wn     , "<C-w>c", { desc = "close current win" })
 
 -- terminal insert/normal mode switch
-keymap('t', '<ESC><ESC>', '<C-\\><C-n>',  { desc = "terminal i/n mode switch" })
+-- keymap('t', '<ESC><ESC>', '<C-\\><C-n>',  { desc = "terminal i/n mode switch" })
 
 -- folding level customized
-keymap('n', 'z0', ':set foldlevel=0<CR>',  { desc = "set fold level = 0" })
-keymap('n', 'z1', ':set foldlevel=1<CR>',  { desc = "set fold level = 1" })
-keymap('n', 'z2', ':set foldlevel=2<CR>',  { desc = "set fold level = 2" })
-keymap('n', 'z3', ':set foldlevel=3<CR>',  { desc = "set fold level = 3" })
-keymap('n', 'z4', ':set foldlevel=4<CR>',  { desc = "set fold level = 4" })
-keymap('n', 'z5', ':set foldlevel=5<CR>',  { desc = "set fold level = 5" })
-keymap('n', 'z6', ':set foldlevel=6<CR>',  { desc = "set fold level = 6" })
-keymap('n', 'z7', ':set foldlevel=7<CR>',  { desc = "set fold level = 7" })
-keymap('n', 'z8', ':set foldlevel=8<CR>',  { desc = "set fold level = 8" })
-keymap('n', 'z9', ':set foldlevel=9<CR>',  { desc = "set fold level = 9" })
+keymap('n', generic_keys.fold_level_0, ':set foldlevel=0<CR>', { desc = "set fold level = 0" })
+keymap('n', generic_keys.fold_level_1, ':set foldlevel=1<CR>', { desc = "set fold level = 1" })
+keymap('n', generic_keys.fold_level_2, ':set foldlevel=2<CR>', { desc = "set fold level = 2" })
+keymap('n', generic_keys.fold_level_3, ':set foldlevel=3<CR>', { desc = "set fold level = 3" })
+keymap('n', generic_keys.fold_level_4, ':set foldlevel=4<CR>', { desc = "set fold level = 4" })
+keymap('n', generic_keys.fold_level_5, ':set foldlevel=5<CR>', { desc = "set fold level = 5" })
+keymap('n', generic_keys.fold_level_6, ':set foldlevel=6<CR>', { desc = "set fold level = 6" })
+keymap('n', generic_keys.fold_level_7, ':set foldlevel=7<CR>', { desc = "set fold level = 7" })
+keymap('n', generic_keys.fold_level_8, ':set foldlevel=8<CR>', { desc = "set fold level = 8" })
+keymap('n', generic_keys.fold_level_9, ':set foldlevel=9<CR>', { desc = "set fold level = 9" })
 
 -- easier moving of code blocks
 keymap('v', generic_keys.indent_right, '<gv', { desc = "indent right" })
