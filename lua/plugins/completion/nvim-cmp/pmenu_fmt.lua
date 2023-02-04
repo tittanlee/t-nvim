@@ -90,17 +90,19 @@ local kind_presets = {
 
 M.mimic_vscode_format = {
     fields = { "kind", "abbr" },
-    format = function(_, vim_item)
+    format = function(entry, vim_item)
         icons = kind_presets.vs_icons
-        vim_item.kind = icons[vim_item.kind] or ""
+        vim_item.kind = icons[vim_item.kind] or "" .. entry.source.name
         return vim_item
     end,
 }
 
 M.vscode_format = {
-    format = function(_, vim_item)
+    expandable_indicator = true,
+    format = function(entry, vim_item)
         icons = kind_presets.vs_icons
-        vim_item.kind = (icons[vim_item.kind] or '') .. vim_item.kind
+        -- vim_item.kind = (icons[vim_item.kind] or '') .. vim_item.kind
+        vim_item.kind = (icons[vim_item.kind] or '') .. entry.source.name
         return vim_item
     end,
 }
