@@ -177,18 +177,6 @@ require('packer').startup({
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        -- ❰ motion ❱
-        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        use { -- Hop is an EasyMotion-like plugin allowing you to jump anywhere
-            "phaazon/hop.nvim",
-            tag = 'v2.0.3',
-            config = function()
-                require("plugins.motion.hop.config")
-                require("plugins.motion.hop.keymap")
-            end,
-        }
-
-        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ❰ quickfix ❱
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- The goal of nvim-bqf is to make Neovim's quickfix window better.
@@ -210,6 +198,15 @@ require('packer').startup({
             config = function()
                 require("plugins.search.nvim-spectre.config")
                 require("plugins.search.nvim-spectre.keymap")
+            end,
+        }
+
+        use { -- Hop is an EasyMotion-like plugin allowing you to jump anywhere
+            "phaazon/hop.nvim",
+            tag = 'v2.0.3',
+            config = function()
+                require("plugins.search.hop.config")
+                require("plugins.search.hop.keymap")
             end,
         }
 
@@ -289,6 +286,11 @@ require('packer').startup({
                 local std_path = require("environment").std_path
                 vim.cmd("source " .. std_path.config .. "/lua/plugins/utility/vim-gutentags/config.vim")
             end,
+        }
+
+        use { -- Asynchronous translating plugin for Vim/Neovim
+            "voldikss/vim-translator",
+            event = "BufRead",
         }
 
         use {

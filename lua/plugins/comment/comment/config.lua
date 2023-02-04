@@ -21,27 +21,27 @@ comment.setup({
 
     toggler = {
         ---Line-comment toggle keymap
-        line  = module_key.toggler_line,
+        line  = module_key.prefix .. module_key.toggle_line,
         ---Block-comment toggle keymap
-        block = module_key.toggler_block,
+        block = module_key.prefix .. module_key.toggle_block,
     },
 
     ---LHS of operator-pending mappings in NORMAL and VISUAL mode
     opleader = {
         ---Line-comment keymap
-        line = module_key.op_line,
+        line = module_key.prefix .. module_key.op_line,
         ---Block-comment keymap
-        block = module_key.op_block,
+        block = module_key.prefix .. module_key.op_block,
     },
 
     ---LHS of extra mappings
     extra = {
         ---Add comment on the line above
-        above = module_key.ex_above,
+        above = module_key.prefix .. module_key.ex_above,
         ---Add comment on the line below
-        below = module_key.ex_below,
+        below = module_key.prefix .. module_key.ex_below,
         ---Add comment at the end of line
-        eol   = module_key.ex_eol,
+        eol   = module_key.prefix .. module_key.ex_eol,
     },
 
     ---Enable keybindings
@@ -61,3 +61,13 @@ comment.setup({
     ---Function to call after (un)comment
     post_hook = nil,
 })
+
+local status_ok, wk = pcall(require, "which-key")
+if status_ok then
+    wk.register({
+        [module_key.prefix] = {
+            name                = "[C]omment",
+        },
+    })
+end
+

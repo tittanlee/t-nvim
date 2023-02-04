@@ -11,7 +11,7 @@ local status_ok, wk = pcall(require, "which-key")
 if status_ok then
     wk.register({
         [module_key.prefix] = {
-            name = "indent blank line",
+            name = "[I]ndent blank line",
             [module_key.toggle] = {"<cmd>IndentBlanklineToggle<CR>", "IndentBlank toggle"},
         },
     })

@@ -12,14 +12,14 @@ local status_ok, wk = pcall(require, "which-key")
 if status_ok then
     wk.register ({
         [module_key.prefix] = {
-            name = "hop",
-            [module_key.two_words] = {function() hop.hint_char2() end   , "hop two words" },
-            [module_key.patterns]  = {function() hop.hint_patterns() end, "hop patterns"  },
+            name = "[S]earch",
+            [module_key.two_words] = {function() hop.hint_char2() end   , "hop two word[S]" },
+            [module_key.patterns]  = {function() hop.hint_patterns() end, "hop [P]atterns"  },
         },
     })
 else
-    keymap('n', module_key.prefix .. module_key.two_words, function() hop.hint_char2() end, {desc = "hop two words"})
-    keymap('n', module_key.prefix .. module_key.patterns , function() hop.hint_char2() end, {desc = "hop two words"})
+    keymap('n', module_key.prefix .. module_key.two_words, function() hop.hint_char2() end, {desc = "hop two word[S]"})
+    keymap('n', module_key.prefix .. module_key.patterns , function() hop.hint_char2() end, {desc = "hop [P]atterns"})
 end
 
 

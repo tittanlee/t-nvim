@@ -6,14 +6,14 @@ local status_ok, wk = pcall(require, "which-key")
 if status_ok then
     wk.register({
         [module_key.prefix] = {
-            name               = "easy-align",
+            name               = "[E]asy-align",
             [module_key.align] = {"<plug>(EasyAlign)", "easy align"},
         },
     },{mode = "n"})
 
     wk.register({
         [module_key.prefix] = {
-            name                    = "easy-align",
+            name                    = "[E]asy-align",
             [module_key.align]      = {"<plug>(EasyAlign)", "easy align"          },
             [module_key.live_align] = {"<plug>(LiveEasyAlign)", "easy align live" },
         },

@@ -75,7 +75,7 @@ gitsigns.setup {
         if status_ok then
             wk.register({
                 [module_key.prefix] = {
-                    name = "gitsigns",
+                    name = "[G]itsigns",
                     [module_key.next_hunk]         = {"<cmd>Gitsigns next_hunk<CR>"                , "next hunk"            },
                     [module_key.prev_hunk]         = {"<cmd>Gitsigns prev_hunk<CR>"                , "prev hunk"            },
                     [module_key.stage_hunk]        = {"<cmd>Gitsigns stage_hunk<CR>"               , "stage hunk"           },

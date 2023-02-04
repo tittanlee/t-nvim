@@ -147,13 +147,14 @@ M.keys = {
         },
 
         comment = {
-            toggler_line  = "<LEADER>cc",
-            toggler_block = "<LEADER>cb",
-            op_line       = "<LEADER>cc",
-            op_block      = "<LEADER>cb",
-            ex_above      = "<LEADER>c0",
-            ex_below      = "<LEADER>co",
-            ex_eol        = "<LEADER>cA",
+            prefix       = "<LEADER>c",
+            toggle_line  = "c",
+            toggle_block = "b",
+            op_line      = "c",
+            op_block     = "b",
+            ex_above     = "0",
+            ex_below     = "o",
+            ex_eol       = "A",
         },
 
         easy_aling = {
@@ -214,6 +215,12 @@ M.keys = {
             prefix = "<LEADER>w",
             toggle = "w",
             find   = "e",
+        },
+
+        spectre = {
+            prefix = "<LEADER>s",
+            search_word = "w",
+            open_search_panel = "o",
         },
 
         toggle_term        = {

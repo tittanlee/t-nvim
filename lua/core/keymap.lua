@@ -42,7 +42,7 @@ keymap({ 'i', 'c', 't' }, generic_keys.paste, '<C-R>+', { desc = "paste" })
 keymap('n', generic_keys.remapping_colon, ':', { silent = false, desc = "remapping colon" })
 
 -- open / source vimrc file quickly
-keymap('n', generic_keys.so_vimrc, ':luafile $MYVIMRC <CR>', { desc = "source $MYVIMRC" })
+keymap('n', generic_keys.so_vimrc, ':luafile $MYVIMRC <CR>', { desc = "source $MYVIMRC", silent = false })
 keymap('n', generic_keys.ed_vimrc, ':edit $MYVIMRC <CR>'   , { desc = "edit $MYVIMRC"   })
 
 -- split or close the window

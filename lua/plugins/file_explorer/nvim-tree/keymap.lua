@@ -9,7 +9,7 @@ local status_ok, wk = pcall(require, "which-key")
 if status_ok then
     wk.register({
         [module_key.prefix] = {
-            name                = "nvim-tree",
+            name                = "nvim-tree [W]indow",
             [module_key.toggle] = {"<cmd>NvimTreeToggle<CR>", "nvim-tree toggle"},
             [module_key.find]   = {"<cmd>NvimTreeFindFile<CR>", "nvim-tree find file"},
         },
