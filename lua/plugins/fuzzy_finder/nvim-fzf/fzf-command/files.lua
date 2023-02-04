@@ -22,13 +22,21 @@ local fzf_opts = table.concat({
     '--pointer="->"',
     '--marker="#"',
     '--expect=ctrl-x,ctrl-t,ctrl-v',
-    '--prompt="File List > "'
+    '--prompt="File List > "',
+
+    '--bind=?:toggle-preview',
+    '--bind=ctrl-d:preview-page-down',
+    '--bind=ctrl-u:preview-page-up',
+
+    '--preview="bat --number --color always --theme Dracula --line-range 1: {1}"',
+    '--preview-window=right:50%:border-rounded:hidden',
 }, ' ')
 
 
-local on_create     = function()
-    bufid = vim.api.nvim_get_current_buf()
-    winid = vim.api.nvim_get_current_win()
+
+local on_create = function()
+    local bufid = vim.api.nvim_get_current_buf()
+    local winid = vim.api.nvim_get_current_win()
     vim.api.nvim_win_set_option(winid, "winblend", 20)
 end
 

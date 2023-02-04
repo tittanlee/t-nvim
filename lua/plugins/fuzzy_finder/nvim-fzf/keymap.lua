@@ -11,11 +11,11 @@ local status_ok, wk = pcall(require, "which-key")
 if status_ok then
     wk.register({
         [module_key.prefix] = {
-            name                    = "fzf",
-            [module_key.find_files] = {fzf_cmd_files, "fzf find files"},
+            name                    = "[F]zf",
+            [module_key.find_files] = {fzf_cmd_files, "[F]iles"},
         },
     })
 else
     local keymap = require("utils").keymap
-    keymap("n", module_key.prefix .. module_key.find_files, fzf_cmd_files, {desc = "fzf find files"})
+    keymap("n", module_key.prefix .. module_key.find_files, fzf_cmd_files, {desc = "[F]iles"})
 end

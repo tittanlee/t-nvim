@@ -28,7 +28,7 @@ which_key.setup {
     },
     -- add operators that will trigger motion and text object completion
     -- to enable all native operators, set the preset / operators plugin above
-    operators = { 
+    operators = {
         -- gc = "Comments"
     },
     key_labels = {
