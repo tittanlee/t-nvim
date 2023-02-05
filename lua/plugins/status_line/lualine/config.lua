@@ -4,11 +4,13 @@ if not status_ok then
     return
 end
 
+local env_var = require("environment").variable
+
 
 lualine.setup {
     options = {
         icons_enabled        = true,
-        theme                = "dracula",
+        theme                = env_var.lualine_theme,
         component_separators = { left = "", right = ""},
         section_separators   = { left = "", right = ""},
         ignore_focus         = {},

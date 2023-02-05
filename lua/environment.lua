@@ -18,6 +18,7 @@ M.variable = {
     -- onedark   , dracula   , vscode, nord,
     -- tokyonight, catppuccin, kanagawa
     colorscheme              = "dracula",
+    lualine_theme            = "jellybeans",
 
     is_mac                   = os_name == "Darwin",
     is_linux                 = os_name == "Linux",
