@@ -1,4 +1,5 @@
 
+pcall(require, "impatient")
 
 local ensure_packer = function()
     local fn           = vim.fn
@@ -188,7 +189,7 @@ require('packer').startup({
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        -- ━━━━━━━━━━━━━━━━━━━━❰ search ❱━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ search ❱
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         use { -- Spectre find the enemy and replace them with dark power.
             "nvim-pack/nvim-spectre",
@@ -207,6 +208,19 @@ require('packer').startup({
             config = function()
                 require("plugins.search.hop.config")
                 require("plugins.search.hop.keymap")
+            end,
+        }
+
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        -- ❰ status line❱
+        -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+        use {
+            "nvim-lualine/lualine.nvim",
+            requires = {
+                {'kyazdani42/nvim-web-devicons'},
+            },
+            config = function ()
+                require("plugins.status_line.lualine.config")
             end,
         }
 

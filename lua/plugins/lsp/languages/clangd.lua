@@ -23,6 +23,10 @@ M.lsp_config = {
         -- "--header-insertion-decorators",
         -- "--header-insertion=iwyu",
     },
+
+    root_dir = function()
+        return vim.fn.getcwd(0)
+    end
 }
 
 
