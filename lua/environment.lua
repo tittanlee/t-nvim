@@ -167,7 +167,7 @@ M.keys = {
         fzf = {
             prefix     = "<LEADER>f",
             find_files = "f",
-            tags_jump  = "j",
+            ctags_jump = "j",
             outline    = "t",
             maps       = "m",
         },

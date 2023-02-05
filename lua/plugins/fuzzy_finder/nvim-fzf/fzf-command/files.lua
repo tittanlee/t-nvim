@@ -40,7 +40,7 @@ local on_create = function()
     vim.api.nvim_win_set_option(winid, "winblend", 10)
 end
 
-files = function()
+local files = function()
     coroutine.wrap(function()
         local result, exit_code = fzf.fzf(
             file_list_cmd,
