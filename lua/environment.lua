@@ -165,11 +165,18 @@ M.keys = {
         },
 
         fzf = {
-            prefix     = "<LEADER>f",
-            find_files = "f",
-            ctags_jump = "j",
-            outline    = "t",
-            maps       = "m",
+            prefix           = "<LEADER>f",
+            find_files       = "f",
+
+            ctags_jump       = "j",
+
+            gtags_definition = "d",
+            gtags_reference  = "r",
+            gtags_symbol     = "s",
+            gtags_grepper    = "g",
+
+            outline          = "t",
+            maps             = "m",
         },
 
         gitsigns              = {

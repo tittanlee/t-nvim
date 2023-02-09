@@ -113,7 +113,7 @@ require('packer').startup({
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ❰ fuzzy_finder fzf ❱
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
-        use { -- An asynchronous Lua API for using fzf in Neovim
+        use { -- An asynchronous Lua API for using fzf in Neovim (FZF-core)
             "vijaymarupudi/nvim-fzf",
             config = function()
                 require("plugins.fuzzy_finder.nvim-fzf.keymap")
@@ -305,6 +305,13 @@ require('packer').startup({
         use { -- Asynchronous translating plugin for Vim/Neovim
             "voldikss/vim-translator",
             event = "BufRead",
+        }
+
+        use {
+            "ibhagwan/smartyank.nvim",
+            config = function()
+                require("plugins.utility.smartyank.config")
+            end,
         }
 
         use {

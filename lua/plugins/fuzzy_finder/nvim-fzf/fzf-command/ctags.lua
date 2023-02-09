@@ -16,7 +16,7 @@ local fzf_opts = table.concat({
     '--delimiter=" "',
     '-x',
     -- '--ansi',
-    -- '--multi',
+    '--multi',
     '--marker="#"',
     '--info=inline',
     '--pointer="->"',
