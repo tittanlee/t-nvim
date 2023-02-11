@@ -231,6 +231,15 @@ M.keys = {
             open_search_panel = "o",
         },
 
+        smartyank = {
+            prefix        = "<LEADER>y",
+            relative_path = "r",
+            abs_path      = "a",
+            dir_path      = "d",
+            file_name     = "f",
+            cwd_path      = "w"
+        },
+
         toggle_term        = {
             prefix         = "<LEADER>t",
             toggle         = "t",

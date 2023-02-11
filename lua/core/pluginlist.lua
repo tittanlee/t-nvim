@@ -120,6 +120,14 @@ require('packer').startup({
             end,
         }
 
+        -- use {
+        --     "leisiji/fzf_utils",
+        --     -- "cpkio/nvim-fzf-commands-win",
+        --     config = function()
+        --         -- require("plugins.fuzzy_finder.fzf_utils.config")
+        --     end,
+        -- }
+
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
         -- ❰ git ❱
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
@@ -311,6 +319,7 @@ require('packer').startup({
             "ibhagwan/smartyank.nvim",
             config = function()
                 require("plugins.utility.smartyank.config")
+                require("plugins.utility.smartyank.keymap")
             end,
         }
 
