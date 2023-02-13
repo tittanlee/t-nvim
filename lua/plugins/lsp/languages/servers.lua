@@ -20,7 +20,7 @@ local servers = {
     -- [require("plugins.lsp.languages.jedi_language_server").lsp_name] = require("plugins.lsp.languages.jedi_language_server").setup,
 
     -- ❰ lua ❱
-    [require("plugins.lsp.languages.sumneko_lua").lsp_name] = require("plugins.lsp.languages.sumneko_lua").lsp_config,
+    [require("plugins.lsp.languages.lua_ls").lsp_name] = require("plugins.lsp.languages.lua_ls").lsp_config,
 
     -- ❰ xml ❱
     [require("plugins.lsp.languages.lemminx").lsp_name] = require("plugins.lsp.languages.lemminx").lsp_config,

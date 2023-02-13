@@ -30,7 +30,7 @@ end
 
 local M = {}
 
-M.lsp_name = "sumneko_lua"
+M.lsp_name = "lua_ls"
 
 M.lsp_config = {
     settings = {
