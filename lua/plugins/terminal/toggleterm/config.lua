@@ -17,7 +17,7 @@ toggleterm.setup ({
             return vim.o.columns * 0.5
         end
     end,
-    open_mapping      = module_key.prefix .. module_key.toggle,
+    open_mapping      = module_key.prefix.lhs .. module_key.toggle.lhs,
     hide_numbers      = false         , -- hide the number column in toggleterm buffers
     shade_filetypes   = {}            ,
     shade_terminals   = true          ,

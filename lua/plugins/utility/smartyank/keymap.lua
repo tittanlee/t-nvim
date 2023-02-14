@@ -5,49 +5,49 @@ local module_key = require("environment").keys.module.smartyank
 local status_ok, wk = pcall(require, "which-key")
 if status_ok then
     wk.register({
-        [module_key.prefix] = {
-            name = "smart [Y]ank",
-            [module_key.relative_path] = { function() yank_path.yank_relative_path() end , "yank [R]elative path"       },
-            [module_key.abs_path]      = { function() yank_path.yank_absolute_path() end , "yank [A]bsolute path"       },
-            [module_key.dir_path]      = { function() yank_path.yank_directory_path() end, "yank [D]irectroy path"      },
-            [module_key.file_name]     = { function() yank_path.yank_file_name() end     , "yank [F]ile name"           },
-            [module_key.cwd_path]      = { function() yank_path.yank_cwd() end           , "yank current [W]orking dir" },
+        [module_key.prefix.lhs] = {
+            name = module_key.prefix.desc,
+            [module_key.relative_path.lhs] = { function() yank_path.yank_relative_path() end , module_key.relative_path.desc },
+            [module_key.abs_path.lhs]      = { function() yank_path.yank_absolute_path() end , module_key.abs_path.desc      },
+            [module_key.dir_path.lhs]      = { function() yank_path.yank_directory_path() end, module_key.dir_path.desc      },
+            [module_key.file_name.lhs]     = { function() yank_path.yank_file_name() end     , module_key.file_name.desc     },
+            [module_key.cwd_path.lhs]      = { function() yank_path.yank_cwd() end           , module_key.cwd_path.desc      },
         },
     })
 else
     local keymap = require("utils").keymap
     keymap(
         'n',
-        module_key.prefix .. module_key.relative_path,
+        module_key.prefix.lhs .. module_key.relative_path.lhs,
         function() yank_path.yank_relative_path() end,
-        {desc = "yank [R]elative path"}
+        { desc = module_key.relative_path.desc }
     )
 
     keymap(
         'n',
-        module_key.prefix .. module_key.abs_path,
+        module_key.prefix.lhs .. module_key.abs_path.lhs,
         function() yank_path.yank_absolute_path() end,
-        {desc = "yank [A]bsolute path"}
+        { desc = module_key.abs_path.desc }
     )
 
     keymap(
         'n',
-        module_key.prefix .. module_key.dir_path,
+        module_key.prefix.lhs .. module_key.dir_path.lhs,
         function() yank_path.yank_directory_path() end,
-        {desc = "yank [D]irectroy path"}
+        { desc = module_key.dir_path.desc }
     )
 
     keymap(
         'n',
-        module_key.prefix .. module_key.file_name,
+        module_key.prefix.lhs .. module_key.file_name.lhs,
         function() yank_path.yank_file_name() end,
-        {desc = "yank [F]ile name"}
+        { desc = module_key.file_name.desc }
     )
 
     keymap(
         'n',
-        module_key.prefix .. module_key.cwd_path,
+        module_key.prefix.lhs .. module_key.cwd_path.lhs,
         function() yank_path.yank_cwd() end,
-        {desc = "yank current [W]orking dir"}
+        {desc = module_key.cwd_path.desc }
     )
 end

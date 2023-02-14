@@ -45,13 +45,16 @@ local status_ok, wk = pcall(require, "which-key")
 
 if status_ok then
     wk.register({
-        [module_key.prefix .. module_key.cmd_git] = {function() gitui:toggle() end, "[G]titui toggle"},
+        [module_key.prefix] = {
+            name = module_key.prefix.desc,
+            [module_key.cmd_git.lhs] = {function() gitui:toggle() end, module_key.cmd_git.desc},
+        },
     })
 else
     keymap(
         "n",
-        module_key.cmd_git,
+        module_key.cmd_git.lhs,
         function() gitui:toggle() end,
-        {desc = "[G]itui toggle"}
+        {desc = module_key.cmd_git.desc}
     )
 end

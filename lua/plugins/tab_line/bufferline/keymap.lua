@@ -10,17 +10,17 @@ local module_key = require("environment").keys.module.bufferline
 local status_ok, wk = pcall(require, "which-key")
 if status_ok then
     wk.register({
-        [module_key.cycle_prev] = {":BufferLineCyclePrev<CR>", "buf prev"      },
-        [module_key.cycle_next] = {":BufferLineCycleNext<CR>", "buf next"      },
-        [module_key.move_prev]  = {":BufferLineMovePrev<CR>" , "move buf prev" },
-        [module_key.move_next]  = {":BufferLineMoveNext<CR>" , "move buf next" },
-        [module_key.pick]       = {":BufferLinePick<CR>"     , "buf pick"      },
+        [module_key.cycle_prev.lhs]= {":BufferLineCyclePrev<CR>", module_key.cycle_prev.desc },
+        [module_key.cycle_next.lhs]= {":BufferLineCycleNext<CR>", module_key.cycle_next.desc },
+        [module_key.move_prev.lhs] = {":BufferLineMovePrev<CR>" , module_key.move_prev.desc  },
+        [module_key.move_next.lhs] = {":BufferLineMoveNext<CR>" , module_key.move_next.desc  },
+        [module_key.pick.lhs]      = {":BufferLinePick<CR>"     , module_key.pick.desc       },
     })
 else
     local keymap = require("utils").keymap
-    keymap("n", module_key.cycle_prev, ":BufferLineCyclePrev<CR>", {desc = "buf prev"      })
-    keymap("n", module_key.cycle_next, ":BufferLineCycleNext<CR>", {desc = "buf next"      })
-    keymap("n", module_key.move_prev , ":BufferLineMovePrev <CR>", {desc = "move buf prev" })
-    keymap("n", module_key.move_next , ":BufferLineMoveNext <CR>", {desc = "move buf next" })
-    keymap("n", module_key.pick      , ":BufferLinePick <CR>"    , {desc = "buf pick"      })
+    keymap("n", module_key.cycle_prev.lhs, ":BufferLineCyclePrev<CR>", {desc = module_key.cycle_prev.desc })
+    keymap("n", module_key.cycle_next.lhs, ":BufferLineCycleNext<CR>", {desc = module_key.cycle_next.desc })
+    keymap("n", module_key.move_prev.lhs , ":BufferLineMovePrev <CR>", {desc = module_key.move_prev.desc  })
+    keymap("n", module_key.move_next.lhs , ":BufferLineMoveNext <CR>", {desc = module_key.move_next.desc  })
+    keymap("n", module_key.pick.lhs      , ":BufferLinePick <CR>"    , {desc = module_key.pick.desc       })
 end

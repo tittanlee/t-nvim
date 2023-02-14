@@ -69,75 +69,62 @@ gitsigns.setup {
 
     on_attach = function(bufnr)
 
-        local module_key = require("environment").keys.module.gitsigns
+        local action_grp = require("environment").keys.module.gitsigns.action_grp
+        local toggle_grp = require("environment").keys.module.gitsigns.toggle_grp
         local status_ok, wk = pcall(require, "which-key")
 
         if status_ok then
             wk.register({
-                [module_key.prefix] = {
-                    name = "[G]itsigns",
-                    [module_key.next_hunk]         = {"<cmd>Gitsigns next_hunk<CR>"                , "next hunk"            },
-                    [module_key.prev_hunk]         = {"<cmd>Gitsigns prev_hunk<CR>"                , "prev hunk"            },
-                    [module_key.stage_hunk]        = {"<cmd>Gitsigns stage_hunk<CR>"               , "stage hunk"           },
-                    [module_key.reset_hunk]        = {"<cmd>Gitsigns reset_hunk<CR>"               , "reset hunk"           },
-                    [module_key.stage_buffer]      = {"<cmd>Gitsigns stage_buffer<CR>"             , "stage buffer"         },
-                    [module_key.undo_stage_hunk]   = {"<cmd>Gitsigns undo_stage_hunk<CR>"          , "undo stage hunk"      },
-                    [module_key.reset_buffer]      = {"<cmd>Gitsigns reset_buffer<CR>"             , "reset buffer"         },
-                    [module_key.preview_hunk]      = {"<cmd>Gitsigns preview_hunk<CR>"             , "preview hunk"         },
-                    [module_key.blame_line]        = {"<cmd>Gitsigns blame_line<CR>"               , "blame line"           },
-                    [module_key.diff_this]         = {"<cmd>Gitsigns diffthis<CR>"                 , "diff this"            },
-                    [module_key.diff_head]         = {"<cmd>lua require'gitsigns'.diffthis('~')"   , "diff head"            },
+                [action_grp.prefix.lhs] = {
+                    name = action_grp.prefix.desc,
+                    [action_grp.next_hunk.lhs]         = {"<cmd>Gitsigns next_hunk<CR>"                , action_grp.next_hunk.desc       },
+                    [action_grp.prev_hunk.lhs]         = {"<cmd>Gitsigns prev_hunk<CR>"                , action_grp.prev_hunk.desc       },
+                    [action_grp.stage_hunk.lhs]        = {"<cmd>Gitsigns stage_hunk<CR>"               , action_grp.stage_hunk.descj     },
+                    [action_grp.reset_hunk.lhs]        = {"<cmd>Gitsigns reset_hunk<CR>"               , action_grp.reset_hunk.desc      },
+                    [action_grp.stage_buffer.lhs]      = {"<cmd>Gitsigns stage_buffer<CR>"             , action_grp.stage_buffer.desc    },
+                    [action_grp.undo_stage_hunk.lhs]   = {"<cmd>Gitsigns undo_stage_hunk<CR>"          , action_grp.undo_stage_hunk.desc },
+                    [action_grp.reset_buffer.lhs]      = {"<cmd>Gitsigns reset_buffer<CR>"             , action_grp.reset_buffer.desc    },
+                    [action_grp.preview_hunk.lhs]      = {"<cmd>Gitsigns preview_hunk<CR>"             , action_grp.prev_hunk.desc       },
+                    [action_grp.blame_line.lhs]        = {"<cmd>Gitsigns blame_line<CR>"               , action_grp.blame_line.desc      },
+                    [action_grp.diff_this.lhs]         = {"<cmd>Gitsigns diffthis<CR>"                 , action_grp.diff_this.desc       },
+                    [action_grp.diff_head.lhs]         = {"<cmd>lua require'gitsigns'.diffthis('~')"   , action_grp.diff_head.desc     },
+                    [action_grp.select_hunk.lhs]       = {":<cmd>Gitsigns select_hunk<CR>"             , action_grp.select_hunk.desc     },
+                },
 
-                    [module_key.toggle_line_blame] = {"<cmd>Gitsigns toggle_current_line_blame<CR>", "toggle line blame"    },
-                    [module_key.toggle_signs]      = {"<cmd>Gitsigns toggle_signs<CR>"             , "toggle signs"         },
-                    [module_key.toggle_deleted]    = {"<cmd>Gitsigns toggle_deleted<CR>"           , "toggle deleted"       },
-                    [module_key.toggle_numhl]      = {"<cmd>Gitsigns toggle_numhl<CR>"             , "toggle num highlight" },
-                    [module_key.toggle_word_diff]  = {"<cmd>Gitsigns toggle_word_diff<CR>"         , "toggle word diff"     },
-                                                                                                                            },
+                [toggle_grp.prefix.lhs] = {
+                    name = toggle_grp.prefix.desc,
+                    [toggle_grp.line_blame.lhs] = {"<cmd>Gitsigns toggle_current_line_blame<CR>", toggle_grp.line_blame.desc },
+                    [toggle_grp.signs.lhs]      = {"<cmd>Gitsigns toggle_signs<CR>"             , toggle_grp.signs.desc },
+                    [toggle_grp.deleted.lhs]    = {"<cmd>Gitsigns toggle_deleted<CR>"           , toggle_grp.deleted.desc },
+                    [toggle_grp.numhl.lhs]      = {"<cmd>Gitsigns toggle_numhl<CR>"             , toggle_grp.numhl.desc },
+                    [toggle_grp.word_diff.lhs]  = {"<cmd>Gitsigns toggle_word_diff<CR>"         , toggle_grp.word_diff.desc },
+                },
             }, {buffer = bufnr, mode = "n"})
-
-            wk.register({
-                [module_key.prefix] = {
-                    name = "gitsigns",
-                    [module_key.select_hunk]  = {":<cmd>Gitsigns select_hunk<CR>", "select hunk"},
-                },
-            }, {buffer = bufnr, mode = "o"})
-
-            wk.register({
-                [module_key.prefix] = {
-                    name = "gitsigns",
-                    [module_key.select_hunk]  = {":<cmd>Gitsigns select_hunk<CR>", "select hunk"},
-                },
-            }, {buffer = bufnr, mode = "x"})
-
         else
             local keymap = require("utils").keymap
 
             -- Navigation
-            keymap('n', module_key.prefix .. module_key.next_hunk       , "<cmd>Gitsigns next_hunk<CR>"        , {expr=true, buffer = bufnr, desc = "next hunk"})
-            keymap('n', module_key.prefix .. module_key.prev_hunk       , "<cmd>Gitsigns prev_hunk<CR>"        , {expr=true, buffer = bufnr, desc = "prev hunk"})
+            keymap('n', action_grp.prefix.lhs .. action_grp.next_hunk.lhs      , "<cmd>Gitsigns next_hunk<CR>"                         , {buffer = bufnr, desc = action_grp.next_hunk.desc })
+            keymap('n', action_grp.prefix.lhs .. action_grp.prev_hunk.lhs      , "<cmd>Gitsigns prev_hunk<CR>"                         , {buffer = bufnr, desc = action_grp.prev_hunk.desc})
 
             -- Actions
-            keymap('n', module_key.prefix .. module_key.stage_hunk       , '<cmd>Gitsigns stage_hunk<CR>'                        , {buffer = bufnr, desc = "stage hunk"})
-            keymap('n', module_key.prefix .. module_key.reset_hunk       , '<cmd>Gitsigns reset_hunk<CR>'                        , {buffer = bufnr, desc = "reset hunk"})
-            keymap('n', module_key.prefix .. module_key.stage_buffer     , '<cmd>Gitsigns stage_buffer<CR>'                      , {buffer = bufnr, desc = "stage buffer"})
-            keymap('n', module_key.prefix .. module_key.undo_stage_hunk  , '<cmd>Gitsigns undo_stage_hunk<CR>'                   , {buffer = bufnr, desc = "undo stage hunk"})
-            keymap('n', module_key.prefix .. module_key.reset_buffer     , '<cmd>Gitsigns reset_buffer<CR>'                      , {buffer = bufnr, desc = "reset buffer"})
-            keymap('n', module_key.prefix .. module_key.preview_hunk     , '<cmd>Gitsigns preview_hunk<CR>'                      , {buffer = bufnr, desc = "preview hunk"})
-            keymap('n', module_key.prefix .. module_key.blame_line       , '<cmd>lua require"gitsigns".blame_line{full=true}<CR>', {buffer = bufnr, desc = "blame line"})
-            keymap('n', module_key.prefix .. module_key.diff_this        , '<cmd>Gitsigns diffthis<CR>'                          , {buffer = bufnr, desc = "diff this"})
-            keymap('n', module_key.prefix .. module_key.diff_head        , '<cmd>lua require"gitsigns".diffthis("~")<CR>'        , {buffer = bufnr, desc = "diff head"})
+            keymap('n', action_grp.prefix.lhs .. action_grp.stage_hunk.lhs     , '<cmd>Gitsigns stage_hunk<CR>'                        , {buffer = bufnr, desc = action_grp.stage_hunk.desc      })
+            keymap('n', action_grp.prefix.lhs .. action_grp.reset_hunk.lhs     , '<cmd>Gitsigns reset_hunk<CR>'                        , {buffer = bufnr, desc = action_grp.reset_hunk.desc      })
+            keymap('n', action_grp.prefix.lhs .. action_grp.stage_buffer.lhs   , '<cmd>Gitsigns stage_buffer<CR>'                      , {buffer = bufnr, desc = action_grp.stage_buffer.desc    })
+            keymap('n', action_grp.prefix.lhs .. action_grp.undo_stage_hunk.lhs, '<cmd>Gitsigns undo_stage_hunk<CR>'                   , {buffer = bufnr, desc = action_grp.undo_stage_hunk.desc })
+            keymap('n', action_grp.prefix.lhs .. action_grp.reset_buffer.lhs   , '<cmd>Gitsigns reset_buffer<CR>'                      , {buffer = bufnr, desc = action_grp.reset_buffer.desc    })
+            keymap('n', action_grp.prefix.lhs .. action_grp.preview_hunk.lhs   , '<cmd>Gitsigns preview_hunk<CR>'                      , {buffer = bufnr, desc = action_grp.prev_hunk.desc       })
+            keymap('n', action_grp.prefix.lhs .. action_grp.blame_line.lhs     , '<cmd>lua require"gitsigns".blame_line{full=true}<CR>', {buffer = bufnr, desc = action_grp.blame_line.desc      })
+            keymap('n', action_grp.prefix.lhs .. action_grp.diff_this.lhs      , '<cmd>Gitsigns diffthis<CR>'                          , {buffer = bufnr, desc = action_grp.diff_this.desc       })
+            keymap('n', action_grp.prefix.lhs .. action_grp.diff_head.lhs      , '<cmd>lua require"gitsigns".diffthis("~")<CR>'        , {buffer = bufnr, desc = action_grp.diff_head.desc       })
+            keymap('n', action_grp.prefix.lhs .. action_grp.select_hunk.lhs    , '<cmd>Gitsigns select_hunk<CR>'                       , {buffer = bufnr, desc = action_grp.select_hunk.desc     })
 
             -- toogle signs
-            keymap('n', module_key.prefix .. module_key.toggle_line_blame, '<cmd>Gitsigns toggle_current_line_blame<CR>'         , {buffer = bufnr, desc = "toggle line blame"})
-            keymap('n', module_key.prefix .. module_key.toggle_signs     , '<cmd>Gitsigns toggle_signs<CR>'                      , {buffer = bufnr, desc = "toggle signs"})
-            keymap('n', module_key.prefix .. module_key.toggle_deleted   , '<cmd>Gitsigns toggle_deleted<CR>'                    , {buffer = bufnr, desc = "toggle deleted"})
-            keymap('n', module_key.prefix .. module_key.toggle_numhl     , '<cmd>Gitsigns toggle_numhl<CR>'                      , {buffer = bufnr, desc = "toggle num highlight"})
-            keymap('n', module_key.prefix .. module_key.toggle_word_diff , '<cmd>Gitsigns toggle_word_diff<CR>'                  , {buffer = bufnr, desc = "toggle word diff"})
-
-            -- Text object
-            keymap('o', module_key.prefix .. module_key.select_hunk      , ':<C-U>Gitsigns select_hunk<CR>'                      , {buffer = bufnr, desc = "select hunk"})
-            keymap('x', module_key.prefix .. module_key.select_hunk      , ':<C-U>Gitsigns select_hunk<CR>'                      , {buffer = bufnr, desc = "select hunk"})
+            keymap('n', toggle_grp.prefix.lhs .. toggle_grp.line_blame.lhs, '<cmd>Gitsigns toggle_current_line_blame<CR>'         , {buffer = bufnr, desc = toggle_grp.line_blame.desc })
+            keymap('n', toggle_grp.prefix.lhs .. toggle_grp.signs.lhs     , '<cmd>Gitsigns toggle_signs<CR>'                      , {buffer = bufnr, desc = toggle_grp.signs.desc      })
+            keymap('n', toggle_grp.prefix.lhs .. toggle_grp.deleted.lhs   , '<cmd>Gitsigns toggle_deleted<CR>'                    , {buffer = bufnr, desc = toggle_grp.deleted.desc    })
+            keymap('n', toggle_grp.prefix.lhs .. toggle_grp.numhl.lhs     , '<cmd>Gitsigns toggle_numhl<CR>'                      , {buffer = bufnr, desc = toggle_grp.numhl.desc      })
+            keymap('n', toggle_grp.prefix.lhs .. toggle_grp.word_diff.lhs , '<cmd>Gitsigns toggle_word_diff<CR>'                  , {buffer = bufnr, desc = toggle_grp.word_diff.desc      })
         end
     end
 }

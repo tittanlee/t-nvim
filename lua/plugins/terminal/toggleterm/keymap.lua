@@ -13,12 +13,12 @@ local status_ok, wk = pcall(require, "which-key")
 if status_ok then
     wk.register({
         [module_key.prefix] = {
-            name                    = "[T]oggle term",
-            [module_key.toggle] = {"<cmd>ToggleTerm<CR>", "enable [T]oggle term"},
+            name = module_key.prefix.desc,
+            [module_key.toggle] = {"<cmd>ToggleTerm<CR>", module_key.toggle.desc},
         },
     })
 else
     local keymap = require("utils").keymap
-    keymap("n", module_key.prefix .. module_key.toggle, fzf_cmd_files, {desc = "enable [T]oggle term"})
+    keymap("n", module_key.prefix.lhs .. module_key.toggle.lhs, fzf_cmd_files, {desc = module_key.toggle.desc})
 end
 

@@ -10,14 +10,14 @@ local module_key = require("environment").keys.module.indent_blankline
 local status_ok, wk = pcall(require, "which-key")
 if status_ok then
     wk.register({
-        [module_key.prefix] = {
-            name = "[I]ndent blank line",
-            [module_key.toggle] = {"<cmd>IndentBlanklineToggle<CR>", "IndentBlank toggle"},
+        [module_key.prefix.lhs] = {
+            name = module_key.prefix.desc,
+            [module_key.toggle.lhs] = {"<cmd>IndentBlanklineToggle<CR>", module_key.toggle.desc }
         },
     })
 else
     local keymap = require("utils").keymap
-    keymap('n', module_key.prefix .. module_key.toggle, ':IndentBlanklineToggle<CR>', {desc = "IndentBlank toggle"})
+    keymap('n', module_key.prefix.lhs .. module_key.toggle.lhs, ':IndentBlanklineToggle<CR>', {desc = module_key.toggle.desc})
 end
 
 

@@ -8,16 +8,16 @@ local module_key = require("environment").keys.module.nvim_tree
 local status_ok, wk = pcall(require, "which-key")
 if status_ok then
     wk.register({
-        [module_key.prefix] = {
-            name                = "nvim-tree [W]indow",
-            [module_key.toggle] = {"<cmd>NvimTreeToggle<CR>", "nvim-tree toggle"},
-            [module_key.find]   = {"<cmd>NvimTreeFindFile<CR>", "nvim-tree find file"},
+        [module_key.prefix.lhs] = {
+            name                = module_key.prefix.desc,
+            [module_key.toggle.lhs] = {"<cmd>NvimTreeToggle<CR>", module_key.toggle.desc },
+            [module_key.find.lhs]   = {"<cmd>NvimTreeFindFile<CR>", module_key.find.desc },
         },
     })
 else
     local keymap = require("utils").keymap
-    keymap('n', module_key.prefix .. module_key.toggle, ':NvimTreeToggle<CR>'  , {desc = "nvim-tree toggle"})
-    keymap('n', module_key.prefix .. module_key.find  , ':NvimTreeFindFile<CR>', {desc = "nvim-tree find file"})
+    keymap('n', module_key.prefix.lhs .. module_key.toggle.lhs, ':NvimTreeToggle<CR>'  , { desc = module_key.toggle.desc })
+    keymap('n', module_key.prefix.lhs .. module_key.find.lhs  , ':NvimTreeFindFile<CR>', { desc = module_key.find.desc   })
 end
 
 

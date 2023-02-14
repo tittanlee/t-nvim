@@ -14,24 +14,24 @@ local module_key = require("environment").keys.module.fzf
 local status_ok, wk = pcall(require, "which-key")
 if status_ok then
     wk.register({
-        [module_key.prefix] = {
-            name                          = "[F]zf",
-            [module_key.find_files]       = {fzf_cmd_files, "[F]iles"},
-            [module_key.ctags_jump]       = {fzf_ctags_jump, "ctags [J]ump"},
+        [module_key.prefix.lhs] = {
+            name = module_key.prefix.desc,
+            [module_key.find_files.lhs]       = { fzf_cmd_files       , module_key.find_files.desc       },
+            [module_key.ctags_jump.lhs]       = { fzf_ctags_jump      , module_key.ctags_jump.desc       },
 
-            [module_key.gtags_definition] = {fzf_gtags.definition, "gtags [D]efintion"},
-            [module_key.gtags_reference]  = {fzf_gtags.reference, "gtags [R]eference"},
-            [module_key.gtags_symbol]     = {fzf_gtags.symbol, "gtags [S]ymbol"},
-            [module_key.gtags_grepper]    = {fzf_gtags.grepper, "gtags [G]repper"},
+            [module_key.gtags_definition.lhs] = { fzf_gtags.definition, module_key.gtags_definition.desc },
+            [module_key.gtags_reference.lhs]  = { fzf_gtags.reference , module_key.gtags_reference.desc  },
+            [module_key.gtags_symbol.lhs]     = { fzf_gtags.symbol    , module_key.gtags_symbol.desc     },
+            [module_key.gtags_grepper.lhs]    = { fzf_gtags.grepper   , module_key.gtags_grepper.desc    },
         },
     })
 else
     local keymap = require("utils").keymap
-    keymap("n", module_key.prefix .. module_key.find_files, fzf_cmd_files, {desc = "[F]iles"})
-    keymap("n", module_key.prefix .. module_key.ctags_jump, fzf_ctags_jump, {desc = "ctags [J]ump"})
+    keymap("n", module_key.prefix.lhs .. module_key.find_files.lhs      , fzf_cmd_files       , {desc = module_key.find_files.desc       })
+    keymap("n", module_key.prefix.lhs .. module_key.ctags_jump.lhs      , fzf_ctags_jump      , {desc = module_key.ctags_jump.desc       })
 
-    keymap("n", module_key.prefix .. module_key.gtags_definition, fzf_gtags.definition, {desc = "gtags [D]efintion"})
-    keymap("n", module_key.prefix .. module_key.gtags_reference, fzf_gtags.reference, {desc = "gtags [R]eference"})
-    keymap("n", module_key.prefix .. module_key.gtags_symbol, fzf_gtags.symbol, {desc = "gtags [S]ymbol"})
-    keymap("n", module_key.prefix .. module_key.gtags_grepper, fzf_gtags.grepper, {desc = "gtags [G]repper"})
+    keymap("n", module_key.prefix.lhs .. module_key.gtags_definition.lhs, fzf_gtags.definition, {desc = module_key.gtags_definition.desc })
+    keymap("n", module_key.prefix.lhs .. module_key.gtags_reference.lhs , fzf_gtags.reference , {desc = module_key.gtags_reference.desc  })
+    keymap("n", module_key.prefix.lhs .. module_key.gtags_symbol.lhs    , fzf_gtags.symbol    , {desc = module_key.gtags_symbol.desc     })
+    keymap("n", module_key.prefix.lhs .. module_key.gtags_grepper.lhs   , fzf_gtags.grepper   , {desc = module_key.gtags_grepper.desc    })
 end
