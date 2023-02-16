@@ -121,6 +121,29 @@ require('packer').startup({
         }
 
         -- use {
+        --     "vijaymarupudi/nvim-fzf-commands",
+        -- }
+
+        -- use {
+        --     "leisiji/fzf_utils",
+        -- }
+
+        -- use {
+        --     "cpkio/nvim-fzf-commands-win",
+        -- }
+
+        -- use {
+        --     "ibhagwan/fzf-lua"
+        -- }
+
+        -- use {
+        --     "C:\\Users\\chih-tli\\AppData\\Local\\nvim\\lua\\nvim-fzf-utils",
+        --     config = function()
+        --         require("nvim-fzf-utils")
+        --     end
+        -- }
+
+        -- use {
         --     "leisiji/fzf_utils",
         --     -- "cpkio/nvim-fzf-commands-win",
         --     config = function()
@@ -333,7 +356,12 @@ require('packer').startup({
                 "uefiuni",
                 "uefivfr",
                 "uefiinf",
+                "uefisdl",
+                "uefivfr",
             },
+            config = function()
+                require("plugins.utility.vim-uefi.config")
+            end
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
