@@ -118,3 +118,9 @@ mason_lspconfig.setup_handlers {
         lspconfig[server_name].setup(lsp_setup_config)
     end,
 }
+
+
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+-- ❰ vim diagnostics disable❱
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+vim.diagnostic.disable()

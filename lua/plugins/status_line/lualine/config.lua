@@ -5,6 +5,7 @@ if not status_ok then
 end
 
 local env_var = require("environment").variable
+local gutentags = require("plugins.status_line.lualine.provider.gutentags")
 
 
 lualine.setup {
@@ -31,9 +32,9 @@ lualine.setup {
         lualine_a = {"mode"},
         lualine_b = {"branch", "diff", "diagnostics"},
         lualine_c = {"filename"},
-        lualine_x = {"searchcount","encoding", "fileformat", "filetype"},
-        lualine_y = {"progress"},
-        lualine_z = {"location"}
+        lualine_x = {"searchcount", gutentags.component_opts()},
+        lualine_y = {"encoding", "fileformat", "filetype", "progress",},
+        lualine_z = { "location"}
     },
 
     inactive_sections = {

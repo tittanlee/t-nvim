@@ -224,7 +224,7 @@ M.keys = {
 
         nvim_tree = {
             prefix = { lhs = "<LEADER>w", desc = "nvim-tree [W]indow"   },
-            toggle = { lhs = "o"        , desc = "nvim-tree t[O]ggle"   },
+            toggle = { lhs = "w"        , desc = "nvim-tree [W]indow"   },
             find   = { lhs = "e"        , desc = "nvim-ree find fil[E]" },
         },
 
