@@ -253,6 +253,15 @@ require('packer').startup({
             config = function ()
                 require("plugins.status_line.lualine.config")
             end,
+            disable = true,
+        }
+
+        use {
+            "rebelot/heirline.nvim",
+            config = function ()
+                require("plugins.status_line.heirline.config")
+            end,
+            disable = false,
         }
 
         -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --

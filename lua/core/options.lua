@@ -42,8 +42,8 @@ opt.list           = true
 opt.listchars      = {
     tab            = "».",
     trail          = "•",
-    precedes       = "❮",
-    extends        = "❯",
+    precedes       = "",
+    extends        = "",
     nbsp           = "×",
     space          = "·",
     -- eol         = "↴",
@@ -54,6 +54,7 @@ opt.fillchars      = {
     fold           = "·", -- MIDDLE DOT (U+00B7, UTF-8: C2 B7)
     vert           = "│", -- window border when window splits vertically ─ ┴ ┬ ┤ ├ ┼
 }
+opt.pumheight      = math.floor(vim.o.lines / 2)
 
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 -- syntax, highlighting and spelling
