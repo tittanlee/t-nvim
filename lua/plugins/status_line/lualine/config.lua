@@ -12,8 +12,12 @@ lualine.setup {
     options = {
         icons_enabled        = true,
         theme                = env_var.lualine_theme,
-        component_separators = { left = "", right = ""},
-        section_separators   = { left = "", right = ""},
+        -- component_separators = { left = "", right = ""},
+        -- section_separators   = { left = "", right = ""},
+
+        component_separators = { left = "", right = ""},
+        section_separators   = { left = "", right = ""},
+
         ignore_focus         = {},
         always_divide_middle = true,
         globalstatus         = false,
@@ -40,14 +44,23 @@ lualine.setup {
     inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {"filename"},
+        lualine_c = {},
         lualine_x = {"location"},
         lualine_y = {},
         lualine_z = {}
     },
 
     tabline         = {},
-    winbar          = {},
+
+    winbar          = {
+        lualine_a = {"%=", {"filename", path = 3}},
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {}
+    },
+
     inactive_winbar = {},
     extensions      = {
         "quickfix",

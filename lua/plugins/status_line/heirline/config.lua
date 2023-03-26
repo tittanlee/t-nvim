@@ -16,7 +16,7 @@ heirline.load_colors(colors.default)
 heirline.setup({
     statusline = status,
     winbar     = winbar,
-    tabline    = tabline,
+    -- tabline    = tabline,
     -- statuscolumn = {},
 })
 
