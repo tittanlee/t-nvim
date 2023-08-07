@@ -5,7 +5,7 @@ local conditions = require("heirline.conditions")
 
 local default_opts = {
     provider = function(self)
-        local result = vim.fn.searchcount { maxcount = 999, timeout = 500 }
+        local result = vim.fn.searchcount { maxcount = 9999, timeout = 1000 }
         local denominator = math.min(result.total, result.maxcount)
         return string.format('❰%d/%d❱', result.current, denominator)
     end,
