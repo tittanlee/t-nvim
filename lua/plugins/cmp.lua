@@ -73,10 +73,10 @@ local cmp_config = function()
 
         sources = {
             { name = "nvim_lsp" },
+            { name = "buffer"   },
             { name = "tags"     },
             { name = "luasnip"  },
             { name = "nvim_lua"},
-            { name = "buffer"   },
             { name = "path"     },
         },
 

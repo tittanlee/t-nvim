@@ -239,13 +239,6 @@ local nvim_tree_config = function()
         },
     })
     -- }}}
-
-
-    -- keymap binding {{{
-    keymap('n', module_key.toggle.lhs, "<cmd>NvimTreeToggle<CR>"  , { desc = module_key.toggle.desc })
-    keymap('n', module_key.reveal.lhs, "<cmd>NvimTreeFindFile<CR>", { desc = module_key.reveal.desc   })
-    -- }}}
-
 end
 
 
@@ -257,8 +250,12 @@ return {
             "nvim-tree/nvim-web-devicons",
         },
 
+        keys = {
+            { module_key.toggle.lhs, "<cmd>NvimTreeToggle<CR>"  , { desc = module_key.toggle.desc, mode = "n" }},
+            { module_key.reveal.lhs, "<cmd>NvimTreeFindFile<CR>", { desc = module_key.reveal.desc, mode = "n" }},
+        },
+
         config = nvim_tree_config,
         enabled = false,
-
     }
 }

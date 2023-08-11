@@ -42,9 +42,12 @@ keymap({ 'i', 'v' }, generic_key.remapping_esc.lhs, '<ESC>', { desc = generic_ke
 keymap('n', generic_key.remapping_colon.lhs, ':', { desc = generic_key.remapping_colon.desc, silent = false })
 -- }}}
 
-
-
-
+-- resize with arrows {{{
+keymap('n', generic_key.resize_up.lhs   , ':resize -2<CR>'         , { desc = generic_key.resize_up.desc    })
+keymap('n', generic_key.resize_down.lhs , ':resize +2<CR>'         , { desc = generic_key.resize_down.desc  })
+keymap('n', generic_key.resize_left.lhs , ':vertical resize -2<CR>', { desc = generic_key.resize_left.desc  })
+keymap('n', generic_key.resize_right.lhs, ':vertical resize +2<CR>', { desc = generic_key.resize_right.desc })
+-- }}}
 
 
 
@@ -67,4 +70,6 @@ keymap('n', generic_key.quit.lhs, ":quit! <CR>"       , { silent = false, desc =
 keymap('i', generic_key.quit.lhs, "<ESC> :quit! <CR>" , { silent = false, desc = generic_key.quit.desc})
 -- }}}
 
-
+-- F12 strip trailing white space {{{
+keymap('n', generic_key.strip_tail_white.lhs, function() vim.cmd[[ %s/\s\+$//e ]] end, { desc = generic_key.strip_tail_white.desc})
+-- }}}

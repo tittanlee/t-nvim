@@ -1,4 +1,6 @@
 
+local uv = vim.loop
+local os_name = uv.os_uname().sysname
 
 local M = {}
 
@@ -10,7 +12,11 @@ M.env_var = {
 
     -- onedark   , dracula   , vscode, nord,
     -- tokyonight, catppuccin, kanagawa
-    color_scheme             = "dracula"
+    color_scheme             = "catppuccin",
+
+    is_mac                   = os_name == "Darwin",
+    is_linux                 = os_name == "Linux",
+    is_windows               = os_name == "Windows_NT" or "Windows",
 }
 -- }}}
 
@@ -79,6 +85,11 @@ M.generic_key = {
     -- directly entering command mode instead of ;
     remapping_colon  = { lhs = ";", desc = "remapping colon" },
 
+    -- resize with arrows
+    resize_up    = { lhs = "<C-up>"   , desc = "Resize - 2" }         ,
+    resize_down  = { lhs = "<C-down>" , desc = "Resize + 2" }         ,
+    resize_left  = { lhs = "<C-left>" , desc = "Vertical Resize - 2" },
+    resize_right = { lhs = "<C-right>", desc = "Vertical Resize + 2" },
 
 }
 -- }}}
@@ -103,6 +114,14 @@ M.module_key = {
         alt_select_prev  = { lhs = "<S-TAB>"  , desc = "alternative select prev" },
     },
 
+    fzf = {
+        prefix     = { lhs = "<LEADER>f", desc = "fzf"           },
+        find_files = { lhs = "f"        , desc = "fzf find file" },
+        buffer_tags = { lhs = "t", desc = "fzf buffer tags" },
+        ctags_jump = { lhs = "j", desc = "fzf ctags jump" },
+
+    },
+
     neo_tree = {
         prefix = { lhs = "<LEADER>w", desc = "NeoTree" },
         toggle = { lhs = "w" , desc = "NeoTree toggle" },
@@ -116,17 +135,35 @@ M.module_key = {
     },
 
     telescope = {
-        prefix          = { lhs = "<LEADER>f", desc = "telescope"                     },
-        find_file       = { lhs = "f"        , desc = "telescope find file"           },
-        ctags_jump      = { lhs = "j"        , desc = "telescope ctags jump"          },
-        gtags_reference = { lhs = "gr"       , desc = "telescope gtags referencjumpe" },
+        prefix          = { lhs = "<LEADER>f", desc = "telescope"                      },
+        find_file       = { lhs = "f"        , desc = "telescope find file"            },
+        ctags_jump      = { lhs = "j"        , desc = "telescope ctags jump"           },
+        ctags_outline   = { lhs = "t"        , desc = "telescope ctags outline"        },
+        gtags_reference = { lhs = "gr"       , desc = "telescope gtags referencjumpe"  },
+        help_tags       = { lhs = "h"        , desc = "telescope help tags"            },
+        buffer_lines    = { lhs = "bl"       , desc = "telescope current buffer lines" },
+        buffer          = { lhs = "b"        , desc = "telescope buffers list"         },
+
+        action= {
+            move_selection_next    = { lhs = "<C-j>", desc = "telescope action selection next"        },
+            move_selection_prev    = { lhs = "<C-k>", desc = "telescope action selection previous"    },
+            results_scrolling_up   = { lhs = "<C-u>", desc = "telescope action result scrolling up"   },
+            results_scrolling_down = { lhs = "<C-d>", desc = "telescope action result scrolling down" },
+            toggle_preview         = { lhs = "<C-p>", desc = "telescope action toggle preview"        },
+            preview_scrolling_down = { lhs = "<C-f>", desc = "telescope action preview scroll down"   },
+            preview_scrolling_up   = { lhs = "<C-b>", desc = "telescope action preview scroll down"   },
+            action_close           = { lhs = "<ESC>", desc = "telescope action close"                 },
+            result_to_qflist       = { lhs = "<C-q>", desc = "telescope result to qflist"             },
+            select_default         = { lhs = "<CR>" , desc = "telescope select the default"           },
+            delete_buffer          = { lhs = "<C-w>", desc = "telescope delete the select buffer"     },
+        },
     },
 }
 
 for p_name, p_value in pairs(M.module_key) do
     for k, v in pairs(M.module_key[p_name]) do
         if k ~= "prefix" then
-            if (M.module_key[p_name].prefix) then
+            if (M.module_key[p_name].prefix) and (v.lhs) then
                 v.lhs = M.module_key[p_name].prefix.lhs .. v.lhs
             end
         end
