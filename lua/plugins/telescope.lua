@@ -1,6 +1,5 @@
 
 
-local env_var = require("environment").env_var
 
 local telescope_config = function()
     local actions        = require("telescope.actions")
@@ -150,6 +149,8 @@ local telescope_config = function()
     })
 end
 
+
+
 local telescop_init = function()
     local keymap = require("util.keymap")
     local module_key = require("environment").module_key.telescope
@@ -163,7 +164,6 @@ end
 
 
 
-
 return {
     {
         "nvim-telescope/telescope.nvim",
@@ -174,6 +174,8 @@ return {
             {
                 "nvim-telescope/telescope-fzf-native.nvim",
                 build = function(plugin)
+                    local env_var = require("environment").env_var
+
                     if env_var.is_windows then
                         return "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
                     end

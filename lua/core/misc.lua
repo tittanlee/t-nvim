@@ -16,9 +16,24 @@ if status_ok then
                 name = "Log"
             },
 
+            ["scm"] = {
+                icon = "",
+                name = "Scm"
+            },
+
             ["xml"] = {
-                icon = "謹 ",
+                icon = "",
                 name = "Xml",
+            },
+
+            ["ps1"] = {
+                icon = "",
+                name = "Ps1",
+            },
+
+            ["tcl"] = {
+                icon = "",
+                name = "Tcl",
             },
         }
     }

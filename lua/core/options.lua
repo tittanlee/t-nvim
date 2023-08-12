@@ -93,7 +93,7 @@ opt.fillchars      = {
 -- }}}
 
 -- various {{{
-opt.signcolumn = "auto:2"
+opt.signcolumn = "auto:4"
 opt.autochdir  = false
 -- }}}
 

@@ -1,7 +1,5 @@
 
 
-local keymap = require("util.keymap")
-local module_key = require("environment").module_key.easy_align
 
 
 local easy_align_config = function()
@@ -71,18 +69,22 @@ local easy_align_config = function()
     }
 
 
+end
+
+local easy_align_init = function()
+    local keymap = require("util.keymap")
+    local module_key = require("environment").module_key.easy_align
     -- keymap binding {{{
     keymap({'n', "x"}, module_key.align.lhs     , '<plug>(EasyAlign)'    , {desc = module_key.align.desc })
-    keymap('x', module_key.live_align.lhs, '<plug>(LiveEasyAlign)', {desc = module_key.live_align.desc })
+    keymap('x',        module_key.live_align.lhs, '<plug>(LiveEasyAlign)', {desc = module_key.live_align.desc })
     -- }}}
+
 end
 
 
-
 return {
-    {
-        "junegunn/vim-easy-align",
-        config = easy_align_config,
-        enabled = true,
-    },
+    "junegunn/vim-easy-align",
+    enabled = true,
+    init = easy_align_init,
+    config = easy_align_config,
 }

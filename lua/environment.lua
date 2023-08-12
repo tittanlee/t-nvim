@@ -55,8 +55,8 @@ M.generic_key = {
     strip_tail_white = { lhs = "<F12>", desc = "strip tail white space" },
 
     -- buffer ontrol - switch and wipe - instead of nvim_bufferline plugin
-    buf_next         = { lhs = "<M-l>", desc = "buffer cycle next" },
-    buf_prev         = { lhs = "<M-h>", desc = "buffer cycle prev" },
+    buf_next         = { lhs = "<M-h>", desc = "buffer cycle next" },
+    buf_prev         = { lhs = "<M-l>", desc = "buffer cycle prev" },
     -- bdelete instead of bufdelete plugin
     buf_wipe         = { lhs = "<M-w>", desc = "buffer wipe" },
 
@@ -114,12 +114,51 @@ M.module_key = {
         alt_select_prev  = { lhs = "<S-TAB>"  , desc = "alternative select prev" },
     },
 
-    fzf = {
-        prefix     = { lhs = "<LEADER>f", desc = "fzf"           },
-        find_files = { lhs = "f"        , desc = "fzf find file" },
-        buffer_tags = { lhs = "t", desc = "fzf buffer tags" },
-        ctags_jump = { lhs = "j", desc = "fzf ctags jump" },
+    comment = {
+        prefix       = { lhs = "<LEADER>c", desc = "comment"                             },
+        toggle_line  = { lhs = "c"        , desc = "[C]omment toggl current line"        },
+        toggle_block = { lhs = "b"        , desc = "comment toggl current [B]lock"       },
+        op_line      = { lhs = "c"        , desc = "[C]omment toggle linewise <visual>"  },
+        op_block     = { lhs = "b"        , desc = "comment toggle [B]lockwise <visual>" },
+        ex_above     = { lhs = "0"        , desc = "comment insert above"                },
+        ex_below     = { lhs = "o"        , desc = "comment insert bel[O]w"              },
+        ex_eol       = { lhs = "A"        , desc = "comment insert end of line"          },
+    },
 
+    fzf = {
+        prefix      = { lhs = "<LEADER>f", desc = "fzf"             },
+        find_files  = { lhs = "f"        , desc = "fzf find file"   },
+        buffer_tags = { lhs = "t"        , desc = "fzf buffer tags" },
+        ctags_jump  = { lhs = "j"        , desc = "fzf ctags jump"  },
+    },
+
+    gitsigns = {
+        prefix            = { lhs = "<LEADER>h", desc = "git signs"              },
+        next_hunk         = { lhs = "]"        , desc = "next hunk"              },
+        prev_hunk         = { lhs = "["        , desc = "prev hunk"              },
+        stage_hunk        = { lhs = "s"        , desc = "[s]tage hunk"           },
+        reset_hunk        = { lhs = "r"        , desc = "[R]eset hunk"           },
+        stage_buffer      = { lhs = "S"        , desc = "[S]tage buffer"         },
+        undo_stage_hunk   = { lhs = "u"        , desc = "[U]ndo stage hunk "     },
+        reset_buffer      = { lhs = "R"        , desc = "[R]eset buffer"         },
+        preview_hunk      = { lhs = "p"        , desc = "[P]review hunk"         },
+        blame_line        = { lhs = "b"        , desc = "[B]lame line"           },
+        diff_this         = { lhs = "d"        , desc = "[d]iff this"            },
+        diff_head         = { lhs = "D"        , desc = "[D]iff head"            },
+        select_hunk       = { lhs = "h"        , desc = "select [H]unk"          },
+
+        toggle_line_blame = { lhs = "tb"       , desc = "toggle line [B]lame"    },
+        toggle_signs      = { lhs = "ts"       , desc = "toggle [S]igns"         },
+        toggle_deleted    = { lhs = "td"       , desc = "toggle deleted"         },
+        toggle_numhl      = { lhs = "tn"       , desc = "toggle [N]um highlight" },
+        toggle_word_diff  = { lhs = "tw"       , desc = "toggle [W]ord diff"     },
+    },
+
+    interestingwords = {
+        search        = { lhs = "<LEADER>m", desc = "interestingwords search"        },
+        cancel_search = { lhs = "<LEADER>M", desc = "interestingwords cancel search" },
+        color         = { lhs = "<LEADER>k", desc = "interestingwords color"         },
+        cancel_color  = { lhs = "<LEADER>K", desc = "interestingwords cancel color"  },
     },
 
     neo_tree = {
