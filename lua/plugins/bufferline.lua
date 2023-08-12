@@ -67,6 +67,7 @@ local bufferline_config = function()
             end,
             offsets = {
                 {filetype = "NvimTree",     text = "File Explorer", text_align = "center", highlight = "Directory" },
+                {filetype = "neo-tree",     text = "File Explorer", text_align = "center", highlight = "Directory" },
                 {filetype = "coc-explorer", text = "Coc Explorer",  text_align = "center", highlight = "Directory" },
                 {filetype = "Outline",      text = "Lsp Tags",      text_align = "center", highlight = "Directory" },
             },
@@ -107,5 +108,6 @@ end
 return {
     "akinsho/bufferline.nvim",
     config = bufferline_config,
+    event = { "BufRead" },
     enabled = true,
 }

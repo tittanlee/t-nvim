@@ -85,6 +85,6 @@ end
 return {
     "junegunn/vim-easy-align",
     enabled = true,
-    init = easy_align_init,
-    config = easy_align_config,
+    init    = easy_align_init,
+    config  = easy_align_config,
 }

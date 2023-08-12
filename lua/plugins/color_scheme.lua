@@ -214,6 +214,17 @@ local dracula_config = function()
     dracula.load()
 end
 
+local edge_config = function()
+    vim.g.edge_style                  = "aura"
+    vim.g.edge_enable_italic          = 1
+    vim.g.edge_disable_italic_comment = 1
+    vim.g.edge_show_eob               = 1
+    vim.g.edge_better_performance     = 1
+    vim.g.edge_transparent_background = 0
+
+    vim.cmd.colorscheme "edge"
+end
+
 return {
     {
         "navarasu/onedark.nvim",
@@ -238,5 +249,11 @@ return {
         "Mofiqul/dracula.nvim",
         config = dracula_config,
         enabled = env_var.color_scheme == "dracula"
+    },
+
+    {
+        "sainnhe/edge",
+        config = edge_config,
+        enabled = env_var.color_scheme == "edge"
     },
 }

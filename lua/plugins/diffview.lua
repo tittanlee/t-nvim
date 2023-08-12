@@ -4,7 +4,6 @@
 local diffview_init = function()
 end
 
-
 local diffview_config = function()
     local actions = require("diffview.actions")
 
@@ -228,6 +227,14 @@ end
 
 return {
     "sindrets/diffview.nvim",
-    commit = "397ce240d3141b97067049fa3544f974d8b4d06d",
+
     config = diffview_config,
+
+    init = diffview_init,
+
+    cmd = {
+        "DiffviewOpen",
+        "DiffviewToggleFiles",
+        "DiffviewFileHistory",
+    },
 }

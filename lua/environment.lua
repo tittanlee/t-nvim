@@ -11,8 +11,8 @@ M.env_var = {
     local_leader_key         = ",",
 
     -- onedark   , dracula   , vscode, nord,
-    -- tokyonight, catppuccin, kanagawa
-    color_scheme             = "catppuccin",
+    -- tokyonight, catppuccin, kanagawa, edge
+    color_scheme             = "tokyonight",
 
     is_mac                   = os_name == "Darwin",
     is_linux                 = os_name == "Linux",
@@ -54,9 +54,13 @@ M.generic_key = {
     quit             = { lhs = "<F4>" , desc = "quit (neo)vim"          },
     strip_tail_white = { lhs = "<F12>", desc = "strip tail white space" },
 
+    -- Move current line / block with Alt-j/k ala vscode.
+    mv_line_blk_up   = { lhs = "<M-k>", desc = "move line block up " },
+    mv_line_blk_down = { lhs = "<M-j>", desc = "move line block down" },
+
     -- buffer ontrol - switch and wipe - instead of nvim_bufferline plugin
-    buf_next         = { lhs = "<M-h>", desc = "buffer cycle next" },
-    buf_prev         = { lhs = "<M-l>", desc = "buffer cycle prev" },
+    buf_next         = { lhs = "<M-l>", desc = "buffer cycle next" },
+    buf_prev         = { lhs = "<M-h>", desc = "buffer cycle prev" },
     -- bdelete instead of bufdelete plugin
     buf_wipe         = { lhs = "<M-w>", desc = "buffer wipe" },
 
@@ -173,6 +177,11 @@ M.module_key = {
         reveal = { lhs = "e" , desc = "NeoTree reveal current file" },
     },
 
+    translator = {
+        prefix          = { lhs = ",", desc = "translator"          },
+        trans_to_tw     = { lhs = "t"               , desc = "translator to ZH_TW" }
+    },
+
     telescope = {
         prefix          = { lhs = "<LEADER>f", desc = "telescope"                      },
         find_file       = { lhs = "f"        , desc = "telescope find file"            },
@@ -195,6 +204,19 @@ M.module_key = {
             result_to_qflist       = { lhs = "<C-q>", desc = "telescope result to qflist"             },
             select_default         = { lhs = "<CR>" , desc = "telescope select the default"           },
             delete_buffer          = { lhs = "<C-w>", desc = "telescope delete the select buffer"     },
+        },
+    },
+
+    toggleterm = {
+        prefix = { lhs = "<LEADER>t", desc = "toggle [T]erm"        },
+        toggle = { lhs = "t"        , desc = "enable [T]oggle term" },
+
+        action = {
+            back_to_normal = { lhs = "<ESC>", desc = "toggle term back to normal" },
+            mv_win_up      = { lhs = "<C-k>", desc = "toggle term move win up"    },
+            mv_win_down    = { lhs = "<C-j>", desc = "toggle term move win down"  },
+            mv_win_left    = { lhs = "<C-h>", desc = "toggle term move win left"  },
+            mv_win_right   = { lhs = "<C-l>", desc = "toggle term move win right" },
         },
     },
 }

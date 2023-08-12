@@ -5,6 +5,9 @@ local module_key = require("environment").module_key.comment
 
 return {
     "numToStr/Comment.nvim",
+
+    event = { "CursorHold", "CursorHoldI" },
+
     config = function()
         require("Comment").setup({
             ---Add a space b/w comment and the line

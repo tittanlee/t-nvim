@@ -24,10 +24,20 @@ keymap('n', generic_key.split_horz_wn.lhs, '<C-w>s', { desc = generic_key.split_
 keymap("n", generic_key.close_wn.lhs     , "<C-w>c", { desc = generic_key.close_wn.desc      })
 -- }}}
 
--- easier moving of code blocks {{{
+-- easier indent of code blocks {{{
 keymap('v', generic_key.indent_right.lhs, '<gv', { desc = generic_key.indent_right.desc })
 keymap('v', generic_key.indent_left.lhs , '>gv', { desc = generic_key.indent_left.desc  })
 -- }}}
+
+-- Move current line / block with Alt-j/k ala vscode {{{
+keymap('n', generic_key.mv_line_blk_down.lhs, ':m .+1<CR>=='       , { desc = generic_key.mv_line_blk_down.desc })
+keymap('n', generic_key.mv_line_blk_up.lhs  , ':m .-2<CR>=='       , { desc = generic_key.mv_line_blk_up.desc   })
+keymap('i', generic_key.mv_line_blk_down.lhs, '<Esc>:m .+1<CR>==gi', { desc = generic_key.mv_line_blk_down.desc })
+keymap('i', generic_key.mv_line_blk_up.lhs  , '<Esc>:m .-2<CR>==gi', { desc = generic_key.mv_line_blk_up.desc   })
+keymap('x', generic_key.mv_line_blk_down.lhs, ":m '>+1<CR>gv-gv"   , { desc = generic_key.mv_line_blk_down.desc })
+keymap('x', generic_key.mv_line_blk_up.lhs  , ":m '<-2<CR>gv-gv"   , { desc = generic_key.mv_line_blk_up.desc   })
+-- }}}
+
 
 -- open / source vimrc file quickly {{{
 keymap('n', generic_key.so_vimrc.lhs, ':luafile $MYVIMRC <CR>', { desc = generic_key.so_vimrc.desc, silent = false })

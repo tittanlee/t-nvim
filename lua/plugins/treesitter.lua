@@ -101,6 +101,11 @@ local treesiter_config = function()
                 },
             },
         },
+
+        matchup = {
+            enable  = true, -- mandatory, false will disable the whole extension
+            disable = {},   -- optional, list of language that will be disabled
+        },
     }
 end
 
@@ -111,6 +116,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
         "nvim-treesitter/nvim-treesitter-textobjects",
+        "andymass/vim-matchup",
     },
     build = ":TSUpdate",
     event = {

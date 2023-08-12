@@ -55,29 +55,46 @@ local cmp_config = function()
         },
 
         formatting = {
-            fields = { "kind", "abbr", "menu" },
+            fields = { "abbr", "kind", "menu" },
             format = function(entry, vim_item)
                 -- Kind icons
                 vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-                vim_item.menu = ({
-                    nvim_lsp = "[LSP]",
-                    tags     = "[Tags]",
-                    luasnip  = "[Snippet]",
-                    nvim_lua = "[Lua]",
-                    buffer   = "[Buffer]",
-                    path     = "[Path]",
+                vim_item.menu     = setmetatable({
+                    cmp_tabnine   = "[TN]",
+                    copilot       = "[CPLT]",
+                    buffer        = "[BUF]",
+                    orgmode       = "[ORG]",
+                    nvim_lsp      = "[LSP]",
+                    nvim_lua      = "[LUA]",
+                    path          = "[PATH]",
+                    tmux          = "[TMUX]",
+                    treesitter    = "[TS]",
+                    latex_symbols = "[LTEX]",
+                    luasnip       = "[SNIP]",
+                    spell         = "[SPELL]",
+                    }, {
+                        __index = function()
+                            return "[BTN]" -- builtin/unknown source names
+                        end,
                 })[entry.source.name]
+
+                local label = vim_item.abbr
+                local truncated_label = vim.fn.strcharpart(label, 0, 80)
+                if truncated_label ~= label then
+                    vim_item.abbr = truncated_label .. "..."
+                end
+
                 return vim_item
             end,
         },
 
         sources = {
-            { name = "nvim_lsp" },
-            { name = "buffer"   },
-            { name = "tags"     },
-            { name = "luasnip"  },
-            { name = "nvim_lua"},
-            { name = "path"     },
+            { name = "nvim_lsp", max_item_count = 350 },
+            { name = "buffer"                         },
+            { name = "tags"                           },
+            { name = "luasnip"                        },
+            { name = "nvim_lua"                       },
+            { name = "path"                           },
         },
 
         mapping = cmp.mapping.preset.insert({
@@ -145,9 +162,29 @@ return {
         "hrsh7th/cmp-cmdline",
         "saadparwaiz1/cmp_luasnip",
         "quangnguyen30192/cmp-nvim-tags",
-        "L3MON4D3/LuaSnip",
-        "rafamadriz/friendly-snippets",
         "hrsh7th/cmp-nvim-lsp-signature-help",
+
+        {
+            "L3MON4D3/LuaSnip",
+            dependencies = {
+                "rafamadriz/friendly-snippets"
+            },
+            config = function()
+                local snippet_path = vim.fn.stdpath("config") .. "/snips/"
+                if not vim.tbl_contains(vim.opt.rtp:get(), snippet_path) then
+                    vim.opt.rtp:append(snippet_path)
+                end
+
+                require("luasnip").config.set_config({
+                    history = true,
+                    update_events = "TextChanged,TextChangedI",
+                    delete_check_events = "TextChanged,InsertLeave",
+                })
+                require("luasnip.loaders.from_lua").lazy_load()
+                require("luasnip.loaders.from_vscode").lazy_load()
+                require("luasnip.loaders.from_snipmate").lazy_load()
+            end,
+        },
     },
     event = { "InsertEnter", "CmdlineEnter" },
     lazy = true,

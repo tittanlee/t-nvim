@@ -6,6 +6,7 @@ local telescope_config = function()
     local actions_layout = require("telescope.actions.layout")
     local module_key     = require("environment").module_key.telescope
     local action_key     = require("environment").module_key.telescope.action
+    local lga_actions    = require("telescope-live-grep-args.actions")
 
     require("telescope").setup({
         defaults = {
@@ -141,7 +142,10 @@ local telescope_config = function()
                 -- override default mappings
                 -- default_mappings = {},
                 mappings = { -- extend mappings
-                    i = {},
+                    i = {
+                        ["<C-k>"] = lga_actions.quote_prompt(),
+                        ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+                    },
                     n = {},
                 }
             },
@@ -199,6 +203,13 @@ return {
                 "gnfisher/nvim-telescope-ctags-plus",
                 config = function()
                     require("telescope").load_extension("ctags_plus")
+                end,
+            },
+
+            {
+                "nvim-telescope/telescope-live-grep-args.nvim",
+                config = function()
+                    require("telescope").load_extension("live_grep_args")
                 end,
             },
 

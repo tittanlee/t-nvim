@@ -97,6 +97,10 @@ opt.signcolumn = "auto:4"
 opt.autochdir  = false
 -- }}}
 
+-- term {{{
+opt.termguicolors = true
+-- }}}
+
 
 -- Default Plugins {{{
 for plugin, value in pairs(builtin_feature) do
