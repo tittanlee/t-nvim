@@ -4,10 +4,15 @@ local generic_key = require("environment").generic_key
 
 
 -- better window movement {{{
-keymap('n', generic_key.mv_win_up.lhs , "<C-w>k", { desc = generic_key.mv_win_up.desc    })
+keymap('n', generic_key.mv_win_up.lhs   , "<C-w>k", { desc = generic_key.mv_win_up.desc    })
 keymap('n', generic_key.mv_win_down.lhs , "<C-w>j", { desc = generic_key.mv_win_down.desc  })
 keymap('n', generic_key.mv_win_left.lhs , "<C-w>h", { desc = generic_key.mv_win_left.desc  })
-keymap('n', generic_key.mv_win_right.lhs , "<C-w>l", { desc = generic_key.mv_win_right.desc })
+keymap('n', generic_key.mv_win_right.lhs, "<C-w>l", { desc = generic_key.mv_win_right.desc })
+-- }}}
+
+-- move cursor in wrapline paragraph {{{
+keymap('n', "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+keymap('n', "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 -- }}}
 
 
@@ -45,11 +50,11 @@ keymap('n', generic_key.ed_vimrc.lhs, ':edit $MYVIMRC <CR>'   , { desc = generic
 -- }}}
 
 -- jk mapping to <ESC> return normal mode {{{
-keymap({ 'i', 'v' }, generic_key.remapping_esc.lhs, '<ESC>', { desc = generic_key.remapping_esc.lhs .. generic_key.remapping_esc.desc })
+-- keymap({ 'i', 'v' }, generic_key.remapping_esc.lhs, '<ESC>', { desc = generic_key.remapping_esc.lhs .. generic_key.remapping_esc.desc })
 -- }}}
 
 -- directly entering command mode instead of ; {{{
-keymap('n', generic_key.remapping_colon.lhs, ':', { desc = generic_key.remapping_colon.desc, silent = false })
+keymap({'n', 'x'}, generic_key.remapping_colon.lhs, ':', { desc = generic_key.remapping_colon.desc, silent = false })
 -- }}}
 
 -- resize with arrows {{{
@@ -58,8 +63,6 @@ keymap('n', generic_key.resize_down.lhs , ':resize +2<CR>'         , { desc = ge
 keymap('n', generic_key.resize_left.lhs , ':vertical resize -2<CR>', { desc = generic_key.resize_left.desc  })
 keymap('n', generic_key.resize_right.lhs, ':vertical resize +2<CR>', { desc = generic_key.resize_right.desc })
 -- }}}
-
-
 
 
 

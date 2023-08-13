@@ -101,6 +101,11 @@ opt.autochdir  = false
 opt.termguicolors = true
 -- }}}
 
+-- mouse {{{
+opt.mouse = "a"
+opt.mousemodel = "extend"
+-- }}}
+
 
 -- Default Plugins {{{
 for plugin, value in pairs(builtin_feature) do

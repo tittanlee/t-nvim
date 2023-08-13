@@ -12,7 +12,7 @@ M.env_var = {
 
     -- onedark   , dracula   , vscode, nord,
     -- tokyonight, catppuccin, kanagawa, edge
-    color_scheme             = "tokyonight",
+    color_scheme             = "catppuccin",
 
     is_mac                   = os_name == "Darwin",
     is_linux                 = os_name == "Linux",

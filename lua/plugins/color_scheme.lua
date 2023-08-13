@@ -97,6 +97,7 @@ local catppuccin_config = function()
             nvimtree   = true,
             telescope  = true,
             treesitter = true,
+            bufferline = true,
 
             indent_blankline = {
                 enabled = true,

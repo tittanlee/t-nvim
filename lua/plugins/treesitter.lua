@@ -114,15 +114,16 @@ end
 
 return {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-        "nvim-treesitter/nvim-treesitter-textobjects",
-        "andymass/vim-matchup",
-    },
+
+    lazy = true,
+
     build = ":TSUpdate",
+
     event = {
         "BufReadPost",
         "BufNewFile"
     },
+
     cmd = {
         "TSInstall",
         "TSUninstall",
@@ -132,5 +133,11 @@ return {
         "TSInstallSync",
         "TSInstallFromGrammar",
     },
+
     config = treesiter_config,
+
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        "andymass/vim-matchup",
+    },
 }

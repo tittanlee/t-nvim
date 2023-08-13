@@ -3,14 +3,15 @@
 
 local telescope_config = function()
     local actions        = require("telescope.actions")
+    local action_state   = require "telescope.actions.state"
     local actions_layout = require("telescope.actions.layout")
     local module_key     = require("environment").module_key.telescope
     local action_key     = require("environment").module_key.telescope.action
     local lga_actions    = require("telescope-live-grep-args.actions")
 
+
     require("telescope").setup({
         defaults = {
-
             sorting_strategy = ascending,
             layout_strategy = "vertical",
             prompt_prefix   = " ",
@@ -20,6 +21,7 @@ local telescope_config = function()
             path_display    = { "absoulte" },
 
             vimgrep_arguments = {
+                "rg",
                 "--color=never",
                 "--no-heading",
                 "--with-filename",
@@ -53,7 +55,7 @@ local telescope_config = function()
                     [action_key.preview_scrolling_up.lhs]   = actions.preview_scrolling_up,
                     [action_key.result_to_qflist.lhs]       = actions.smart_send_to_qflist + actions.open_qflist,
                     -- ["<ESC>"]                            = actions.close,
-                    [action_key.select_default.lhs]         = actions.select_default + actions.center
+                    [action_key.select_default.lhs]         = actions.select_default + actions.center,
                 },
 
                 n = {
@@ -87,6 +89,30 @@ local telescope_config = function()
                     "--files",
                     "--glob=!.git/",
                 },
+
+                attach_mappings = function(_, map)
+                    local actions = require "telescope.actions"
+                    actions.select_default:replace(
+                        function(prompt_bufnr)
+                            local actions = require "telescope.actions"
+                            local state = require "telescope.actions.state"
+                            local picker = state.get_current_picker(prompt_bufnr)
+                            local multi = picker:get_multi_selection()
+                            local single = picker:get_selection()
+                            local str = ""
+                            if #multi > 0 then
+                                for i,j in pairs(multi) do
+                                    str = str.."edit "..j[1].." | "
+                                end
+                            end
+                            str = str.."edit "..single[1]
+                            -- To avoid populating qf or doing ":edit! file", close the prompt first
+                            actions.close(prompt_bufnr)
+                            vim.api.nvim_command(str)
+                        end
+                    )
+                    return true
+                end,
             },
 
             buffers = {
@@ -137,20 +163,25 @@ local telescope_config = function()
                 -- enable/disable auto-quoting
                 auto_quoting    = true,
 
-                layout_strategy = "vertical",
+                layout_strategy = "horizontal",
 
                 -- override default mappings
                 -- default_mappings = {},
                 mappings = { -- extend mappings
                     i = {
-                        ["<C-k>"] = lga_actions.quote_prompt(),
+                        ["<C-o>"] = lga_actions.quote_prompt(),
                         ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
                     },
-                    n = {},
                 }
             },
         },
     })
+
+
+    require("telescope").load_extension("fzf")
+    require("telescope").load_extension("ctags_outline")
+    require("telescope").load_extension("ctags_plus")
+    require("telescope").load_extension("live_grep_args")
 end
 
 
@@ -169,12 +200,16 @@ end
 
 
 return {
+    -- ━━━━━━━━━━━━━━━━━❰ telescope ❱━━━━━━━━━━━━━━━━━ {{{
     {
         "nvim-telescope/telescope.nvim",
         branch = "0.1.x",
+        lazy = true,
+        cmd = { "Telescope" },
         dependencies = {
             "nvim-lua/plenary.nvim",
 
+            -- ━━━━━━━━━━━━━━━━━❰ telescope fzf native ❱━━━━━━━━━━━━━━━━━ {{{
             {
                 "nvim-telescope/telescope-fzf-native.nvim",
                 build = function(plugin)
@@ -185,38 +220,27 @@ return {
                     end
                     return "make"
                 end,
-                config = function()
-                    -- To get fzf loaded and working with telescope, you need to call
-                    -- load_extension, somewhere after setup function:
-                    require("telescope").load_extension("fzf")
-                end,
             },
+            --- }}}
 
-            {
-                "fcying/telescope-ctags-outline.nvim",
-                config = function()
-                    require("telescope").load_extension("ctags_outline")
-                end,
-            },
+            -- ━━━━━━━━━━━━━━━━━❰ telescope ctags_outline ❱━━━━━━━━━━━━━━━━━ {{{
+            "fcying/telescope-ctags-outline.nvim",
+            --- }}}
 
-            {
-                "gnfisher/nvim-telescope-ctags-plus",
-                config = function()
-                    require("telescope").load_extension("ctags_plus")
-                end,
-            },
+            -- ━━━━━━━━━━━━━━━━━❰ telescope ctags_plus ❱━━━━━━━━━━━━━━━━━ {{{
+            "gnfisher/nvim-telescope-ctags-plus",
+            --- }}}
 
-            {
-                "nvim-telescope/telescope-live-grep-args.nvim",
-                config = function()
-                    require("telescope").load_extension("live_grep_args")
-                end,
-            },
-
+            -- ━━━━━━━━━━━━━━━━━❰ telescope live grep args ❱━━━━━━━━━━━━━━━━━ {{{
+            "nvim-telescope/telescope-live-grep-args.nvim",
+            --- }}}
         },
-        cmd     = { "Telescope" },
-        init    = telescop_init,
-        config  = telescope_config,
+
+        init = telescop_init,
+
+        config = telescope_config,
+
         enabled = true,
     },
+    --- }}}
 }
