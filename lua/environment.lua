@@ -12,7 +12,7 @@ M.env_var = {
 
     -- onedark   , dracula   , vscode, nord,
     -- tokyonight, catppuccin, kanagawa, edge
-    color_scheme             = "catppuccin",
+    color_scheme             = "dracula",
 
     is_mac                   = os_name == "Darwin",
     is_linux                 = os_name == "Linux",
@@ -178,8 +178,8 @@ M.module_key = {
     },
 
     translator = {
-        prefix          = { lhs = ",", desc = "translator"          },
-        trans_to_tw     = { lhs = "t"               , desc = "translator to ZH_TW" }
+        prefix          = { lhs = ",t", desc = "translator"          },
+        trans_to_tw     = { lhs = "t" , desc = "translator to ZH_TW" },
     },
 
     telescope = {
@@ -191,6 +191,8 @@ M.module_key = {
         help_tags       = { lhs = "h"        , desc = "telescope help tags"            },
         buffer_lines    = { lhs = "bl"       , desc = "telescope current buffer lines" },
         buffer          = { lhs = "b"        , desc = "telescope buffers list"         },
+        live_grep_args  = { lhs = "G"        , desc = "telescope live grep args"       },
+        quickfix        = { lhs = "q"        , desc = "telescope quickfix"             },
 
         action= {
             move_selection_next    = { lhs = "<C-j>", desc = "telescope action selection next"        },

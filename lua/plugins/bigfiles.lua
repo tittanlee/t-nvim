@@ -35,6 +35,7 @@ return {
                 "treesitter",
                 "syntax",
                 "vimopts",
+                "filetype",
                 ftdetect,
                 cmp,
             },

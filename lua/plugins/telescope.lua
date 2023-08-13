@@ -132,6 +132,18 @@ local telescope_config = function()
                 },
             },
 
+            quickfix = {
+                show_line   = false,
+                trim_text   = false,
+                fname_width = 100,
+
+                layout_strategy = "vertical",
+                layout_config = {
+                    height = 0.95,
+                    width = 0.95,
+                }
+            },
+
         },
 
         extensions = {
@@ -163,7 +175,11 @@ local telescope_config = function()
                 -- enable/disable auto-quoting
                 auto_quoting    = true,
 
-                layout_strategy = "horizontal",
+                layout_strategy = "vertical",
+                layout_config = {
+                    height = 0.95,
+                    width = 0.95,
+                },
 
                 -- override default mappings
                 -- default_mappings = {},
@@ -190,11 +206,18 @@ local telescop_init = function()
     local keymap = require("util.keymap")
     local module_key = require("environment").module_key.telescope
 
-    keymap("n", module_key.find_file.lhs    , "<cmd>Telescope find_files<cr>"               , {desc = module_key.find_file.desc     })
-    keymap("n", module_key.ctags_outline.lhs, "<cmd>Telescope ctags_outline outline<cr>"    , {desc = module_key.ctags_outline.desc })
-    keymap("n", module_key.help_tags.lhs    , "<cmd>Telescope help_tags<cr>"                , {desc = module_key.help_tags.desc     })
-    keymap("n", module_key.buffer_lines.lhs , "<cmd>Telescope current_buffer_fuzzy_find<cr>", {desc = module_key.buffer_lines.desc  })
-    keymap("n", module_key.buffer.lhs       , "<cmd>Telescope buffers<cr>"                  , {desc = module_key.buffer.desc        })
+    local live_grep_args_word_under_cursor = function()
+        local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
+        live_grep_args_shortcuts.grep_word_under_cursor({})
+    end
+
+    keymap("n", module_key.find_file.lhs     , "<cmd>Telescope find_files<CR>"               , {desc = module_key.find_file.desc      })
+    keymap("n", module_key.ctags_outline.lhs , "<cmd>Telescope ctags_outline outline<CR>"    , {desc = module_key.ctags_outline.desc  })
+    keymap("n", module_key.help_tags.lhs     , "<cmd>Telescope help_tags<CR>"                , {desc = module_key.help_tags.desc      })
+    keymap("n", module_key.buffer_lines.lhs  , "<cmd>Telescope current_buffer_fuzzy_find<CR>", {desc = module_key.buffer_lines.desc   })
+    keymap("n", module_key.buffer.lhs        , "<cmd>Telescope buffers<CR>"                  , {desc = module_key.buffer.desc         })
+    keymap("n", module_key.live_grep_args.lhs, live_grep_args_word_under_cursor              , {desc = module_key.live_grep_args.desc })
+    keymap("n", module_key.quickfix.lhs      , "<cmd>Telescope quickfix<CR>"                 , {desc = module_key.quickfix.desc       })
 end
 
 

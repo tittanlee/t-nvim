@@ -17,7 +17,7 @@ return {
     },
 
     config = function()
-        local status_ok, comment = pcall(require, "Comment")
+        local status_ok, comment_ft = pcall(require, "Comment.ft")
 
         if status_ok then
             comment_ft({

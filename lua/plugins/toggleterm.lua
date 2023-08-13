@@ -1,5 +1,14 @@
 
 
+
+local toggleterm_init = function()
+    local module_key = require("environment").module_key.toggleterm
+    local keymap     = require("util.keymap")
+
+    keymap("n"   , module_key.toggle.lhs, "<cmd>ToggleTerm<CR>", { desc = module_key.toggle.desc })
+
+end
+
 local toggleterm_config = function()
 
     local module_key = require("environment").module_key.toggleterm
@@ -95,8 +104,10 @@ return {
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
     "akinsho/toggleterm.nvim",
 
-    config = toggleterm_config,
 
     cmd = { "ToggleTerm" },
 
+    init = toggleterm_init,
+
+    config = toggleterm_config,
 }

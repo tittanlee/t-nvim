@@ -27,7 +27,7 @@ return {
     init = function()
         local keymap     = require("util.keymap")
         local module_key = require("environment").module_key.translator
-        keymap({"x", "n"}, module_key.trans_to_tw.lhs, "<cmd>Translate ZH_TW -output=floating<CR>", { desc = module_key.trans_to_tw.desc })
+        keymap({"x", "n"}, module_key.trans_to_tw.lhs, "viw:Translate ZH_TW -output=split<CR>", { desc = module_key.trans_to_tw.desc })
     end,
 
 }

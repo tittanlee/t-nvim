@@ -1,9 +1,21 @@
 
 
+local generic_key = require("environment").generic_key
 
+local bufferline_highlights = function()
+    local env_var = require("environment").env_var
+    if env_var.color_scheme == catppuccin then
+        local bufferline_catppuccin = require("catppuccin.groups.integrations.bufferline")
+        print(vim.inspect(bufferline_catppuccin.get()))
+        return bufferline_catppuccin.get()
+    end
+
+    return {}
+end
 
 local bufferline_config = function()
     local bufferline = require("bufferline")
+
 
     bufferline.setup({
         options                  = {
@@ -92,7 +104,9 @@ local bufferline_config = function()
             move_wraps_at_ends      = false, -- whether or not the move command "wraps" at the first or last position
             -- can also be a table containing 2 custom separators
             -- [focused and unfocused]. eg: { "|", "|" }
-            separator_style = { "", "" },
+            -- separator_style = "slant" | "slope" | "thick" | "thin" | { 'any', 'any' },
+            -- separator_style = { "", "" },
+            separator_style = "thick",
             enforce_regular_tabs = false,
             always_show_bufferline = true,
             hover = {
@@ -102,6 +116,8 @@ local bufferline_config = function()
             },
             sort_by = "insert_after_current"
         },
+
+        highlights = bufferline_highlights(),
     })
 end
 
@@ -111,6 +127,11 @@ return {
     config = bufferline_config,
 
     event = { "BufRead" },
+
+    keys = {
+        { generic_key.buf_next.lhs, "<cmd>BufferLineCycleNext<CR>", { desc = generic_key.buf_next.desc, mode = "n", slient = false }},
+        { generic_key.buf_prev.lhs, "<cmd>BufferLineCyclePrev<CR>", { desc = generic_key.buf_prev.desc, mode = "n", slient = false }},
+    },
 
     enabled = true,
 }

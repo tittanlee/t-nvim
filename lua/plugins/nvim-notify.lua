@@ -50,4 +50,6 @@ return {
     event = "VeryLazy",
 
     config = vim_notify_config,
+
+    enabled = false,
 }
