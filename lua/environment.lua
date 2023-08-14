@@ -110,7 +110,7 @@ M.module_key = {
         scroll_doc_up    = { lhs = "<C-f>"    , desc = "scroll doc up"           },
         scroll_doc_down  = { lhs = "<C-b>"    , desc = "scroll doc down"         },
         complete         = { lhs = "<C-Space>", desc = "complete"                },
-        close            = { lhs = "<C-e>"    , desc = "close"                   },
+        close            = { lhs = "<C-w>"    , desc = "close"                   },
         confirm          = { lhs = "<CR>"     , desc = "confirm"                 },
         select_next_item = { lhs = "<C-j>"    , desc = "select next item"        },
         select_prev_item = { lhs = "<C-k>"    , desc = "select prev item"        },

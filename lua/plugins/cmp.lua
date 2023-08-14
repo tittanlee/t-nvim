@@ -54,6 +54,11 @@ local cmp_config = function()
             end,
         },
 
+        performance = {
+            async_budget     = 1,
+            max_view_entries = 120,
+        },
+
         formatting = {
             fields = { "abbr", "kind", "menu" },
             format = function(entry, vim_item)
@@ -90,11 +95,24 @@ local cmp_config = function()
 
         sources = {
             { name = "nvim_lsp", max_item_count = 350 },
-            { name = "buffer"                         },
+            {
+                name = "buffer",
+                option = {
+                    -- Visible buffers
+                    get_bufnrs = function()
+                        local bufs = {}
+                        for _, win in ipairs(vim.api.nvim_list_wins()) do
+                            bufs[vim.api.nvim_win_get_buf(win)] = true
+                        end
+                        return vim.tbl_keys(bufs)
+                    end,
+                }
+            },
             { name = "tags"                           },
             { name = "luasnip"                        },
             { name = "nvim_lua"                       },
             { name = "path"                           },
+            { name = "nvim_lsp_signature_help"        },
         },
 
         mapping = cmp.mapping.preset.insert({
@@ -128,13 +146,31 @@ local cmp_config = function()
             end, { "i", "c", "s" }),
 
         }),
+
+        experimental = {
+            ghost_text = {
+                hl_group = "Whitespace",
+            },
+        },
     })
 
     -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline({ '/', '?' }, {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({
-            {name = 'buffer'},
+            {
+                name = 'buffer',
+                option = {
+                    -- Visible buffers
+                    get_bufnrs = function()
+                        local bufs = {}
+                        for _, win in ipairs(vim.api.nvim_list_wins()) do
+                            bufs[vim.api.nvim_win_get_buf(win)] = true
+                        end
+                        return vim.tbl_keys(bufs)
+                    end,
+                },
+            },
         })
     })
 
@@ -143,7 +179,19 @@ local cmp_config = function()
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({
             {name = 'cmdline'},
-            {name = 'buffer'},
+            {
+                name = 'buffer',
+                option = {
+                    -- Visible buffers
+                    get_bufnrs = function()
+                        local bufs = {}
+                        for _, win in ipairs(vim.api.nvim_list_wins()) do
+                            bufs[vim.api.nvim_win_get_buf(win)] = true
+                        end
+                        return vim.tbl_keys(bufs)
+                    end,
+                },
+            },
         })
     })
 end
