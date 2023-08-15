@@ -12,11 +12,27 @@ M.env_var = {
 
     -- onedark   , dracula   , vscode, nord,
     -- tokyonight, catppuccin, kanagawa, edge
-    color_scheme             = "dracula",
+    -- nightfox
+    color_scheme             = "nightfox",
 
     is_mac                   = os_name == "Darwin",
     is_linux                 = os_name == "Linux",
     is_windows               = os_name == "Windows_NT" or "Windows",
+
+    -- Set the language servers that will be installed during bootstrap here.
+    -- check the below link for all the supported LSPs:
+    -- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
+    ---@type string[]
+    lsp_deps = {
+        "bashls",
+        "clangd",
+        "html",
+        "jsonls",
+        "lemminx",
+        "lua_ls",
+        "pyright",
+        "vimls",
+    },
 }
 -- }}}
 

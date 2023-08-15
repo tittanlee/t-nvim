@@ -207,8 +207,10 @@ local telescop_init = function()
     local module_key = require("environment").module_key.telescope
 
     local live_grep_args_word_under_cursor = function()
-        local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
-        live_grep_args_shortcuts.grep_word_under_cursor({})
+        local lga =  require('telescope').extensions.live_grep_args
+        lga.live_grep_args({
+            default_text = vim.fn.expand("<cword>")
+        })
     end
 
     keymap("n", module_key.find_file.lhs     , "<cmd>Telescope find_files<CR>"               , {desc = module_key.find_file.desc      })

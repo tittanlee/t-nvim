@@ -138,6 +138,14 @@ return {
 
     dependencies = {
         "nvim-treesitter/nvim-treesitter-textobjects",
-        "andymass/vim-matchup",
+        {
+            "andymass/vim-matchup",
+            config = function()
+                vim.g.matchup_matchparen_offscreen = {
+                    method = "popup",
+                    border = true,
+                }
+            end
+        },
     },
 }
