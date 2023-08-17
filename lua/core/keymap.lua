@@ -1,6 +1,7 @@
 
 local keymap = require("util.keymap")
 local generic_key = require("environment").generic_key
+local yank_path = require("util.yank_path")
 
 
 -- better window movement {{{
@@ -65,9 +66,10 @@ keymap('n', generic_key.resize_right.lhs, ':vertical resize +2<CR>', { desc = ge
 -- }}}
 
 -- yank file path {{P
-keymap('n', generic_key.yank_abs_file_path.lhs, '<cmd>let @+ =expand("%:p")<CR>', { silent = false, desc = generic_key.yank_abs_file_path.desc })
-keymap('n', generic_key.yank_rel_file_path.lhs, '<cmd>let @+ =expand("%:p")<CR>', { silent = false, desc = generic_key.yank_rel_file_path.desc })
-keymap('n', generic_key.yank_file_name.lhs    , '<cmd>let @+ =expand("%:t")<CR>', { silent = false, desc = generic_key.yank_rel_file_path.desc })
+keymap('n', generic_key.yank_abs_file_path.lhs , yank_path.yank_absolute_path , { silent = false, desc = generic_key.yank_abs_file_path.desc  })
+keymap('n', generic_key.yank_rel_file_path.lhs , yank_path.yank_relative_path , { silent = false, desc = generic_key.yank_rel_file_path.desc  })
+keymap('n', generic_key.yank_directory_path.lhs, yank_path.yank_directory_path, { silent = false, desc = generic_key.yank_directory_path.desc })
+keymap('n', generic_key.yank_file_name.lhs     , yank_path.yank_file_name     , { silent = false, desc = generic_key.yank_file_name.desc      })
 -- }}}
 
 -- F2 save {{{

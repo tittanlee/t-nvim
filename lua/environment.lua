@@ -107,9 +107,10 @@ M.generic_key = {
     remapping_colon  = { lhs = ";", desc = "remapping colon" },
 
     -- yank file path
-    yank_abs_file_path = { lhs = "<LEADER>ya", desc = "yank absolute file path" },
-    yank_rel_file_path = { lhs = "<LEADER>yr", desc = "yank related file path"  },
-    yank_file_name     = { lhs = "<LEADER>yf", desc = "yank file name"          },
+    yank_abs_file_path  = { lhs = "<LEADER>ya", desc = "yank absolute file path" },
+    yank_rel_file_path  = { lhs = "<LEADER>yr", desc = "yank related file path"  },
+    yank_file_name      = { lhs = "<LEADER>yf", desc = "yank file name"          },
+    yank_directory_path = { lhs = "<LEADER>yd", desc = "yank directly path"      },
 
     -- resize with arrows
     resize_up    = { lhs = "<C-up>"   , desc = "Resize - 2" }         ,
