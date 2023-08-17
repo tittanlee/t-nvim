@@ -203,7 +203,7 @@ end
 
 
 local telescop_init = function()
-    local keymap = require("util.keymap")
+    local keymap     = require("util.keymap")
     local module_key = require("environment").module_key.telescope
 
     local live_grep_args_word_under_cursor = function()
@@ -213,13 +213,43 @@ local telescop_init = function()
         })
     end
 
-    keymap("n", module_key.find_file.lhs     , "<cmd>Telescope find_files<CR>"               , {desc = module_key.find_file.desc      })
-    keymap("n", module_key.ctags_outline.lhs , "<cmd>Telescope ctags_outline outline<CR>"    , {desc = module_key.ctags_outline.desc  })
-    keymap("n", module_key.help_tags.lhs     , "<cmd>Telescope help_tags<CR>"                , {desc = module_key.help_tags.desc      })
-    keymap("n", module_key.buffer_lines.lhs  , "<cmd>Telescope current_buffer_fuzzy_find<CR>", {desc = module_key.buffer_lines.desc   })
-    keymap("n", module_key.buffer.lhs        , "<cmd>Telescope buffers<CR>"                  , {desc = module_key.buffer.desc         })
-    keymap("n", module_key.live_grep_args.lhs, live_grep_args_word_under_cursor              , {desc = module_key.live_grep_args.desc })
-    keymap("n", module_key.quickfix.lhs      , "<cmd>Telescope quickfix<CR>"                 , {desc = module_key.quickfix.desc       })
+    local ctags_jump = function()
+        require("telescope").extensions.ctags_plus.jump_to_tag({
+            show_line       = false,
+            trim_text       = true,
+            fname_width     = 120,
+        })
+    end
+
+    local find_directory = function(directory)
+        print(directory)
+        require("telescope.builtin").find_files ({
+            hidden = true,
+            follow = false,
+            cwd = directory,
+            find_command = {
+                "rg",
+                "--files",
+                "--glob=!.git/",
+                directory
+            },
+        })
+    end
+
+    keymap("n", module_key.find_files.lhs          , "<cmd>Telescope find_files<CR>"                        , {desc = module_key.find_files.desc           })
+    keymap("n", module_key.find_vim_config.lhs     , function() find_directory(vim.fn.stdpath("config")) end, {desc = module_key.find_vim_config.desc      })
+    keymap("n", module_key.ctags_outline.lhs       , "<cmd>Telescope ctags_outline outline<CR>"             , {desc = module_key.ctags_outline.desc        })
+    keymap("n", module_key.ctags_jump.lhs          , ctags_jump                                             , {desc = module_key.ctags_jump.desc           })
+    keymap("n", module_key.help_tags.lhs           , "<cmd>Telescope help_tags<CR>"                         , {desc = module_key.help_tags.desc            })
+    keymap("n", module_key.buffer_lines.lhs        , "<cmd>Telescope current_buffer_fuzzy_find<CR>"         , {desc = module_key.buffer_lines.desc         })
+    keymap("n", module_key.buffer.lhs              , "<cmd>Telescope buffers<CR>"                           , {desc = module_key.buffer.desc               })
+    keymap("n", module_key.live_grep_args_cword.lhs, live_grep_args_word_under_cursor                       , {desc = module_key.live_grep_args_cword.desc })
+    keymap("n", module_key.live_grep_args.lhs      , "<cmd>Telescope live_grep_args<CR>"                    , {desc = module_key.live_grep_args.desc       })
+    keymap("n", module_key.quickfix.lhs            , "<cmd>Telescope quickfix<CR>"                          , {desc = module_key.quickfix.desc             })
+    keymap("n", module_key.lsp_doc_symbols.lhs     , "<cmd>Telescope lsp_document_symbols<CR>"              , {desc = module_key.lsp_doc_symbols.desc      })
+    keymap("n", module_key.lsp_references.lhs      , "<cmd>Telescope lsp_references<CR>"                    , {desc = module_key.lsp_references.desc       })
+    keymap("n", module_key.lsp_definitions.lhs     , "<cmd>Telescope lsp_definitions<CR>"                   , {desc = module_key.lsp_definitions.desc      })
+    keymap("n", module_key.lsp_type_definitions.lhs, "<cmd>Telescope lsp_type_definitions<CR>"              , {desc = module_key.lsp_type_definitions.desc })
 end
 
 

@@ -64,9 +64,11 @@ keymap('n', generic_key.resize_left.lhs , ':vertical resize -2<CR>', { desc = ge
 keymap('n', generic_key.resize_right.lhs, ':vertical resize +2<CR>', { desc = generic_key.resize_right.desc })
 -- }}}
 
-
-
-
+-- yank file path {{P
+keymap('n', generic_key.yank_abs_file_path.lhs, '<cmd>let @+ =expand("%:p")<CR>', { silent = false, desc = generic_key.yank_abs_file_path.desc })
+keymap('n', generic_key.yank_rel_file_path.lhs, '<cmd>let @+ =expand("%:p")<CR>', { silent = false, desc = generic_key.yank_rel_file_path.desc })
+keymap('n', generic_key.yank_file_name.lhs    , '<cmd>let @+ =expand("%:t")<CR>', { silent = false, desc = generic_key.yank_rel_file_path.desc })
+-- }}}
 
 -- F2 save {{{
 keymap('n', generic_key.save_file.lhs, ":w! <CR>"       , { silent = false, desc = generic_key.save_file.desc })
@@ -75,7 +77,7 @@ keymap('i', generic_key.save_file.lhs, "<ESC> :w! <CR>" , { silent = false, desc
 
 -- F3 reload {{{
 keymap('n', generic_key.source_file.lhs, ":so % <CR>"       , { silent = false, desc = generic_key.source_file.desc })
-keymap('i', generic_key.source_file.lhs, "<ESC> :so %<CR>"  , { silent = false, desc = generic_key.source_file.desc})
+keymap('i', generic_key.source_file.lhs, "<ESC> :so %<CR>"  , { silent = false, desc = generic_key.source_file.desc })
 -- }}}
 
 -- F4 quit {{{
@@ -86,3 +88,4 @@ keymap('i', generic_key.quit.lhs, "<ESC> :quit! <CR>" , { silent = false, desc =
 -- F12 strip trailing white space {{{
 keymap('n', generic_key.strip_tail_white.lhs, function() vim.cmd[[ %s/\s\+$//e ]] end, { desc = generic_key.strip_tail_white.desc})
 -- }}}
+--

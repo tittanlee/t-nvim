@@ -18,6 +18,7 @@ M.env_var = {
     is_mac                   = os_name == "Darwin",
     is_linux                 = os_name == "Linux",
     is_windows               = os_name == "Windows_NT" or "Windows",
+    path_sep                 = (os_name == ("Windows_NT" or "Windows")) and "\\" or "/",
 
     -- Set the language servers that will be installed during bootstrap here.
     -- check the below link for all the supported LSPs:
@@ -104,6 +105,11 @@ M.generic_key = {
 
     -- directly entering command mode instead of ;
     remapping_colon  = { lhs = ";", desc = "remapping colon" },
+
+    -- yank file path
+    yank_abs_file_path = { lhs = "<LEADER>ya", desc = "yank absolute file path" },
+    yank_rel_file_path = { lhs = "<LEADER>yr", desc = "yank related file path"  },
+    yank_file_name     = { lhs = "<LEADER>yf", desc = "yank file name"          },
 
     -- resize with arrows
     resize_up    = { lhs = "<C-up>"   , desc = "Resize - 2" }         ,
@@ -199,16 +205,24 @@ M.module_key = {
     },
 
     telescope = {
-        prefix          = { lhs = "<LEADER>f", desc = "telescope"                      },
-        find_file       = { lhs = "f"        , desc = "telescope find file"            },
-        ctags_jump      = { lhs = "j"        , desc = "telescope ctags jump"           },
-        ctags_outline   = { lhs = "t"        , desc = "telescope ctags outline"        },
-        gtags_reference = { lhs = "gr"       , desc = "telescope gtags referencjumpe"  },
-        help_tags       = { lhs = "h"        , desc = "telescope help tags"            },
-        buffer_lines    = { lhs = "bl"       , desc = "telescope current buffer lines" },
-        buffer          = { lhs = "b"        , desc = "telescope buffers list"         },
-        live_grep_args  = { lhs = "G"        , desc = "telescope live grep args"       },
-        quickfix        = { lhs = "q"        , desc = "telescope quickfix"             },
+        prefix               = { lhs = "<LEADER>f", desc = "telescope"                      },
+        find_files           = { lhs = "f"        , desc = "telescope find file"            },
+        find_vim_config      = { lhs = "vv"       , desc = "telescope find (neo)vim config" },
+        ctags_jump           = { lhs = "j"        , desc = "telescope ctags jump"           },
+        ctags_outline        = { lhs = "t"        , desc = "telescope ctags outline"        },
+        gtags_reference      = { lhs = "gr"       , desc = "telescope gtags referenc jump"  },
+        gtags_defintions     = { lhs = "gd"       , desc = "telescope gtags defintion jump" },
+        help_tags            = { lhs = "h"        , desc = "telescope help tags"            },
+        buffer_lines         = { lhs = "bl"       , desc = "telescope current buffer lines" },
+        buffer               = { lhs = "b"        , desc = "telescope buffers list"         },
+        live_grep_args_cword = { lhs = "w"        , desc = "telescope live grep args cword" },
+        live_grep_args       = { lhs = "G"        , desc = "telescope live grep args"       },
+        quickfix             = { lhs = "q"        , desc = "telescope quickfix"             },
+        lsp_doc_symbols      = { lhs = "s"        , desc = "telescope lsp document symbols" },
+        lsp_references       = { lhs = "r"        , desc = "telescope lsp references"       },
+        lsp_definitions      = { lhs = "d"        , desc = "telescope lsp defintions"       },
+        lsp_type_definitions = { lhs = "D"        , desc = "telescope lsp type definitions" },
+
 
         action= {
             move_selection_next    = { lhs = "<C-j>", desc = "telescope action selection next"        },

@@ -15,7 +15,7 @@ local nvim_lspconfig = function()
 
 
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-        signs = true,
+        signs = false,
         underline = true,
         virtual_text = diagnostics_virtual_text and {
             severity_limit = diagnostics_level,
@@ -23,6 +23,7 @@ local nvim_lspconfig = function()
         -- set update_in_insert to false bacause it was enabled by lspsaga
         update_in_insert = false,
     })
+    vim.diagnostic.disable()
 
     local opts = {
         capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
@@ -110,7 +111,7 @@ local glance_config = function()
 		},
 
 		border = {
-			enable = false, -- Show window borders. Only horizontal borders allowed
+			enable = true, -- Show window borders. Only horizontal borders allowed
 			top_char = "―",
 			bottom_char = "―",
 		},
