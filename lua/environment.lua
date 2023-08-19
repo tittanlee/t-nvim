@@ -111,6 +111,7 @@ M.generic_key = {
     yank_rel_file_path  = { lhs = "<LEADER>yr", desc = "yank related file path"  },
     yank_file_name      = { lhs = "<LEADER>yf", desc = "yank file name"          },
     yank_directory_path = { lhs = "<LEADER>yd", desc = "yank directly path"      },
+    yank_cwd_path       = { lhs = "<LEADER>yw", desc = "yank cwd path"           },
 
     -- resize with arrows
     resize_up    = { lhs = "<C-up>"   , desc = "Resize - 2" }         ,

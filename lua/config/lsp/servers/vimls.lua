@@ -2,6 +2,6 @@
 
 return {
     filetypes = {
-        "sh"
+        "vim"
     };
 }

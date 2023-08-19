@@ -29,7 +29,7 @@ local nvim_lspconfig = function()
         capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
     }
 
-    ---A handler to setup all servers defined under `completion/servers/*.lua`
+    ---A handler to setup all servers defined under `config/lsp/servers/*.lua`
 	---@param lsp_name string
 	local function mason_lsp_handler(lsp_name)
 		local ok, custom_handler = pcall(require, "config.lsp.servers." .. lsp_name)
