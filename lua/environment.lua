@@ -221,6 +221,7 @@ M.module_key = {
         live_grep_args_cword = { lhs = "w"        , desc = "telescope live grep args cword" },
         live_grep_args       = { lhs = "G"        , desc = "telescope live grep args"       },
         quickfix             = { lhs = "q"        , desc = "telescope quickfix"             },
+        resume               = { lhs = "u"        , desc = "telescope resume"               },
         lsp_doc_symbols      = { lhs = "s"        , desc = "telescope lsp document symbols" },
         lsp_references       = { lhs = "r"        , desc = "telescope lsp references"       },
         lsp_definitions      = { lhs = "d"        , desc = "telescope lsp defintions"       },
