@@ -1,8 +1,6 @@
 
 local env_var = require("environment").env_var
 
-
-
 local onedark_config = function()
     local status_ok, onedark = pcall(require, "onedark")
     if not status_ok then
@@ -62,7 +60,7 @@ local catppuccin_config = function()
 
     catppuccin.setup({
         -- latte, frappe, macchiato, mocha
-        flavour = "macchiato", 
+        flavour = "macchiato",
         background = {
             light = "latte",
             dark = "macchiato",
@@ -256,6 +254,8 @@ local kanagawa_config = function()
 end
 
 local nightfox_config = function()
+    local env_var = require("environment").env_var
+
     require('nightfox').setup({
         options = {
             -- Compiled file's destination location
@@ -301,7 +301,67 @@ local nightfox_config = function()
     })
 
     -- setup must be called before loading
-    vim.cmd.colorscheme "nightfox"
+    vim.cmd("colorscheme " .. env_var.color_scheme)
+end
+
+local rsoe_pine_config = function ()
+    require('rose-pine').setup({
+        --- @usage 'auto'|'main'|'moon'|'dawn'
+        variant = 'auto',
+        --- @usage 'main'|'moon'|'dawn'
+        dark_variant = 'main',
+        bold_vert_split = false,
+        dim_nc_background = false,
+        disable_background = false,
+        disable_float_background = false,
+        disable_italics = false,
+
+        --- @usage string hex value or named color from rosepinetheme.com/palette
+        groups = {
+            background = 'base',
+            background_nc = '_experimental_nc',
+            panel = 'surface',
+            panel_nc = 'base',
+            border = 'highlight_med',
+            comment = 'muted',
+            link = 'iris',
+            punctuation = 'subtle',
+
+            error = 'love',
+            hint = 'iris',
+            info = 'foam',
+            warn = 'gold',
+
+            headings = {
+                h1 = 'iris',
+                h2 = 'foam',
+                h3 = 'rose',
+                h4 = 'gold',
+                h5 = 'pine',
+                h6 = 'foam',
+            }
+            -- or set all headings at once
+            -- headings = 'subtle'
+        },
+
+        -- Change specific vim highlight groups
+        -- https://github.com/rose-pine/neovim/wiki/Recipes
+        highlight_groups = {
+            ColorColumn = { bg = 'rose' },
+
+            -- Blend colours against the "base" background
+            CursorLine = { bg = 'foam', blend = 10 },
+            StatusLine = { fg = 'love', bg = 'love', blend = 10 },
+
+            -- By default each group adds to the existing config.
+            -- If you only want to set what is written in this config exactly,
+            -- you can set the inherit option:
+            Search = { bg = 'gold', inherit = false },
+        }
+    })
+
+    -- Set colorscheme after options
+    vim.cmd.colorscheme "rose-pine"
 end
 
 return {
@@ -345,6 +405,33 @@ return {
     {
         "EdenEast/nightfox.nvim",
         config = nightfox_config,
-        enabled = env_var.color_scheme == "nightfox"
+        enabled = function()
+            local variant_fox = {
+                "nightfox",
+                "dayfox",
+                "dawnfox",
+                "duskfox",
+                "nordfox",
+                "terafox",
+                "carbonfox"
+            }
+
+            for _, v in pairs(variant_fox) do
+                if v == env_var.color_scheme then
+                    return true
+                end
+            end
+
+            return false
+        end,
+    },
+
+    {
+        "rose-pine/neovim",
+        name = "rose-pine",
+        config = rsoe_pine_config,
+        enabled = env_var.color_scheme == "rose-pine"
     },
 }
+
+

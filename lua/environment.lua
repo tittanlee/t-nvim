@@ -12,9 +12,10 @@ M.env_var = {
 
     -- onedark   , dracula   , vscode, nord,
     -- tokyonight, catppuccin, kanagawa, edge
-    -- nightfox
-    color_scheme             = "tokyonight",
-    lualine_theme            = "dracula",
+    -- { nightfox, dayfox, dawnfox, duskfox, nordfox, terafox, carbonfox},
+    -- rose-pine
+    color_scheme             = "carbonfox",
+    lualine_theme            = "carbonfox",
 
     is_mac                   = os_name == "Darwin",
     is_linux                 = os_name == "Linux",
