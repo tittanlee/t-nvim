@@ -17,7 +17,7 @@ local telescope_config = function()
             prompt_prefix   = " ",
             selection_caret = " ",
             entry_prefix    = "  ",
-            winblend        = 10,
+            winblend        = 5,
             path_display    = { "absoulte" },
 
             vimgrep_arguments = {
@@ -37,6 +37,37 @@ local telescope_config = function()
                 treesitter      = false,
                 hide_on_startup = false,
                 filesize_limit  = 10, -- MB
+            },
+
+            layout_config = {
+                bottom_pane = {
+                    height          = 25,
+                    preview_cutoff  = 120,
+                    prompt_position = "top"
+                },
+                center = {
+                    height          = 0.4,
+                    preview_cutoff  = 40,
+                    prompt_position = "top",
+                    width           = 0.5,
+                },
+                cursor = {
+                    height         = 0.95,
+                    width          = 0.95,
+                    preview_cutoff = 40,
+                },
+                horizontal = {
+                    height          = 0.95,
+                    width           = 0.95,
+                    preview_cutoff  = 50,
+                    prompt_position = "bottom",
+                },
+                vertical = {
+                    height          = 0.95,
+                    width           = 0.95,
+                    preview_cutoff  = 20,
+                    prompt_position = "bottom",
+                }
             },
 
             mappings = {
@@ -117,7 +148,6 @@ local telescope_config = function()
 
             buffers = {
                 sort_mru  = true,
-                theme     = "dropdown",
                 previewer = false,
                 mappings = {
                     i = {
@@ -136,12 +166,6 @@ local telescope_config = function()
                 show_line   = false,
                 trim_text   = false,
                 fname_width = 100,
-
-                layout_strategy = "vertical",
-                layout_config = {
-                    height = 0.95,
-                    width = 0.95,
-                }
             },
 
         },
@@ -175,11 +199,11 @@ local telescope_config = function()
                 -- enable/disable auto-quoting
                 auto_quoting    = true,
 
-                layout_strategy = "vertical",
-                layout_config = {
-                    height = 0.95,
-                    width = 0.95,
-                },
+                -- layout_strategy = "vertical",
+                -- layout_config = {
+                --     height = 0.95,
+                --     width = 0.95,
+                -- },
 
                 -- override default mappings
                 -- default_mappings = {},

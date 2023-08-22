@@ -32,6 +32,7 @@ local indent_blankline_config = function()
             "help",
             "todoist",
             "NvimTree",
+            "neo-tree",
             "peekaboo",
             "git",
             "TelescopePrompt",
