@@ -44,7 +44,13 @@ local treesiter_config = function()
         },
 
         highlight = {
-            enable = true
+            enable = true,
+            disable = function(lang, bufnr)
+                if vim.api.nvim_buf_line_count(bufnr) > 50000 then
+                    return true
+                end
+                return false
+            end,
         },
 
         incremental_selection = {

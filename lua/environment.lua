@@ -14,8 +14,8 @@ M.env_var = {
     -- tokyonight, catppuccin, kanagawa, edge
     -- { nightfox, dayfox, dawnfox, duskfox, nordfox, terafox, carbonfox},
     -- rose-pine
-    color_scheme             = "carbonfox",
-    lualine_theme            = "carbonfox",
+    color_scheme             = "tokyonight",
+    lualine_theme            = "tokyonight",
 
     is_mac                   = os_name == "Darwin",
     is_linux                 = os_name == "Linux",

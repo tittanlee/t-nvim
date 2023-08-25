@@ -1,7 +1,7 @@
 
-
 lualine_config = function()
-    local env_var = require("environment").env_var
+    local env_var    = require("environment").env_var
+    local treesitter = require("config.lualine.treesitter")
 
     require("lualine").setup {
         options = {
@@ -33,6 +33,9 @@ lualine_config = function()
             },
 
             lualine_c = {
+                {
+                    treesitter.current_context
+                },
             },
 
             lualine_x = {
@@ -83,6 +86,8 @@ lualine_config = function()
                 {"filename", path = 3}
             },
 
+            lualine_z = {
+            },
         },
         inactive_winbar = {},
         extensions = {
@@ -100,7 +105,10 @@ end
 
 
 return {
-    "nvim-lualine/lualine.nvim",
-    config = lualine_config,
+    {
+        "nvim-lualine/lualine.nvim",
+        config = lualine_config,
+    },
+
 }
 
