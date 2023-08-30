@@ -297,8 +297,9 @@ return {
 
                     if env_var.is_windows then
                         return "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
+                    else 
+                        return "make"
                     end
-                    return "make"
                 end,
             },
             --- }}}

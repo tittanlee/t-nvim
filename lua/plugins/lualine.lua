@@ -2,6 +2,7 @@
 lualine_config = function()
     local env_var    = require("environment").env_var
     local treesitter = require("config.lualine.treesitter")
+    local gutentags  = require("config.lualine.gutentags")
 
     require("lualine").setup {
         options = {
@@ -39,7 +40,17 @@ lualine_config = function()
             },
 
             lualine_x = {
-                "encoding",
+                {
+                    gutentags.progress,
+                    cond = function ()
+                        local inprogress = vim.fn["gutentags#inprogress"]()
+                        return #inprogress ~= 0
+                    end,
+
+                },
+                {
+                    "encoding",
+                },
                 {
                     "fileformat",
                     symbols = {

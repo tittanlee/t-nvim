@@ -14,12 +14,13 @@ M.env_var = {
     -- tokyonight, catppuccin, kanagawa, edge
     -- { nightfox, dayfox, dawnfox, duskfox, nordfox, terafox, carbonfox},
     -- rose-pine
-    color_scheme             = "tokyonight",
-    lualine_theme            = "tokyonight",
+    -- everforest
+    color_scheme             = "catppuccin",
+    lualine_theme            = "catppuccin",
 
     is_mac                   = os_name == "Darwin",
     is_linux                 = os_name == "Linux",
-    is_windows               = os_name == "Windows_NT" or "Windows",
+    is_windows               = os_name == ("Windows_NT" or "Windows"),
     path_sep                 = (os_name == ("Windows_NT" or "Windows")) and "\\" or "/",
 
     -- Set the language servers that will be installed during bootstrap here.

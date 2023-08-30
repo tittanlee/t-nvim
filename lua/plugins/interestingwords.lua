@@ -2,10 +2,9 @@
 
 return {
     "Mr-LLLLL/interestingwords.nvim",
+
     config = function()
-
         local module_key = require("environment").module_key.interestingwords
-
         require("interestingwords").setup {
             colors            = {
                 "#AEEE00", "#FF0000", "#0000FF", "#B88823", "#FFA724", "#FF2C4B", "#8CCBEA",

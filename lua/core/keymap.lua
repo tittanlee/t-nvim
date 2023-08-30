@@ -74,18 +74,18 @@ keymap('n', generic_key.yank_cwd_path.lhs      , yank_path.yank_cwd_path      , 
 -- }}}
 
 -- F2 save {{{
-keymap('n', generic_key.save_file.lhs, ":w! <CR>"       , { silent = false, desc = generic_key.save_file.desc })
-keymap('i', generic_key.save_file.lhs, "<ESC> :w! <CR>" , { silent = false, desc = generic_key.save_file.desc })
+keymap('n', generic_key.save_file.lhs, ":w! <CR>"       , { silent = true, desc = generic_key.save_file.desc })
+keymap('i', generic_key.save_file.lhs, "<ESC> :w! <CR>" , { silent = true, desc = generic_key.save_file.desc })
 -- }}}
 
 -- F3 reload {{{
-keymap('n', generic_key.source_file.lhs, ":so % <CR>"       , { silent = false, desc = generic_key.source_file.desc })
-keymap('i', generic_key.source_file.lhs, "<ESC> :so %<CR>"  , { silent = false, desc = generic_key.source_file.desc })
+keymap('n', generic_key.source_file.lhs, ":so % <CR>"       , { silent = true, desc = generic_key.source_file.desc })
+keymap('i', generic_key.source_file.lhs, "<ESC> :so %<CR>"  , { silent = true, desc = generic_key.source_file.desc })
 -- }}}
 
 -- F4 quit {{{
-keymap('n', generic_key.quit.lhs, ":quit! <CR>"       , { silent = false, desc = generic_key.quit.desc})
-keymap('i', generic_key.quit.lhs, "<ESC> :quit! <CR>" , { silent = false, desc = generic_key.quit.desc})
+keymap('n', generic_key.quit.lhs, ":quit! <CR>"       , { silent = true, desc = generic_key.quit.desc})
+keymap('i', generic_key.quit.lhs, "<ESC> :quit! <CR>" , { silent = true, desc = generic_key.quit.desc})
 -- }}}
 
 -- F12 strip trailing white space {{{
