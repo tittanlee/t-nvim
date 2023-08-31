@@ -217,6 +217,7 @@ M.module_key = {
         ctags_outline        = { lhs = "t"        , desc = "telescope ctags outline"        },
         gtags_reference      = { lhs = "gr"       , desc = "telescope gtags referenc jump"  },
         gtags_defintions     = { lhs = "gd"       , desc = "telescope gtags defintion jump" },
+        gtags_grep           = { lhs = "gg"       , desc = "telescope gtags grep jump"      },
         help_tags            = { lhs = "h"        , desc = "telescope help tags"            },
         buffer_lines         = { lhs = "bl"       , desc = "telescope current buffer lines" },
         buffer               = { lhs = "b"        , desc = "telescope buffers list"         },

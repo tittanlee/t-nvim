@@ -222,6 +222,7 @@ local telescope_config = function()
     require("telescope").load_extension("ctags_outline")
     require("telescope").load_extension("ctags_plus")
     require("telescope").load_extension("live_grep_args")
+    require("telescope").load_extension("gtags")
 end
 
 
@@ -246,7 +247,6 @@ local telescop_init = function()
     end
 
     local find_directory = function(directory)
-        print(directory)
         require("telescope.builtin").find_files ({
             hidden = true,
             follow = false,
@@ -260,10 +260,30 @@ local telescop_init = function()
         })
     end
 
+    local gtags = function(cmd)
+        if cmd == "r" then
+            require("telescope").extensions.gtags.ref({
+                symbol = vim.fn.expand("<cword>")
+            })
+        elseif cmd == "d" then
+            require("telescope").extensions.gtags.def({
+                symbol = vim.fn.expand("<cword>")
+            })
+        elseif cmd == "g" then
+            require("telescope").extensions.gtags.grep({
+                symbol = vim.fn.expand("<cword>")
+            })
+        end
+
+    end
+
     keymap("n", module_key.find_files.lhs          , "<cmd>Telescope find_files<CR>"                        , {desc = module_key.find_files.desc           })
     keymap("n", module_key.find_vim_config.lhs     , function() find_directory(vim.fn.stdpath("config")) end, {desc = module_key.find_vim_config.desc      })
     keymap("n", module_key.ctags_outline.lhs       , "<cmd>Telescope ctags_outline outline<CR>"             , {desc = module_key.ctags_outline.desc        })
     keymap("n", module_key.ctags_jump.lhs          , ctags_jump                                             , {desc = module_key.ctags_jump.desc           })
+    keymap("n", module_key.gtags_defintions.lhs    , function() gtags("d") end                              , {desc = module_key.gtags_defintions.desc     })
+    keymap("n", module_key.gtags_reference.lhs     , function() gtags("r") end                              , {desc = module_key.gtags_reference.desc      })
+    keymap("n", module_key.gtags_grep.lhs          , function() gtags("g") end                              , {desc = module_key.gtags_grep.desc           })
     keymap("n", module_key.help_tags.lhs           , "<cmd>Telescope help_tags<CR>"                         , {desc = module_key.help_tags.desc            })
     keymap("n", module_key.buffer_lines.lhs        , "<cmd>Telescope current_buffer_fuzzy_find<CR>"         , {desc = module_key.buffer_lines.desc         })
     keymap("n", module_key.buffer.lhs              , "<cmd>Telescope buffers<CR>"                           , {desc = module_key.buffer.desc               })
@@ -315,6 +335,10 @@ return {
             -- ━━━━━━━━━━━━━━━━━❰ telescope live grep args ❱━━━━━━━━━━━━━━━━━ {{{
             "nvim-telescope/telescope-live-grep-args.nvim",
             --- }}}
+
+            -- ━━━━━━━━━━━━━━━━━❰ telescope gtags ❱━━━━━━━━━━━━━━━━━ {{{
+            "tex/telescope-gtags",
+            -- }}}
         },
 
         init = telescop_init,
