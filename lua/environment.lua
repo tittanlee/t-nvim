@@ -122,6 +122,8 @@ M.generic_key = {
     resize_left  = { lhs = "<C-left>" , desc = "Vertical Resize - 2" },
     resize_right = { lhs = "<C-right>", desc = "Vertical Resize + 2" },
 
+    -- resize with arrows
+    open_explorer = { lhs = "<LEADER>e.", desc = "system open" },
 }
 -- }}}
 

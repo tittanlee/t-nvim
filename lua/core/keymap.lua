@@ -1,7 +1,8 @@
 
+local util = require("util")
 local keymap = require("util.keymap")
-local generic_key = require("environment").generic_key
 local yank_path = require("util.yank_path")
+local generic_key = require("environment").generic_key
 
 
 -- better window movement {{{
@@ -65,13 +66,24 @@ keymap('n', generic_key.resize_left.lhs , ':vertical resize -2<CR>', { desc = ge
 keymap('n', generic_key.resize_right.lhs, ':vertical resize +2<CR>', { desc = generic_key.resize_right.desc })
 -- }}}
 
--- yank file path {{P
+-- yank file path {{{
 keymap('n', generic_key.yank_abs_file_path.lhs , yank_path.yank_absolute_path , { silent = false, desc = generic_key.yank_abs_file_path.desc  })
 keymap('n', generic_key.yank_rel_file_path.lhs , yank_path.yank_relative_path , { silent = false, desc = generic_key.yank_rel_file_path.desc  })
 keymap('n', generic_key.yank_file_name.lhs     , yank_path.yank_file_name     , { silent = false, desc = generic_key.yank_file_name.desc      })
 keymap('n', generic_key.yank_directory_path.lhs, yank_path.yank_directory_path, { silent = false, desc = generic_key.yank_directory_path.desc })
 keymap('n', generic_key.yank_cwd_path.lhs      , yank_path.yank_cwd_path      , { silent = false, desc = generic_key.yank_cwd_path.desc       })
 -- }}}
+
+
+-- explorer directory {{{
+keymap('n', generic_key.open_explorer.lhs ,
+    function ()
+        util.system_open(vim.fn.expand("%:p:h"))
+    end,
+    { silent = false, desc = generic_key.open_explorer.desc }
+)
+-- }}}
+
 
 -- F2 save {{{
 keymap('n', generic_key.save_file.lhs, ":w! <CR>"       , { silent = true, desc = generic_key.save_file.desc })

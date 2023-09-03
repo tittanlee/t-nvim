@@ -23,7 +23,7 @@ M.yank_absolute_path = function ()
 end
 
 M.yank_directory_path = function ()
-    local path = vim.fn.expand("%:h")
+    local path = vim.fn.expand("%:p:h")
     put_selection_reg(path)
     vim.notify("yank_directory_path")
 end
