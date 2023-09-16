@@ -135,8 +135,8 @@ local neo_tree_config = function()
                 --               -- the current file is changed while the tree is open.
                 leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
             },
-            group_empty_dirs = false, -- when true, empty folders will be grouped together
-            hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
+            group_empty_dirs       = false, -- when true, empty folders will be grouped together
+            hijack_netrw_behavior  = "open_default", -- netrw disabled, opening a directory opens neo-tree
             -- in whatever position is specified in window.position
             -- "open_current",  -- netrw disabled, opening a directory opens within the
             -- window like netrw would, regardless of window.position
@@ -145,23 +145,23 @@ local neo_tree_config = function()
             -- instead of relying on nvim autocmd events.
             window = {
                 mappings = {
-                    ["<bs>"] = "navigate_up",
-                    ["."] = "set_root",
-                    ["H"] = "toggle_hidden",
-                    ["/"] = "fuzzy_finder",
-                    ["D"] = "fuzzy_finder_directory",
-                    ["#"] = "fuzzy_sorter", -- fuzzy sorting using the fzy algorithm
-                    -- ["D"] = "fuzzy_sorter_directory",
-                    ["f"] = "filter_on_submit",
+                    ["<bs>"]  = "navigate_up",
+                    ["."]     = "set_root",
+                    ["H"]     = "toggle_hidden",
+                    ["<c-f>"] = "fuzzy_finder",
+                    ["D"]     = "fuzzy_finder_directory",
+                    ["#"]     = "fuzzy_sorter", -- fuzzy sorting using the fzy algorithm
+                    -- ["D"]  = "fuzzy_sorter_directory",
+                    ["f"]     = "filter_on_submit",
                     ["<c-x>"] = "clear_filter",
-                    ["[g"] = "prev_git_modified",
-                    ["]g"] = "next_git_modified",
+                    ["[g"]    = "prev_git_modified",
+                    ["]g"]    = "next_git_modified",
                 },
                 fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode
                     ["<down>"] = "move_cursor_down",
-                    ["<C-n>"] = "move_cursor_down",
-                    ["<up>"] = "move_cursor_up",
-                    ["<C-p>"] = "move_cursor_up",
+                    ["<C-n>"]  = "move_cursor_down",
+                    ["<up>"]   = "move_cursor_up",
+                    ["<C-p>"]  = "move_cursor_up",
                 },
             },
 

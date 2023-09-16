@@ -43,9 +43,9 @@ lualine_config = function()
                 {
                     gutentags.progress,
                     cond = function ()
-                        local inprogress = vim.fn["gutentags#inprogress"]()
-                        return #inprogress ~= 0
+                        return vim.fn.exists("vim.fn['gutentags#inprogress']")
                     end,
+                    draw_empty = false,
 
                 },
                 {
