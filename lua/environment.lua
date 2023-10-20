@@ -29,7 +29,7 @@ M.env_var = {
     ---@type string[]
     lsp_deps = {
         "bashls",
-        "clangd",
+        -- "clangd",
         "html",
         "jsonls",
         "lemminx",

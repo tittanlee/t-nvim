@@ -1,5 +1,5 @@
 
-lualine_config = function()
+local lualine_config = function()
     local env_var    = require("environment").env_var
     local treesitter = require("config.lualine.treesitter")
     local gutentags  = require("config.lualine.gutentags")

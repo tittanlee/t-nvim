@@ -168,6 +168,17 @@ local telescope_config = function()
                 fname_width = 100,
             },
 
+            lsp_references = {
+                show_line   = true,
+                trim_text   = true,
+                fname_width = 100,
+            },
+
+            lsp_definitions = {
+                show_line   = true,
+                trim_text   = true,
+                fname_width = 100,
+            },
         },
 
         extensions = {
@@ -213,6 +224,10 @@ local telescope_config = function()
                         ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
                     },
                 }
+            },
+
+            gtags = {
+                fname_width = 120,
             },
         },
     })
