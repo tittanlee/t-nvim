@@ -7,6 +7,7 @@ local M = {}
 -- Nightfox variants:
 --   "nightfox", "carbonfox", "nordfox",
 --   "terafox", "dawnfox", "dayfox", "
+-- rose-pine
 M.color_scheme = 'kanagawa'
 
 return M
