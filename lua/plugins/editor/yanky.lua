@@ -19,7 +19,7 @@ return {
     highlight = {
       on_put = true,
       on_yank = true,
-      timer = 250,
+      timer = 300,
     },
 
     picker = {

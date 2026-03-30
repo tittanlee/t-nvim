@@ -31,11 +31,15 @@ return {
       },
 
       menu = {
+        auto_show = true,
         border = 'rounded',
         draw = {
+          treesitter = {
+            'lsp',
+          },
           columns = {
-            { 'label', 'label_description', gap = 1 },
-            { 'kind_icon', 'kind' },
+            { 'label', 'label_description', gap = 2 },
+            { 'kind', 'kind_icon', gap = 1 },
           },
         },
       },
@@ -46,6 +50,11 @@ return {
         window = {
           border = 'rounded',
         },
+      },
+
+      -- Display a preview of the selected item on the current line
+      ghost_text = {
+        enabled = false,
       },
     },
 
@@ -114,6 +123,8 @@ return {
           name = 'Buffer',
           module = 'blink.cmp.sources.buffer',
           min_keyword_length = 3,
+          max_items = 20,
+          -- timeout_ms = 2000,
         },
       },
     },
@@ -126,6 +137,15 @@ return {
       nerd_font_variant = 'mono', -- Use Nerd Font icons if available
     },
 
+    -- cmdline config
+    cmdline = {
+      completion = {
+        menu = {
+          auto_show = true,
+        },
+      },
+    },
+
     ------------------------------------------------------------------
     -- Snippets integration
     ------------------------------------------------------------------
@@ -136,6 +156,8 @@ return {
     signature = {
       enabled = true,
     },
+
+    fuzzy = { implementation = 'prefer_rust_with_warning' },
   },
 
   config = function(_, opts)

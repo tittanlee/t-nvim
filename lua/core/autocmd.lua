@@ -1,31 +1,18 @@
-local function augroup(name)
-  return vim.api.nvim_create_augroup('lazyvim_' .. name, { clear = true })
-end
+local autocmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
 
--- Restore Cursor Position
--- vim.api.nvim_create_autocmd("BufReadPost", {
---     callback = function()
---         local mark = vim.api.nvim_buf_get_mark(0, '"')
---         local lcount = vim.api.nvim_buf_line_count(0)
---         if mark[1] > 0 and mark[1] <= lcount then
---             pcall(vim.api.nvim_win_set_cursor, 0, mark)
---         end
---     end,
--- })
-
--- go to last loc when opening a buffer
-vim.api.nvim_create_autocmd('BufReadPost', {
-  group = augroup('last_loc'),
+-- Return to last edit position
+local exclude_ft = { gitcommit = true, gitrebase = true, help = true }
+autocmd('BufReadPost', {
+  group = augroup('restore_cursor', { clear = true }),
   callback = function(event)
-    local exclude = { 'gitcommit' }
-    local buf = event.buf
-    if vim.tbl_contains(exclude, vim.bo[buf].filetype) or vim.b[buf].lazyvim_last_loc then
+    if exclude_ft[vim.bo[event.buf].filetype] then
       return
     end
-    vim.b[buf].lazyvim_last_loc = true
-    local mark = vim.api.nvim_buf_get_mark(buf, '"')
-    local lcount = vim.api.nvim_buf_line_count(buf)
-    if mark[1] > 0 and mark[1] <= lcount then
+
+    local mark = vim.api.nvim_buf_get_mark(event.buf, '"')
+    local line_count = vim.api.nvim_buf_line_count(event.buf)
+    if mark[1] > 0 and mark[1] <= line_count then
       pcall(vim.api.nvim_win_set_cursor, 0, mark)
     end
   end,

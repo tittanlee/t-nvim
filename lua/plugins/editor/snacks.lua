@@ -142,6 +142,20 @@ return {
 
     statuscolumn = {
       enabled = true,
+
+      folds = {
+        open = '', -- when fold is open
+        close = '', -- when fold is closed
+        space = ' ', -- space when no fold
+      },
+
+      numbers = {
+        enabled = true,
+      },
+
+      signs = {
+        enabled = true,
+      },
     },
 
     words = {

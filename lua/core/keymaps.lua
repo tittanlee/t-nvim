@@ -3,10 +3,10 @@ local map = vim.keymap.set
 -- General Editor Maps
 map('n', '<F2>', '<cmd>w<cr>', { desc = 'Save file' })
 map('n', '<F3>', '<cmd>source %<cr>', { desc = 'Reload current lua configuration' })
-map('n', '<F4>', '<cmd>q<cr>', { desc = 'quit' })
+map('n', '<F4>', '<cmd>q<cr>', { desc = 'Quit' })
 map('n', '<F12>', function()
   vim.cmd([[ %s/\s\+$//e ]])
-end, { desc = 'strip trailing white space' })
+end, { desc = 'Strip trailing white space' })
 
 -- Window Navigation (Alt + hjkl)
 map('n', '<C-h>', '<C-w>h', { desc = 'Go to Left Window' })
@@ -46,17 +46,5 @@ map('n', '<leader>cf', '<cmd>let @+ = expand("%:t")<CR>', { desc = 'Copy file na
 --  Split line
 map('n', 'S', 'i<CR><Esc>', { desc = 'Split line at cursor (Reverse J)' })
 
+-- entering command mode
 map('n', ';', ':', { desc = 'shortcut entering command mode' })
-
--- enhance the yank and paste
--- YANK: Send selected text or current line to System Clipboard (Windows/Linux)
--- Use <leader>y for external sharing (Slack, Chrome, etc.)
--- map({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to system clipboard" })
-
--- PASTE: Retrieve text from System Clipboard (e.g., copied from Chrome)
--- Use <leader>p to avoid the latency of the default "p"
--- map({ "n", "x" }, "<leader>p", '"+p', { desc = "Paste from system clipboard" })
-
--- DELETE: Delete to Black Hole register (does not overwrite your current yank)
--- Useful when cleaning up code without losing what you just copied
--- map({ "n", "v" }, "d", '"_d', { desc = "Delete to black hole" })
