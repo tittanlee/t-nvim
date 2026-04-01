@@ -21,12 +21,13 @@ require('lazy').setup({
     -- Import all plugin modules from the lua/plugins/ directory
     { import = 'plugins.ui' },
     { import = 'plugins.ui.theme' },
+    { import = 'plugins.ui.lualine' },
     { import = 'plugins.coding' },
     { import = 'plugins.editor' },
     { import = 'plugins.completion' },
     { import = 'plugins.tools' },
     { import = 'plugins.lsp' },
-    -- { import = "plugins.ai" },
+    { import = 'plugins.ai' },
     { import = 'plugins.treesitter' },
   },
   defaults = {
