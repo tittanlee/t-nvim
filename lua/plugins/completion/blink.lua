@@ -33,6 +33,7 @@ return {
       menu = {
         auto_show = true,
         border = 'rounded',
+        winblend = 10,
         draw = {
           treesitter = {
             'lsp',
@@ -48,6 +49,7 @@ return {
         auto_show = true,
         auto_show_delay_ms = 300,
         window = {
+          winblend = 10,
           border = 'rounded',
         },
       },

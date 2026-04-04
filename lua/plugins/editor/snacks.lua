@@ -101,6 +101,7 @@ return {
 
         files = {
           hidden = true,
+          ignored = true,
           layout = {
             preset = 'ivy',
             hidden = { 'preview' },
@@ -116,6 +117,30 @@ return {
               keys = {
                 ['<C-p>'] = 'toggle_preview',
               },
+            },
+          },
+        },
+
+        grep = {
+          hidden = true,
+          ignored = true,
+          layout = {
+            preset = 'default',
+            size = {
+              width = 0.9,
+              height = 0.85,
+            },
+          },
+        },
+
+        grep_word = {
+          hidden = true,
+          ignored = true,
+          layout = {
+            preset = 'default',
+            size = {
+              width = 0.9,
+              height = 0.85,
             },
           },
         },

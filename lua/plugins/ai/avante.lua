@@ -15,23 +15,28 @@ return {
   config = function()
     local raw = vim.env['ANTHROPIC_CUSTOM_HEADERS']
     local subscription_key = raw and raw:match(':%s*(.+)')
+    local endpoint = vim.env['ANTHROPIC_BASE_URL']
 
     require('avante').setup({
       provider = 'claude',
       providers = {
         claude = {
-          endpoint = 'https://llm-api.amd.com/Anthropic',
+          endpoint = endpoint,
           auth_type = 'api',
           model = 'Claude-Sonnet-4.6',
+          model_names = {
+            'Claude-Opus-4.6',
+            'Claude-Sonnet-4.6',
+            'Claude-Haiku-4.5',
+          },
           timeout = 30000, -- Timeout in milliseconds
           context_window = 16384,
           extra_headers = {
-            -- ['Ocp-Apim-Subscription-Key'] = '',
             ['Ocp-Apim-Subscription-Key'] = subscription_key,
           },
           extra_request_body = {
             temperature = 0.75,
-            max_tokens = 8000,
+            max_tokens = 16384,
           },
         },
       },
@@ -44,7 +49,7 @@ return {
         },
         ask = {
           floating = false, -- Open the 'AvanteAsk' prompt in a floating window
-          start_insert = true, -- Start insert mode when opening the ask window
+          start_insert = false, -- Start insert mode when opening the ask window
           border = 'single',
           ---@type "ours" | "theirs"
           focus_on_apply = 'ours', -- which diff to focus after applying

@@ -7,12 +7,13 @@ return {
   },
 
   config = function()
+    local environment = require('environment')
     require('lualine').setup({
       ------------------------------------------------------------------
       -- Use Rose Pine theme for visual consistency
       ------------------------------------------------------------------
       options = {
-        theme = 'kanagawa',
+        theme = environment.lualine_theme,
         icons_enabled = true,
 
         component_separators = { left = '', right = '' },
