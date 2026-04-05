@@ -93,7 +93,7 @@ return {
           win = {
             list = {
               keys = {
-                ['o'] = 'confirm',
+                -- ['o'] = 'confirm',
               },
             },
           },

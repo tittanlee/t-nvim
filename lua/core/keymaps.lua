@@ -37,12 +37,6 @@ map('n', '<leader>sx', '<cmd>close<cr>', { desc = 'Close current split' }) -- Cl
 map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
--- yank file path
-map('n', '<leader>cd', '<cmd>let @+ = expand("%:p:h")<CR>', { desc = 'Copy absolute dir path' })
-map('n', '<leader>cp', '<cmd>let @+ = expand("%:p")<CR>', { desc = 'Copy absolute path' })
-map('n', '<leader>cP', '<cmd>let @+ = expand("%:.")<CR>', { desc = 'Copy relative path' })
-map('n', '<leader>cf', '<cmd>let @+ = expand("%:t")<CR>', { desc = 'Copy file name' })
-
 --  Split line
 map('n', 'S', 'i<CR><Esc>', { desc = 'Split line at cursor (Reverse J)' })
 

@@ -24,6 +24,7 @@ require('lazy').setup({
     { import = 'plugins.ui.lualine' },
     { import = 'plugins.coding' },
     { import = 'plugins.editor' },
+    { import = 'plugins.syntax' },
     { import = 'plugins.completion' },
     { import = 'plugins.tools' },
     { import = 'plugins.lsp' },
