@@ -51,7 +51,7 @@ opt.foldenable = true
 -- Clipboard Configuration
 -- Link Neovim's default register to the system clipboard
 -- This allows using 'y' and 'p' directly with Windows apps
-opt.clipboard = 'unnamedplus'
+-- opt.clipboard = 'unnamed'
 
 -- File Handling
 opt.swapfile = false -- Disable swap files

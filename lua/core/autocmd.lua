@@ -17,3 +17,25 @@ autocmd('BufReadPost', {
     end
   end,
 })
+
+-- sync with system clipboard on focus
+autocmd('FocusGained', {
+  pattern = '*',
+  callback = function()
+    local system_content = vim.fn.getreg('+')
+    if system_content ~= '' then
+      vim.fn.setreg('"', system_content)
+    end
+  end,
+})
+
+-- sync with system clipboard on focus
+autocmd('FocusLost', {
+  pattern = '*',
+  callback = function()
+    local nvim_content = vim.fn.getreg('"')
+    if nvim_content ~= '' then
+      vim.fn.setreg('+', nvim_content)
+    end
+  end,
+})

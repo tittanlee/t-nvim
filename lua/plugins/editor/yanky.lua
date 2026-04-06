@@ -6,6 +6,7 @@ return {
   opts = {
     ring = {
       storage = 'shada',
+      history_length = 50,
     },
 
     system_clipboard = {
@@ -45,7 +46,7 @@ return {
 
     -- Yanky keymap
     { 'p', '<Plug>(YankyPutAfter)', mode = { 'n', 'x' }, desc = '' },
-    { 'p', '<Plug>(YankyPutBefore)', mode = { 'n', 'x' }, desc = '' },
+    { 'P', '<Plug>(YankyPutBefore)', mode = { 'n', 'x' }, desc = '' },
     { '<c-p>', '<Plug>(YankyPreviousEntry)', mode = { 'n', 'x' }, desc = '<yanky> Previous copy' },
     { '<c-n>', '<Plug>(YankyNextEntry)', mode = { 'n', 'x' }, desc = '<yanky> Next copy' },
     { 'gp', '<Plug>(YankyGPutAfter)', mode = { 'n' }, desc = '<yanky> ' },
