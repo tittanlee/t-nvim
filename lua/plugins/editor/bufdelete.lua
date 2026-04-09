@@ -1,18 +1,11 @@
+local km = require('config.keymaps.bufdelete')
+
 return {
   'famiu/bufdelete.nvim',
   enabled = false,
 
-  -- Define keys here. Lazy.nvim will handle the mapping automatically.
   keys = {
-    {
-      '<M-w>',
-      '<cmd>Bdelete<cr>',
-      desc = '<bufdelete> Delete Buffer (keep layout)',
-    },
-    {
-      '<M-W>',
-      '<cmd>bd!<cr>',
-      desc = '<bufdelete> Force Delete Buffer (Standard)',
-    },
+    { km.delete.key, '<cmd>Bdelete<cr>', desc = km.delete.desc },
+    { km.force.key,  '<cmd>bd!<cr>',     desc = km.force.desc  },
   },
 }

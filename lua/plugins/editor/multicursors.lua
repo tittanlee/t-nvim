@@ -1,3 +1,5 @@
+local km = require('config.keymaps.multicursors')
+
 return {
   'smoka7/multicursors.nvim',
   event = 'VeryLazy',
@@ -6,12 +8,7 @@ return {
   },
   cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
   keys = {
-    {
-      mode = { 'v', 'n' },
-      '<Leader>m',
-      '<cmd>MCstart<cr>',
-      desc = 'Create a selection for selected text or word under the cursor',
-    },
+    { mode = km.start.mode, km.start.key, '<cmd>MCstart<cr>', desc = km.start.desc },
   },
 
   opts = {

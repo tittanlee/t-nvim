@@ -1,4 +1,6 @@
--- lua/plugins/gtags-snacks.lua
+local km = require('config.keymaps.snacks')
+local K = require('config.keymaps')
+
 return {
   'tittanlee/gtags_snacks',
   dependencies = {
@@ -7,19 +9,19 @@ return {
   cmd = { 'GtagsGenerate', 'GtagsReindex', 'GtagsDef', 'GtagsRef', 'GtagsGrep' },
   keys = {
     {
-      '<leader>fgd',
+      K.key(km.gtags, 'definitions'),
       '<cmd>GtagsDef<cr>',
-      desc = 'global to look up definditon',
+      desc = K.desc(km.gtags, 'definitions'),
     },
     {
-      '<leader>fgr',
+      K.key(km.gtags, 'references'),
       '<cmd>GtagsRef<cr>',
-      desc = 'global to look up reference',
+      desc = K.desc(km.gtags, 'references'),
     },
     {
-      '<leader>fgp',
+      K.key(km.gtags, 'grep'),
       '<cmd>GtagsGrep',
-      desc = 'global to grep everything',
+      desc = K.desc(km.gtags, 'grep'),
     },
   },
 

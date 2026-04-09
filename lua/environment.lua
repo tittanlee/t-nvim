@@ -6,9 +6,9 @@ local M = {}
 -- kanagawa
 -- Nightfox variants:
 --   "nightfox", "carbonfox", "nordfox",
---   "terafox", "dawnfox", "dayfox", "
+--   "terafox", "dawnfox", "dayfox"
 -- rose-pine
-M.color_scheme = 'kanagawa'
+M.color_scheme = 'tokyonight'
 
 -- ayu.lua
 -- ayu_dark.lua
@@ -47,6 +47,6 @@ M.color_scheme = 'kanagawa'
 -- solarized_light.lua
 -- tomorrow_night.lua
 -- wombat.lua
-M.lualine_theme = 'kanagawa'
+M.lualine_theme = 'onedark'
 
 return M

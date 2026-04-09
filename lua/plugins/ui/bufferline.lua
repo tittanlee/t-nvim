@@ -1,12 +1,15 @@
+local km = require('config.keymaps.bufferline')
+local K  = require('config.keymaps')
+
 return {
   'akinsho/bufferline.nvim',
   version = '*',
   dependencies = 'nvim-tree/nvim-web-devicons',
   event = 'VeryLazy', -- Load after startup to save time
   keys = {
-    { '<leader>bp', '<Cmd>BufferLinePick<CR>', desc = '<bufferline> BufferLine Pick' },
-    { '<M-h>', '<Cmd>BufferLineCyclePrev<CR>', desc = '<bufferline> Prev Buffer' },
-    { '<M-l>', '<Cmd>BufferLineCycleNext<CR>', desc = '<bufferline> Next Buffer' },
+    { K.key(km.buf, 'pick'), '<Cmd>BufferLinePick<CR>',   desc = K.desc(km.buf, 'pick') },
+    { km.prev.key,           '<Cmd>BufferLineCyclePrev<CR>', desc = km.prev.desc         },
+    { km.next.key,           '<Cmd>BufferLineCycleNext<CR>', desc = km.next.desc         },
   },
   config = function()
     require('bufferline').setup({

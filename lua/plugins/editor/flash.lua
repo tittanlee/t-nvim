@@ -1,3 +1,5 @@
+local km = require('config.keymaps.flash')
+
 return {
   'folke/flash.nvim',
   event = 'VeryLazy',
@@ -36,48 +38,48 @@ return {
     -- Jump to any visible word using labels
     ------------------------------------------------------------------
     {
-      'f',
-      mode = { 'n', 'x', 'o' },
+      km.backward.key,
+      mode = km.backward.mode,
       function()
         require('flash').jump({
           search = { forward = false, wrap = false, multi_window = false },
         })
       end,
-      desc = 'Flash jump Backward',
+      desc = km.backward.desc,
     },
     {
-      'F',
-      mode = { 'n', 'x', 'o' },
+      km.forward.key,
+      mode = km.forward.mode,
       function()
         require('flash').jump({
           search = { forward = true, wrap = false, multi_window = false },
         })
       end,
-      desc = 'Flash jump forward',
+      desc = km.forward.desc,
     },
 
     ------------------------------------------------------------------
     -- Treesitter-aware jump (very useful for code)
     ------------------------------------------------------------------
     {
-      't',
-      mode = { 'n', 'x', 'o' },
+      km.ts_back.key,
+      mode = km.ts_back.mode,
       function()
         require('flash').treesitter_search({
           label = { before = false, after = true, style = 'inline' },
         })
       end,
-      desc = 'Flash treesitter search',
+      desc = km.ts_back.desc,
     },
     {
-      'T',
-      mode = { 'n', 'x', 'o' },
+      km.ts_fwd.key,
+      mode = km.ts_fwd.mode,
       function()
         require('flash').treesitter_search({
           label = { before = true, after = false, style = 'inline' },
         })
       end,
-      desc = 'Flash treesitter search',
+      desc = km.ts_fwd.desc,
     },
   },
 }

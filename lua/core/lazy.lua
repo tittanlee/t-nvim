@@ -36,7 +36,7 @@ require('lazy').setup({
     version = false, -- Always use the latest git commit
   },
   install = { colorscheme = { 'catppuccin' } }, -- Fallback theme during installation
-  checker = { enabled = true }, -- Automatically check for plugin updates
+  checker = { enabled = false }, -- Automatically check for plugin updates
   performance = {
     rtp = {
       -- Disable unnecessary built-in Vim plugins to improve startup time

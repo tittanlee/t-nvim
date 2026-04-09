@@ -1,3 +1,5 @@
+local km = require('config.keymaps.treesitter')
+
 return {
   'nvim-treesitter/nvim-treesitter',
   branch = 'master',
@@ -39,15 +41,22 @@ return {
     incremental_selection = {
       enable = true,
       keymaps = {
-        init_selection = '<cr>',
-        node_incremental = '<cr>',
-        node_decremental = '<tab>',
-        scope_incremental = '<s-cr>',
+        init_selection    = km.select.init.key,
+        node_incremental  = km.select.increment.key,
+        node_decremental  = km.select.decrement.key,
+        scope_incremental = km.select.scope.key,
       },
     },
   },
 
   config = function(_, opts)
     require('nvim-treesitter.configs').setup(opts)
+
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = { 'Avante', 'AvanteSelectedFiles', 'AvanteInput' },
+      callback = function()
+        vim.treesitter.stop()
+      end,
+    })
   end,
 }

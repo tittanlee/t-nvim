@@ -1,3 +1,5 @@
+local km = require('config.keymaps.yanky')
+
 return {
   'gbprod/yanky.nvim',
   enabled = true,
@@ -36,20 +38,16 @@ return {
 
   keys = {
     {
-      '<leader>p',
-      function()
-        Snacks.picker.yanky()
-      end,
-      mode = { 'n', 'x' },
-      desc = 'Open Yank History',
+      km.history.key,
+      function() Snacks.picker.yanky() end,
+      mode = km.history.mode,
+      desc = km.history.desc,
     },
-
-    -- Yanky keymap
-    { 'p', '<Plug>(YankyPutAfter)', mode = { 'n', 'x' }, desc = '' },
-    { 'P', '<Plug>(YankyPutBefore)', mode = { 'n', 'x' }, desc = '' },
-    { '<c-p>', '<Plug>(YankyPreviousEntry)', mode = { 'n', 'x' }, desc = '<yanky> Previous copy' },
-    { '<c-n>', '<Plug>(YankyNextEntry)', mode = { 'n', 'x' }, desc = '<yanky> Next copy' },
-    { 'gp', '<Plug>(YankyGPutAfter)', mode = { 'n' }, desc = '<yanky> ' },
-    { 'gP', '<Plug>(YankyGPutBefore)', mode = { 'n' }, desc = '<yanky> ' },
+    { km.put_after.key,   '<Plug>(YankyPutAfter)',      mode = km.put_after.mode,   desc = km.put_after.desc   },
+    { km.put_before.key,  '<Plug>(YankyPutBefore)',     mode = km.put_before.mode,  desc = km.put_before.desc  },
+    { km.prev.key,        '<Plug>(YankyPreviousEntry)', mode = km.prev.mode,        desc = km.prev.desc        },
+    { km.next.key,        '<Plug>(YankyNextEntry)',      mode = km.next.mode,        desc = km.next.desc        },
+    { km.gput_after.key,  '<Plug>(YankyGPutAfter)',     mode = km.gput_after.mode,  desc = km.gput_after.desc  },
+    { km.gput_before.key, '<Plug>(YankyGPutBefore)',    mode = km.gput_before.mode, desc = km.gput_before.desc },
   },
 }

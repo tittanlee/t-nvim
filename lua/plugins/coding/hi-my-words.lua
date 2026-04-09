@@ -1,13 +1,12 @@
+local km = require('config.keymaps.hi-my-words')
+local K  = require('config.keymaps')
+
 return {
   'dvoytik/hi-my-words.nvim',
   -- Load on these keys to keep startup fast
   keys = {
-    {
-      '<leader>h',
-      '<cmd>HiMyWordsToggle<cr>',
-      desc = '<hi-my-words> Toggle highlight for word under cursor',
-    },
-    { '<leader>H', '<cmd>HiMyWordsClear<cr>', desc = '<hi-my-words> Clear all word highlights' },
+    { K.key(km.hi, 'toggle'), '<cmd>HiMyWordsToggle<cr>', desc = K.desc(km.hi, 'toggle') },
+    { K.key(km.hi, 'clear'),  '<cmd>HiMyWordsClear<cr>',  desc = K.desc(km.hi, 'clear') },
   },
   config = function()
     require('hi-my-words').setup({

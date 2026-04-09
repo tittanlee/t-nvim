@@ -62,6 +62,7 @@ return {
     -- Keymap
     -- Use a capital O to clearly distinguish from picker-based outline
     --------------------------------------------------------------------
-    vim.keymap.set('n', '<leader>O', '<cmd>AerialToggle!<CR>', { desc = 'Outline (Aerial sidebar)' })
+    local km = require('config.keymaps.aerial')
+    vim.keymap.set('n', km.outline.key, '<cmd>AerialToggle!<CR>', { desc = km.outline.desc })
   end,
 }

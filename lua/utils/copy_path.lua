@@ -8,7 +8,7 @@ function M.copy(expr, desc)
     return
   end
 
-  vim.fn.setreg('+', value)
+  vim.fn.setreg('"', value)
   vim.notify(string.format('Copied (%s): %s', desc, value), vim.log.levels.INFO)
 end
 

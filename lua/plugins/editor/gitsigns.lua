@@ -1,3 +1,6 @@
+local km = require('config.keymaps.gitsigns')
+local K  = require('config.keymaps')
+
 return {
   'lewis6991/gitsigns.nvim',
 
@@ -88,33 +91,35 @@ return {
       ------------------------------------------------------------------
       -- Navigation
       ------------------------------------------------------------------
-      map('n', ']g', gs.next_hunk, 'Next Git hunk')
-      map('n', '[g', gs.prev_hunk, 'Previous Git hunk')
+      map('n', km.nav.next.key, gs.next_hunk,  km.nav.next.desc)
+      map('n', km.nav.prev.key, gs.prev_hunk,  km.nav.prev.desc)
 
       ------------------------------------------------------------------
       -- Actions
       ------------------------------------------------------------------
-      map('n', '<leader>hs', gs.stage_hunk, 'Stage hunk')
-      map('n', '<leader>hr', gs.reset_hunk, 'Reset hunk')
-      map('n', '<leader>hS', gs.stage_buffer, 'Stage buffer')
-      map('n', '<leader>hu', gs.undo_stage_hunk, 'Undo stage hunk')
-      map('n', '<leader>hR', gs.reset_buffer, 'Reset buffer')
+      map('n', K.key(km.hunk, 'stage'),      gs.stage_hunk,      K.desc(km.hunk, 'stage'))
+      map('n', K.key(km.hunk, 'reset'),      gs.reset_hunk,      K.desc(km.hunk, 'reset'))
+      map('n', K.key(km.hunk, 'stage_buf'),  gs.stage_buffer,    K.desc(km.hunk, 'stage_buf'))
+      map('n', K.key(km.hunk, 'undo_stage'), gs.undo_stage_hunk, K.desc(km.hunk, 'undo_stage'))
+      map('n', K.key(km.hunk, 'reset_buf'),  gs.reset_buffer,    K.desc(km.hunk, 'reset_buf'))
 
       ------------------------------------------------------------------
       -- Preview / Blame
       ------------------------------------------------------------------
-      map('n', '<leader>hp', gs.preview_hunk, 'Preview hunk')
-      map('n', '<leader>hb', gs.blame_line, 'Blame line')
+      map('n', K.key(km.hunk, 'preview'), gs.preview_hunk, K.desc(km.hunk, 'preview'))
+      map('n', K.key(km.hunk, 'blame'),   gs.blame_line,   K.desc(km.hunk, 'blame'))
 
       ------------------------------------------------------------------
       -- Text object
       ------------------------------------------------------------------
       map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', 'Select hunk')
 
+      ------------------------------------------------------------------
       -- Toggles
-      map('n', '<leader>tl', gs.toggle_linehl, 'toggle line hl')
-      map('n', '<leader>tb', gs.toggle_current_line_blame, 'toggle line blame')
-      map('n', '<leader>tw', gs.toggle_word_diff, 'toggle word diff')
+      ------------------------------------------------------------------
+      map('n', K.key(km.toggle, 'linehl'), gs.toggle_linehl,             K.desc(km.toggle, 'linehl'))
+      map('n', K.key(km.toggle, 'blame'),  gs.toggle_current_line_blame, K.desc(km.toggle, 'blame'))
+      map('n', K.key(km.toggle, 'word'),   gs.toggle_word_diff,          K.desc(km.toggle, 'word'))
     end,
   },
 }

@@ -42,3 +42,7 @@ map('n', 'S', 'i<CR><Esc>', { desc = 'Split line at cursor (Reverse J)' })
 
 -- entering command mode
 map('n', ';', ':', { desc = 'shortcut entering command mode' })
+
+-- centers search function
+map('n', 'n', 'nzzzv', { noremap = true, desc = 'Next Search Result' })
+map('n', 'N', 'Nzzzv', { noremap = true, desc = 'Previous Search Result' })

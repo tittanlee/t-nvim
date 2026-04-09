@@ -25,7 +25,7 @@ return {
 
       list = {
         selection = {
-          preselect = false, -- Do not auto-select first item
+          preselect = false, -- No pre-selection; first Tab selects item 1
           auto_insert = true,
         },
       },
@@ -64,34 +64,13 @@ return {
     -- Key mappings
     ------------------------------------------------------------------
     keymap = {
-      preset = 'default',
+      -- preset = 'default',
 
       ['<C-Space>'] = { 'show', 'show_documentation', 'hide_documentation' },
       ['<C-e>'] = { 'hide' },
       ['<CR>'] = { 'accept', 'fallback' },
-
-      ['<Tab>'] = {
-        function(cmp)
-          if cmp.snippet_active() then
-            return cmp.accept()
-          else
-            return cmp.select_next()
-          end
-        end,
-        'snippet_forward',
-        'fallback',
-      },
-
-      ['<S-Tab>'] = {
-        function(cmp)
-          if cmp.snippet_active() then
-            return cmp.snippet_backward()
-          else
-            return cmp.select_prev()
-          end
-        end,
-        'fallback',
-      },
+      ['<Tab>'] = { 'select_next', 'snippet_backward', 'fallback' },
+      ['<S-Tab>'] = { 'select_prev', 'snippet_forward', 'fallback' },
     },
 
     ------------------------------------------------------------------
